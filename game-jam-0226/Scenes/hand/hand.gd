@@ -9,7 +9,6 @@ var useable_component: Useable = null
 
 @onready var area_2d: Area2D = $Area2D
 
-
 func _ready() -> void:
 	%LeftArm.closed = false;
 	return

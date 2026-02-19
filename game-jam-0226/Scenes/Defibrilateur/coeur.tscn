@@ -8,7 +8,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_kipf4"]
 radius = 73.63978
 
-[node name="Coeur" type="Node2D" unique_id=1087108802 groups=["heart_targets"]]
+[node name="Coeur" type="Node2D" unique_id=1087108802]
 script = ExtResource("2_tk7i2")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1135916521]
@@ -21,6 +21,6 @@ texture = ExtResource("1_nqbo0")
 scale = Vector2(1.1726507, 1.2918111)
 shape = SubResource("CircleShape2D_kipf4")
 
-[node name="FlashFeedback" parent="." instance=ExtResource("4_u7e1w")]
+[node name="FlashFeedback" parent="." unique_id=822112174 instance=ExtResource("4_u7e1w")]
 label_offset = Vector2(-70, -120)
 label_font_size = 40

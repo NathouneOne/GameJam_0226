@@ -10,7 +10,7 @@
 radius = 71.26518
 height = 288.80115
 
-[node name="Defibrilateur" type="Node2D" unique_id=94439545 groups=["defibrillator_tools"]]
+[node name="Defibrilateur" type="Node2D" unique_id=94439545]
 script = ExtResource("4_6s5y0")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1736825338]
@@ -33,6 +33,4 @@ position = Vector2(-41.000004, -43.000008)
 rotation = 1.2980806
 shape = SubResource("CapsuleShape2D_4xhnb")
 
-[node name="FlashFeedback" parent="." instance=ExtResource("5_fkq31")]
-label_offset = Vector2(-65, -160)
-label_font_size = 44
+[node name="FlashFeedback" parent="." unique_id=2095426776 instance=ExtResource("5_fkq31")]

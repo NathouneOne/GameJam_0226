@@ -58,7 +58,7 @@ scale = Vector2(0.9999928, 0.9999928)
 
 [node name="Sprite2D" type="Sprite2D" parent="arm0" unique_id=125526545]
 position = Vector2(-1.3007263, -1.0000037)
-scale = Vector2(0.53122354, 0.49111214)
+scale = Vector2(0.53122354, 0.7310171)
 texture = ExtResource("3_dw7dj")
 offset = Vector2(754.6502, 5.9028745)
 

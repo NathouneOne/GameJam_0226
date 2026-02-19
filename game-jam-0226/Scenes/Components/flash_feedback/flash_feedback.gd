@@ -1,3 +1,4 @@
+@tool
 extends Node
 class_name FlashFeedback
 
@@ -28,10 +29,16 @@ func _ready() -> void:
 	_status_label.position = label_offset
 	_status_label.z_index = 20
 	_status_label.add_theme_font_size_override("font_size", label_font_size)
-	get_parent().add_child(_status_label)
+	get_parent().add_child.call_deferred(_status_label)
+
+
+@export_tool_button("Flash ok", "Callable") var _flash_ok: Callable = Callable(self, "flash_ok")
 
 func flash_ok() -> void:
 	_flash(true)
+
+
+@export_tool_button("Flash not ok", "Callable") var _flash_not_ok: Callable = Callable(self, "flash_not_ok")
 
 func flash_not_ok() -> void:
 	_flash(false)

@@ -78,10 +78,10 @@ centered = false
 
 [node name="Polygon2D" type="Polygon2D" parent="Background" unique_id=1200949737]
 
-[node name="Defibrilateur" parent="." unique_id=94439545 instance=ExtResource("3_qikps")]
+[node name="Defibrilateur" parent="." unique_id=94439545 groups=["defibrillator_tools"] instance=ExtResource("3_qikps")]
 position = Vector2(213, 329)
 script = null
 
-[node name="Coeur" parent="." unique_id=1087108802 instance=ExtResource("4_ciybh")]
+[node name="Coeur" parent="." unique_id=1087108802 groups=["heart_targets"] instance=ExtResource("4_ciybh")]
 position = Vector2(1151, 451)
 script = null

@@ -12,11 +12,13 @@ func _ready() -> void:
 	useable.use_finished.connect(_on_use_finished)
 
 func _on_used(_useable: Useable, _hand: Node2D) -> void:
+	print("defibrilateur _on_used")
 	_used_on_heart = false
 
 func _on_used_on(_useable: Useable, interactive: Interactive, _hand: Node2D) -> void:
+	print("defibrilateur _on_used_on")
 	var target: Node = interactive.get_parent()
-	if target.is_in_group(&"heart_targets"):
+	if target is Heart:
 		_used_on_heart = true
 
 func _on_use_finished(_useable: Useable, _hand: Node2D, _has_interacted: bool) -> void:
