@@ -41,10 +41,9 @@ func _grab_object(object: Node2D, component: Grabbable) -> void:
 
 func _release_object() -> void:
 	if grabbable_component:
-		grabbable_component.release()
-	
-	grabbed_object = null
-	grabbable_component = null
+		if grabbable_component.release():
+			grabbed_object = null
+			grabbable_component = null
 
 func _process_grabbed_object() -> void:
 	if grabbed_object:

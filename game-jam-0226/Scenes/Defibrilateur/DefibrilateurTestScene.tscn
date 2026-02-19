@@ -43,6 +43,7 @@ scale = Vector2(1.1726507, 1.2918111)
 shape = SubResource("CircleShape2D_kipf4")
 
 [node name="Background" type="Node2D" parent="." unique_id=779402907]
+visible = false
 modulate = Color(1, 1, 1, 0.39607844)
 
 [node name="Sprite2D" type="Sprite2D" parent="Background" unique_id=165300639]

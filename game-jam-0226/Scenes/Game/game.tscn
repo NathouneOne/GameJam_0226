@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dgn4ub5vss8hf" path="res://Scenes/hand/hands.tscn" id="1_mv0hc"]
 [ext_resource type="Texture2D" uid="uid://cuu5liefo0236" path="res://Assets/Graphismes/EXPORT_TEMPO_BG.png" id="4_i1e5p"]
+[ext_resource type="PackedScene" uid="uid://dd5iopkirah4w" path="res://Scenes/Defibrilateur/DefibrilateurTestScene.tscn" id="5_ciybh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i1e5p"]
 size = Vector2(400, 520.5)
@@ -44,7 +45,7 @@ color = Color(0.3239576, 0.3532681, 0.49650294, 1)
 offset = Vector2(-80, 0)
 polygon = PackedVector2Array(-452, 495, 655, 483, 408, -419, -222, -424)
 
-[node name="ItemsZone" type="Area2D" parent="." unique_id=493780884]
+[node name="ItemsZone" type="Area2D" parent="." unique_id=493780884 groups=["item_zone"]]
 position = Vector2(249, 662)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ItemsZone" unique_id=1714896011]
@@ -75,3 +76,5 @@ texture = ExtResource("4_i1e5p")
 centered = false
 
 [node name="Polygon2D" type="Polygon2D" parent="Background" unique_id=1200949737]
+
+[node name="DefibrilateurTestScene" parent="." unique_id=1514276375 instance=ExtResource("5_ciybh")]
