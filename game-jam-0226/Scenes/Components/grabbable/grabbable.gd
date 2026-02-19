@@ -10,16 +10,21 @@ var hand_grabbing: Node2D = null
 func _ready() -> void:
 	add_to_group(&"grabbables")
 
-func grab(hand: Node2D) -> void:
+# return true if grabbed
+func grab(hand: Node2D) -> bool:
 	if is_grabbed:
-		return
+		return true
 	is_grabbed = true
 	hand_grabbing = hand
 	grabbed.emit(hand)
+	return true
 
-func release() -> void:
+
+# Returns true if released
+func try_release() -> bool:
 	if not is_grabbed:
-		return
+		return true
 	is_grabbed = false
 	hand_grabbing = null
 	released.emit()
+	return true
