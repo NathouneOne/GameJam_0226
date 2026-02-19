@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://d1eo6qx2wmcdc"]
+[gd_scene format=3 uid="uid://cptrvgema3qca"]
 
 [ext_resource type="PackedScene" uid="uid://dgn4ub5vss8hf" path="res://Scenes/hand/hands.tscn" id="1_mv0hc"]
 [ext_resource type="PackedScene" uid="uid://cub20lgna3oru" path="res://Scenes/Defibrilateur/defibrilateur.tscn" id="3_qikps"]
