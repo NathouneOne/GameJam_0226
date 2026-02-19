@@ -9,6 +9,7 @@
 radius = 73.63978
 
 [node name="Coeur" type="Node2D" unique_id=1087108802]
+z_index = 1
 script = ExtResource("2_tk7i2")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1135916521]
