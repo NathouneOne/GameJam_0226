@@ -21,6 +21,7 @@ offset_right = 1923.0
 offset_bottom = 1076.0
 text = "60:00"
 label_settings = SubResource("LabelSettings_qikps")
+metadata/_edit_use_anchors_ = true
 
 [node name="Hands" parent="." unique_id=1149362447 instance=ExtResource("1_mv0hc")]
 position = Vector2(-1, 0)
@@ -30,6 +31,7 @@ scale = Vector2(0.84, 0.84)
 position = Vector2(958, 627.99)
 
 [node name="Cart" type="Node2D" parent="Patient" unique_id=1591633000]
+visible = false
 modulate = Color(1, 1, 1, 0.1764706)
 
 [node name="Body" type="Node2D" parent="Patient/Cart" unique_id=43249562]
@@ -58,6 +60,10 @@ polygon = PackedVector2Array(-452, 495, 655, 483, 408, -419, -222, -424)
 
 [node name="Coeur" parent="Patient" unique_id=1087108802 groups=["heart_targets"] instance=ExtResource("4_ciybh")]
 position = Vector2(193, -173)
+SCALE_START = 1.5
+SCALE_END = 0.6
+ZONE_OK_MODULATE = Color(0, 0, 0, 1)
+ZONE_NOK_MODULATE = Color(0, 0, 0, 1)
 
 [node name="ItemsZone" type="Area2D" parent="." unique_id=493780884 groups=["item_zone"]]
 position = Vector2(241, 849)

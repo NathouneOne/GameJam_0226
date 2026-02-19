@@ -3,14 +3,12 @@ extends Node
 class_name FlashFeedback
 
 @export var target_sprite_path: NodePath = NodePath("../Sprite2D")
-@export var ok_flash_color: Color = Color(0.55, 1.0, 0.55, 1.0)
-@export var not_ok_flash_color: Color = Color(1.0, 0.45, 0.45, 1.0)
+@export var flash_color: Color = Color(0.55, 1.0, 0.55, 1.0)
 @export var flash_duration: float = 0.55
 @export var pulse_scale: float = 1.12
 @export var label_offset: Vector2 = Vector2(-65, -160)
 @export var label_font_size: int = 44
-@export var ok_text: String = "OK"
-@export var not_ok_text: String = "NOT OK"
+@export var text: String = ""
 
 var _feedback_tween: Tween = null
 var _status_label: Label = null
@@ -32,26 +30,11 @@ func _ready() -> void:
 	get_parent().add_child.call_deferred(_status_label)
 
 
-@export_tool_button("Flash ok", "Callable") var _flash_ok: Callable = Callable(self, "flash_ok")
+@export_tool_button("Flash", "Callable") var _flash: Callable = Callable(self, "flash")
 
-func flash_ok() -> void:
-	_flash(true)
-
-
-@export_tool_button("Flash not ok", "Callable") var _flash_not_ok: Callable = Callable(self, "flash_not_ok")
-
-func flash_not_ok() -> void:
-	_flash(false)
-
-func _flash(is_ok: bool) -> void:
+func flash() -> void:
 	if _sprite == null or _status_label == null:
 		return
-
-	var flash_color: Color = not_ok_flash_color
-	var text: String = not_ok_text
-	if is_ok:
-		flash_color = ok_flash_color
-		text = ok_text
 
 	_sprite.modulate = flash_color
 	_status_label.text = text

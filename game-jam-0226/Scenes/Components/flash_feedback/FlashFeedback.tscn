@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene format=3 uid="uid://cpk6nfbh5g21i"]
 
-[ext_resource type="Script" path="res://Scenes/Components/flash_feedback/flash_feedback.gd" id="1_4u7xq"]
+[ext_resource type="Script" uid="uid://b5vt0ue1xgufi" path="res://Scenes/Components/flash_feedback/flash_feedback.gd" id="1_4u7xq"]
 
-[node name="FlashFeedback" type="Node"]
+[node name="FlashFeedback" type="Node" unique_id=1018722879]
 script = ExtResource("1_4u7xq")
+flash_color = null
+text = null
