@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dcfcxw6hka05n"]
+
+[ext_resource type="Script" uid="uid://bikriyxfoi8pk" path="res://Scenes/Components/usable/usable.gd" id="1_tpegh"]
+
+[node name="Useable" type="Area2D" unique_id=439381040]
+script = ExtResource("1_tpegh")
