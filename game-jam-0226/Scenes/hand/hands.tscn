@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://1ohqnbol5i0g" path="res://Scenes/hand/arm.tscn" id="1_0r2x8"]
 [ext_resource type="Texture2D" uid="uid://bn1bexi0xnteq" path="res://icon.svg" id="2_eolov"]
 [ext_resource type="PackedScene" uid="uid://bivkc0072g4c8" path="res://Scenes/Components/grabbable/Grabbable.tscn" id="3_mbr53"]
-[ext_resource type="PackedScene" uid="uid://c4oh3msdhdpmx" path="res://Scenes/hand/hand.tscn" id="4_cc8hp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eolov"]
 size = Vector2(128, 127)
@@ -27,11 +26,6 @@ metadata/_edit_lock_ = true
 texture = ExtResource("2_eolov")
 metadata/_edit_lock_ = true
 
-[node name="LeftArm" parent="." unique_id=1314196640 node_paths=PackedStringArray("target_node") instance=ExtResource("1_0r2x8")]
+[node name="LeftArm" parent="." unique_id=1314196640 instance=ExtResource("1_0r2x8")]
 unique_name_in_owner = true
 position = Vector2(353, 1457)
-target_node = NodePath("../LeftHand")
-closed = false
-
-[node name="LeftHand" parent="." unique_id=2078914881 instance=ExtResource("4_cc8hp")]
-position = Vector2(882, 607)

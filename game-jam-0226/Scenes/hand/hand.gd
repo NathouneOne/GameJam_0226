@@ -1,25 +1,20 @@
 extends Node2D
 class_name Hand
 
-@export var follow_speed: float = 15.0
-
 var grabbed_object: Node2D = null
 var grabbable_component: Grabbable = null
 var useable_component: Useable = null
 
 @onready var area_2d: Area2D = $Area2D
+@onready var arm: Arm = $"../.."
 
 func _ready() -> void:
-	%LeftArm.closed = false;
-	return
+	arm.closed = false
 
 
-func _process(delta: float) -> void:
-	var target_pos: Vector2 = get_global_mouse_position()
-	global_position = global_position.lerp(target_pos, follow_speed * delta)
-	
+func _process(_delta: float) -> void:
 	_process_grabbed_object()
-	
+
 	if Input.is_action_just_pressed("left_clic"):
 		if grabbed_object:
 			if not _release_object():
@@ -43,7 +38,7 @@ func _try_grab_object() -> bool:
 func _grab_object(object: Node2D, component: Grabbable) -> void:
 	grabbed_object = object
 	grabbable_component = component
-	%LeftArm.closed = true;
+	arm.closed = true;
 	grabbable_component.grab(self)
 	useable_component = _find_component_in_object(object, Useable) as Useable
 
@@ -54,14 +49,13 @@ func _release_object() -> bool:
 			grabbed_object = null
 			grabbable_component = null
 			useable_component = null
-			%LeftArm.closed = false;
+			arm.closed = false;
 			return true
 	return false
 
 func _process_grabbed_object() -> void:
 	if grabbed_object:
-		# move object 
-		grabbed_object.global_position = global_position
+		grabbed_object.global_transform = global_transform
 
 func _use(is_start: bool) -> void:
 	if useable_component == null:

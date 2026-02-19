@@ -7,7 +7,7 @@
 radius = 51.0
 height = 110.0
 
-[node name="LeftHand" type="Node2D" unique_id=2078914881]
+[node name="Hand" type="Node2D" unique_id=2078914881]
 script = ExtResource("1_d4mnk")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1055966477]
