@@ -19,12 +19,16 @@ func add(points: int) -> void:
 		_animate_postive_points(old_score)
 	
 
-func _animate_negative_points(_old_score: int) -> void:
-	# TODO animation
-	update_label()
 	
 func _animate_postive_points(_old_score: int) -> void:
-	# TODO animation
+	# TODO better animation
+	$FlashFeedbackOk.flash()
+	update_label()
+
+
+func _animate_negative_points(_old_score: int) -> void:
+	# TODO better animation
+	$FlashFeedbackNotOk.flash()
 	update_label()
 
 

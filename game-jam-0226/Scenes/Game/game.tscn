@@ -34,11 +34,18 @@ metadata/_edit_use_anchors_ = true
 
 [node name="FlashFeedbackOk" parent="GameScore" unique_id=1018722879 node_paths=PackedStringArray("target_node") instance=ExtResource("3_xfil1")]
 target_node = NodePath("..")
+flash_duration = 0.55
+pulse_scale = 1.2
+label_offset = Vector2(0, 150)
+label_font_size = 70
 text = "BANANAAA!"
 
 [node name="FlashFeedbackNotOk" parent="GameScore" unique_id=1783012149 node_paths=PackedStringArray("target_node") instance=ExtResource("3_xfil1")]
 target_node = NodePath("..")
 flash_color = Color(1, 0.282788, 0.26279956, 1)
+flash_duration = 0.55
+label_offset = Vector2(0, 150)
+label_font_size = 70
 text = "OUCH!"
 
 [node name="GameTime" type="Node2D" parent="." unique_id=539290177]

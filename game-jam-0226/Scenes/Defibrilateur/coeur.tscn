@@ -29,15 +29,13 @@ texture = ExtResource("1_nqbo0")
 scale = Vector2(1.1726507, 1.2918111)
 shape = SubResource("CircleShape2D_kipf4")
 
-[node name="FlashFeedbackOk" parent="." unique_id=822112174 instance=ExtResource("4_u7e1w")]
-target_sprite_path = NodePath("../MainSprite")
-flash_color = Color(0.55, 1, 0.55, 1)
+[node name="FlashFeedbackOk" parent="." unique_id=822112174 node_paths=PackedStringArray("target_node") instance=ExtResource("4_u7e1w")]
+target_node = NodePath("../MainSprite")
 label_offset = Vector2(-70, -120)
 label_font_size = 40
-text = ""
 
-[node name="FlashFeedbackNok" parent="." unique_id=801542681 instance=ExtResource("4_u7e1w")]
-target_sprite_path = NodePath("../MainSprite")
+[node name="FlashFeedbackNok" parent="." unique_id=801542681 node_paths=PackedStringArray("target_node") instance=ExtResource("4_u7e1w")]
+target_node = NodePath("../MainSprite")
 flash_color = Color(0, 0, 0, 1)
 pulse_scale = 0.9
 label_offset = Vector2(-70, -120)
