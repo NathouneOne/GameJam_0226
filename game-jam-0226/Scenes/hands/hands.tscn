@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dgn4ub5vss8hf"]
+[gd_scene load_steps=4 format=3 uid="uid://dgn4ub5vss8hf"]
 
 [ext_resource type="PackedScene" uid="uid://1ohqnbol5i0g" path="res://Scenes/hands/hand.tscn" id="1_0r2x8"]
+[ext_resource type="Texture2D" uid="uid://bn1bexi0xnteq" path="res://icon.svg" id="2_eolov"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eolov"]
+size = Vector2(128, 127)
 
 [node name="Hands" type="Node2D"]
 
@@ -10,3 +14,18 @@ position = Vector2(196, 858)
 [node name="RightHand" parent="." instance=ExtResource("1_0r2x8")]
 position = Vector2(1730, 854)
 hand_type = 1
+
+[node name="Object" type="Node2D" parent="."]
+position = Vector2(423, 581)
+
+[node name="Area2D" type="Area2D" parent="Object"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Object/Area2D"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_eolov")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Object"]
+texture = ExtResource("2_eolov")
+metadata/_edit_lock_ = true
