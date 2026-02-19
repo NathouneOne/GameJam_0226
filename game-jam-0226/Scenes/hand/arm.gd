@@ -11,4 +11,5 @@ func _ready() -> void:
 
 # follow target each frame
 func _process(delta: float) -> void:
-	target.global_position = target_node.global_position
+	if target_node:
+		target.global_position = target_node.global_position

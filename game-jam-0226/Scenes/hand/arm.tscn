@@ -50,9 +50,9 @@ texture = ExtResource("2_wt4sn")
 
 [node name="Claw" type="Node2D" parent="." unique_id=1306377304]
 z_index = 2
-position = Vector2(963.1131, 612.00226)
-rotation = 0.33707216
-scale = Vector2(1.0000042, 1.0000042)
+position = Vector2(1005.0541, 573.6447)
+rotation = 1.3416703
+scale = Vector2(0.9999813, 0.9999813)
 
 [node name="Sprite" type="Polygon2D" parent="Claw" unique_id=178004881]
 rotation = 1.5707964
@@ -72,21 +72,21 @@ polygon = PackedVector2Array(240, 914, 204.00372, 871.01587, 215.00392, 914.0166
 
 [node name="arm0" type="Polygon2D" parent="." unique_id=259272450]
 position = Vector2(0, 0.9999995)
-rotation = 2.2537796
-scale = Vector2(0.99998784, 0.99998784)
+rotation = 0.50662106
+scale = Vector2(0.99999267, 0.99999267)
 offset = Vector2(-0.078319, 0.6208838)
 polygon = PackedVector2Array(0, -10, 0, 8, 759, 2, 759, -2)
 
 [node name="arm1" type="Polygon2D" parent="." unique_id=1358178697]
-position = Vector2(-479.02002, 589.75867)
-rotation = -0.29539755
-scale = Vector2(0.99998647, 0.99998647)
+position = Vector2(663.6612, 369.28613)
+rotation = -0.7543066
+scale = Vector2(0.9999926, 0.9999926)
 polygon = PackedVector2Array(0, -9, 0, 8, 759, 2, 759, -2)
 
 [node name="arm2" type="Polygon2D" parent="." unique_id=1059359991]
-position = Vector2(248.23834, 369.0328)
-rotation = 0.31691316
-scale = Vector2(0.99998707, 0.99998707)
+position = Vector2(1217.8984, -150.74945)
+rotation = 1.8458624
+scale = Vector2(0.99999255, 0.99999255)
 polygon = PackedVector2Array(0, -9, 0, 8, 759.9531, 11.132324, 760.0122, 4.1325684)
 
 [node name="Skeleton2D" type="Skeleton2D" parent="." unique_id=513974380]
@@ -122,7 +122,7 @@ remote_path = NodePath("../../../../../arm2")
 [node name="armHandBase" type="Bone2D" parent="Skeleton2D/armBone0/armBone1/armBone2" unique_id=311617383]
 position = Vector2(754.97845, 8.090105)
 rotation = -0.0063250572
-scale = Vector2(0.9999883, 0.9999883)
+scale = Vector2(0.99998826, 0.99998826)
 rest = Transform2D(0.9999685, -0.0063249427, 0.0063249427, 0.9999685, 759.9739, 7.5584087)
 metadata/_local_pose_override_enabled_ = true
 
