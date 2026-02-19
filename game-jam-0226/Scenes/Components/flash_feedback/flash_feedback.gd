@@ -2,7 +2,7 @@
 extends Node
 class_name FlashFeedback
 
-@export var target_sprite_path: NodePath = NodePath("../Sprite2D")
+@export var target_node: Node2D
 @export var flash_color: Color = Color(0.55, 1.0, 0.55, 1.0)
 @export var flash_duration: float = 0.55
 @export var pulse_scale: float = 1.12
@@ -12,15 +12,13 @@ class_name FlashFeedback
 
 var _feedback_tween: Tween = null
 var _status_label: Label = null
-var _sprite: Sprite2D = null
 var _base_scale: Vector2 = Vector2.ONE
 
 func _ready() -> void:
-	_sprite = get_node_or_null(target_sprite_path) as Sprite2D
-	if _sprite == null:
+	if target_node == null:
 		return
 
-	_base_scale = _sprite.scale
+	_base_scale = target_node.scale
 	_status_label = Label.new()
 	_status_label.text = ""
 	_status_label.modulate = Color(1, 1, 1, 0)
@@ -33,10 +31,13 @@ func _ready() -> void:
 @export_tool_button("Flash", "Callable") var _flash: Callable = Callable(self, "flash")
 
 func flash() -> void:
-	if _sprite == null or _status_label == null:
+	if target_node == null or _status_label == null:
+		push_error("Flash triggered without target: %s or label: %s" % [target_node, _status_label])
 		return
+		
+	print("Flash triggered !")
 
-	_sprite.modulate = flash_color
+	target_node.modulate = flash_color
 	_status_label.text = text
 	_status_label.modulate = flash_color
 
@@ -44,7 +45,7 @@ func flash() -> void:
 		_feedback_tween.kill()
 
 	_feedback_tween = create_tween()
-	_feedback_tween.parallel().tween_property(_sprite, "modulate", Color(1, 1, 1, 1), flash_duration)
-	_feedback_tween.parallel().tween_property(_sprite, "scale", _base_scale * pulse_scale, flash_duration * 0.35)
+	_feedback_tween.parallel().tween_property(target_node, "modulate", Color(1, 1, 1, 1), flash_duration)
+	_feedback_tween.parallel().tween_property(target_node, "scale", _base_scale * pulse_scale, flash_duration * 0.35)
 	_feedback_tween.parallel().tween_property(_status_label, "modulate", Color(flash_color.r, flash_color.g, flash_color.b, 0.0), flash_duration)
-	_feedback_tween.tween_property(_sprite, "scale", _base_scale, flash_duration * 0.65)
+	_feedback_tween.tween_property(target_node, "scale", _base_scale, flash_duration * 0.65)

@@ -6,6 +6,7 @@ class_name Heart
 @onready var flash_feedback_nok: FlashFeedback = $FlashFeedbackNok
 @onready var qteCoeur: Node2D = $QTECoeur
 
+
 @export var started: bool = true
 
 func _ready() -> void:
@@ -19,10 +20,15 @@ func qte_ok() -> bool:
 	return qteCoeur.scale.x > ZONE_OK.x and qteCoeur.scale.x < ZONE_OK.y
 	
 
+@export var SUCCESS_POINTS := 5
+@export var DEFEAT_POINTS := -5
+
 func _on_interact_start(_target: Node2D, source: Node2D, _hand: Node2D) -> void:
 	if source is Defibrillator and qte_ok():
+		Global.on_add_score.emit(SUCCESS_POINTS)
 		flash_feedback_ok.flash()
 	else:
+		Global.on_add_score.emit(DEFEAT_POINTS)
 		flash_feedback_nok.flash()
 
 func _on_interact_stop(_target: Node2D, _source: Node2D, _hand: Node2D) -> void:

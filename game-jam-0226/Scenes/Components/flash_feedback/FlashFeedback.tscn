@@ -4,5 +4,3 @@
 
 [node name="FlashFeedback" type="Node" unique_id=1018722879]
 script = ExtResource("1_4u7xq")
-flash_color = null
-text = null

@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://cptrvgema3qca"]
 
 [ext_resource type="Script" uid="uid://ds004rd487gdc" path="res://Scenes/Game/time.gd" id="1_ciybh"]
+[ext_resource type="Script" uid="uid://ds4pi4ocajr22" path="res://Scenes/Game/score.gd" id="1_flgk0"]
 [ext_resource type="PackedScene" uid="uid://dgn4ub5vss8hf" path="res://Scenes/hand/hands.tscn" id="1_mv0hc"]
 [ext_resource type="Theme" uid="uid://b2tioy6g4l1nk" path="res://Resources/default_theme.tres" id="2_flgk0"]
 [ext_resource type="Texture2D" uid="uid://drywx78pas5gi" path="res://Assets/Graphismes/GAMEJAM_Dr_MABOUL_enviro_perso.png" id="2_i1e5p"]
 [ext_resource type="PackedScene" uid="uid://cub20lgna3oru" path="res://Scenes/Defibrilateur/defibrilateur.tscn" id="3_qikps"]
+[ext_resource type="PackedScene" uid="uid://cpk6nfbh5g21i" path="res://Scenes/Components/flash_feedback/FlashFeedback.tscn" id="3_xfil1"]
 [ext_resource type="PackedScene" uid="uid://fy15tufi5wwi" path="res://Scenes/Defibrilateur/coeur.tscn" id="4_ciybh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qikps"]
@@ -15,10 +17,34 @@ size = Vector2(179, 491)
 
 [node name="Game" type="Node2D" unique_id=2073138695]
 
+[node name="GameScore" type="Node2D" parent="." unique_id=2011718870]
+z_index = 2
+position = Vector2(118.000015, 85.00001)
+rotation = -0.036651913
+skew = 0.14660765
+script = ExtResource("1_flgk0")
+
+[node name="ScoreLabel" type="Label" parent="GameScore" unique_id=1634141895]
+offset_right = 40.0
+offset_bottom = 96.0
+theme = ExtResource("2_flgk0")
+theme_override_font_sizes/font_size = 70
+text = "0"
+metadata/_edit_use_anchors_ = true
+
+[node name="FlashFeedbackOk" parent="GameScore" unique_id=1018722879 node_paths=PackedStringArray("target_node") instance=ExtResource("3_xfil1")]
+target_node = NodePath("..")
+text = "BANANAAA!"
+
+[node name="FlashFeedbackNotOk" parent="GameScore" unique_id=1783012149 node_paths=PackedStringArray("target_node") instance=ExtResource("3_xfil1")]
+target_node = NodePath("..")
+flash_color = Color(1, 0.282788, 0.26279956, 1)
+text = "OUCH!"
+
 [node name="GameTime" type="Node2D" parent="." unique_id=539290177]
-position = Vector2(1621, 60)
+position = Vector2(1636, 65)
 rotation = 0.7382743
-skew = -0.36826447
+skew = -0.3333579
 script = ExtResource("1_ciybh")
 
 [node name="TimerLabel" type="Label" parent="GameTime" unique_id=34665249]
@@ -75,12 +101,8 @@ color = Color(0.3239576, 0.3532681, 0.49650294, 1)
 offset = Vector2(-80, 0)
 polygon = PackedVector2Array(-452, 495, 655, 483, 408, -419, -222, -424)
 
-[node name="Coeur" parent="Patient" unique_id=1087108802 groups=["heart_targets"] instance=ExtResource("4_ciybh")]
-position = Vector2(193, -173)
-SCALE_START = 1.5
-SCALE_END = 0.6
-ZONE_OK_MODULATE = Color(0, 0, 0, 1)
-ZONE_NOK_MODULATE = Color(0, 0, 0, 1)
+[node name="Coeur" parent="Patient" unique_id=1087108802 instance=ExtResource("4_ciybh")]
+position = Vector2(193, -93.98999)
 
 [node name="ItemsZone" type="Area2D" parent="." unique_id=493780884 groups=["item_zone"]]
 position = Vector2(241, 849)
