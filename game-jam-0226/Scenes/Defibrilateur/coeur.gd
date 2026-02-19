@@ -5,17 +5,15 @@ class_name Heart
 @onready var flash_feedback: FlashFeedback = $FlashFeedback
 
 func _ready() -> void:
-	print("[Coeur] _ready name=", name, " interactive=", interactive, " interactive_id=", interactive.get_instance_id() if interactive else 0)
-	interactive.interacted.connect(_on_interacted)
-	print("[Coeur] connected to interactive.interacted")
+	interactive.interact_start.connect(_on_interact_start)
+	interactive.interact_stop.connect(_on_interact_stop)
 
-func _on_interacted(_target: Node2D, source: Node2D, _hand: Node2D) -> void:
-	print("[Coeur] _on_interacted CALLED target=", _target.name if _target else "null", " source=", source.name if source else "null")
-	print("Heart interacted with: ", source.name if source else "null")
+func _on_interact_start(_target: Node2D, source: Node2D, _hand: Node2D) -> void:
 	var is_ok: bool = source is Defibrillator
 	if is_ok:
 		flash_feedback.flash_ok()
-		print("Heart feedback: OK")
 	else:
 		flash_feedback.flash_not_ok()
-		print("Heart feedback: NOT OK")
+
+func _on_interact_stop(_target: Node2D, _source: Node2D, _hand: Node2D) -> void:
+	pass

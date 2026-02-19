@@ -23,10 +23,12 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("left_clic"):
 		if grabbed_object:
 			if not _release_object():
-				_use_held_object()
+				_use(true)
 		else:
 			if not _try_grab_object():
 				_try_interact_empty_hand()
+	if Input.is_action_just_released("left_clic"):
+		_use(false)
 
 func _try_grab_object() -> bool:
 	var areas: Array[Area2D] = area_2d.get_overlapping_areas()
@@ -48,6 +50,7 @@ func _grab_object(object: Node2D, component: Grabbable) -> void:
 func _release_object() -> bool:
 	if grabbable_component:
 		if grabbable_component.release():
+			_use(false)
 			grabbed_object = null
 			grabbable_component = null
 			useable_component = null
@@ -60,10 +63,13 @@ func _process_grabbed_object() -> void:
 		# move object 
 		grabbed_object.global_position = global_position
 
-func _use_held_object() -> bool:
+func _use(is_start: bool) -> void:
 	if useable_component == null:
-		return false
-	return useable_component.use(self)
+		return
+	if is_start:
+		useable_component.use(self)
+	else:
+		useable_component.stop_use(self)
 
 func _try_interact_empty_hand() -> bool:
 	var areas: Array[Area2D] = area_2d.get_overlapping_areas()

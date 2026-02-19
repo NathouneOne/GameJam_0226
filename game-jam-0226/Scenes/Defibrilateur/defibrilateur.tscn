@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bgc86fq2gefa3" path="res://Assets/Graphismes/fer_a_repasser_tmp.png" id="1_2r4vs"]
 [ext_resource type="PackedScene" uid="uid://bivkc0072g4c8" path="res://Scenes/Components/grabbable/Grabbable.tscn" id="2_mrefm"]
+[ext_resource type="Texture2D" uid="uid://dnnx2yxnv1lme" path="res://Assets/Graphismes/SINGE_IRON_PROPS_PNG.png" id="2_oxjt4"]
 [ext_resource type="PackedScene" uid="uid://dcfcxw6hka05n" path="res://Scenes/Components/usable/Usable.tscn" id="3_87nux"]
 [ext_resource type="Script" uid="uid://dql7mxxj7vuv0" path="res://Scenes/Defibrilateur/defibrilateur.gd" id="4_6s5y0"]
 [ext_resource type="PackedScene" path="res://Scenes/Components/flash_feedback/FlashFeedback.tscn" id="5_fkq31"]
@@ -13,7 +14,14 @@ height = 288.80115
 [node name="Defibrilateur" type="Node2D" unique_id=94439545]
 script = ExtResource("4_6s5y0")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1736825338]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1619770643]
+position = Vector2(65, 59)
+rotation = 0.4456761
+scale = Vector2(0.36073998, 0.36073995)
+texture = ExtResource("2_oxjt4")
+
+[node name="Sprite2D_tmp" type="Sprite2D" parent="." unique_id=1736825338]
+visible = false
 rotation = -0.3228859
 scale = Vector2(1.03, 1.03)
 texture = ExtResource("1_2r4vs")
@@ -22,15 +30,16 @@ flip_h = true
 [node name="Grabbable" parent="." unique_id=409779617 instance=ExtResource("2_mrefm")]
 
 [node name="Grab" type="CollisionShape2D" parent="Grabbable" unique_id=833575551]
-position = Vector2(-41.000004, -43.000008)
+position = Vector2(13, 11)
 rotation = 1.2980806
 shape = SubResource("CapsuleShape2D_4xhnb")
 
 [node name="Useable" parent="." unique_id=101575551 instance=ExtResource("3_87nux")]
 
 [node name="Use" type="CollisionShape2D" parent="Useable" unique_id=933575551]
-position = Vector2(-41.000004, -43.000008)
+position = Vector2(11, 11)
 rotation = 1.2980806
 shape = SubResource("CapsuleShape2D_4xhnb")
 
 [node name="FlashFeedback" parent="." unique_id=2095426776 instance=ExtResource("5_fkq31")]
+target_sprite_path = NodePath("../Sprite2D_tmp")
