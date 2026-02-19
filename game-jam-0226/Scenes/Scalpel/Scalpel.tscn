@@ -1,6 +1,68 @@
-[gd_scene load_steps=2 format=3 uid="uid://e51vi8ldmkjl"]
+[gd_scene format=3 uid="uid://e51vi8ldmkjl"]
 
-[ext_resource type="Script" uid="uid://dp237usb7ys4o" path="res://Scenes/Scalpel/scalpel.gd" id="1_lt5rr"]
+[ext_resource type="Script" uid="uid://c8hetvkv8vivo" path="res://Scenes/Scalpel/scalpel.gd" id="1_lt5rr"]
 
-[node name="Scalpel" type="Node2D"]
+[sub_resource type="Curve2D" id="Curve2D_lt5rr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lt5rr"]
+radius = 21.0
+
+[node name="Scalpel" type="Node2D" unique_id=1972709014]
 script = ExtResource("1_lt5rr")
+
+[node name="ScalpelCurve" type="Path2D" parent="." unique_id=1227076167]
+unique_name_in_owner = true
+top_level = true
+z_index = -1
+curve = SubResource("Curve2D_lt5rr")
+
+[node name="Target" type="Area2D" parent="." unique_id=782905280]
+z_index = -1
+
+[node name="TargetOutline" type="CollisionPolygon2D" parent="Target" unique_id=856054589]
+unique_name_in_owner = true
+position = Vector2(-6832.5405, -1913.4749)
+scale = Vector2(25.5355, 18.35112)
+polygon = PackedVector2Array(313.9371, 128.02898, 320.04623, 123.94203, 324.04068, 132.00693, 318.9889, 136.03938, 318, 132, 313.9371, 132.00693)
+
+[node name="TargetInline" type="CollisionPolygon2D" parent="Target" unique_id=1269730771]
+unique_name_in_owner = true
+position = Vector2(-4101.4263, -1111.4749)
+scale = Vector2(16.977123, 12.126085)
+polygon = PackedVector2Array(313.00272, 128.15347, 320.1618, 124.56409, 324.4617, 133.14064, 319.80838, 136.76918, 318.27692, 131.07898, 312.85785, 131.2439)
+
+[node name="Polygon2D" type="Polygon2D" parent="Target" unique_id=778444287]
+position = Vector2(26.459473, 61.52527)
+polygon = PackedVector2Array(1160, 375, 1312, 302, 1413, 447, 1287, 519, 1262, 446, 1160, 446)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Target" unique_id=905704037]
+position = Vector2(26.459473, 61.52527)
+color = Color(1, 0.11372549, 0.22352941, 1)
+polygon = PackedVector2Array(1184.5405, 380.47473, 1308, 335, 1383, 442, 1300, 489, 1274, 418, 1181, 420)
+
+[node name="CheckPoint1" type="CollisionShape2D" parent="Target" unique_id=1215889479]
+position = Vector2(1199, 495)
+shape = SubResource("CircleShape2D_lt5rr")
+
+[node name="CheckPoint2" type="CollisionShape2D" parent="Target" unique_id=276750931]
+position = Vector2(1293, 496)
+shape = SubResource("CircleShape2D_lt5rr")
+
+[node name="CheckPoint3" type="CollisionShape2D" parent="Target" unique_id=769699670]
+position = Vector2(1320, 563)
+shape = SubResource("CircleShape2D_lt5rr")
+
+[node name="CheckPoint4" type="CollisionShape2D" parent="Target" unique_id=1051638428]
+position = Vector2(1421, 505)
+shape = SubResource("CircleShape2D_lt5rr")
+
+[node name="CheckPoint5" type="CollisionShape2D" parent="Target" unique_id=42385423]
+position = Vector2(1336, 380)
+shape = SubResource("CircleShape2D_lt5rr")
+
+[node name="CheckPoint6" type="CollisionShape2D" parent="Target" unique_id=1379103190]
+position = Vector2(1200, 440)
+shape = SubResource("CircleShape2D_lt5rr")
+
+[connection signal="mouse_exited" from="Target" to="." method="_on_target_mouse_exited"]
+[connection signal="mouse_shape_entered" from="Target" to="." method="_on_target_mouse_shape_entered"]
