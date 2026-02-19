@@ -11,9 +11,11 @@ size = Vector2(128, 127)
 
 [node name="LeftHand" parent="." instance=ExtResource("1_0r2x8")]
 position = Vector2(196, 858)
+rotation = 0.43633232
 
 [node name="RightHand" parent="." instance=ExtResource("1_0r2x8")]
 position = Vector2(1730, 854)
+rotation = -0.43633232
 hand_type = 1
 
 [node name="Object" type="Node2D" parent="."]
@@ -21,10 +23,7 @@ position = Vector2(423, 581)
 
 [node name="Grabbable" parent="Object" instance=ExtResource("3_mbr53")]
 
-[node name="Area2D" type="Area2D" parent="Object"]
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Object/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Object/Grabbable"]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_eolov")
 metadata/_edit_lock_ = true

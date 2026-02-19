@@ -40,13 +40,11 @@ func _process(delta: float) -> void:
 func _try_grab_object() -> void:
 	var areas: Array[Area2D] = area_2d.get_overlapping_areas()
 	for area: Area2D in areas:
-		var target: Node = area.get_parent()
-		if target is Node2D:
-			# Find a child that is in the "grabbables" group
-			for child: Node in target.get_children():
-				if child is Grabbable:
-					_grab_object(target as Node2D, child as Grabbable)
-					return
+		if area is Grabbable:
+			var target: Node = area.get_parent()
+			if target is Node2D:
+				_grab_object(target as Node2D, area as Grabbable)
+				return
 
 func _grab_object(object: Node2D, component: Grabbable) -> void:
 	grabbed_object = object

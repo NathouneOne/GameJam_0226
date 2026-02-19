@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" uid="uid://byii4ngyrsi3e" path="res://Scenes/Components/grabbable/grabbable.gd" id="1_nko2v"]
 
-[node name="Node" type="Node"]
+[node name="Grabbable" type="Area2D"]
 script = ExtResource("1_nko2v")

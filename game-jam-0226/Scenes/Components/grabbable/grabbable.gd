@@ -1,5 +1,4 @@
-extends Node
-
+extends Area2D
 class_name Grabbable
 
 signal grabbed(hand: Node2D)
