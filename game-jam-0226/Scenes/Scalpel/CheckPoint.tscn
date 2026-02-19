@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://oeb2gp4owcen"]
+
+[ext_resource type="Script" uid="uid://dh4vrxm6h2e7n" path="res://Scenes/Scalpel/check_point.gd" id="1_eq5m8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2lx8d"]
+radius = 15.132746
+
+[node name="CheckPoint" type="Area2D" unique_id=1388937644 groups=["checkpoint"]]
+script = ExtResource("1_eq5m8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1806559921]
+shape = SubResource("CircleShape2D_2lx8d")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
