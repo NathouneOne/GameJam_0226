@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://e51vi8ldmkjl"]
+[gd_scene load_steps=3 format=3 uid="uid://e51vi8ldmkjl"]
 
 [ext_resource type="Script" uid="uid://dp237usb7ys4o" path="res://Scenes/Scalpel/scalpel.gd" id="1_lt5rr"]
+[ext_resource type="Texture2D" uid="uid://j65f4fiq2i5c" path="res://Assets/Graphismes/scalpel.png" id="2_ojjfw"]
 
 [node name="Scalpel" type="Node2D"]
 script = ExtResource("1_lt5rr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3, 14)
+texture = ExtResource("2_ojjfw")
