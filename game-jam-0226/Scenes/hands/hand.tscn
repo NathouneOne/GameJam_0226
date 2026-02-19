@@ -1,30 +1,96 @@
-[gd_scene load_steps=3 format=3 uid="uid://1ohqnbol5i0g"]
+[gd_scene format=3 uid="uid://1ohqnbol5i0g"]
 
 [ext_resource type="Script" uid="uid://4xvd286ijxv1" path="res://Scenes/hands/hand.gd" id="1_6ik0x"]
+[ext_resource type="Texture2D" uid="uid://bn1bexi0xnteq" path="res://icon.svg" id="2_r3o1h"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6ik0x"]
 radius = 68.0
 height = 174.0
 
-[node name="LeftHand" type="Node2D"]
+[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_r3o1h"]
+target_nodepath = NodePath("../target")
+tip_nodepath = NodePath("back/fore/hand")
+ccdik_data_chain_length = 2
+joint_data/0/bone_index = 1
+joint_data/0/bone2d_node = NodePath("back/fore")
+joint_data/0/rotate_from_joint = false
+joint_data/0/enable_constraint = false
+joint_data/0/editor_draw_gizmo = true
+joint_data/1/bone_index = 0
+joint_data/1/bone2d_node = NodePath("back")
+joint_data/1/rotate_from_joint = false
+joint_data/1/enable_constraint = false
+joint_data/1/editor_draw_gizmo = true
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_r3o1h"]
+modification_count = 1
+modifications/0 = SubResource("SkeletonModification2DCCDIK_r3o1h")
+
+[node name="LeftHand" type="Node2D" unique_id=1314196640]
+
+[node name="target" type="Node2D" parent="." unique_id=114944529]
 script = ExtResource("1_6ik0x")
 
-[node name="base" type="Polygon2D" parent="."]
-position = Vector2(-204, -463)
-polygon = PackedVector2Array(127, 513, 285, 513, 258, 571, 152, 569)
+[node name="Sprite2D" type="Sprite2D" parent="target" unique_id=1815396285]
+texture = ExtResource("2_r3o1h")
+metadata/_edit_lock_ = true
 
-[node name="LeftClaw" type="Polygon2D" parent="base"]
-position = Vector2(-22, -403)
-polygon = PackedVector2Array(150, 915, 194, 800, 195, 916)
+[node name="Area2D" type="Area2D" parent="target" unique_id=759889995]
+metadata/_edit_lock_ = true
 
-[node name="RightClaw" type="Polygon2D" parent="base"]
-position = Vector2(44, -401)
-polygon = PackedVector2Array(240, 914, 186, 797, 195, 914)
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="target/Area2D" unique_id=1970659675]
 position = Vector2(-1, 13)
 shape = SubResource("CapsuleShape2D_6ik0x")
+metadata/_edit_lock_ = true
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
+[node name="base" type="Polygon2D" parent="." unique_id=178004881]
+position = Vector2(-39, -35)
+offset = Vector2(-204, -515)
+polygon = PackedVector2Array(127, 513, 285, 513, 258, 571, 152, 569)
+
+[node name="LeftClaw" type="Polygon2D" parent="base" unique_id=419473891]
+position = Vector2(-46, -33)
+offset = Vector2(-181, -884)
+polygon = PackedVector2Array(150, 915, 194, 800, 195, 916)
+
+[node name="RightClaw" type="Polygon2D" parent="base" unique_id=248810499]
+position = Vector2(-159, -916)
+polygon = PackedVector2Array(240, 914, 186, 797, 195, 914)
+
+[node name="forearm" type="Polygon2D" parent="." unique_id=1386659155]
+position = Vector2(-38, 275)
+offset = Vector2(0, -420)
+polygon = PackedVector2Array(-19, 418, 21, 418, 7, 100, -8, 100)
+metadata/_edit_lock_ = true
+
+[node name="backarm" type="Polygon2D" parent="." unique_id=1113869415]
+position = Vector2(-38, 791)
+offset = Vector2(0, -417.9)
+polygon = PackedVector2Array(-19, 418, 21, 418, 7, 100, -8, 100)
+metadata/_edit_lock_ = true
+
+[node name="Skeleton2D" type="Skeleton2D" parent="." unique_id=513974380]
+position = Vector2(-2, 0)
+modification_stack = SubResource("SkeletonModificationStack2D_r3o1h")
+
+[node name="back" type="Bone2D" parent="Skeleton2D" unique_id=701676173]
+position = Vector2(-36, 791)
+rest = Transform2D(1, 0, 0, 1, 0, 737)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/back" unique_id=1864631050]
+remote_path = NodePath("../../../backarm")
+
+[node name="fore" type="Bone2D" parent="Skeleton2D/back" unique_id=650899134]
+position = Vector2(0, -516)
+rest = Transform2D(1, 0, 0, 1, 0, -317)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/back/fore" unique_id=837810908]
+remote_path = NodePath("../../../../forearm")
+
+[node name="hand" type="Bone2D" parent="Skeleton2D/back/fore" unique_id=190849591]
+position = Vector2(-1, -310)
+rest = Transform2D(1, 0, 0, 1, -1, -310)
+editor_settings/show_bone_gizmo = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/back/fore/hand" unique_id=254349304]
+remote_path = NodePath("../../../../../base")
