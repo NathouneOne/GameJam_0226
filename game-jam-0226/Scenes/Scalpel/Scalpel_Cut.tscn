@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://yj50mdywxph6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iig7h"]
+size = Vector2(40, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o6spu"]
+size = Vector2(40, 40)
+
+[node name="ScalpelCut" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_iig7h")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+color = Color(1, 0, 0, 1)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_o6spu")
