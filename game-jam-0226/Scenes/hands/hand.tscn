@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://1ohqnbol5i0g"]
+
+[ext_resource type="Script" uid="uid://4xvd286ijxv1" path="res://Scenes/hands/hand.gd" id="1_6ik0x"]
+
+[node name="LeftHand" type="Node2D"]
+script = ExtResource("1_6ik0x")
+
+[node name="base" type="Polygon2D" parent="."]
+position = Vector2(-204, -463)
+polygon = PackedVector2Array(127, 513, 285, 513, 258, 571, 152, 569)
+
+[node name="LeftClaw" type="Polygon2D" parent="base"]
+position = Vector2(-22, -403)
+polygon = PackedVector2Array(150, 915, 194, 800, 195, 916)
+
+[node name="RightClaw" type="Polygon2D" parent="base"]
+position = Vector2(44, -401)
+polygon = PackedVector2Array(240, 914, 186, 797, 195, 914)
