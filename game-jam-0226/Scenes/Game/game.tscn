@@ -3,9 +3,13 @@
 [ext_resource type="PackedScene" uid="uid://dgn4ub5vss8hf" path="res://Scenes/hand/hands.tscn" id="1_mv0hc"]
 [ext_resource type="Texture2D" uid="uid://bn1bexi0xnteq" path="res://icon.svg" id="1_qikps"]
 [ext_resource type="PackedScene" uid="uid://bivkc0072g4c8" path="res://Scenes/Components/grabbable/Grabbable.tscn" id="2_i1e5p"]
+[ext_resource type="Texture2D" uid="uid://cuu5liefo0236" path="res://Assets/Graphismes/EXPORT_TEMPO_BG.png" id="4_i1e5p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ciybh"]
 size = Vector2(128, 127)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i1e5p"]
+size = Vector2(394, 342)
 
 [sub_resource type="LabelSettings" id="LabelSettings_qikps"]
 font_size = 59
@@ -16,11 +20,19 @@ font_size = 59
 scale = Vector2(0.84, 0.84)
 
 [node name="Patient" type="Node2D" parent="." unique_id=1788166929]
-position = Vector2(958, 625)
+position = Vector2(958, 624)
 
 [node name="Cart" type="Node2D" parent="Patient" unique_id=1591633000]
 
 [node name="Body" type="Node2D" parent="Patient/Cart" unique_id=43249562]
+
+[node name="Polygon2D2" type="Polygon2D" parent="Patient/Cart/Body" unique_id=1474909687]
+z_index = 1
+position = Vector2(3, -655)
+scale = Vector2(0.50799423, 0.4536807)
+color = Color(0.8758502, 0.68026394, 0.69058543, 1)
+offset = Vector2(-81.37642, 56.4168)
+polygon = PackedVector2Array(-170.5949, 523.286, 445.5539, 534.307, 351.06464, 236.7409, -82.011154, 227.92413)
 
 [node name="Polygon2D" type="Polygon2D" parent="Patient/Cart/Body" unique_id=91527580]
 z_index = 1
@@ -37,26 +49,30 @@ offset = Vector2(-80, 0)
 polygon = PackedVector2Array(-452, 495, 655, 483, 408, -419, -222, -424)
 
 [node name="LeftTable" type="Node2D" parent="." unique_id=2134362851]
+position = Vector2(255, 660)
 
-[node name="Object" type="Node2D" parent="LeftTable" unique_id=255358080]
+[node name="Object1" type="Node2D" parent="LeftTable" unique_id=255358080]
 z_index = 1
-position = Vector2(302, 663)
+position = Vector2(-156, -222)
 
-[node name="Sprite2D" type="Sprite2D" parent="LeftTable/Object" unique_id=37492616]
+[node name="Sprite2D" type="Sprite2D" parent="LeftTable/Object1" unique_id=37492616]
 texture = ExtResource("1_qikps")
 metadata/_edit_lock_ = true
 
-[node name="Grabbable" parent="LeftTable/Object" unique_id=285037485 instance=ExtResource("2_i1e5p")]
+[node name="Grabbable" parent="LeftTable/Object1" unique_id=285037485 instance=ExtResource("2_i1e5p")]
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftTable/Object/Grabbable" unique_id=1969858577]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftTable/Object1/Grabbable" unique_id=1969858577]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_ciybh")
 metadata/_edit_lock_ = true
 
-[node name="Polygon2D" type="Polygon2D" parent="LeftTable" unique_id=659712214]
-position = Vector2(-96, 1)
-polygon = PackedVector2Array(104, 519, 532, 519, 598, 887, 33, 884)
+[node name="Area2D" type="Area2D" parent="LeftTable" unique_id=493780884]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftTable/Area2D" unique_id=1714896011]
+z_index = 1
+position = Vector2(-55, -131)
+shape = SubResource("RectangleShape2D_i1e5p")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1772624954]
 offset_right = 1920.0
@@ -74,3 +90,10 @@ text = "60:00"
 label_settings = SubResource("LabelSettings_qikps")
 
 [node name="Background" type="Node2D" parent="." unique_id=1704887786]
+
+[node name="Sprite2D" type="Sprite2D" parent="Background" unique_id=1145442250]
+z_index = -1
+texture = ExtResource("4_i1e5p")
+centered = false
+
+[node name="Polygon2D" type="Polygon2D" parent="Background" unique_id=1200949737]
