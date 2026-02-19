@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cub20lgna3oru"]
+
+[ext_resource type="Texture2D" uid="uid://bgc86fq2gefa3" path="res://Assets/Graphismes/fer_a_repasser_tmp.png" id="1_2r4vs"]
+[ext_resource type="PackedScene" uid="uid://bivkc0072g4c8" path="res://Scenes/Components/grabbable/Grabbable.tscn" id="2_mrefm"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4xhnb"]
+radius = 71.26518
+height = 288.80115
+
+[node name="Defibrilateur" type="Node2D" unique_id=94439545]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1736825338]
+rotation = -0.3228859
+scale = Vector2(1.03, 1.03)
+texture = ExtResource("1_2r4vs")
+flip_h = true
+
+[node name="Grabbable" parent="." unique_id=409779617 instance=ExtResource("2_mrefm")]
+
+[node name="Grab" type="CollisionShape2D" parent="Grabbable" unique_id=833575551]
+position = Vector2(-41.000004, -43.000008)
+rotation = 1.2980806
+shape = SubResource("CapsuleShape2D_4xhnb")

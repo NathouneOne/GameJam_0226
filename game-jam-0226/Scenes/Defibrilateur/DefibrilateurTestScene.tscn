@@ -1,46 +1,15 @@
 [gd_scene format=3 uid="uid://dd5iopkirah4w"]
 
-[ext_resource type="Texture2D" uid="uid://bgc86fq2gefa3" path="res://Assets/Graphismes/fer_a_repasser_tmp.png" id="2_pyc68"]
-[ext_resource type="PackedScene" uid="uid://bivkc0072g4c8" path="res://Scenes/Components/grabbable/Grabbable.tscn" id="3_efj56"]
-[ext_resource type="Texture2D" uid="uid://bec7kv75h8g20" path="res://Assets/Graphismes/coeur_tmp.png" id="3_jfwq7"]
+[ext_resource type="PackedScene" uid="uid://cub20lgna3oru" path="res://Scenes/Defibrilateur/defibrilateur.tscn" id="1_jfwq7"]
+[ext_resource type="PackedScene" uid="uid://fy15tufi5wwi" path="res://Scenes/Defibrilateur/coeur.tscn" id="2_kipf4"]
 [ext_resource type="Texture2D" uid="uid://cuu5liefo0236" path="res://Assets/Graphismes/EXPORT_TEMPO_BG.png" id="4_kipf4"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4xhnb"]
-radius = 71.26518
-height = 288.80115
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_kipf4"]
-radius = 73.63978
 
 [node name="DefibrilateurTestScene" type="Node2D" unique_id=1514276375]
 
-[node name="Defibrilateur" type="Node2D" parent="." unique_id=1663958539]
+[node name="Defibrilateur" parent="." unique_id=94439545 instance=ExtResource("1_jfwq7")]
 
-[node name="Sprite2D" type="Sprite2D" parent="Defibrilateur" unique_id=196572395]
-rotation = -0.3228859
-scale = Vector2(1.03, 1.03)
-texture = ExtResource("2_pyc68")
-flip_h = true
-
-[node name="Grabbable" parent="Defibrilateur" unique_id=807682317 instance=ExtResource("3_efj56")]
-
-[node name="Grab" type="CollisionShape2D" parent="Defibrilateur/Grabbable" unique_id=1213793649]
-position = Vector2(-41.000004, -43.000008)
-rotation = 1.2980806
-shape = SubResource("CapsuleShape2D_4xhnb")
-
-[node name="Coeur" type="Node2D" parent="." unique_id=699936938]
+[node name="Coeur" parent="." unique_id=1087108802 instance=ExtResource("2_kipf4")]
 position = Vector2(1174, 477)
-
-[node name="Sprite2D" type="Sprite2D" parent="Coeur" unique_id=1943493863]
-scale = Vector2(0.56, 0.56)
-texture = ExtResource("3_jfwq7")
-
-[node name="Area2D" type="Area2D" parent="Coeur" unique_id=359598095]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Coeur/Area2D" unique_id=1807360515]
-scale = Vector2(1.1726507, 1.2918111)
-shape = SubResource("CircleShape2D_kipf4")
 
 [node name="Background" type="Node2D" parent="." unique_id=779402907]
 visible = false

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://fy15tufi5wwi"]
+
+[ext_resource type="Texture2D" uid="uid://bec7kv75h8g20" path="res://Assets/Graphismes/coeur_tmp.png" id="1_nqbo0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kipf4"]
+radius = 73.63978
+
+[node name="Coeur" type="Node2D" unique_id=1087108802]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1135916521]
+scale = Vector2(0.56, 0.56)
+texture = ExtResource("1_nqbo0")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1960182460]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1167014915]
+scale = Vector2(1.1726507, 1.2918111)
+shape = SubResource("CircleShape2D_kipf4")
