@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://cvdfk0w3h4igd"]
-
-[sub_resource type="Curve2D" id="Curve2D_5y0ht"]
-
-[node name="ScalpelCurve" type="Path2D" unique_id=17744177]
-modulate = Color(1, 0, 0, 1)
-curve = SubResource("Curve2D_5y0ht")
