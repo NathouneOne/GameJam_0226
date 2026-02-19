@@ -41,27 +41,115 @@ color = Color(1, 0.11372549, 0.22352941, 1)
 polygon = PackedVector2Array(1184.5405, 380.47473, 1308, 335, 1383, 442, 1300, 489, 1274, 418, 1181, 420)
 
 [node name="CheckPoint1" type="CollisionShape2D" parent="Target" unique_id=1215889479]
+unique_name_in_owner = true
 position = Vector2(1199, 495)
 shape = SubResource("CircleShape2D_lt5rr")
 
 [node name="CheckPoint2" type="CollisionShape2D" parent="Target" unique_id=276750931]
+unique_name_in_owner = true
 position = Vector2(1293, 496)
 shape = SubResource("CircleShape2D_lt5rr")
 
 [node name="CheckPoint3" type="CollisionShape2D" parent="Target" unique_id=769699670]
+unique_name_in_owner = true
 position = Vector2(1320, 563)
 shape = SubResource("CircleShape2D_lt5rr")
 
 [node name="CheckPoint4" type="CollisionShape2D" parent="Target" unique_id=1051638428]
+unique_name_in_owner = true
 position = Vector2(1421, 505)
 shape = SubResource("CircleShape2D_lt5rr")
 
 [node name="CheckPoint5" type="CollisionShape2D" parent="Target" unique_id=42385423]
+unique_name_in_owner = true
 position = Vector2(1336, 380)
 shape = SubResource("CircleShape2D_lt5rr")
 
 [node name="CheckPoint6" type="CollisionShape2D" parent="Target" unique_id=1379103190]
+unique_name_in_owner = true
 position = Vector2(1200, 440)
+shape = SubResource("CircleShape2D_lt5rr")
+
+[node name="CheckPoint7" type="CollisionShape2D" parent="Target" unique_id=1047206905]
+unique_name_in_owner = true
+position = Vector2(1200, 469)
+shape = SubResource("CircleShape2D_lt5rr")
+
+[node name="CheckPoint8" type="CollisionShape2D" parent="Target" unique_id=503421582]
+unique_name_in_owner = true
+position = Vector2(1233, 496)
+shape = SubResource("CircleShape2D_lt5rr")
+
+[node name="CheckPoint10" type="CollisionShape2D" parent="Target" unique_id=393776373]
+unique_name_in_owner = true
+position = Vector2(1308, 529)
+shape = SubResource("CircleShape2D_lt5rr")
+
+[node name="CheckPoint11" type="CollisionShape2D" parent="Target" unique_id=1718860633]
+unique_name_in_owner = true
+position = Vector2(1352, 549)
+shape = SubResource("CircleShape2D_lt5rr")
+
+[node name="CheckPoint12" type="CollisionShape2D" parent="Target" unique_id=334622343]
+unique_name_in_owner = true
+position = Vector2(1386, 529)
+shape = SubResource("CircleShape2D_lt5rr")
+
+[node name="CheckPoint13" type="CollisionShape2D" parent="Target" unique_id=51002857]
+unique_name_in_owner = true
+position = Vector2(1405, 478)
+shape = SubResource("CircleShape2D_lt5rr")
+
+[node name="CheckPoint14" type="CollisionShape2D" parent="Target" unique_id=1230174208]
+unique_name_in_owner = true
+position = Vector2(1386, 453)
+shape = SubResource("CircleShape2D_lt5rr")
+
+[node name="CheckPoint15" type="CollisionShape2D" parent="Target" unique_id=588947870]
+unique_name_in_owner = true
+position = Vector2(1370, 430)
+rotation = -3.0150485
+shape = SubResource("CircleShape2D_lt5rr")
+
+[node name="CheckPoint16" type="CollisionShape2D" parent="Target" unique_id=1754671826]
+unique_name_in_owner = true
+position = Vector2(1352, 402)
+rotation = -3.0150485
+shape = SubResource("CircleShape2D_lt5rr")
+
+[node name="CheckPoint17" type="CollisionShape2D" parent="Target" unique_id=1557232247]
+unique_name_in_owner = true
+position = Vector2(1310, 391)
+rotation = -3.0150485
+shape = SubResource("CircleShape2D_lt5rr")
+
+[node name="CheckPoint18" type="CollisionShape2D" parent="Target" unique_id=978334425]
+unique_name_in_owner = true
+position = Vector2(1280, 402)
+rotation = -3.0150485
+shape = SubResource("CircleShape2D_lt5rr")
+
+[node name="CheckPoint19" type="CollisionShape2D" parent="Target" unique_id=10862429]
+unique_name_in_owner = true
+position = Vector2(1253.0001, 415.00003)
+rotation = -3.0150485
+shape = SubResource("CircleShape2D_lt5rr")
+
+[node name="CheckPoint20" type="CollisionShape2D" parent="Target" unique_id=1739267979]
+unique_name_in_owner = true
+position = Vector2(1224, 426.99997)
+rotation = -3.0150485
+shape = SubResource("CircleShape2D_lt5rr")
+
+[node name="CheckPoint21" type="CollisionShape2D" parent="Target" unique_id=56987240]
+unique_name_in_owner = true
+position = Vector2(1406, 518)
+rotation = -3.0150485
+shape = SubResource("CircleShape2D_lt5rr")
+
+[node name="CheckPoint9" type="CollisionShape2D" parent="Target" unique_id=1259094867]
+unique_name_in_owner = true
+position = Vector2(1265, 496)
 shape = SubResource("CircleShape2D_lt5rr")
 
 [connection signal="mouse_exited" from="Target" to="." method="_on_target_mouse_exited"]

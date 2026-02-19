@@ -1,6 +1,7 @@
 extends Node2D
 
-
+var checkpoints:int =0
+const NB_CHECKPOINTS = 21
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,10 +16,13 @@ func _process(_delta: float) -> void:
 	if Input.is_action_pressed("left_clic"):
 		%ScalpelCurve.curve.add_point(get_global_mouse_position(), Vector2(0,0), Vector2(0,0))
 		
-	
+	if Input.is_action_just_released("left_clic"):
+		checkpoints = 0
 	
 	queue_redraw()
 	
+
+
 func _draw():
 	if %ScalpelCurve.curve.point_count>2 :
 		draw_polyline(%ScalpelCurve.curve.get_baked_points(), Color(124.999, 0.0, 0.0, 1.0), 1, false)
@@ -27,6 +31,12 @@ func _draw():
 func _on_target_mouse_shape_entered(shape_idx: int) -> void:
 	if (shape_idx==2 or shape_idx==3) and Input.is_action_pressed("left_clic"):
 		print ("game over")
+		
+	if shape_idx > 3 and Input.is_action_pressed("left_clic"):
+		checkpoints+=1
+		print("checkpoint_passed")
+		if checkpoints == NB_CHECKPOINTS+1 :
+			print("Win ! Yeay !")
 
 
 func _on_target_mouse_exited() -> void:
