@@ -4,6 +4,7 @@ class_name Hand
 var grabbed_object: Node2D = null
 var grabbable_component: Grabbable = null
 var useable_component: Useable = null
+var grab_offset: Vector2 = Vector2.ZERO # object position in hand's local space when grabbed
 
 @onready var area_2d: Area2D = $Area2D
 @onready var arm: Arm = $"../.."
@@ -38,6 +39,8 @@ func _try_grab_object() -> bool:
 func _grab_object(object: Node2D, component: Grabbable) -> void:
 	grabbed_object = object
 	grabbable_component = component
+	# Store where the object was relative to the hand so it doesn't snap to hand center
+	grab_offset = global_transform.affine_inverse() * object.global_position
 	arm.closed = true;
 	grabbable_component.grab(self)
 	useable_component = _find_component_in_object(object, Useable) as Useable
@@ -55,7 +58,8 @@ func _release_object() -> bool:
 
 func _process_grabbed_object() -> void:
 	if grabbed_object:
-		grabbed_object.global_transform = global_transform
+		grabbed_object.global_position = global_transform * grab_offset
+		grabbed_object.global_rotation = global_rotation
 
 func _use(is_start: bool) -> void:
 	if useable_component == null:
