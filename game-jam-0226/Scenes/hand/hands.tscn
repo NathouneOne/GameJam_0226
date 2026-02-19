@@ -11,6 +11,7 @@ size = Vector2(128, 127)
 [node name="Hands" type="Node2D" unique_id=1149362447]
 
 [node name="Object" type="Node2D" parent="." unique_id=162490197]
+visible = false
 position = Vector2(1073, 211)
 
 [node name="Grabbable" parent="Object" unique_id=296027818 instance=ExtResource("3_mbr53")]
