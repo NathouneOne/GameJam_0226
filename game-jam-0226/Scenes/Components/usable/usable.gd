@@ -1,41 +1,32 @@
 extends Area2D
-class_name Usable
+class_name Useable
 
-signal grabbed(hand: Node2D)
-signal released()
+signal used(useable: Useable, hand: Node2D)
+signal used_on(useable: Useable, interactive: Interactive, hand: Node2D)
+signal use_finished(useable: Useable, hand: Node2D, has_interacted: bool)
 
-var is_grabbed: bool = false
-var hand_grabbing: Node2D = null
+@export var enabled: bool = true
 
 func _ready() -> void:
-	add_to_group(&"grabbables")
+	add_to_group(&"useables")
 
-# return true if grabbed
-func grab(hand: Node2D) -> bool:
-	if is_grabbed:
-		return true
-	is_grabbed = true
-	hand_grabbing = hand
-	grabbed.emit(hand)
-	return true
+func use(hand: Node2D) -> bool:
+	if not enabled:
+		print("Useable disabled: ", get_parent().name)
+		return false
 
+	used.emit(self, hand)
+	print("Used: ", get_parent().name, " by ", hand.name)
 
-# Returns true if released
-func release() -> bool:
-	if not is_grabbed:
-		return true
-	
-	var over_zone: bool = false
+	var has_interacted: bool = false
 	var areas: Array[Area2D] = get_overlapping_areas()
 	for area: Area2D in areas:
-		if area.is_in_group(&"item_zone"):
-			over_zone = true
-			break
-	
-	if not over_zone:
-		return false
-		
-	is_grabbed = false
-	hand_grabbing = null
-	released.emit()
-	return true
+		if area is Interactive:
+			var interactive: Interactive = area as Interactive
+			if interactive.interact(self, hand):
+				has_interacted = true
+				used_on.emit(self, interactive, hand)
+				print("Useable ", get_parent().name, " interacted with ", interactive.get_parent().name)
+
+	use_finished.emit(self, hand, has_interacted)
+	return has_interacted

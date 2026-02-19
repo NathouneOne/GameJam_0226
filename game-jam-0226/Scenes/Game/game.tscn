@@ -80,6 +80,8 @@ centered = false
 
 [node name="Defibrilateur" parent="." unique_id=94439545 instance=ExtResource("3_qikps")]
 position = Vector2(213, 329)
+script = null
 
 [node name="Coeur" parent="." unique_id=1087108802 instance=ExtResource("4_ciybh")]
 position = Vector2(1151, 451)
+script = null

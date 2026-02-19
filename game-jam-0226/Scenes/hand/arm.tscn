@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bn1bexi0xnteq" path="res://icon.svg" id="2_wt4sn"]
 [ext_resource type="Texture2D" uid="uid://b8hqq1ejhp2kl" path="res://Assets/Graphismes/SINGE_BRAS1_PNG.png" id="3_dw7dj"]
 [ext_resource type="Texture2D" uid="uid://b6ernrj1e0fwr" path="res://Assets/Graphismes/SINGE_MAIN1_PNG.png" id="4_1de7k"]
+[ext_resource type="Texture2D" uid="uid://bvkb5p4onux6a" path="res://Assets/Graphismes/SINGE_MAIN2_PNG.png" id="5_wm07o"]
 
 [sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_r3o1h"]
 target_nodepath = NodePath("../target")
@@ -40,6 +41,7 @@ modifications/0 = SubResource("SkeletonModification2DCCDIK_r3o1h")
 
 [node name="Arm" type="Node2D" unique_id=1314196640]
 script = ExtResource("1_4nkmu")
+closed = null
 
 [node name="target" type="Node2D" parent="." unique_id=2040772107]
 position = Vector2(1122, -533)
@@ -78,29 +80,20 @@ position = Vector2(1498.2668, -429.8986)
 rotation = -1.330822
 scale = Vector2(0.99998, 0.99998)
 
-[node name="Sprite" type="Polygon2D" parent="hand" unique_id=178004881]
-visible = false
-rotation = 1.5707964
-scale = Vector2(1.8, 6.81)
-offset = Vector2(-196.1657, -570.70966)
-polygon = PackedVector2Array(155.63864, 553.3107, 237.64012, 553.3107, 221.63983, 570.311, 173.63896, 570.311)
-
-[node name="LeftClaw" type="Polygon2D" parent="hand/Sprite" unique_id=419473891]
-position = Vector2(-16.526627, -47.39966)
-scale = Vector2(0.7823437, 0.9758986)
-offset = Vector2(-181, -884)
-polygon = PackedVector2Array(150, 915, 193.45923, 871.96265, 181, 914.74146)
-
-[node name="RightClaw" type="Polygon2D" parent="hand/Sprite" unique_id=248810499]
-position = Vector2(-198.52997, -931.41547)
-polygon = PackedVector2Array(240, 914, 204.00372, 871.01587, 215.00392, 914.0166)
-
-[node name="Sprite2D" type="Sprite2D" parent="hand" unique_id=187861792]
+[node name="open" type="Sprite2D" parent="hand" unique_id=187861792]
 position = Vector2(1.9849014, 1.0295122)
 rotation = 0.5201081
 scale = Vector2(0.26785016, 0.26785016)
 texture = ExtResource("4_1de7k")
 offset = Vector2(469.9192, -255.44629)
+flip_h = true
+
+[node name="closed" type="Sprite2D" parent="hand" unique_id=484882861]
+position = Vector2(1.9850895, 1.0294476)
+rotation = 0.4905132
+scale = Vector2(0.26923501, 0.26923501)
+texture = ExtResource("5_wm07o")
+offset = Vector2(466.55835, -250.0874)
 flip_h = true
 
 [node name="Skeleton2D" type="Skeleton2D" parent="." unique_id=513974380]
@@ -128,7 +121,7 @@ remote_path = NodePath("../../../../arm1")
 [node name="armHandBase" type="Bone2D" parent="Skeleton2D/armBone0/armBone1" unique_id=311617383]
 position = Vector2(795.9942, 4.721214)
 rotation = -0.006325057
-scale = Vector2(0.9999873, 0.9999873)
+scale = Vector2(0.99998724, 0.99998724)
 rest = Transform2D(0.9999677, -0.006324937, 0.006324937, 0.9999677, 969.98926, 6.1904116)
 metadata/_local_pose_override_enabled_ = true
 

@@ -24,18 +24,18 @@ func grab(hand: Node2D) -> bool:
 func release() -> bool:
 	if not is_grabbed:
 		return true
-	
-	var over_zone: bool = false
-	var areas: Array[Area2D] = get_overlapping_areas()
-	for area: Area2D in areas:
-		if area.is_in_group(&"item_zone"):
-			over_zone = true
-			break
-	
-	if not over_zone:
+
+	if not can_release():
 		return false
 		
 	is_grabbed = false
 	hand_grabbing = null
 	released.emit()
 	return true
+
+func can_release() -> bool:
+	var areas: Array[Area2D] = get_overlapping_areas()
+	for area: Area2D in areas:
+		if area.is_in_group(&"item_zone"):
+			return true
+	return false

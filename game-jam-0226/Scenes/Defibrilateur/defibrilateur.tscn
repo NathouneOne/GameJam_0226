@@ -2,12 +2,16 @@
 
 [ext_resource type="Texture2D" uid="uid://bgc86fq2gefa3" path="res://Assets/Graphismes/fer_a_repasser_tmp.png" id="1_2r4vs"]
 [ext_resource type="PackedScene" uid="uid://bivkc0072g4c8" path="res://Scenes/Components/grabbable/Grabbable.tscn" id="2_mrefm"]
+[ext_resource type="PackedScene" uid="uid://dcfcxw6hka05n" path="res://Scenes/Components/usable/Usable.tscn" id="3_87nux"]
+[ext_resource type="Script" uid="uid://dql7mxxj7vuv0" path="res://Scenes/Defibrilateur/defibrilateur.gd" id="4_6s5y0"]
+[ext_resource type="PackedScene" path="res://Scenes/Components/flash_feedback/FlashFeedback.tscn" id="5_fkq31"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4xhnb"]
 radius = 71.26518
 height = 288.80115
 
-[node name="Defibrilateur" type="Node2D" unique_id=94439545]
+[node name="Defibrilateur" type="Node2D" unique_id=94439545 groups=["defibrillator_tools"]]
+script = ExtResource("4_6s5y0")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1736825338]
 rotation = -0.3228859
@@ -21,3 +25,14 @@ flip_h = true
 position = Vector2(-41.000004, -43.000008)
 rotation = 1.2980806
 shape = SubResource("CapsuleShape2D_4xhnb")
+
+[node name="Useable" parent="." unique_id=101575551 instance=ExtResource("3_87nux")]
+
+[node name="Use" type="CollisionShape2D" parent="Useable" unique_id=933575551]
+position = Vector2(-41.000004, -43.000008)
+rotation = 1.2980806
+shape = SubResource("CapsuleShape2D_4xhnb")
+
+[node name="FlashFeedback" parent="." instance=ExtResource("5_fkq31")]
+label_offset = Vector2(-65, -160)
+label_font_size = 44

@@ -23,13 +23,15 @@ position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_eolov")
 metadata/_edit_lock_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Object" unique_id=803598784]
+[node name="Sprite" type="Sprite2D" parent="Object" unique_id=803598784]
 texture = ExtResource("2_eolov")
 metadata/_edit_lock_ = true
 
 [node name="LeftArm" parent="." unique_id=1314196640 node_paths=PackedStringArray("target_node") instance=ExtResource("1_0r2x8")]
+unique_name_in_owner = true
 position = Vector2(353, 1457)
 target_node = NodePath("../LeftHand")
+closed = false
 
 [node name="LeftHand" parent="." unique_id=2078914881 instance=ExtResource("4_cc8hp")]
 position = Vector2(882, 607)
