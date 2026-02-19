@@ -1,33 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgn4ub5vss8hf"]
+[gd_scene format=3 uid="uid://dgn4ub5vss8hf"]
 
-[ext_resource type="PackedScene" uid="uid://1ohqnbol5i0g" path="res://Scenes/hands/hand.tscn" id="1_0r2x8"]
 [ext_resource type="Texture2D" uid="uid://bn1bexi0xnteq" path="res://icon.svg" id="2_eolov"]
 [ext_resource type="PackedScene" uid="uid://bivkc0072g4c8" path="res://Scenes/Components/grabbable/Grabbable.tscn" id="3_mbr53"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eolov"]
 size = Vector2(128, 127)
 
-[node name="Hands" type="Node2D"]
+[node name="Hands" type="Node2D" unique_id=1149362447]
 
-[node name="LeftHand" parent="." instance=ExtResource("1_0r2x8")]
-position = Vector2(196, 858)
-rotation = 0.43633232
-
-[node name="RightHand" parent="." instance=ExtResource("1_0r2x8")]
-position = Vector2(1730, 854)
-rotation = -0.43633232
-hand_type = 1
-
-[node name="Object" type="Node2D" parent="."]
+[node name="Object" type="Node2D" parent="." unique_id=162490197]
 position = Vector2(423, 581)
 
-[node name="Grabbable" parent="Object" instance=ExtResource("3_mbr53")]
+[node name="Grabbable" parent="Object" unique_id=296027818 instance=ExtResource("3_mbr53")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Object/Grabbable"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Object/Grabbable" unique_id=1006522126]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_eolov")
 metadata/_edit_lock_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Object"]
+[node name="Sprite2D" type="Sprite2D" parent="Object" unique_id=803598784]
 texture = ExtResource("2_eolov")
 metadata/_edit_lock_ = true

@@ -8,11 +8,13 @@ enum HAND_TYPE {
 }
 @export var hand_type: HAND_TYPE = HAND_TYPE.LEFT
 @export var move_speed: float = 400.0
+@export var target_init_pos: Vector2 = Vector2(0,0)
 
 var grabbed_object: Node2D = null
 var grabbable_component: Grabbable = null
 
 @onready var area_2d: Area2D = $Area2D
+@onready var arm_target: Node2D = $target
 
 
 ## Returns the keymap prefix for the current hand (e.g. "leftHand_" or "rightHand_").
@@ -28,7 +30,7 @@ func _process(delta: float) -> void:
 		Input.get_axis(keymap_key("left"), keymap_key("right")),
 		Input.get_axis(keymap_key("top"), keymap_key("bot"))
 	)
-	position += direction * move_speed * delta
+	arm_target.position += direction * move_speed * delta
 	_process_grabbed_object()
 	
 	if Input.is_action_just_pressed(keymap_key("action")):

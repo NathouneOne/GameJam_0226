@@ -4,93 +4,140 @@
 [ext_resource type="Texture2D" uid="uid://bn1bexi0xnteq" path="res://icon.svg" id="2_r3o1h"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6ik0x"]
-radius = 68.0
-height = 174.0
+radius = 51.0
+height = 110.0
 
 [sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_r3o1h"]
 target_nodepath = NodePath("../target")
-tip_nodepath = NodePath("back/fore/hand")
-ccdik_data_chain_length = 2
-joint_data/0/bone_index = 1
-joint_data/0/bone2d_node = NodePath("back/fore")
+tip_nodepath = NodePath("armBone0/armBone1/armBone2/armHandBase/armHandTip")
+ccdik_data_chain_length = 4
+joint_data/0/bone_index = 0
+joint_data/0/bone2d_node = NodePath("armBone0")
 joint_data/0/rotate_from_joint = false
 joint_data/0/enable_constraint = false
 joint_data/0/editor_draw_gizmo = true
-joint_data/1/bone_index = 0
-joint_data/1/bone2d_node = NodePath("back")
+joint_data/1/bone_index = 1
+joint_data/1/bone2d_node = NodePath("armBone0/armBone1")
 joint_data/1/rotate_from_joint = false
 joint_data/1/enable_constraint = false
 joint_data/1/editor_draw_gizmo = true
+joint_data/2/bone_index = 2
+joint_data/2/bone2d_node = NodePath("armBone0/armBone1/armBone2")
+joint_data/2/rotate_from_joint = false
+joint_data/2/enable_constraint = false
+joint_data/2/editor_draw_gizmo = true
+joint_data/3/bone_index = 3
+joint_data/3/bone2d_node = NodePath("armBone0/armBone1/armBone2/armHandBase")
+joint_data/3/rotate_from_joint = false
+joint_data/3/enable_constraint = true
+joint_data/3/constraint_angle_min = 19.999998
+joint_data/3/constraint_angle_max = 159.99998
+joint_data/3/constraint_angle_invert = false
+joint_data/3/constraint_in_localspace = true
+joint_data/3/editor_draw_gizmo = true
 
 [sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_r3o1h"]
+enabled = true
 modification_count = 1
 modifications/0 = SubResource("SkeletonModification2DCCDIK_r3o1h")
 
-[node name="LeftHand" type="Node2D" unique_id=1314196640]
-
-[node name="target" type="Node2D" parent="." unique_id=114944529]
+[node name="Arm" type="Node2D" unique_id=1314196640]
 script = ExtResource("1_6ik0x")
 
+[node name="target" type="Node2D" parent="." unique_id=114944529]
+position = Vector2(595, 559)
+
 [node name="Sprite2D" type="Sprite2D" parent="target" unique_id=1815396285]
+scale = Vector2(0.57, 0.57)
 texture = ExtResource("2_r3o1h")
-metadata/_edit_lock_ = true
 
 [node name="Area2D" type="Area2D" parent="target" unique_id=759889995]
-metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="target/Area2D" unique_id=1970659675]
-position = Vector2(-1, 13)
+position = Vector2(7, -3)
 shape = SubResource("CapsuleShape2D_6ik0x")
-metadata/_edit_lock_ = true
 
-[node name="base" type="Polygon2D" parent="." unique_id=178004881]
-position = Vector2(-39, -35)
-offset = Vector2(-204, -515)
-polygon = PackedVector2Array(127, 513, 285, 513, 258, 571, 152, 569)
+[node name="Hand" type="Node2D" parent="." unique_id=1306377304]
+z_index = 2
+position = Vector2(592.5092, 500.03973)
+rotation = 1.5379738
+scale = Vector2(0.99974763, 0.99974763)
 
-[node name="LeftClaw" type="Polygon2D" parent="base" unique_id=419473891]
-position = Vector2(-46, -33)
+[node name="Sprite" type="Polygon2D" parent="Hand" unique_id=178004881]
+rotation = 1.5707964
+scale = Vector2(0.9999813, 0.9999813)
+offset = Vector2(-196.1657, -570.70966)
+polygon = PackedVector2Array(155.63864, 553.3107, 237.64012, 553.3107, 221.63983, 570.311, 173.63896, 570.311)
+
+[node name="LeftClaw" type="Polygon2D" parent="Hand/Sprite" unique_id=419473891]
+position = Vector2(-16.526627, -47.39966)
+scale = Vector2(0.7823437, 0.9758986)
 offset = Vector2(-181, -884)
-polygon = PackedVector2Array(150, 915, 194, 800, 195, 916)
+polygon = PackedVector2Array(150, 915, 193.45923, 871.96265, 181, 914.74146)
 
-[node name="RightClaw" type="Polygon2D" parent="base" unique_id=248810499]
-position = Vector2(-159, -916)
-polygon = PackedVector2Array(240, 914, 186, 797, 195, 914)
+[node name="RightClaw" type="Polygon2D" parent="Hand/Sprite" unique_id=248810499]
+position = Vector2(-198.52997, -931.41547)
+polygon = PackedVector2Array(240, 914, 204.00372, 871.01587, 215.00392, 914.0166)
 
-[node name="forearm" type="Polygon2D" parent="." unique_id=1386659155]
-position = Vector2(-38, 275)
-offset = Vector2(0, -420)
-polygon = PackedVector2Array(-19, 418, 21, 418, 7, 100, -8, 100)
-metadata/_edit_lock_ = true
+[node name="arm0" type="Polygon2D" parent="." unique_id=259272450]
+position = Vector2(0, 1)
+rotation = -2.9172578
+scale = Vector2(0.9999298, 0.9999298)
+offset = Vector2(-0.078319, 0.6208838)
+polygon = PackedVector2Array(0, -10, 0, 8, 759, 2, 759, -2)
 
-[node name="backarm" type="Polygon2D" parent="." unique_id=1113869415]
-position = Vector2(-38, 791)
-offset = Vector2(0, -417.9)
-polygon = PackedVector2Array(-19, 418, 21, 418, 7, 100, -8, 100)
-metadata/_edit_lock_ = true
+[node name="arm1" type="Polygon2D" parent="." unique_id=1358178697]
+position = Vector2(-739.99414, -167.8358)
+rotation = 0.64315736
+scale = Vector2(0.9998274, 0.9998274)
+polygon = PackedVector2Array(0, -9, 0, 8, 759, 2, 759, -2)
+
+[node name="arm2" type="Polygon2D" parent="." unique_id=1059359991]
+position = Vector2(-132.16742, 288.41174)
+rotation = 0.27341387
+scale = Vector2(0.99979824, 0.99979824)
+polygon = PackedVector2Array(0, -9, 0, 8, 759.9531, 11.132324, 760.0122, 4.1325684)
 
 [node name="Skeleton2D" type="Skeleton2D" parent="." unique_id=513974380]
-position = Vector2(-2, 0)
 modification_stack = SubResource("SkeletonModificationStack2D_r3o1h")
 
-[node name="back" type="Bone2D" parent="Skeleton2D" unique_id=701676173]
-position = Vector2(-36, 791)
-rest = Transform2D(1, 0, 0, 1, 0, 737)
+[node name="armBone0" type="Bone2D" parent="Skeleton2D" unique_id=701676173]
+position = Vector2(0, 0.9999995)
+rotation = -0.0024457702
+scale = Vector2(0.9999928, 0.9999928)
+rest = Transform2D(0.9999928, 0, 0, 0.9999928, 0, 0.9999995)
+metadata/_local_pose_override_enabled_ = true
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/back" unique_id=1864631050]
-remote_path = NodePath("../../../backarm")
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/armBone0" unique_id=1864631050]
+remote_path = NodePath("../../../arm0")
 
-[node name="fore" type="Bone2D" parent="Skeleton2D/back" unique_id=650899134]
-position = Vector2(0, -516)
-rest = Transform2D(1, 0, 0, 1, 0, -317)
+[node name="armBone1" type="Bone2D" parent="Skeleton2D/armBone0" unique_id=1740137966]
+position = Vector2(759.00543, 4.7684057e-07)
+rotation = -0.005997932
+rest = Transform2D(0.999982, -0.005997896, 0.005997896, 0.999982, 759.00543, 4.7684057e-07)
+metadata/_local_pose_override_enabled_ = true
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/back/fore" unique_id=837810908]
-remote_path = NodePath("../../../../forearm")
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/armBone0/armBone1" unique_id=262073430]
+remote_path = NodePath("../../../../arm1")
 
-[node name="hand" type="Bone2D" parent="Skeleton2D/back/fore" unique_id=190849591]
-position = Vector2(-1, -310)
-rest = Transform2D(1, 0, 0, 1, -1, -310)
-editor_settings/show_bone_gizmo = false
+[node name="armBone2" type="Bone2D" parent="Skeleton2D/armBone0/armBone1" unique_id=2133272791]
+position = Vector2(760.0158, 0.5584717)
+rest = Transform2D(1, 0, 0, 1, 760.0158, 0.5584717)
+metadata/_local_pose_override_enabled_ = true
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/back/fore/hand" unique_id=254349304]
-remote_path = NodePath("../../../../../base")
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/armBone0/armBone1/armBone2" unique_id=1349097760]
+remote_path = NodePath("../../../../../arm2")
+
+[node name="armHandBase" type="Bone2D" parent="Skeleton2D/armBone0/armBone1/armBone2" unique_id=311617383]
+position = Vector2(754.97845, 8.090105)
+rotation = -0.0063250572
+scale = Vector2(0.9999884, 0.9999884)
+rest = Transform2D(0.9999685, -0.0063249427, 0.0063249427, 0.9999685, 759.9739, 7.5584087)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/armBone0/armBone1/armBone2/armHandBase" unique_id=916949332]
+remote_path = NodePath("../../../../../../Hand")
+
+[node name="armHandTip" type="Bone2D" parent="Skeleton2D/armBone0/armBone1/armBone2/armHandBase" unique_id=1662121726]
+position = Vector2(59.02495, -0.5545566)
+rest = Transform2D(1, 0, 0, 1, -0.33457947, -54.009235)
