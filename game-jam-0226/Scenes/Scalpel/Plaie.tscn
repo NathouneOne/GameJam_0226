@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://e51vi8ldmkjl"]
+[gd_scene format=3 uid="uid://cdj3e4ns44s4d"]
 
 [ext_resource type="Script" uid="uid://c8hetvkv8vivo" path="res://Scenes/Scalpel/Plaie.gd" id="1_6ll18"]
 [ext_resource type="PackedScene" uid="uid://oeb2gp4owcen" path="res://Scenes/Scalpel/CheckPoint.tscn" id="2_ns5is"]

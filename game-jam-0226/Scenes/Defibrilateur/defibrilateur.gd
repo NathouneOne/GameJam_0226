@@ -4,25 +4,14 @@ class_name Defibrillator
 @onready var useable: Useable = $Useable
 @onready var flash_feedback: FlashFeedback = $FlashFeedback
 
-var _used_on_heart: bool = false
-
 func _ready() -> void:
+	print("[Defibrilateur] _ready name=", name, " useable=", useable, " useable_id=", useable.get_instance_id() if useable else 0)
 	useable.used.connect(_on_used)
-	useable.used_on.connect(_on_used_on)
-	useable.use_finished.connect(_on_use_finished)
+	print("[Defibrilateur] connected to useable.used")
 
-func _on_used(_useable: Useable, _hand: Node2D) -> void:
-	print("defibrilateur _on_used")
-	_used_on_heart = false
-
-func _on_used_on(_useable: Useable, interactive: Interactive, _hand: Node2D) -> void:
-	print("defibrilateur _on_used_on")
-	var target: Node = interactive.get_parent()
+func _on_used(_owner: Node2D, target: Node2D, _hand: Node2D) -> void:
+	print("[Defibrilateur] _on_used CALLED owner=", _owner.name if _owner else "null", " target=", target.name if target else "null")
 	if target is Heart:
-		_used_on_heart = true
-
-func _on_use_finished(_useable: Useable, _hand: Node2D, _has_interacted: bool) -> void:
-	if _used_on_heart:
 		flash_feedback.flash_ok()
 		print("Defibrillator feedback: OK")
 	else:
