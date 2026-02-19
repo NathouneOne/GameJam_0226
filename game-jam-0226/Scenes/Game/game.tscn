@@ -1,27 +1,36 @@
 [gd_scene format=3 uid="uid://cptrvgema3qca"]
 
 [ext_resource type="PackedScene" uid="uid://dgn4ub5vss8hf" path="res://Scenes/hand/hands.tscn" id="1_mv0hc"]
+[ext_resource type="Texture2D" uid="uid://drywx78pas5gi" path="res://Assets/Graphismes/GAMEJAM_Dr_MABOUL_enviro_perso.png" id="2_i1e5p"]
 [ext_resource type="PackedScene" uid="uid://cub20lgna3oru" path="res://Scenes/Defibrilateur/defibrilateur.tscn" id="3_qikps"]
 [ext_resource type="PackedScene" uid="uid://fy15tufi5wwi" path="res://Scenes/Defibrilateur/coeur.tscn" id="4_ciybh"]
-[ext_resource type="Texture2D" uid="uid://cuu5liefo0236" path="res://Assets/Graphismes/EXPORT_TEMPO_BG.png" id="4_i1e5p"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i1e5p"]
-size = Vector2(179, 520.5)
 
 [sub_resource type="LabelSettings" id="LabelSettings_qikps"]
 font_size = 101
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i1e5p"]
+size = Vector2(179, 491)
+
 [node name="Game" type="Node2D" unique_id=2073138695]
+
+[node name="Timer" type="Label" parent="." unique_id=274362900]
+unique_name_in_owner = true
+offset_left = 1664.0
+offset_top = 938.0
+offset_right = 1923.0
+offset_bottom = 1076.0
+text = "60:00"
+label_settings = SubResource("LabelSettings_qikps")
 
 [node name="Hands" parent="." unique_id=1149362447 instance=ExtResource("1_mv0hc")]
 position = Vector2(-1, 0)
 scale = Vector2(0.84, 0.84)
 
 [node name="Patient" type="Node2D" parent="." unique_id=1788166929]
-visible = false
-position = Vector2(958, 624)
+position = Vector2(958, 627.99)
 
 [node name="Cart" type="Node2D" parent="Patient" unique_id=1591633000]
+modulate = Color(1, 1, 1, 0.1764706)
 
 [node name="Body" type="Node2D" parent="Patient/Cart" unique_id=43249562]
 
@@ -47,15 +56,19 @@ color = Color(0.3239576, 0.3532681, 0.49650294, 1)
 offset = Vector2(-80, 0)
 polygon = PackedVector2Array(-452, 495, 655, 483, 408, -419, -222, -424)
 
+[node name="Coeur" parent="Patient" unique_id=1087108802 groups=["heart_targets"] instance=ExtResource("4_ciybh")]
+position = Vector2(193, -173)
+
 [node name="ItemsZone" type="Area2D" parent="." unique_id=493780884 groups=["item_zone"]]
-position = Vector2(249, 662)
+position = Vector2(241, 849)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ItemsZone" unique_id=1714896011]
 z_index = 1
-position = Vector2(-60.5, -130.25)
+position = Vector2(-60, -111)
 shape = SubResource("RectangleShape2D_i1e5p")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1772624954]
+visible = false
 offset_right = 1920.0
 offset_bottom = 1080.0
 alignment = 2
@@ -64,23 +77,14 @@ alignment = 2
 layout_mode = 2
 alignment = 1
 
-[node name="Timer" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=274362900]
-unique_name_in_owner = true
-layout_mode = 2
-text = "60:00"
-label_settings = SubResource("LabelSettings_qikps")
-
 [node name="Background" type="Node2D" parent="." unique_id=1704887786]
 
 [node name="Sprite2D" type="Sprite2D" parent="Background" unique_id=1145442250]
 z_index = -1
-texture = ExtResource("4_i1e5p")
+texture = ExtResource("2_i1e5p")
 centered = false
 
 [node name="Polygon2D" type="Polygon2D" parent="Background" unique_id=1200949737]
 
 [node name="Defibrilateur" parent="." unique_id=94439545 groups=["defibrillator_tools"] instance=ExtResource("3_qikps")]
-position = Vector2(213, 329)
-
-[node name="Coeur" parent="." unique_id=1087108802 groups=["heart_targets"] instance=ExtResource("4_ciybh")]
-position = Vector2(1151, 451)
+position = Vector2(186, 517)
