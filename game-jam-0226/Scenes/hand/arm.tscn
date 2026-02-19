@@ -51,8 +51,8 @@ texture = ExtResource("2_wt4sn")
 
 [node name="arm0" type="Node2D" parent="." unique_id=1782109609]
 position = Vector2(0, 0.9999995)
-rotation = -0.2836249
-scale = Vector2(0.99998575, 0.99998575)
+rotation = -0.2836243
+scale = Vector2(0.9999928, 0.9999928)
 
 [node name="Sprite2D" type="Sprite2D" parent="arm0" unique_id=125526545]
 position = Vector2(-1.3007263, -1.0000037)
@@ -62,9 +62,9 @@ offset = Vector2(754.6502, 5.9028745)
 
 [node name="arm1" type="Node2D" parent="." unique_id=2020563101]
 z_index = 2
-position = Vector2(732.7633, -211.68575)
-rotation = -0.2836249
-scale = Vector2(0.99998575, 0.99998575)
+position = Vector2(732.75885, -211.68411)
+rotation = -0.2836243
+scale = Vector2(0.9999926, 0.9999926)
 
 [node name="Sprite2D" type="Sprite2D" parent="arm1" unique_id=103852025]
 position = Vector2(-1.3007263, -1.0000037)
@@ -74,9 +74,9 @@ offset = Vector2(754.6502, 5.9028745)
 
 [node name="hand" type="Node2D" parent="." unique_id=1306377304]
 z_index = 1
-position = Vector2(1498.2749, -429.90125)
-rotation = -1.3308226
-scale = Vector2(0.99998444, 0.99998444)
+position = Vector2(1498.2668, -429.8986)
+rotation = -1.330822
+scale = Vector2(0.99998, 0.99998)
 
 [node name="Sprite" type="Polygon2D" parent="hand" unique_id=178004881]
 visible = false

@@ -7,43 +7,70 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ciybh"]
 size = Vector2(128, 127)
 
+[sub_resource type="LabelSettings" id="LabelSettings_qikps"]
+font_size = 59
+
 [node name="Game" type="Node2D" unique_id=2073138695]
 
-[node name="Object" type="Node2D" parent="." unique_id=255358080]
-position = Vector2(1073, 211)
+[node name="Hands" parent="." unique_id=1149362447 instance=ExtResource("1_mv0hc")]
+scale = Vector2(0.84, 0.84)
 
-[node name="Sprite2D" type="Sprite2D" parent="Object" unique_id=37492616]
+[node name="Patient" type="Node2D" parent="." unique_id=1788166929]
+position = Vector2(958, 625)
+
+[node name="Cart" type="Node2D" parent="Patient" unique_id=1591633000]
+
+[node name="Body" type="Node2D" parent="Patient/Cart" unique_id=43249562]
+
+[node name="Polygon2D" type="Polygon2D" parent="Patient/Cart/Body" unique_id=91527580]
+z_index = 1
+position = Vector2(-1, -3)
+scale = Vector2(0.71273714, 0.67355824)
+color = Color(0.8758502, 0.68026394, 0.69058543, 1)
+offset = Vector2(-81.37642, 56.4168)
+polygon = PackedVector2Array(-452, 495, 655, 483, 408.28516, -605.7382, -197.82886, -607.2229)
+
+[node name="Polygon2D" type="Polygon2D" parent="Patient/Cart" unique_id=1806315227]
+position = Vector2(1, 0)
+color = Color(0.3239576, 0.3532681, 0.49650294, 1)
+offset = Vector2(-80, 0)
+polygon = PackedVector2Array(-452, 495, 655, 483, 408, -419, -222, -424)
+
+[node name="LeftTable" type="Node2D" parent="." unique_id=2134362851]
+
+[node name="Object" type="Node2D" parent="LeftTable" unique_id=255358080]
+z_index = 1
+position = Vector2(302, 663)
+
+[node name="Sprite2D" type="Sprite2D" parent="LeftTable/Object" unique_id=37492616]
 texture = ExtResource("1_qikps")
 metadata/_edit_lock_ = true
 
-[node name="Grabbable" parent="Object" unique_id=285037485 instance=ExtResource("2_i1e5p")]
+[node name="Grabbable" parent="LeftTable/Object" unique_id=285037485 instance=ExtResource("2_i1e5p")]
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Object/Grabbable" unique_id=1969858577]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftTable/Object/Grabbable" unique_id=1969858577]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_ciybh")
 metadata/_edit_lock_ = true
 
-[node name="Hands" parent="." unique_id=1149362447 instance=ExtResource("1_mv0hc")]
+[node name="Polygon2D" type="Polygon2D" parent="LeftTable" unique_id=659712214]
+position = Vector2(-96, 1)
+polygon = PackedVector2Array(104, 519, 532, 519, 598, 887, 33, 884)
 
-[node name="Patient" type="Node2D" parent="." unique_id=1788166929]
-
-[node name="Control" type="Control" parent="." unique_id=1201286298]
-layout_mode = 3
-anchors_preset = 0
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1772624954]
 offset_right = 1920.0
 offset_bottom = 1080.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1772624954]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
 alignment = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer" unique_id=1156236513]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1156236513]
 layout_mode = 2
+alignment = 1
 
-[node name="Timer" type="Label" parent="Control/VBoxContainer/HBoxContainer" unique_id=274362900]
+[node name="Timer" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=274362900]
 unique_name_in_owner = true
 layout_mode = 2
 text = "60:00"
+label_settings = SubResource("LabelSettings_qikps")
+
+[node name="Background" type="Node2D" parent="." unique_id=1704887786]
