@@ -21,6 +21,7 @@ var win:bool=0
 var is_scalpel_inzone :bool=0
 var already_won: bool =0
 var handclic:bool =0
+var telephone_grabbed :bool =0
 
 @export var started: bool = true
 
@@ -133,10 +134,11 @@ func _on_outline_area_shape_exited(area_rid: RID, area: Area2D, area_shape_index
 
 
 func _on_outline_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if event.is_action("left_clic") and already_won and handclic:
+	if event.is_action("left_clic") and already_won and handclic and not telephone_grabbed:
 		%PlaiePng.hide()
 		%PlaieOuvertePng2.show()
 		telephone.global_position = %PlaieOuvertePng2.global_position
 		telephone.scale = %PlaieOuvertePng2.scale-Vector2(0.1,0.1)
 		add_child(telephone)
 		handclic=0
+		telephone_grabbed =1

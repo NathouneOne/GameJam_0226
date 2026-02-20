@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://3n3jakkd2wfr"]
+
+[ext_resource type="Script" uid="uid://byii4ngyrsi3e" path="res://Scenes/Components/grabbable/grabbable.gd" id="1_ffodk"]
+
+[node name="Poubellable" type="Area2D" unique_id=1417285088]
+script = ExtResource("1_ffodk")

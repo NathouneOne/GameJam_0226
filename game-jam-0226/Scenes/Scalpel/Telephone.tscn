@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://urhinpicu3w4"]
 
 [ext_resource type="Texture2D" uid="uid://dhn82peqreic1" path="res://Assets/Graphismes/TEL_PNG.png" id="1_qv1yl"]
-[ext_resource type="PackedScene" uid="uid://bivkc0072g4c8" path="res://Scenes/Components/grabbable/Grabbable.tscn" id="2_4no1l"]
+[ext_resource type="PackedScene" uid="uid://3n3jakkd2wfr" path="res://Scenes/Components/grabbable/poubellable.tscn" id="2_4no1l"]
+[ext_resource type="Script" uid="uid://c8mlq2414nbxi" path="res://Scenes/Components/grabbable/poubellable.gd" id="3_5op4b"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5op4b"]
-radius = 585.5655
-height = 1807.1094
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4t6fn"]
+size = Vector2(493, 900)
 
 [node name="Telephone" type="Node2D" unique_id=1993034684]
 
@@ -13,10 +13,9 @@ height = 1807.1094
 position = Vector2(11, -24)
 texture = ExtResource("1_qv1yl")
 
-[node name="Grabbable" parent="." unique_id=1188487955 instance=ExtResource("2_4no1l")]
-position = Vector2(-6, 6)
-scale = Vector2(0.51574075, 0.51574075)
+[node name="Poubellable" parent="." unique_id=94613873 instance=ExtResource("2_4no1l")]
+script = ExtResource("3_5op4b")
 
-[node name="Grab" type="CollisionShape2D" parent="Grabbable" unique_id=890450728]
-position = Vector2(-32.962296, -155.11668)
-shape = SubResource("CapsuleShape2D_5op4b")
+[node name="Grab" type="CollisionShape2D" parent="Poubellable" unique_id=1665815610]
+position = Vector2(-12.5, -62)
+shape = SubResource("RectangleShape2D_4t6fn")

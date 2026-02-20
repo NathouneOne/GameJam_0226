@@ -1,12 +1,11 @@
 extends Area2D
-class_name Grabbable
+class_name Poubellable
 
 signal grabbed(hand: Node2D)
 signal released()
 
 var is_grabbed: bool = false
 var hand_grabbing: Node2D = null
-
 func _ready() -> void:
 	add_to_group(&"grabbables")
 
@@ -35,6 +34,6 @@ func release() -> bool:
 func can_release() -> bool:
 	var areas: Array[Area2D] = get_overlapping_areas()
 	for area: Area2D in areas:
-		if area.is_in_group(&"item_zone"):
+		if area.is_in_group(&"poubelle_zone"):
 			return true
 	return false

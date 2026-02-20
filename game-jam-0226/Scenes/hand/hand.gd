@@ -3,6 +3,7 @@ class_name Hand
 
 var grabbed_object: Node2D = null
 var grabbable_component: Grabbable = null
+var poubellable_component: Poubellable = null
 var useable_component: Useable = null
 var grab_offset: Vector2 = Vector2.ZERO # object position in hand's local space when grabbed
 
@@ -34,6 +35,12 @@ func _try_grab_object() -> bool:
 			if target is Node2D:
 				_grab_object(target as Node2D, area as Grabbable)
 				return true
+
+		if area is Poubellable:
+			var target: Node = area.get_parent()
+			if target is Node2D:
+				_grab_poubelle_object(target as Node2D, area as Poubellable)
+				return true
 	return false
 
 func _grab_object(object: Node2D, component: Grabbable) -> void:
@@ -43,6 +50,15 @@ func _grab_object(object: Node2D, component: Grabbable) -> void:
 	grab_offset = global_transform.affine_inverse() * object.global_position
 	arm.closed = true;
 	grabbable_component.grab(self)
+	useable_component = _find_component_in_object(object, Useable) as Useable
+	
+func _grab_poubelle_object(object: Node2D, component: Poubellable) -> void:
+	grabbed_object = object
+	poubellable_component = component
+	# Store where the object was relative to the hand so it doesn't snap to hand center
+	grab_offset = global_transform.affine_inverse() * object.global_position
+	arm.closed = true;
+	poubellable_component.grab(self)
 	useable_component = _find_component_in_object(object, Useable) as Useable
 
 func _release_object() -> bool:
@@ -54,7 +70,17 @@ func _release_object() -> bool:
 			useable_component = null
 			arm.closed = false;
 			return true
+			
+	if poubellable_component:
+		if poubellable_component.release():
+			_use(false)
+			grabbed_object = null
+			poubellable_component = null
+			useable_component = null
+			arm.closed = false;
+			return true
 	return false
+
 
 func _process_grabbed_object() -> void:
 	if grabbed_object:
