@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://gi25uq4griix"
+path="res://.godot/imported/boucle 1 (lead no drum) wrap.wav-2792db1c12dc9ff561401709ad59494c.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Tracks/v002/wetransfer_boucle-1-lead-no-drum-wav_2026-02-20_2156/boucle 1 (lead no drum) wrap.wav"
+dest_files=["res://.godot/imported/boucle 1 (lead no drum) wrap.wav-2792db1c12dc9ff561401709ad59494c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
