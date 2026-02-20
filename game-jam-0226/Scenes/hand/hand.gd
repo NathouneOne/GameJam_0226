@@ -13,6 +13,7 @@ var grab_offset: Vector2 = Vector2.ZERO # object position in hand's local space 
 func _ready() -> void:
 	arm.closed = false
 	Global.hand_force_release_object.connect(_force_release_object)
+	Global.on_end_game.connect(_force_release_object)
 
 
 func _process(_delta: float) -> void:
