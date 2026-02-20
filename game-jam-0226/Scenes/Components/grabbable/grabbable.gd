@@ -9,12 +9,23 @@ signal released()
 ## If true, the object only moves on the Y axis while grabbed (e.g. vertical rail handle).
 @export var position_y_only: bool = false
 
+@export var disable_on_menu: bool = true
+
+## When true, grabbing is refused (e.g. while menu is open).
+var disabled: bool = true
+
 var is_grabbed: bool = false
 var hand_grabbing: Node2D = null
 
 func _ready() -> void:
 	add_to_group(&"grabbables")
-
+	if disable_on_menu:
+		disabled = true # start disabled while menu is shown
+		Global.on_start_game.connect(func() -> void: disabled = false)
+		Global.on_end_game.connect(func() -> void: disabled = true)
+	else:
+		disabled = false
+		
 
 # return true if grabbed
 func grab(hand: Node2D) -> bool:

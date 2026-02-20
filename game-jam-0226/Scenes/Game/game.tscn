@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://b4q2ax0maqjtw" path="res://Scenes/Game/game.gd" id="1_ypmwd"]
 [ext_resource type="Theme" uid="uid://b2tioy6g4l1nk" path="res://Resources/default_theme.tres" id="2_flgk0"]
 [ext_resource type="Texture2D" uid="uid://drywx78pas5gi" path="res://Assets/Graphismes/GAMEJAM_Dr_MABOUL_enviro_perso.png" id="2_i1e5p"]
-[ext_resource type="PackedScene" path="res://Scenes/Game/menu.tscn" id="2_oejk7"]
+[ext_resource type="PackedScene" uid="uid://cliuyijkchunc" path="res://Scenes/Game/menu.tscn" id="2_oejk7"]
 [ext_resource type="Texture2D" uid="uid://dmvmfr47s6iux" path="res://Assets/Graphismes/LIANES.png" id="2_ypmwd"]
 [ext_resource type="PackedScene" uid="uid://cub20lgna3oru" path="res://Scenes/Defibrilateur/defibrilateur.tscn" id="3_qikps"]
 [ext_resource type="PackedScene" uid="uid://cpk6nfbh5g21i" path="res://Scenes/Components/flash_feedback/FlashFeedback.tscn" id="3_xfil1"]
@@ -19,7 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://gi25uq4griix" path="res://Assets/Sounds/Tracks/v002/wetransfer_boucle-1-lead-no-drum-wav_2026-02-20_2156/boucle 1 (lead no drum) wrap.wav" id="16_2vowc"]
 [ext_resource type="AudioStream" uid="uid://d8kvu6btjvju" path="res://Assets/Sounds/SFX/eclectrocardiogramme 1 (lent).wav" id="17_2vowc"]
 [ext_resource type="AudioStream" uid="uid://c0kl752rewhpo" path="res://Assets/Sounds/SFX/dégat du man.wav" id="18_yox4t"]
-[ext_resource type="Script" uid="uid://cdjtiwpnt2t16" path="res://Scenes/Game/camera_2d.gd" id="19_lemb1"]
+[ext_resource type="Script" path="res://Scenes/Game/camera_2d.gd" id="19_lemb1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i1e5p"]
 size = Vector2(179, 491)
@@ -217,6 +217,7 @@ polygon = PackedVector2Array(1520, 76, 1579, -48, 1745, 47, 1779, 214, 1755, 278
 
 [node name="Patient" parent="." unique_id=855156239 instance=ExtResource("8_ypmwd")]
 position = Vector2(893, 610)
+PRESET = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=211062614]
 libraries/ = SubResource("AnimationLibrary_upfqs")
