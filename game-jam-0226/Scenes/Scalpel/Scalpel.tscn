@@ -1,10 +1,11 @@
-[gd_scene format=3 uid="uid://dbffdjahw2bes"]
+[gd_scene format=3 uid="uid://e51vi8ldmkjl"]
 
 [ext_resource type="Script" uid="uid://dv48x2gjkaa2f" path="res://Scenes/Scalpel/scalpel.gd" id="1_lt5rr"]
 [ext_resource type="Texture2D" uid="uid://d1gnnvf53fy00" path="res://Assets/Graphismes/banana_scalpel.png" id="2_ssm44"]
 [ext_resource type="PackedScene" uid="uid://bivkc0072g4c8" path="res://Scenes/Components/grabbable/Grabbable.tscn" id="3_48hnu"]
 [ext_resource type="PackedScene" uid="uid://dcfcxw6hka05n" path="res://Scenes/Components/usable/Usable.tscn" id="4_j7yw4"]
 [ext_resource type="Texture2D" uid="uid://b1qupa75pcmb0" path="res://Assets/Graphismes/BloodParticle.png" id="5_48hnu"]
+[ext_resource type="Script" uid="uid://c46kw3psq4b7c" path="res://Scenes/Components/resettable/resettable.gd" id="6_j7yw4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8ihrl"]
 radius = 3.8778992
@@ -58,3 +59,7 @@ texture = ExtResource("5_48hnu")
 lifetime = 1.5
 speed_scale = 2.0
 process_material = SubResource("ParticleProcessMaterial_j7yw4")
+
+[node name="Resettable" type="Node" parent="." unique_id=2121545379]
+script = ExtResource("6_j7yw4")
+metadata/_custom_type_script = "uid://c46kw3psq4b7c"

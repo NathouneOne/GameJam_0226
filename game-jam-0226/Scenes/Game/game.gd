@@ -17,36 +17,36 @@ var game_state := GameStateEnum.IN_GAME
 func _ready() -> void:
 	patient.patient_done.connect(_on_patient_done)
 	game_time.on_timer_end.connect(_on_timer_end)
-	
+
+	# hack to have the patient out at the start
+	animation_player.play("patient_out")
 	
 	if not Engine.is_editor_hint():
-		Global.on_start_game.emit()
-	
-	_on_game_start()
+		Global.on_start_game.connect(_on_game_start)
 
 
 func _on_game_start() -> void:
 	print("[Game] on game start !")
+	game_state = GameStateEnum.IN_GAME
 	_enter_new_patient()
-	Global.on_start_game.emit()
 
 func _on_patient_done() -> void:
 	print("[Game] Patient done !")
-	# on out finished, 
-	animation_player.animation_finished.connect(
-		func (animation_name: String) -> void:
-			if not game_state == GameStateEnum.IN_GAME:
-				return
-
-			if animation_name == "patient_out":
-				_enter_new_patient()
-	)
+	animation_player.animation_finished.connect(_on_patient_out_finished, CONNECT_ONE_SHOT)
 	animation_player.play("patient_out")
+
+
+func _on_patient_out_finished(animation_name: String) -> void:
+	if game_state != GameStateEnum.IN_GAME:
+		return
+	if animation_name == "patient_out":
+		_enter_new_patient()
 
 
 func _on_timer_end() -> void:
 	animation_player.play("patient_out")
 	game_state = GameStateEnum.MENU
+	Global.on_end_game.emit()
 
 func _enter_new_patient() -> void:
 	# Swap patient, pick a random preset

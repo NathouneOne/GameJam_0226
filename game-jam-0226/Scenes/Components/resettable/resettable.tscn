@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://didvm4abna5rp"]
+
+[ext_resource type="Script" uid="uid://c46kw3psq4b7c" path="res://Scenes/Components/resettable/resettable.gd" id="1_oclk8"]
+
+[node name="Resettable" type="Node" unique_id=1177109156]
+script = ExtResource("1_oclk8")
