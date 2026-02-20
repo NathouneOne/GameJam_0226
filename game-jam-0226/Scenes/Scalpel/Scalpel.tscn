@@ -1,16 +1,18 @@
 [gd_scene format=3 uid="uid://dbffdjahw2bes"]
 
-[ext_resource type="Texture2D" uid="uid://j65f4fiq2i5c" path="res://Assets/Graphismes/scalpel.png" id="1_lt5rr"]
+[ext_resource type="Script" uid="uid://dv48x2gjkaa2f" path="res://Scenes/Scalpel/scalpel.gd" id="1_lt5rr"]
+[ext_resource type="Texture2D" uid="uid://j65f4fiq2i5c" path="res://Assets/Graphismes/scalpel.png" id="2_ojjfw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ojjfw"]
 size = Vector2(299.00714, 48.226974)
 
 [node name="Scalpel" type="Node2D" unique_id=592803465]
+script = ExtResource("1_lt5rr")
 
 [node name="Scalpel" type="Sprite2D" parent="." unique_id=1477842921]
-position = Vector2(127, 181.00002)
+position = Vector2(97.00001, 5)
 scale = Vector2(0.41470584, 0.41470587)
-texture = ExtResource("1_lt5rr")
+texture = ExtResource("2_ojjfw")
 
 [node name="Area2D" type="Area2D" parent="Scalpel" unique_id=1401052497]
 
