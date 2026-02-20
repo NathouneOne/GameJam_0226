@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://cpk6nfbh5g21i" path="res://Scenes/Components/flash_feedback/FlashFeedback.tscn" id="3_xfil1"]
 [ext_resource type="Texture2D" uid="uid://cs744psx347nm" path="res://Assets/Graphismes/APERATION_DECOR.png" id="8_qtymf"]
 [ext_resource type="PackedScene" uid="uid://dilbhfaavqadx" path="res://Scenes/Game/patient.tscn" id="8_ypmwd"]
-[ext_resource type="Script" uid="uid://dot4ylmf1ujv5" path="res://Scenes/Game/patient_manager.gd" id="11_ypmwd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i1e5p"]
 size = Vector2(179, 491)
@@ -21,22 +20,10 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Patient:position")
+tracks/0/path = NodePath("Patient:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(893, 610)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Patient:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -65,10 +52,10 @@ tracks/1/path = NodePath("Patient:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(-3, 0, 0.23333333, 0.38328844, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.23333333, 0.38328844, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [0.0, 0.0, -0.05235988, 0.034906585, 0.0]
+"values": [0.0, -0.05235988, 0.034906585, 0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_upfqs"]
@@ -179,11 +166,8 @@ z_index = -1
 color = Color(0.5686275, 0.62352943, 0.5372549, 1)
 polygon = PackedVector2Array(1520, 76, 1579, -48, 1745, 47, 1779, 214, 1755, 278, 1675, 237)
 
-[node name="PatientManager" type="Node2D" parent="." unique_id=1557784126]
-script = ExtResource("11_ypmwd")
+[node name="Patient" parent="." unique_id=855156239 instance=ExtResource("8_ypmwd")]
+position = Vector2(893, 1770)
 
-[node name="Patient" parent="PatientManager" unique_id=855156239 instance=ExtResource("8_ypmwd")]
-position = Vector2(893, 610)
-
-[node name="Animation" type="AnimationPlayer" parent="PatientManager" unique_id=211062614]
+[node name="Animation" type="AnimationPlayer" parent="." unique_id=211062614]
 libraries/ = SubResource("AnimationLibrary_upfqs")
