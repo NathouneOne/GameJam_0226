@@ -4,14 +4,16 @@
 [ext_resource type="Script" uid="uid://ds4pi4ocajr22" path="res://Scenes/Game/score.gd" id="1_flgk0"]
 [ext_resource type="PackedScene" uid="uid://dgn4ub5vss8hf" path="res://Scenes/hand/hands.tscn" id="1_mv0hc"]
 [ext_resource type="Texture2D" uid="uid://c3hilgl2uc34p" path="res://Assets/Graphismes/TELE_APERATION.png" id="1_qtymf"]
-[ext_resource type="Script" uid="uid://b4q2ax0maqjtw" path="res://Scenes/Game/game.gd" id="1_ypmwd"]
+[ext_resource type="Script" path="res://Scenes/Game/game.gd" id="1_ypmwd"]
 [ext_resource type="Theme" uid="uid://b2tioy6g4l1nk" path="res://Resources/default_theme.tres" id="2_flgk0"]
 [ext_resource type="Texture2D" uid="uid://drywx78pas5gi" path="res://Assets/Graphismes/GAMEJAM_Dr_MABOUL_enviro_perso.png" id="2_i1e5p"]
 [ext_resource type="Texture2D" uid="uid://dmvmfr47s6iux" path="res://Assets/Graphismes/LIANES.png" id="2_ypmwd"]
 [ext_resource type="PackedScene" uid="uid://cub20lgna3oru" path="res://Scenes/Defibrilateur/defibrilateur.tscn" id="3_qikps"]
 [ext_resource type="PackedScene" uid="uid://cpk6nfbh5g21i" path="res://Scenes/Components/flash_feedback/FlashFeedback.tscn" id="3_xfil1"]
 [ext_resource type="Texture2D" uid="uid://cs744psx347nm" path="res://Assets/Graphismes/APERATION_DECOR.png" id="8_qtymf"]
-[ext_resource type="PackedScene" uid="uid://dilbhfaavqadx" path="res://Scenes/Game/patient.tscn" id="8_ypmwd"]
+[ext_resource type="PackedScene" uid="uid://dvc2gkhwk0xpr" path="res://Scenes/Game/patient.tscn" id="8_ypmwd"]
+[ext_resource type="PackedScene" uid="uid://dbffdjahw2bes" path="res://Scenes/Scalpel/Scalpel.tscn" id="10_upfqs"]
+[ext_resource type="Texture2D" uid="uid://bof160lvfpeso" path="res://Assets/Graphismes/poubelle.png" id="13_oejk7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i1e5p"]
 size = Vector2(179, 491)
@@ -77,6 +79,9 @@ _data = {
 &"patient_in": SubResource("Animation_ypmwd"),
 &"patient_out": SubResource("Animation_oejk7")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ypmwd"]
+size = Vector2(377, 436)
 
 [node name="Game" type="Node2D" unique_id=2073138695]
 script = ExtResource("1_ypmwd")
@@ -156,6 +161,12 @@ shape = SubResource("RectangleShape2D_i1e5p")
 z_index = 4
 position = Vector2(172, 519)
 
+[node name="Scalpel" parent="." unique_id=592803465 instance=ExtResource("10_upfqs")]
+unique_name_in_owner = true
+z_index = 5
+position = Vector2(188.815, 696.255)
+rotation = 1.097812
+
 [node name="Background" type="Node2D" parent="." unique_id=1704887786]
 metadata/_edit_lock_ = true
 
@@ -191,3 +202,16 @@ PRESET = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=211062614]
 libraries/ = SubResource("AnimationLibrary_upfqs")
+
+[node name="Poubelle" type="Area2D" parent="." unique_id=1277353746 groups=["poubelle_zone"]]
+unique_name_in_owner = true
+
+[node name="Poubelle2" type="Sprite2D" parent="Poubelle" unique_id=962469754]
+z_index = 6
+position = Vector2(1798, 895)
+scale = Vector2(0.7277778, 0.7277778)
+texture = ExtResource("13_oejk7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Poubelle" unique_id=1161815120]
+position = Vector2(1800.5, 896)
+shape = SubResource("RectangleShape2D_ypmwd")

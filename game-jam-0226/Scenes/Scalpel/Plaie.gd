@@ -3,18 +3,14 @@ extends Node2D
 class_name Plaie
 var cut_started :bool =0
 
-
-## ADD SIGNAL MINIGAME DONE -> Voir avec nohe
-
-@onready var interactive: Interactive = $Interactive
-#@onready var flash_feedback_ok: FlashFeedback = $FlashFeedbackOk
-#@onready var flash_feedback_nok: FlashFeedback = $FlashFeedbackNok
-#@onready var qteCoeur: Node2D = $QTECoeur
+signal minigame_done()
 
 
 const CHECK_POINT = preload("uid://oeb2gp4owcen")
 const TELEPHONE = preload("uid://urhinpicu3w4")
-var telephone := TELEPHONE.instantiate()
+
+@export var started: bool = true
+
 
 var start_checkpoint := CHECK_POINT.instantiate()
 var win:bool=0
@@ -22,22 +18,31 @@ var is_scalpel_inzone :bool=0
 var already_won: bool =0
 var handclic:bool =0
 var telephone_grabbed :bool =0
+var scalpel : Node2D
+var telephone := TELEPHONE.instantiate()
 
-@export var started: bool = true
+@onready var interactive: Interactive = $Interactive
+
 
 
 func _ready() -> void:
+	Global.on_new_patient.connect(reset_minigame)
+	
 	interactive.interact_start.connect(_on_interact_start)
 	interactive.interact_stop.connect(_on_interact_stop)
 	
+	
 	if started:
 		start()
+	
+	reset_minigame()
 
 @export var SUCCESS_POINTS := 15
 @export var DEFEAT_POINTS := -5
 
 func _on_interact_start(_target: Node2D, source: Node2D, _hand: Node2D) -> void:
 	if source is Scalpel:
+		scalpel=source.get_child(1)
 		cut_started=1
 	elif source != null:
 		Global.on_add_score.emit(DEFEAT_POINTS)
@@ -60,28 +65,28 @@ func _process(_delta: float) -> void:
 	## CUTTER ##
 	if cut_started:
 		for i in %Outline.get_overlapping_areas() :
-			if i == %Scalpel/Useable :
+			if i == scalpel :
 				is_scalpel_inzone=1
 				break
 			else:
 				is_scalpel_inzone=0
 				
 		for j in %Inline.get_overlapping_areas():
-			if j == %Scalpel/Useable :
+			if j == scalpel :
 				is_scalpel_inzone=0
 				break
 					
 		if Input.is_action_just_pressed("left_clic") :
 			%ScalpelCurve.curve.clear_points()
 			add_child(start_checkpoint)
-			start_checkpoint.global_position = %Scalpel/Useable.global_position
+			start_checkpoint.global_position = scalpel.global_position
 			start_checkpoint.is_start_checkpoint = 1
 			
 			if not is_scalpel_inzone :
 				Global.on_add_score.emit(DEFEAT_POINTS)
 			
 		if Input.is_action_pressed("left_clic"):
-			%ScalpelCurve.curve.add_point(%Scalpel/Useable.global_position, Vector2(0,0), Vector2(0,0))
+			%ScalpelCurve.curve.add_point(scalpel.global_position-global_position, Vector2(0,0), Vector2(0,0))
 			for i in get_children() :
 				win=1
 				if i.is_in_group("checkpoint") :
@@ -117,16 +122,16 @@ func _draw():
 		draw_polyline(%ScalpelCurve.curve.get_baked_points(), Color(124.999, 0.0, 0.0, 1.0), 4, true)
 
 func _on_inline_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
-	if area == %Scalpel/Useable :
+	if area == scalpel :
 		if Input.is_action_pressed("left_clic") and cut_started :
 				Global.on_add_score.emit(DEFEAT_POINTS)
 
 
 func _on_outline_area_shape_exited(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
-		if area == %Scalpel/Useable :
+		if area == scalpel :
 			var local_inzone:bool = 0
 			for i in %Outline.get_overlapping_areas() :
-				if i == %Scalpel/Useable :
+				if i == scalpel :
 					local_inzone=1
 					break
 			if Input.is_action_pressed("left_clic") and cut_started and not local_inzone:
@@ -139,8 +144,27 @@ func _on_outline_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 		%PlaieOuvertePng2.show()
 		%ScalpelCurve.curve.clear_points()
 		queue_redraw()
-		telephone.global_position = %PlaieOuvertePng2.global_position
+		telephone.global_position = %PlaieOuvertePng2.global_position-global_position
 		telephone.scale = %PlaieOuvertePng2.scale-Vector2(0.1,0.1)
 		add_child(telephone)
 		handclic=0
 		telephone_grabbed =1
+
+
+func tel_poubelle():
+		minigame_done.emit()
+
+func reset_minigame():
+	%ScalpelCurve.curve.clear_points()
+	%PlaiePng.show()
+	%PlaieOuvertePng2.hide()
+	telephone.queue_free()
+	telephone = TELEPHONE.instantiate()
+	telephone.connect("telephone_poubelle", tel_poubelle)
+	start_checkpoint = CHECK_POINT.instantiate()
+	win=0
+	is_scalpel_inzone =0
+	already_won=0
+	handclic=0
+	telephone_grabbed =0
+	

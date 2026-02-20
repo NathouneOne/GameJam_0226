@@ -1,6 +1,6 @@
 extends Node2D
 
-signal minigame_done()
+signal telephone_poubelle()
 
 const SUCCESS_POINTS:=5
 # Called when the node enters the scene tree for the first time.
@@ -14,5 +14,5 @@ func _process(delta: float) -> void:
 	pass
 
 func end_game()->void :
-	minigame_done.emit()
+	telephone_poubelle.emit()
 	Global.on_add_score.emit(SUCCESS_POINTS)

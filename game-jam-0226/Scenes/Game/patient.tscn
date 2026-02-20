@@ -1,12 +1,14 @@
-[gd_scene format=3 uid="uid://dilbhfaavqadx"]
+[gd_scene format=3 uid="uid://dvc2gkhwk0xpr"]
 
 [ext_resource type="Script" uid="uid://cck23yc0x63gi" path="res://Scenes/Game/patient.gd" id="1_6j6pa"]
 [ext_resource type="Texture2D" uid="uid://xaph1cy1bppp" path="res://Assets/Graphismes/LIT_APERATION.png" id="1_ljr86"]
 [ext_resource type="PackedScene" uid="uid://fy15tufi5wwi" path="res://Scenes/Defibrilateur/coeur.tscn" id="2_6j6pa"]
 [ext_resource type="Texture2D" uid="uid://dtk6nxfncqu8f" path="res://Assets/Graphismes/vv_base.png" id="2_lubxh"]
+[ext_resource type="PackedScene" uid="uid://cdj3e4ns44s4d" path="res://Scenes/Scalpel/Plaie.tscn" id="5_3xtxg"]
 
 [node name="Patient" type="Node2D" unique_id=145693716]
 script = ExtResource("1_6j6pa")
+PRESET = 3
 
 [node name="Lit" type="Node2D" parent="." unique_id=1588782232]
 
@@ -52,11 +54,21 @@ position = Vector2(23, 536.01)
 texture = ExtResource("1_ljr86")
 
 [node name="Coeur1" parent="." unique_id=1087108802 instance=ExtResource("2_6j6pa")]
+process_mode = 4
+visible = false
 z_index = 2
 position = Vector2(329, -50)
 rotation = 0.21991149
 
 [node name="Coeur2" parent="." unique_id=356672580 instance=ExtResource("2_6j6pa")]
+process_mode = 4
+visible = false
 z_index = 2
 position = Vector2(-64, 206)
 rotation = -0.24609143
+
+[node name="Plaie" parent="." unique_id=1972709014 instance=ExtResource("5_3xtxg")]
+process_mode = 4
+visible = false
+z_index = 2
+position = Vector2(-1, 2)
