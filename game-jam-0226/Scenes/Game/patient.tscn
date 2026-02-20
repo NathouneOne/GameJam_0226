@@ -8,7 +8,6 @@
 
 [node name="Patient" type="Node2D" unique_id=145693716]
 script = ExtResource("1_6j6pa")
-PRESET = 3
 
 [node name="Lit" type="Node2D" parent="." unique_id=1588782232]
 

@@ -45,6 +45,7 @@ shape = SubResource("CapsuleShape2D_8ihrl")
 [node name="Grabbable" parent="." unique_id=1006315209 instance=ExtResource("3_48hnu")]
 position = Vector2(-7, 8)
 scale = Vector2(0.51574075, 0.51574075)
+lock_rotation = true
 
 [node name="Grab" type="CollisionShape2D" parent="Grabbable" unique_id=1385388304]
 position = Vector2(29.084381, 21.328545)

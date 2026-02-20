@@ -4,6 +4,11 @@ class_name Grabbable
 signal grabbed(hand: Node2D)
 signal released()
 
+## If true, the object keeps its rotation while grabbed (e.g. vertical rail handle).
+@export var lock_rotation: bool = false
+## If true, the object only moves on the Y axis while grabbed (e.g. vertical rail handle).
+@export var position_y_only: bool = false
+
 var is_grabbed: bool = false
 var hand_grabbing: Node2D = null
 
