@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://urhinpicu3w4"]
 
+[ext_resource type="Script" uid="uid://mxtxhqn6qjs3" path="res://Scenes/Scalpel/telephone.gd" id="1_5op4b"]
 [ext_resource type="Texture2D" uid="uid://dhn82peqreic1" path="res://Assets/Graphismes/TEL_PNG.png" id="1_qv1yl"]
 [ext_resource type="PackedScene" uid="uid://3n3jakkd2wfr" path="res://Scenes/Components/grabbable/poubellable.tscn" id="2_4no1l"]
 [ext_resource type="Script" uid="uid://c8mlq2414nbxi" path="res://Scenes/Components/grabbable/poubellable.gd" id="3_5op4b"]
@@ -8,6 +9,7 @@
 size = Vector2(493, 900)
 
 [node name="Telephone" type="Node2D" unique_id=1993034684]
+script = ExtResource("1_5op4b")
 
 [node name="TelPng" type="Sprite2D" parent="." unique_id=620297144]
 position = Vector2(11, -24)

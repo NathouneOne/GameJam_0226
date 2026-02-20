@@ -137,6 +137,8 @@ func _on_outline_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 	if event.is_action("left_clic") and already_won and handclic and not telephone_grabbed:
 		%PlaiePng.hide()
 		%PlaieOuvertePng2.show()
+		%ScalpelCurve.curve.clear_points()
+		queue_redraw()
 		telephone.global_position = %PlaieOuvertePng2.global_position
 		telephone.scale = %PlaieOuvertePng2.scale-Vector2(0.1,0.1)
 		add_child(telephone)

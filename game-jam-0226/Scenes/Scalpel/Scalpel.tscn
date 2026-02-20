@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://d1gnnvf53fy00" path="res://Assets/Graphismes/banana_scalpel.png" id="2_ssm44"]
 [ext_resource type="PackedScene" uid="uid://bivkc0072g4c8" path="res://Scenes/Components/grabbable/Grabbable.tscn" id="3_48hnu"]
 [ext_resource type="PackedScene" uid="uid://dcfcxw6hka05n" path="res://Scenes/Components/usable/Usable.tscn" id="4_j7yw4"]
+[ext_resource type="Texture2D" uid="uid://b1qupa75pcmb0" path="res://Assets/Graphismes/BloodParticle.png" id="5_48hnu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8ihrl"]
 radius = 3.8778992
@@ -12,6 +13,17 @@ height = 7.7557983
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xgwnc"]
 radius = 145.4219
 height = 581.6876
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j7yw4"]
+particle_flag_disable_z = true
+angle_min = 1.0728835e-05
+angle_max = 1.0728835e-05
+direction = Vector3(0, -0.5, 0)
+spread = 10.0
+initial_velocity_min = 50.0
+initial_velocity_max = 75.0
+gravity = Vector3(0, 98, 0)
+scale_min = 0.39999998
 
 [node name="Scalpel" type="Node2D" unique_id=592803465]
 script = ExtResource("1_lt5rr")
@@ -36,3 +48,12 @@ scale = Vector2(0.51574075, 0.51574075)
 [node name="Grab" type="CollisionShape2D" parent="Grabbable" unique_id=1385388304]
 position = Vector2(29.084381, 21.328545)
 shape = SubResource("CapsuleShape2D_xgwnc")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=80562523]
+unique_name_in_owner = true
+position = Vector2(19, -245)
+amount = 17
+texture = ExtResource("5_48hnu")
+lifetime = 1.5
+speed_scale = 2.0
+process_material = SubResource("ParticleProcessMaterial_j7yw4")
