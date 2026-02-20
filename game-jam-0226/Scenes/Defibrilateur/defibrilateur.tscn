@@ -1,15 +1,115 @@
 [gd_scene format=3 uid="uid://cub20lgna3oru"]
 
-[ext_resource type="Texture2D" uid="uid://bgc86fq2gefa3" path="res://Assets/Graphismes/fer_a_repasser_tmp.png" id="1_2r4vs"]
 [ext_resource type="PackedScene" uid="uid://bivkc0072g4c8" path="res://Scenes/Components/grabbable/Grabbable.tscn" id="2_mrefm"]
 [ext_resource type="Texture2D" uid="uid://dnnx2yxnv1lme" path="res://Assets/Graphismes/SINGE_IRON_PROPS_PNG.png" id="2_oxjt4"]
 [ext_resource type="PackedScene" uid="uid://dcfcxw6hka05n" path="res://Scenes/Components/usable/Usable.tscn" id="3_87nux"]
 [ext_resource type="Script" uid="uid://dql7mxxj7vuv0" path="res://Scenes/Defibrilateur/defibrilateur.gd" id="4_6s5y0"]
 [ext_resource type="PackedScene" uid="uid://cpk6nfbh5g21i" path="res://Scenes/Components/flash_feedback/FlashFeedback.tscn" id="5_fkq31"]
+[ext_resource type="Texture2D" uid="uid://d05biy8apmffo" path="res://Assets/Graphismes/Lightnings_iron/comped/Composition 1/Lightning_iron_comped_00000.png" id="6_twpnf"]
+[ext_resource type="Texture2D" uid="uid://bqvelsvp0blqv" path="res://Assets/Graphismes/Lightnings_iron/comped/Composition 1/Lightning_iron_comped_00001.png" id="7_ti7td"]
+[ext_resource type="Texture2D" uid="uid://do7vbl0peowko" path="res://Assets/Graphismes/Lightnings_iron/comped/Composition 1/Lightning_iron_comped_00002.png" id="8_5giaq"]
+[ext_resource type="Texture2D" uid="uid://co3qxbf3rvywt" path="res://Assets/Graphismes/Lightnings_iron/comped/Composition 1/Lightning_iron_comped_00003.png" id="9_sj8s1"]
+[ext_resource type="Texture2D" uid="uid://dsqqi3f8xwv54" path="res://Assets/Graphismes/Lightnings_iron/comped/Composition 1/Lightning_iron_comped_00004.png" id="10_ogwej"]
+[ext_resource type="Texture2D" uid="uid://c5xxtn8p8yrne" path="res://Assets/Graphismes/Lightnings_iron/comped/Composition 1/Lightning_iron_comped_00005.png" id="11_4yta4"]
+[ext_resource type="Texture2D" uid="uid://brib0506ylhgy" path="res://Assets/Graphismes/Lightnings_iron/comped/Composition 1/Lightning_iron_comped_00006.png" id="12_gncal"]
+[ext_resource type="Texture2D" uid="uid://bfeu8kqc026m7" path="res://Assets/Graphismes/Lightnings_iron/comped/Composition 1/Lightning_iron_comped_00007.png" id="13_0hpud"]
+[ext_resource type="Texture2D" uid="uid://hcg4kwenkij1" path="res://Assets/Graphismes/Smoke_iron/comped/Composition 1/smoke_iron_comped_00000.png" id="14_77tsx"]
+[ext_resource type="Texture2D" uid="uid://da8qk7j6q5vd0" path="res://Assets/Graphismes/Smoke_iron/comped/Composition 1/smoke_iron_comped_00001.png" id="15_6pl1p"]
+[ext_resource type="Texture2D" uid="uid://k0pgiwkkus21" path="res://Assets/Graphismes/Smoke_iron/comped/Composition 1/smoke_iron_comped_00002.png" id="16_j2104"]
+[ext_resource type="Texture2D" uid="uid://b5s0l3jkh66w1" path="res://Assets/Graphismes/Smoke_iron/comped/Composition 1/smoke_iron_comped_00003.png" id="17_f8wa1"]
+[ext_resource type="Texture2D" uid="uid://td3bfck07b7t" path="res://Assets/Graphismes/Smoke_iron/comped/Composition 1/smoke_iron_comped_00004.png" id="18_iig7u"]
+[ext_resource type="Texture2D" uid="uid://duxv74jn65fn4" path="res://Assets/Graphismes/Smoke_iron/comped/Composition 1/smoke_iron_comped_00005.png" id="19_tifny"]
+[ext_resource type="Texture2D" uid="uid://cd70p5wsvlinc" path="res://Assets/Graphismes/Smoke_iron/comped/Composition 1/smoke_iron_comped_00006.png" id="20_5kqpt"]
+[ext_resource type="Texture2D" uid="uid://dsbleu5j7m70g" path="res://Assets/Graphismes/Smoke_iron/comped/Composition 1/smoke_iron_comped_00007.png" id="21_mo707"]
+[ext_resource type="Texture2D" uid="uid://xaxetw8qbqqk" path="res://Assets/Graphismes/Smoke_iron/comped/Composition 1/smoke_iron_comped_00008.png" id="22_sx25g"]
+[ext_resource type="Texture2D" uid="uid://cp2um3iur5xng" path="res://Assets/Graphismes/Smoke_iron/comped/Composition 1/smoke_iron_comped_00009.png" id="23_wi0dp"]
+[ext_resource type="Texture2D" uid="uid://wgr8ninhw6rd" path="res://Assets/Graphismes/Smoke_iron/comped/Composition 1/smoke_iron_comped_00010.png" id="24_j2n6d"]
+[ext_resource type="Texture2D" uid="uid://b8yiwuoaxqsqv" path="res://Assets/Graphismes/Smoke_iron/comped/Composition 1/smoke_iron_comped_00011.png" id="25_toaku"]
+[ext_resource type="Texture2D" uid="uid://d0783pvavdonw" path="res://Assets/Graphismes/Smoke_iron/comped/Composition 1/smoke_iron_comped_00012.png" id="26_mxc63"]
+[ext_resource type="Texture2D" uid="uid://lug42domh6fj" path="res://Assets/Graphismes/Smoke_iron/comped/Composition 1/smoke_iron_comped_00013.png" id="27_5ly31"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4xhnb"]
 radius = 71.26518
 height = 288.80115
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ogkay"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_twpnf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ti7td")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_5giaq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_sj8s1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ogwej")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_4yta4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_gncal")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_0hpud")
+}],
+"loop": false,
+"name": &"Lightning",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_77tsx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_6pl1p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_j2104")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_f8wa1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_iig7u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_tifny")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_5kqpt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_mo707")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_sx25g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_wi0dp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_j2n6d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_toaku")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_mxc63")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_5ly31")
+}],
+"loop": false,
+"name": &"Smoke",
+"speed": 24.0
+}]
 
 [node name="Defibrilateur" type="Node2D" unique_id=94439545]
 z_index = 2
@@ -20,13 +120,6 @@ position = Vector2(65, 59)
 rotation = 0.4456761
 scale = Vector2(0.36073998, 0.36073995)
 texture = ExtResource("2_oxjt4")
-
-[node name="Sprite2D_tmp" type="Sprite2D" parent="." unique_id=1736825338]
-visible = false
-rotation = -0.3228859
-scale = Vector2(1.03, 1.03)
-texture = ExtResource("1_2r4vs")
-flip_h = true
 
 [node name="Grabbable" parent="." unique_id=409779617 instance=ExtResource("2_mrefm")]
 
@@ -42,7 +135,18 @@ position = Vector2(11, 11)
 rotation = 1.2980806
 shape = SubResource("CapsuleShape2D_4xhnb")
 
+[node name="Iron_FX" type="AnimatedSprite2D" parent="." unique_id=397568721]
+visible = false
+position = Vector2(65, 59)
+rotation = 0.4456761
+scale = Vector2(0.36073998, 0.36073995)
+sprite_frames = SubResource("SpriteFrames_ogkay")
+animation = &"Lightning"
+
 [node name="FlashFeedback" parent="." unique_id=2095426776 node_paths=PackedStringArray("target_node") instance=ExtResource("5_fkq31")]
 target_node = NodePath("../Sprite2D")
 flash_color = Color(0.8156863, 0.76862746, 0, 1)
 text = "ZAP!"
+animation_name = null
+
+[connection signal="animation_finished" from="Iron_FX" to="." method="_on_iron_fx_animation_finished"]

@@ -21,6 +21,8 @@ var _feedback_tween: Tween = null
 var _status_label: Label = null
 var _base_scale: Vector2 = Vector2.ONE
 
+@export var animation: Node
+@export var animation_name : String
 
 func _ready() -> void:
 	if target_node == null:
@@ -34,6 +36,9 @@ func _ready() -> void:
 	_status_label.z_index = 20
 	_status_label.add_theme_font_size_override("font_size", label_font_size)
 	target_node.add_child.call_deferred(_status_label)
+	
+	
+	
 
 func flash() -> void:
 	if target_node == null or _status_label == null:
