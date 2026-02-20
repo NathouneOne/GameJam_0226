@@ -10,6 +10,7 @@ var hand_grabbing: Node2D = null
 func _ready() -> void:
 	add_to_group(&"grabbables")
 
+
 # return true if grabbed
 func grab(hand: Node2D) -> bool:
 	if is_grabbed:

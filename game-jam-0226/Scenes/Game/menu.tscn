@@ -14,6 +14,9 @@ shader = ExtResource("1_v4p3b")
 shader_parameter/velocity = 0.0
 shader_parameter/lag_strength = 0.0050000002375
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_wdtv5"]
+radius = 52.35456
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qsmta"]
 shader = ExtResource("1_v4p3b")
 shader_parameter/velocity = 0.0
@@ -115,11 +118,9 @@ _data = {
 radius = 30.79068
 height = 189.15869
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_wdtv5"]
-radius = 52.35456
-
 [node name="Menu" type="Node2D" unique_id=942918676]
 script = ExtResource("1_qsmta")
+transition_delay = null
 
 [node name="rideauL" type="Sprite2D" parent="." unique_id=1174741945]
 material = SubResource("ShaderMaterial_1gnmn")
@@ -127,6 +128,18 @@ scale = Vector2(1.58, 1.58)
 texture = ExtResource("1_c6plx")
 centered = false
 script = ExtResource("3_1gnmn")
+
+[node name="BananaZone" type="Area2D" parent="rideauL" unique_id=937922444]
+scale = Vector2(0.6329114, 0.6329114)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rideauL/BananaZone" unique_id=1867978996]
+position = Vector2(501, 830)
+shape = SubResource("CircleShape2D_wdtv5")
+
+[node name="Polygon2D" type="Polygon2D" parent="rideauL/BananaZone" unique_id=313787167]
+position = Vector2(26, -3)
+color = Color(0, 0, 0, 0.43529412)
+polygon = PackedVector2Array(450, 723, 347, 797, 381, 897, 510, 926, 605, 846, 553, 758)
 
 [node name="rideauR" type="Sprite2D" parent="." unique_id=620171453]
 material = SubResource("ShaderMaterial_qsmta")
@@ -157,17 +170,6 @@ polygon = PackedVector2Array(935.2234, -83.223785, -7.600647, 42.652435, -9.0446
 position = Vector2(-34.666397, 50.86493)
 rotation = -0.15438011
 shape = SubResource("CapsuleShape2D_jn33t")
-
-[node name="BananaZone" type="Area2D" parent="." unique_id=937922444]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BananaZone" unique_id=1867978996]
-position = Vector2(501, 830)
-shape = SubResource("CircleShape2D_wdtv5")
-
-[node name="Polygon2D" type="Polygon2D" parent="BananaZone" unique_id=313787167]
-position = Vector2(26, -3)
-color = Color(0, 0, 0, 0.43529412)
-polygon = PackedVector2Array(450, 723, 347, 797, 381, 897, 510, 926, 605, 846, 553, 758)
 
 [node name="Arm" parent="." unique_id=1314196640 instance=ExtResource("8_jn33t")]
 visible = false

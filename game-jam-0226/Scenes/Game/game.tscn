@@ -97,6 +97,7 @@ script = ExtResource("1_ypmwd")
 
 [node name="Menu" parent="." unique_id=942918676 instance=ExtResource("2_oejk7")]
 z_index = 6
+transition_delay = 1.0
 
 [node name="Overlay" type="Node2D" parent="." unique_id=1159351321]
 z_index = 6
@@ -150,6 +151,7 @@ position = Vector2(1636, 65)
 rotation = 0.7382743
 skew = -0.3333579
 script = ExtResource("1_ciybh")
+START_TIME_SECONDS = 10.0
 
 [node name="TimerLabel" type="Label" parent="GameTime" unique_id=34665249]
 modulate = Color(5.912981, 5.912981, 5.912981, 1)
