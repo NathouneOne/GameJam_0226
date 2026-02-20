@@ -42,7 +42,7 @@ position = Vector2(11, 11)
 rotation = 1.2980806
 shape = SubResource("CapsuleShape2D_4xhnb")
 
-[node name="FlashFeedback" parent="." unique_id=2095426776 instance=ExtResource("5_fkq31")]
+[node name="FlashFeedback" parent="." unique_id=2095426776 node_paths=PackedStringArray("target_node") instance=ExtResource("5_fkq31")]
+target_node = NodePath("../Sprite2D")
 flash_color = Color(0.8156863, 0.76862746, 0, 1)
-flash_duration = 0.4
 text = "ZAP!"

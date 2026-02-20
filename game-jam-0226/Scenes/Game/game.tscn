@@ -9,9 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://cpk6nfbh5g21i" path="res://Scenes/Components/flash_feedback/FlashFeedback.tscn" id="3_xfil1"]
 [ext_resource type="PackedScene" uid="uid://fy15tufi5wwi" path="res://Scenes/Defibrilateur/coeur.tscn" id="4_ciybh"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_qikps"]
-font_size = 101
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i1e5p"]
 size = Vector2(179, 491)
 
@@ -62,15 +59,6 @@ offset_bottom = 59.539223
 theme = ExtResource("2_flgk0")
 theme_override_font_sizes/font_size = 70
 text = "60.00"
-metadata/_edit_use_anchors_ = true
-
-[node name="Score" type="Label" parent="." unique_id=956213665]
-offset_left = 3328.0
-offset_top = 1876.0
-offset_right = 3587.0
-offset_bottom = 2014.0
-text = "60:00"
-label_settings = SubResource("LabelSettings_qikps")
 metadata/_edit_use_anchors_ = true
 
 [node name="Hands" parent="." unique_id=1149362447 instance=ExtResource("1_mv0hc")]
