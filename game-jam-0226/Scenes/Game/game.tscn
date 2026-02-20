@@ -86,6 +86,11 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ypmwd"]
 size = Vector2(377, 436)
 
+[sub_resource type="Environment" id="Environment_2vowc"]
+background_mode = 3
+glow_enabled = true
+glow_hdr_threshold = 0.39
+
 [node name="Game" type="Node2D" unique_id=2073138695]
 script = ExtResource("1_ypmwd")
 
@@ -93,7 +98,8 @@ script = ExtResource("1_ypmwd")
 z_index = 6
 
 [node name="TV" type="Sprite2D" parent="Overlay" unique_id=1557836626]
-position = Vector2(960, 540)
+self_modulate = Color(0.9607843, 0.9607843, 0.9607843, 1)
+position = Vector2(958, 540)
 texture = ExtResource("1_qtymf")
 
 [node name="Lianes" type="Sprite2D" parent="Overlay" unique_id=522884303]
@@ -110,6 +116,7 @@ skew = 0.14660765
 script = ExtResource("1_flgk0")
 
 [node name="ScoreLabel" type="Label" parent="GameScore" unique_id=1634141895]
+modulate = Color(3.4255767, 3.4255767, 3.4255767, 1)
 offset_right = 40.0
 offset_bottom = 96.0
 theme = ExtResource("2_flgk0")
@@ -141,6 +148,7 @@ skew = -0.3333579
 script = ExtResource("1_ciybh")
 
 [node name="TimerLabel" type="Label" parent="GameTime" unique_id=34665249]
+modulate = Color(5.912981, 5.912981, 5.912981, 1)
 offset_left = 7.9187546
 offset_top = -68.90108
 offset_right = 264.91876
@@ -228,7 +236,7 @@ texture = ExtResource("15_56qi8")
 
 [node name="TracksPlayer" type="AudioStreamPlayer2D" parent="." unique_id=2075413394]
 stream = ExtResource("16_2vowc")
-volume_db = -3.817
+volume_db = -12.994
 autoplay = true
 panning_strength = 0.0
 
@@ -236,6 +244,9 @@ panning_strength = 0.0
 stream = ExtResource("17_2vowc")
 volume_db = 2.862
 panning_strength = 0.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1432686916]
+environment = SubResource("Environment_2vowc")
 
 [connection signal="finished" from="TracksPlayer" to="." method="_on_audio_stream_player_2d_finished"]
 [connection signal="finished" from="ElectrocardiogramPlayer" to="." method="_on_audio_stream_player_2d_2_finished"]
