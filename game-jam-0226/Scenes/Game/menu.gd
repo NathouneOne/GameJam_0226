@@ -41,6 +41,7 @@ func _on_banana_zone_entered(area: Area2D) -> void:
 	get: return open
 
 func _animate_banana_in() -> void:
+	handle.rotation = 0.0
 	var t := create_tween()
 	t.tween_interval(1.0)
 	t.tween_property(handle, "position", BANANA_START_POS, 0.5).set_ease(Tween.EASE_IN)
