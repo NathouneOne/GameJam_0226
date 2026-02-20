@@ -13,11 +13,14 @@ var cut_started :bool =0
 
 
 const CHECK_POINT = preload("uid://oeb2gp4owcen")
+const TELEPHONE = preload("uid://urhinpicu3w4")
+var telephone := TELEPHONE.instantiate()
 
 var start_checkpoint := CHECK_POINT.instantiate()
 var win:bool=0
 var is_scalpel_inzone :bool=0
 var already_won: bool =0
+var handclic:bool =0
 
 @export var started: bool = true
 
@@ -37,9 +40,13 @@ func _on_interact_start(_target: Node2D, source: Node2D, _hand: Node2D) -> void:
 		cut_started=1
 	elif source != null:
 		Global.on_add_score.emit(DEFEAT_POINTS)
+	
+	if source==null :
+		handclic=1
 
 func _on_interact_stop(_target: Node2D, _source: Node2D, _hand: Node2D) -> void:
 	cut_started=0
+	handclic=0
 
 func start() -> void:
 	started = true
@@ -49,9 +56,8 @@ func stop() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	## CUTTER ##
 	if cut_started:
-		
-		
 		for i in %Outline.get_overlapping_areas() :
 			if i == %Scalpel/Useable :
 				is_scalpel_inzone=1
@@ -73,8 +79,6 @@ func _process(_delta: float) -> void:
 			if not is_scalpel_inzone :
 				Global.on_add_score.emit(DEFEAT_POINTS)
 			
-
-
 		if Input.is_action_pressed("left_clic"):
 			%ScalpelCurve.curve.add_point(%Scalpel/Useable.global_position, Vector2(0,0), Vector2(0,0))
 			for i in get_children() :
@@ -92,15 +96,18 @@ func _process(_delta: float) -> void:
 					start_checkpoint.is_start_checkpoint=0
 					start_checkpoint.is_triggered = 0
 			
-
-
 		if Input.is_action_just_released("left_clic"):
 			start_checkpoint.queue_free()
 			for i in get_children() :
 				if i.is_in_group("checkpoint") :
-					i.is_triggered=0
+					i.is_triggered=0	
 	
 	queue_redraw()
+	
+	## RETIRER SKIN ##
+	# en signal
+	
+	## pick telephone ##
 	
 
 
@@ -123,3 +130,13 @@ func _on_outline_area_shape_exited(area_rid: RID, area: Area2D, area_shape_index
 					break
 			if Input.is_action_pressed("left_clic") and cut_started and not local_inzone:
 				Global.on_add_score.emit(DEFEAT_POINTS)
+
+
+func _on_outline_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event.is_action("left_clic") and already_won and handclic:
+		%PlaiePng.hide()
+		%PlaieOuvertePng2.show()
+		telephone.global_position = %PlaieOuvertePng2.global_position
+		telephone.scale = %PlaieOuvertePng2.scale-Vector2(0.1,0.1)
+		add_child(telephone)
+		handclic=0

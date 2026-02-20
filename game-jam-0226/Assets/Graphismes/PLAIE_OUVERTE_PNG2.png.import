@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://j65f4fiq2i5c"
-path="res://.godot/imported/scalpel.png-442a544f403175e8df19f171b043aab2.ctex"
+uid="uid://cvym4qn7wkjkd"
+path="res://.godot/imported/PLAIE_OUVERTE_PNG2.png-af54bfd8af5a31d3e638a06d6b54c02f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Graphismes/scalpel.png"
-dest_files=["res://.godot/imported/scalpel.png-442a544f403175e8df19f171b043aab2.ctex"]
+source_file="res://Assets/Graphismes/PLAIE_OUVERTE_PNG2.png"
+dest_files=["res://.godot/imported/PLAIE_OUVERTE_PNG2.png-af54bfd8af5a31d3e638a06d6b54c02f.ctex"]
 
 [params]
 

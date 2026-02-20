@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ycxapke5fa4u" path="res://Assets/Graphismes/PLAIE_PNG.png" id="2_e8b2i"]
 [ext_resource type="PackedScene" uid="uid://oeb2gp4owcen" path="res://Scenes/Scalpel/CheckPoint.tscn" id="2_ns5is"]
 [ext_resource type="Script" uid="uid://bnjgt5rcfpj4i" path="res://Scenes/Components/interactive/interactive.gd" id="2_uc6dd"]
+[ext_resource type="Texture2D" uid="uid://cvym4qn7wkjkd" path="res://Assets/Graphismes/PLAIE_OUVERTE_PNG2.png" id="3_e8b2i"]
 
 [sub_resource type="Curve2D" id="Curve2D_lt5rr"]
 
@@ -14,10 +15,19 @@ radius = 348.47238
 script = ExtResource("1_6ll18")
 
 [node name="PlaiePng" type="Sprite2D" parent="." unique_id=608044803]
+unique_name_in_owner = true
 z_index = -1
 position = Vector2(1186.7777, 685.625)
 scale = Vector2(0.34560183, 0.3456019)
 texture = ExtResource("2_e8b2i")
+
+[node name="PlaieOuvertePng2" type="Sprite2D" parent="." unique_id=1843334385]
+unique_name_in_owner = true
+visible = false
+z_index = -1
+position = Vector2(1186.7777, 685.625)
+scale = Vector2(0.34560183, 0.3456019)
+texture = ExtResource("3_e8b2i")
 
 [node name="ScalpelCurve" type="Path2D" parent="." unique_id=1227076167]
 unique_name_in_owner = true
@@ -78,4 +88,5 @@ position = Vector2(1132, 544)
 [connection signal="mouse_exited" from="Interactive" to="." method="_on_target_mouse_exited"]
 [connection signal="mouse_shape_entered" from="Interactive" to="." method="_on_target_mouse_shape_entered"]
 [connection signal="area_shape_exited" from="Outline" to="." method="_on_outline_area_shape_exited"]
+[connection signal="input_event" from="Outline" to="." method="_on_outline_input_event"]
 [connection signal="area_shape_entered" from="Inline" to="." method="_on_inline_area_shape_entered"]
