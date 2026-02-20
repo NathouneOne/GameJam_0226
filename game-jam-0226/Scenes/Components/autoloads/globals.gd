@@ -1,6 +1,7 @@
 extends Node
 
 signal on_start_game()
+signal on_new_patient()
 signal on_end_game()
 signal on_add_score(score: int)
 

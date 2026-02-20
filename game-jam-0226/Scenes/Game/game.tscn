@@ -153,13 +153,15 @@ position = Vector2(-60, -111)
 shape = SubResource("RectangleShape2D_i1e5p")
 
 [node name="Defibrilateur" parent="." unique_id=94439545 groups=["defibrillator_tools"] instance=ExtResource("3_qikps")]
-position = Vector2(186, 517)
+z_index = 4
+position = Vector2(172, 519)
 
 [node name="Background" type="Node2D" parent="." unique_id=1704887786]
 metadata/_edit_lock_ = true
 
 [node name="Sprite" type="Sprite2D" parent="Background" unique_id=1439676373]
 z_index = -1
+position = Vector2(2, 0)
 texture = ExtResource("8_qtymf")
 centered = false
 
@@ -185,6 +187,7 @@ polygon = PackedVector2Array(1520, 76, 1579, -48, 1745, 47, 1779, 214, 1755, 278
 
 [node name="Patient" parent="." unique_id=855156239 instance=ExtResource("8_ypmwd")]
 position = Vector2(893, 1770)
+PRESET = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=211062614]
 libraries/ = SubResource("AnimationLibrary_upfqs")

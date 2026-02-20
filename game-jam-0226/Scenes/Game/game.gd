@@ -10,6 +10,7 @@ class_name Game
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	patient.patient_done.connect(_on_patient_done)
+	_enter_new_patient()
 
 func _on_patient_done() -> void:
 	print("[Game] Patient done !")
@@ -30,6 +31,9 @@ func _enter_new_patient() -> void:
 	# Played backwards as I did not find how to invert 
 	patient.PRESET = preset
 	animation_player.play_backwards("patient_in")
+	
+	if not Engine.is_editor_hint():
+		Global.on_new_patient.emit()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
