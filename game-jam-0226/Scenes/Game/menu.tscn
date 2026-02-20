@@ -120,7 +120,6 @@ height = 189.15869
 
 [node name="Menu" type="Node2D" unique_id=942918676]
 script = ExtResource("1_qsmta")
-transition_delay = null
 
 [node name="rideauL" type="Sprite2D" parent="." unique_id=1174741945]
 material = SubResource("ShaderMaterial_1gnmn")
@@ -154,21 +153,22 @@ libraries/ = SubResource("AnimationLibrary_qsmta")
 
 [node name="Handle" type="Node2D" parent="." unique_id=1474364393]
 position = Vector2(420, 400)
-rotation = -1.4180951
 
 [node name="Sprite2D" type="Sprite2D" parent="Handle" unique_id=769171342]
+rotation = -1.3962634
 scale = Vector2(0.47, 0.47)
 texture = ExtResource("6_otekx")
 
 [node name="rope" type="Polygon2D" parent="Handle" unique_id=175769947]
+rotation = -1.43117
 color = Color(0.3038819, 0.16776714, 0.08397951, 1)
 polygon = PackedVector2Array(935.2234, -83.223785, -7.600647, 42.652435, -9.044678, 52.9924, 934.8441, -65.9653)
 
 [node name="HandleGrabbable" parent="Handle" unique_id=197402326 instance=ExtResource("7_wdtv5")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Handle/HandleGrabbable" unique_id=466337235]
-position = Vector2(-34.666397, 50.86493)
-rotation = -0.15438011
+position = Vector2(43, 44)
+rotation = -1.4483478
 shape = SubResource("CapsuleShape2D_jn33t")
 
 [node name="Arm" parent="." unique_id=1314196640 instance=ExtResource("8_jn33t")]

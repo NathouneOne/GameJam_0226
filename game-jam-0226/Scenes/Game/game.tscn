@@ -97,7 +97,6 @@ script = ExtResource("1_ypmwd")
 
 [node name="Menu" parent="." unique_id=942918676 instance=ExtResource("2_oejk7")]
 z_index = 6
-transition_delay = 1.0
 
 [node name="Overlay" type="Node2D" parent="." unique_id=1159351321]
 z_index = 6
