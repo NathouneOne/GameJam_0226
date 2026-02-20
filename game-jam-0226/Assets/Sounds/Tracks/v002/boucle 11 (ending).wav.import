@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b4fgp23vrp3et"
+path="res://.godot/imported/boucle 11 (ending).wav-c42ea01c2e7ce4f8f59db99c8472e9ef.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Tracks/v002/boucle 11 (ending).wav"
+dest_files=["res://.godot/imported/boucle 11 (ending).wav-c42ea01c2e7ce4f8f59db99c8472e9ef.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -72,6 +72,7 @@
 [ext_resource type="Texture2D" uid="uid://5heb0h1x4mmg" path="res://Assets/Graphismes/HeartBeat/frames2/HEARTBEAT0032.png" id="70_w1o2o"]
 [ext_resource type="Texture2D" uid="uid://baadc7i1v8rbx" path="res://Assets/Graphismes/HeartBeat/frames2/HEARTBEAT0033.png" id="71_bywcq"]
 [ext_resource type="Texture2D" uid="uid://b3o6rrlacrb3m" path="res://Assets/Graphismes/HeartBeat/frames2/HEARTBEAT0034.png" id="72_tenkv"]
+[ext_resource type="AudioStream" uid="uid://clhjl1wsc4grb" path="res://Assets/Sounds/SFX/coeur.wav" id="73_avfgu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kipf4"]
 radius = 73.63978
@@ -344,3 +345,9 @@ texture = ExtResource("1_nqbo0")
 position = Vector2(-90, 144)
 sprite_frames = SubResource("SpriteFrames_uisi3")
 animation = &"HeartBeat1"
+
+[node name="HeartBeat" type="AudioStreamPlayer2D" parent="." unique_id=1524255534]
+stream = ExtResource("73_avfgu")
+volume_db = -9.541
+autoplay = true
+panning_strength = 0.0

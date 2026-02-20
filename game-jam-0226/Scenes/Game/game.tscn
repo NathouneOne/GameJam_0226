@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://bh1qn3bcdqogj" path="res://Assets/Graphismes/poubelle1.png" id="15_56qi8"]
 [ext_resource type="AudioStream" uid="uid://gi25uq4griix" path="res://Assets/Sounds/Tracks/v002/wetransfer_boucle-1-lead-no-drum-wav_2026-02-20_2156/boucle 1 (lead no drum) wrap.wav" id="16_2vowc"]
 [ext_resource type="AudioStream" uid="uid://d8kvu6btjvju" path="res://Assets/Sounds/SFX/eclectrocardiogramme 1 (lent).wav" id="17_2vowc"]
+[ext_resource type="AudioStream" uid="uid://c0kl752rewhpo" path="res://Assets/Sounds/SFX/dégat du man.wav" id="18_yox4t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i1e5p"]
 size = Vector2(179, 491)
@@ -88,7 +89,6 @@ size = Vector2(377, 436)
 
 [sub_resource type="Environment" id="Environment_2vowc"]
 background_mode = 3
-glow_enabled = true
 glow_hdr_threshold = 0.39
 
 [node name="Game" type="Node2D" unique_id=2073138695]
@@ -244,6 +244,10 @@ panning_strength = 0.0
 stream = ExtResource("17_2vowc")
 volume_db = 2.862
 panning_strength = 0.0
+
+[node name="HurtingSound" type="AudioStreamPlayer2D" parent="." unique_id=79642361]
+unique_name_in_owner = true
+stream = ExtResource("18_yox4t")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1432686916]
 environment = SubResource("Environment_2vowc")

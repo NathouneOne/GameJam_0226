@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://brpewibyrwiym"
+path="res://.godot/imported/boukle 9 (core tekno les 2 parties).wav-4e1536e366005059c33947ea9b54f77a.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Tracks/v002/boukle 9 (core tekno les 2 parties).wav"
+dest_files=["res://.godot/imported/boukle 9 (core tekno les 2 parties).wav-4e1536e366005059c33947ea9b54f77a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

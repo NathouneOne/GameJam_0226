@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://brenlexyy0val"
+path="res://.godot/imported/boucle 3 (core track sans lead).wav-0e4867b335729a2f5bbc216992884596.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Tracks/v002/boucle 3 (core track sans lead).wav"
+dest_files=["res://.godot/imported/boucle 3 (core track sans lead).wav-0e4867b335729a2f5bbc216992884596.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
