@@ -2,38 +2,50 @@
 
 [ext_resource type="Script" uid="uid://c8hetvkv8vivo" path="res://Scenes/Scalpel/Plaie.gd" id="1_6ll18"]
 [ext_resource type="PackedScene" uid="uid://oeb2gp4owcen" path="res://Scenes/Scalpel/CheckPoint.tscn" id="2_ns5is"]
+[ext_resource type="Script" uid="uid://bnjgt5rcfpj4i" path="res://Scenes/Components/interactive/interactive.gd" id="2_uc6dd"]
 
 [sub_resource type="Curve2D" id="Curve2D_lt5rr"]
 
-[node name="Scalpel" type="Node2D" unique_id=1972709014]
+[sub_resource type="CircleShape2D" id="CircleShape2D_ns5is"]
+radius = 348.47238
+
+[node name="Plaie" type="Node2D" unique_id=1972709014]
 script = ExtResource("1_6ll18")
+started = null
+SUCCESS_POINTS = null
+DEFEAT_POINTS = null
 
 [node name="ScalpelCurve" type="Path2D" parent="." unique_id=1227076167]
 unique_name_in_owner = true
 top_level = true
-z_index = -1
+z_index = 1
 curve = SubResource("Curve2D_lt5rr")
 
-[node name="Target" type="Area2D" parent="." unique_id=782905280]
+[node name="Interactive" type="Area2D" parent="." unique_id=782905280]
 z_index = -1
+script = ExtResource("2_uc6dd")
 
-[node name="TargetOutline" type="CollisionPolygon2D" parent="Target" unique_id=856054589]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactive" unique_id=1915851259]
+position = Vector2(1137, 504)
+shape = SubResource("CircleShape2D_ns5is")
+
+[node name="TargetOutline" type="CollisionPolygon2D" parent="Interactive" unique_id=856054589]
 unique_name_in_owner = true
 position = Vector2(-6832.5405, -1913.4749)
 scale = Vector2(25.5355, 18.35112)
 polygon = PackedVector2Array(313.9371, 128.02898, 320.04623, 123.94203, 324.04068, 132.00693, 318.9889, 136.03938, 318, 132, 313.9371, 132.00693)
 
-[node name="TargetInline" type="CollisionPolygon2D" parent="Target" unique_id=1269730771]
+[node name="TargetInline" type="CollisionPolygon2D" parent="Interactive" unique_id=1269730771]
 unique_name_in_owner = true
 position = Vector2(-4101.4263, -1111.4749)
 scale = Vector2(16.977123, 12.126085)
 polygon = PackedVector2Array(313.00272, 128.15347, 320.1618, 124.56409, 324.4617, 133.14064, 319.80838, 136.76918, 318.27692, 131.07898, 312.85785, 131.2439)
 
-[node name="Polygon2D" type="Polygon2D" parent="Target" unique_id=778444287]
+[node name="Polygon2D" type="Polygon2D" parent="Interactive" unique_id=778444287]
 position = Vector2(26.459473, 61.52527)
 polygon = PackedVector2Array(1160, 375, 1312, 302, 1413, 447, 1287, 519, 1262, 446, 1160, 446)
 
-[node name="Polygon2D2" type="Polygon2D" parent="Target" unique_id=905704037]
+[node name="Polygon2D2" type="Polygon2D" parent="Interactive" unique_id=905704037]
 position = Vector2(26.459473, 61.52527)
 color = Color(1, 0.11372549, 0.22352941, 1)
 polygon = PackedVector2Array(1184.5405, 380.47473, 1308, 335, 1383, 442, 1300, 489, 1274, 418, 1181, 420)
@@ -47,5 +59,7 @@ position = Vector2(1420, 504)
 [node name="CheckPoint6" parent="." unique_id=571173631 instance=ExtResource("2_ns5is")]
 position = Vector2(1334, 382)
 
-[connection signal="mouse_exited" from="Target" to="." method="_on_target_mouse_exited"]
-[connection signal="mouse_shape_entered" from="Target" to="." method="_on_target_mouse_shape_entered"]
+[connection signal="area_shape_entered" from="Interactive" to="." method="_on_interactive_area_shape_entered"]
+[connection signal="area_shape_exited" from="Interactive" to="." method="_on_interactive_area_shape_exited"]
+[connection signal="mouse_exited" from="Interactive" to="." method="_on_target_mouse_exited"]
+[connection signal="mouse_shape_entered" from="Interactive" to="." method="_on_target_mouse_shape_entered"]

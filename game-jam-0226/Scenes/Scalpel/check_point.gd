@@ -12,8 +12,7 @@ func _process(_delta: float) -> void:
 	pass
 
 
-
-func _on_mouse_entered() -> void:
-	if Input.is_action_pressed("left_clic") :
+func _on_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
+	if Input.is_action_pressed("left_clic") and area is Useable :
 		print("checkpoint_trigered")
 		is_triggered=1

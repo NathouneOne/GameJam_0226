@@ -98,13 +98,13 @@ color = Color(0.3239576, 0.3532681, 0.49650294, 1)
 offset = Vector2(-80, 0)
 polygon = PackedVector2Array(-452, 495, 655, 483, 408, -419, -222, -424)
 
+[node name="Plaie" parent="Patient" unique_id=1972709014 instance=ExtResource("10_m1mis")]
+z_index = 1
+position = Vector2(-1067, -521.99)
+
 [node name="Coeur" parent="Patient" unique_id=1087108802 instance=ExtResource("6_animc")]
 visible = false
 position = Vector2(193, -93.98999)
-
-[node name="Plaie" parent="Patient" unique_id=1972709014 instance=ExtResource("10_m1mis")]
-z_index = 1
-position = Vector2(-960, -629.99)
 
 [node name="ItemsZone" type="Area2D" parent="." unique_id=493780884 groups=["item_zone"]]
 position = Vector2(241, 849)
@@ -149,4 +149,7 @@ position = Vector2(186, 517)
 
 [node name="Scalpel" parent="." unique_id=592803465 instance=ExtResource("9_7mnxm")]
 unique_name_in_owner = true
-position = Vector2(189, 760)
+z_index = 1
+position = Vector2(193, 816)
+rotation = 1.5014157
+scale = Vector2(0.54233694, 0.54233694)

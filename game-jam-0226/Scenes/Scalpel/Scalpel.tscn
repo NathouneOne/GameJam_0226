@@ -1,21 +1,43 @@
 [gd_scene format=3 uid="uid://dbffdjahw2bes"]
 
 [ext_resource type="Script" uid="uid://dv48x2gjkaa2f" path="res://Scenes/Scalpel/scalpel.gd" id="1_lt5rr"]
-[ext_resource type="Texture2D" uid="uid://j65f4fiq2i5c" path="res://Assets/Graphismes/scalpel.png" id="2_ojjfw"]
+[ext_resource type="PackedScene" uid="uid://cpk6nfbh5g21i" path="res://Scenes/Components/flash_feedback/FlashFeedback.tscn" id="2_48hnu"]
+[ext_resource type="Texture2D" uid="uid://d1gnnvf53fy00" path="res://Assets/Graphismes/banana_scalpel.png" id="2_ssm44"]
+[ext_resource type="PackedScene" uid="uid://bivkc0072g4c8" path="res://Scenes/Components/grabbable/Grabbable.tscn" id="3_48hnu"]
+[ext_resource type="PackedScene" uid="uid://dcfcxw6hka05n" path="res://Scenes/Components/usable/Usable.tscn" id="4_j7yw4"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ojjfw"]
-size = Vector2(299.00714, 48.226974)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8ihrl"]
+radius = 9.694794
+height = 27.145386
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xgwnc"]
+radius = 145.4219
+height = 581.6876
 
 [node name="Scalpel" type="Node2D" unique_id=592803465]
 script = ExtResource("1_lt5rr")
 
-[node name="Scalpel" type="Sprite2D" parent="." unique_id=1477842921]
-position = Vector2(97.00001, 5)
-scale = Vector2(0.41470584, 0.41470587)
-texture = ExtResource("2_ojjfw")
+[node name="FlashFeedback" parent="." unique_id=1018722879 instance=ExtResource("2_48hnu")]
+flash_color = Color(0.8156863, 0.76862746, 0, 1)
+text = "ZAP!"
 
-[node name="Area2D" type="Area2D" parent="Scalpel" unique_id=1401052497]
+[node name="BananaScalpel" type="Sprite2D" parent="." unique_id=1577167110]
+position = Vector2(21, -7)
+scale = Vector2(0.51574075, 0.51574075)
+texture = ExtResource("2_ssm44")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scalpel/Area2D" unique_id=166021332]
-position = Vector2(-91.631256, 7.234009)
-shape = SubResource("RectangleShape2D_ojjfw")
+[node name="Useable" parent="." unique_id=439381040 instance=ExtResource("4_j7yw4")]
+position = Vector2(18, -244)
+scale = Vector2(0.51574075, 0.51574075)
+
+[node name="Use" type="CollisionShape2D" parent="Useable" unique_id=1562372318]
+position = Vector2(1.9389582, 4.7683716e-06)
+shape = SubResource("CapsuleShape2D_8ihrl")
+
+[node name="Grabbable" parent="." unique_id=1006315209 instance=ExtResource("3_48hnu")]
+position = Vector2(-7, 8)
+scale = Vector2(0.51574075, 0.51574075)
+
+[node name="Grab" type="CollisionShape2D" parent="Grabbable" unique_id=1385388304]
+position = Vector2(29.084381, 21.328545)
+shape = SubResource("CapsuleShape2D_xgwnc")

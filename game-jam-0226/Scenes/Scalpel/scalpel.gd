@@ -1,11 +1,16 @@
 extends Node2D
+class_name Scalpel
 
+@onready var useable: Useable = $Useable
+@onready var flash_feedback: FlashFeedback = $FlashFeedback
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	useable.use_start.connect(_on_use_start)
+	useable.use_stop.connect(_on_use_stop)
 
+func _on_use_start(_owner: Node2D, target: Node2D, _hand: Node2D) -> void:
+	print("scalpelGet")
+	
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_use_stop(_owner: Node2D, _target: Node2D, _hand: Node2D) -> void:
+	print("scalpelpose")
