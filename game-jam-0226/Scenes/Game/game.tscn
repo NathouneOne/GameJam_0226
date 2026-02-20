@@ -3,16 +3,91 @@
 [ext_resource type="Script" uid="uid://ds004rd487gdc" path="res://Scenes/Game/time.gd" id="1_ciybh"]
 [ext_resource type="Script" uid="uid://ds4pi4ocajr22" path="res://Scenes/Game/score.gd" id="1_flgk0"]
 [ext_resource type="PackedScene" uid="uid://dgn4ub5vss8hf" path="res://Scenes/hand/hands.tscn" id="1_mv0hc"]
+[ext_resource type="Texture2D" uid="uid://c3hilgl2uc34p" path="res://Assets/Graphismes/TELE_APERATION.png" id="1_qtymf"]
 [ext_resource type="Theme" uid="uid://b2tioy6g4l1nk" path="res://Resources/default_theme.tres" id="2_flgk0"]
 [ext_resource type="Texture2D" uid="uid://drywx78pas5gi" path="res://Assets/Graphismes/GAMEJAM_Dr_MABOUL_enviro_perso.png" id="2_i1e5p"]
+[ext_resource type="Texture2D" uid="uid://dmvmfr47s6iux" path="res://Assets/Graphismes/LIANES.png" id="2_ypmwd"]
 [ext_resource type="PackedScene" uid="uid://cub20lgna3oru" path="res://Scenes/Defibrilateur/defibrilateur.tscn" id="3_qikps"]
 [ext_resource type="PackedScene" uid="uid://cpk6nfbh5g21i" path="res://Scenes/Components/flash_feedback/FlashFeedback.tscn" id="3_xfil1"]
-[ext_resource type="PackedScene" uid="uid://fy15tufi5wwi" path="res://Scenes/Defibrilateur/coeur.tscn" id="4_ciybh"]
+[ext_resource type="Texture2D" uid="uid://cs744psx347nm" path="res://Assets/Graphismes/APERATION_DECOR.png" id="8_qtymf"]
+[ext_resource type="PackedScene" uid="uid://dilbhfaavqadx" path="res://Scenes/Game/patient.tscn" id="8_ypmwd"]
+[ext_resource type="Script" uid="uid://dot4ylmf1ujv5" path="res://Scenes/Game/patient_manager.gd" id="11_ypmwd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i1e5p"]
 size = Vector2(179, 491)
 
+[sub_resource type="Animation" id="Animation_ypmwd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Patient:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(893, 610)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Patient:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_oejk7"]
+resource_name = "out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Patient:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.23333333, 0.36666667, 0.40000004, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(893, 610), Vector2(883, 569.99994), Vector2(826, 727), Vector2(867, 818), Vector2(929, 957), Vector2(893, 1770)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Patient:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(-3, 0, 0.23333333, 0.38328844, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, -0.05235988, 0.034906585, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_upfqs"]
+_data = {
+&"RESET": SubResource("Animation_ypmwd"),
+&"out": SubResource("Animation_oejk7")
+}
+
 [node name="Game" type="Node2D" unique_id=2073138695]
+
+[node name="Overlay" type="Node2D" parent="." unique_id=1159351321]
+
+[node name="TV" type="Sprite2D" parent="Overlay" unique_id=1557836626]
+position = Vector2(960, 540)
+texture = ExtResource("1_qtymf")
+
+[node name="Lianes" type="Sprite2D" parent="Overlay" unique_id=522884303]
+position = Vector2(960, 539)
+texture = ExtResource("2_ypmwd")
 
 [node name="GameScore" type="Node2D" parent="." unique_id=2011718870]
 z_index = 2
@@ -52,10 +127,10 @@ skew = -0.3333579
 script = ExtResource("1_ciybh")
 
 [node name="TimerLabel" type="Label" parent="GameTime" unique_id=34665249]
-offset_left = -32.69887
-offset_top = -36.460777
-offset_right = 224.30113
-offset_bottom = 59.539223
+offset_left = 7.9187546
+offset_top = -68.90108
+offset_right = 264.91876
+offset_bottom = 27.098923
 theme = ExtResource("2_flgk0")
 theme_override_font_sizes/font_size = 70
 text = "60.00"
@@ -65,40 +140,6 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(-1, 0)
 scale = Vector2(0.84, 0.84)
 
-[node name="Patient" type="Node2D" parent="." unique_id=1788166929]
-position = Vector2(958, 627.99)
-
-[node name="Cart" type="Node2D" parent="Patient" unique_id=1591633000]
-visible = false
-modulate = Color(1, 1, 1, 0.1764706)
-
-[node name="Body" type="Node2D" parent="Patient/Cart" unique_id=43249562]
-
-[node name="Polygon2D2" type="Polygon2D" parent="Patient/Cart/Body" unique_id=1474909687]
-z_index = 1
-position = Vector2(3, -655)
-scale = Vector2(0.50799423, 0.4536807)
-color = Color(0.8758502, 0.68026394, 0.69058543, 1)
-offset = Vector2(-81.37642, 56.4168)
-polygon = PackedVector2Array(-170.5949, 523.286, 445.5539, 534.307, 351.06464, 236.7409, -82.011154, 227.92413)
-
-[node name="Polygon2D" type="Polygon2D" parent="Patient/Cart/Body" unique_id=91527580]
-z_index = 1
-position = Vector2(-1, -3)
-scale = Vector2(0.71273714, 0.67355824)
-color = Color(0.8758502, 0.68026394, 0.69058543, 1)
-offset = Vector2(-81.37642, 56.4168)
-polygon = PackedVector2Array(-452, 495, 655, 483, 408.28516, -605.7382, -197.82886, -607.2229)
-
-[node name="Polygon2D" type="Polygon2D" parent="Patient/Cart" unique_id=1806315227]
-position = Vector2(1, 0)
-color = Color(0.3239576, 0.3532681, 0.49650294, 1)
-offset = Vector2(-80, 0)
-polygon = PackedVector2Array(-452, 495, 655, 483, 408, -419, -222, -424)
-
-[node name="Coeur" parent="Patient" unique_id=1087108802 instance=ExtResource("4_ciybh")]
-position = Vector2(193, -93.98999)
-
 [node name="ItemsZone" type="Area2D" parent="." unique_id=493780884 groups=["item_zone"]]
 position = Vector2(241, 849)
 
@@ -107,34 +148,42 @@ z_index = 1
 position = Vector2(-60, -111)
 shape = SubResource("RectangleShape2D_i1e5p")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1772624954]
-visible = false
-offset_right = 1920.0
-offset_bottom = 1080.0
-alignment = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1156236513]
-layout_mode = 2
-alignment = 1
+[node name="Defibrilateur" parent="." unique_id=94439545 groups=["defibrillator_tools"] instance=ExtResource("3_qikps")]
+position = Vector2(186, 517)
 
 [node name="Background" type="Node2D" parent="." unique_id=1704887786]
 metadata/_edit_lock_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Background" unique_id=1145442250]
+[node name="Sprite" type="Sprite2D" parent="Background" unique_id=1439676373]
+z_index = -1
+texture = ExtResource("8_qtymf")
+centered = false
+
+[node name="Sprite2D_test" type="Sprite2D" parent="Background" unique_id=1145442250]
+visible = false
 z_index = -1
 texture = ExtResource("2_i1e5p")
 centered = false
 
 [node name="Polygon2D" type="Polygon2D" parent="Background" unique_id=1200949737]
+visible = false
 
 [node name="Polygon2D2" type="Polygon2D" parent="Background" unique_id=48236356]
+visible = false
 color = Color(0.8509804, 0.7294118, 0.34901962, 1)
 polygon = PackedVector2Array(117, 84, 97, 149, 94, 193, 272, 192, 266, 78)
 
 [node name="Polygon2D3" type="Polygon2D" parent="Background" unique_id=727949299]
+visible = false
 z_index = -1
 color = Color(0.5686275, 0.62352943, 0.5372549, 1)
 polygon = PackedVector2Array(1520, 76, 1579, -48, 1745, 47, 1779, 214, 1755, 278, 1675, 237)
 
-[node name="Defibrilateur" parent="." unique_id=94439545 groups=["defibrillator_tools"] instance=ExtResource("3_qikps")]
-position = Vector2(186, 517)
+[node name="PatientManager" type="Node2D" parent="." unique_id=1557784126]
+script = ExtResource("11_ypmwd")
+
+[node name="Patient" parent="PatientManager" unique_id=855156239 instance=ExtResource("8_ypmwd")]
+position = Vector2(893, 610)
+
+[node name="Animation" type="AnimationPlayer" parent="PatientManager" unique_id=211062614]
+libraries/ = SubResource("AnimationLibrary_upfqs")
