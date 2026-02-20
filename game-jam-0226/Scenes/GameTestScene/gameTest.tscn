@@ -5,9 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cpk6nfbh5g21i" path="res://Scenes/Components/flash_feedback/FlashFeedback.tscn" id="3_3jjmn"]
 [ext_resource type="Script" uid="uid://ds004rd487gdc" path="res://Scenes/Game/time.gd" id="4_m1mis"]
 [ext_resource type="PackedScene" uid="uid://dgn4ub5vss8hf" path="res://Scenes/hand/hands.tscn" id="5_t8qla"]
-[ext_resource type="PackedScene" uid="uid://fy15tufi5wwi" path="res://Scenes/Defibrilateur/coeur.tscn" id="6_animc"]
 [ext_resource type="Texture2D" uid="uid://drywx78pas5gi" path="res://Assets/Graphismes/GAMEJAM_Dr_MABOUL_enviro_perso.png" id="7_fh4f7"]
-[ext_resource type="PackedScene" uid="uid://cub20lgna3oru" path="res://Scenes/Defibrilateur/defibrilateur.tscn" id="8_jcmwh"]
 [ext_resource type="PackedScene" uid="uid://dbffdjahw2bes" path="res://Scenes/Scalpel/Scalpel.tscn" id="9_7mnxm"]
 [ext_resource type="PackedScene" uid="uid://cdj3e4ns44s4d" path="res://Scenes/Scalpel/Plaie.tscn" id="10_m1mis"]
 
@@ -98,13 +96,9 @@ color = Color(0.3239576, 0.3532681, 0.49650294, 1)
 offset = Vector2(-80, 0)
 polygon = PackedVector2Array(-452, 495, 655, 483, 408, -419, -222, -424)
 
-[node name="Coeur" parent="Patient" unique_id=1087108802 instance=ExtResource("6_animc")]
-visible = false
-position = Vector2(193, -93.98999)
-
 [node name="Plaie" parent="Patient" unique_id=1972709014 instance=ExtResource("10_m1mis")]
 z_index = 1
-position = Vector2(-960, -629.99)
+position = Vector2(-958, -627.99)
 
 [node name="ItemsZone" type="Area2D" parent="." unique_id=493780884 groups=["item_zone"]]
 position = Vector2(241, 849)
@@ -143,10 +137,7 @@ z_index = -1
 color = Color(0.5686275, 0.62352943, 0.5372549, 1)
 polygon = PackedVector2Array(1520, 76, 1579, -48, 1745, 47, 1779, 214, 1755, 278, 1675, 237)
 
-[node name="Defibrilateur" parent="." unique_id=94439545 groups=["defibrillator_tools"] instance=ExtResource("8_jcmwh")]
-visible = false
-position = Vector2(186, 517)
-
 [node name="Scalpel" parent="." unique_id=592803465 instance=ExtResource("9_7mnxm")]
 unique_name_in_owner = true
+z_index = 1
 position = Vector2(189, 760)

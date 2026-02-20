@@ -2,7 +2,7 @@ extends Node2D
 class_name Scalpel
 
 @onready var useable: Useable = $Useable
-@onready var flash_feedback: FlashFeedback = $FlashFeedback
+#@onready var flash_feedback: FlashFeedback = $FlashFeedback
 
 func _ready() -> void:
 	useable.use_start.connect(_on_use_start)
