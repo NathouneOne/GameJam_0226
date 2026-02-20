@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c0kl752rewhpo"
+path="res://.godot/imported/dégat du man.wav-aa3340bbfefaf5d1e3c161c728268d46.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/SFX/dégat du man.wav"
+dest_files=["res://.godot/imported/dégat du man.wav-aa3340bbfefaf5d1e3c161c728268d46.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

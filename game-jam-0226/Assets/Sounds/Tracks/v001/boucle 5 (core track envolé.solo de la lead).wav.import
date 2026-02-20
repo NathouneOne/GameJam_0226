@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b30wct3bf1mgw"
+path="res://.godot/imported/boucle 5 (core track envolé.solo de la lead).wav-7ce4e14af9949f52f37401f9cced280d.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Tracks/v001/boucle 5 (core track envolé.solo de la lead).wav"
+dest_files=["res://.godot/imported/boucle 5 (core track envolé.solo de la lead).wav-7ce4e14af9949f52f37401f9cced280d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

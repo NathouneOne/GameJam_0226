@@ -17,7 +17,8 @@ var game_state := GameStateEnum.IN_GAME
 func _ready() -> void:
 	patient.patient_done.connect(_on_patient_done)
 	game_time.on_timer_end.connect(_on_timer_end)
-
+	
+	
 	if not Engine.is_editor_hint():
 		Global.on_start_game.emit()
 	

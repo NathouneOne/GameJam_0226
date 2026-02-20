@@ -18,10 +18,14 @@ func _ready() -> void:
 	interactive.interact_stop.connect(_on_interact_stop)
 	Global.on_new_patient.connect(reset)
 	reset()
+	
 
 func qte_ok() -> bool:
-	return qteCoeur.scale.x > ZONE_OK.x and qteCoeur.scale.x < ZONE_OK.y
-	
+	#return qteCoeur.scale.x > ZONE_OK.x and qteCoeur.scale.x < ZONE_OK.y
+	if $AnimatedSprite2D.frame > 17 and $AnimatedSprite2D.frame < 21 :
+		return 1
+	else:
+		return 0
 
 @export var SUCCESS_POINTS := 5
 @export var DEFEAT_POINTS := -5
@@ -37,6 +41,7 @@ func _on_interact_start(_target: Node2D, source: Node2D, _hand: Node2D) -> void:
 		if qte_completed >= 3:
 			# disable the QTE:
 			# TODO: animate ?
+			$AnimatedSprite2D.hide()
 			disable()
 			minigame_done.emit()
 	else:
@@ -66,6 +71,10 @@ func reset(
 	scale_trans: Tween.TransitionType = Tween.TRANS_SINE,
 	scale_ease: Tween.EaseType = Tween.EASE_IN_OUT
 ) -> void:
+	
+	$AnimatedSprite2D.show()
+	$AnimatedSprite2D.play("HeartBeat1")
+	
 	qte_completed = 0
 	disabled = false
 	qteCoeur.visible = true

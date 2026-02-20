@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://ds4pi4ocajr22" path="res://Scenes/Game/score.gd" id="1_flgk0"]
 [ext_resource type="PackedScene" uid="uid://dgn4ub5vss8hf" path="res://Scenes/hand/hands.tscn" id="1_mv0hc"]
 [ext_resource type="Texture2D" uid="uid://c3hilgl2uc34p" path="res://Assets/Graphismes/TELE_APERATION.png" id="1_qtymf"]
-[ext_resource type="Script" path="res://Scenes/Game/game.gd" id="1_ypmwd"]
+[ext_resource type="Script" uid="uid://b4q2ax0maqjtw" path="res://Scenes/Game/game.gd" id="1_ypmwd"]
 [ext_resource type="Theme" uid="uid://b2tioy6g4l1nk" path="res://Resources/default_theme.tres" id="2_flgk0"]
 [ext_resource type="Texture2D" uid="uid://drywx78pas5gi" path="res://Assets/Graphismes/GAMEJAM_Dr_MABOUL_enviro_perso.png" id="2_i1e5p"]
 [ext_resource type="Texture2D" uid="uid://dmvmfr47s6iux" path="res://Assets/Graphismes/LIANES.png" id="2_ypmwd"]
@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://dbffdjahw2bes" path="res://Scenes/Scalpel/Scalpel.tscn" id="10_upfqs"]
 [ext_resource type="Texture2D" uid="uid://ba5u1nbm6beyx" path="res://Assets/Graphismes/poubelle0.png" id="14_8e3kh"]
 [ext_resource type="Texture2D" uid="uid://bh1qn3bcdqogj" path="res://Assets/Graphismes/poubelle1.png" id="15_56qi8"]
+[ext_resource type="AudioStream" uid="uid://dp0jyaa33c000" path="res://Assets/Sounds/Tracks/v001/boucle 3 (core track sans lead).wav" id="16_2vowc"]
+[ext_resource type="AudioStream" uid="uid://d8kvu6btjvju" path="res://Assets/Sounds/SFX/eclectrocardiogramme 1 (lent).wav" id="17_2vowc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i1e5p"]
 size = Vector2(179, 491)
@@ -221,3 +223,17 @@ z_index = 4
 position = Vector2(1814.9596, 876.85223)
 scale = Vector2(0.78120786, 0.78120786)
 texture = ExtResource("15_56qi8")
+
+[node name="TracksPlayer" type="AudioStreamPlayer2D" parent="." unique_id=2075413394]
+stream = ExtResource("16_2vowc")
+volume_db = -3.817
+autoplay = true
+panning_strength = 0.0
+
+[node name="ElectrocardiogramPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1165694456]
+stream = ExtResource("17_2vowc")
+volume_db = 2.862
+panning_strength = 0.0
+
+[connection signal="finished" from="TracksPlayer" to="." method="_on_audio_stream_player_2d_finished"]
+[connection signal="finished" from="ElectrocardiogramPlayer" to="." method="_on_audio_stream_player_2d_2_finished"]

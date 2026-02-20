@@ -9,6 +9,7 @@ func _ready() -> void:
 	useable.use_stop.connect(_on_use_stop)
 
 func _on_use_start(_owner: Node2D, target: Node2D, _hand: Node2D) -> void:
+	$AudioStreamPlayer2D.play()
 	if target is Heart:
 		# todo: animate shock
 		#flash_feedback.flash()

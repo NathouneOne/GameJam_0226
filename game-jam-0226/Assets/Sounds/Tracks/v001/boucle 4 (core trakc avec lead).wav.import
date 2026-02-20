@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://culbmksvioirx"
+path="res://.godot/imported/boucle 4 (core trakc avec lead).wav-c32be87bf69a6459f27f9c6140d8c022.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Tracks/v001/boucle 4 (core trakc avec lead).wav"
+dest_files=["res://.godot/imported/boucle 4 (core trakc avec lead).wav-c32be87bf69a6459f27f9c6140d8c022.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
