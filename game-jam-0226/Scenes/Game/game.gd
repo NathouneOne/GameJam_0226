@@ -27,20 +27,20 @@ func _ready() -> void:
 
 func _on_game_start() -> void:
 	print("[Game] on game start !")
+	game_state = GameStateEnum.IN_GAME
 	_enter_new_patient()
 
 func _on_patient_done() -> void:
 	print("[Game] Patient done !")
-	# on out finished, 
-	animation_player.animation_finished.connect(
-		func(animation_name: String) -> void:
-			if not game_state == GameStateEnum.IN_GAME:
-				return
-
-			if animation_name == "patient_out":
-				_enter_new_patient()
-	)
+	animation_player.animation_finished.connect(_on_patient_out_finished, CONNECT_ONE_SHOT)
 	animation_player.play("patient_out")
+
+
+func _on_patient_out_finished(animation_name: String) -> void:
+	if game_state != GameStateEnum.IN_GAME:
+		return
+	if animation_name == "patient_out":
+		_enter_new_patient()
 
 
 func _on_timer_end() -> void:
