@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dcfcxw6hka05n" path="res://Scenes/Components/usable/Usable.tscn" id="3_87nux"]
 [ext_resource type="Script" uid="uid://dql7mxxj7vuv0" path="res://Scenes/Defibrilateur/defibrilateur.gd" id="4_6s5y0"]
 [ext_resource type="PackedScene" uid="uid://cpk6nfbh5g21i" path="res://Scenes/Components/flash_feedback/FlashFeedback.tscn" id="5_fkq31"]
+[ext_resource type="Script" uid="uid://c46kw3psq4b7c" path="res://Scenes/Components/resettable/resettable.gd" id="7_qqpl7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4xhnb"]
 radius = 71.26518
@@ -46,3 +47,7 @@ shape = SubResource("CapsuleShape2D_4xhnb")
 target_node = NodePath("../Sprite2D")
 flash_color = Color(0.8156863, 0.76862746, 0, 1)
 text = "ZAP!"
+
+[node name="Resettable" type="Node" parent="." unique_id=609452777]
+script = ExtResource("7_qqpl7")
+metadata/_custom_type_script = "uid://c46kw3psq4b7c"
