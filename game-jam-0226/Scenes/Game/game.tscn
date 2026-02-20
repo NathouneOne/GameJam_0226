@@ -13,7 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://cs744psx347nm" path="res://Assets/Graphismes/APERATION_DECOR.png" id="8_qtymf"]
 [ext_resource type="PackedScene" uid="uid://dvc2gkhwk0xpr" path="res://Scenes/Game/patient.tscn" id="8_ypmwd"]
 [ext_resource type="PackedScene" uid="uid://dbffdjahw2bes" path="res://Scenes/Scalpel/Scalpel.tscn" id="10_upfqs"]
-[ext_resource type="Texture2D" uid="uid://bof160lvfpeso" path="res://Assets/Graphismes/poubelle.png" id="13_oejk7"]
+[ext_resource type="Texture2D" uid="uid://ba5u1nbm6beyx" path="res://Assets/Graphismes/poubelle0.png" id="14_8e3kh"]
+[ext_resource type="Texture2D" uid="uid://bh1qn3bcdqogj" path="res://Assets/Graphismes/poubelle1.png" id="15_56qi8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i1e5p"]
 size = Vector2(179, 491)
@@ -206,12 +207,17 @@ libraries/ = SubResource("AnimationLibrary_upfqs")
 [node name="Poubelle" type="Area2D" parent="." unique_id=1277353746 groups=["poubelle_zone"]]
 unique_name_in_owner = true
 
-[node name="Poubelle2" type="Sprite2D" parent="Poubelle" unique_id=962469754]
-z_index = 6
-position = Vector2(1798, 895)
-scale = Vector2(0.7277778, 0.7277778)
-texture = ExtResource("13_oejk7")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Poubelle" unique_id=1161815120]
 position = Vector2(1800.5, 896)
 shape = SubResource("RectangleShape2D_ypmwd")
+
+[node name="Poubelle0" type="Sprite2D" parent="Poubelle" unique_id=524892244]
+position = Vector2(1814.9596, 882.85223)
+scale = Vector2(0.78120786, 0.78120786)
+texture = ExtResource("14_8e3kh")
+
+[node name="Poubelle1" type="Sprite2D" parent="Poubelle" unique_id=2093602321]
+z_index = 4
+position = Vector2(1814.9596, 876.85223)
+scale = Vector2(0.78120786, 0.78120786)
+texture = ExtResource("15_56qi8")

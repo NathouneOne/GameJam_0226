@@ -144,9 +144,9 @@ func _on_outline_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 		%PlaieOuvertePng2.show()
 		%ScalpelCurve.curve.clear_points()
 		queue_redraw()
-		telephone.global_position = %PlaieOuvertePng2.global_position-global_position
+		get_parent().get_parent().add_child(telephone)
+		telephone.global_position = %PlaieOuvertePng2.global_position
 		telephone.scale = %PlaieOuvertePng2.scale-Vector2(0.1,0.1)
-		add_child(telephone)
 		handclic=0
 		telephone_grabbed =1
 
@@ -158,7 +158,7 @@ func reset_minigame():
 	%ScalpelCurve.curve.clear_points()
 	%PlaiePng.show()
 	%PlaieOuvertePng2.hide()
-	telephone.queue_free()
+	#telephone.queue_free()
 	telephone = TELEPHONE.instantiate()
 	telephone.connect("telephone_poubelle", tel_poubelle)
 	start_checkpoint = CHECK_POINT.instantiate()
