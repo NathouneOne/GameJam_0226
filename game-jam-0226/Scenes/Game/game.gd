@@ -51,9 +51,9 @@ func _on_timer_end() -> void:
 func _enter_new_patient() -> void:
 	# Swap patient, pick a random preset
 	# TODO: better progression logic
-	var preset: Patient.PatientPreset = Patient.PatientPreset.values().pick_random()
-	# Played backwards as I did not find how to invert 
+	var preset: Patient.PatientPreset = Patient.PRESET_GAMES.keys().pick_random()
 	patient.PRESET = preset
+	# Played backwards as I did not find how to invert
 	animation_player.play_backwards("patient_in")
 	
 	if not Engine.is_editor_hint():

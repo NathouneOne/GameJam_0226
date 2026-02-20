@@ -4,13 +4,21 @@ class_name Patient
 
 signal patient_done()
 
+enum PatientPreset {
+	COEUR_1,
+	COEUR_2,
+	COEUR_1_AND_2,
+	PLAIE,
+	ALL,
+}
+
 ## Preset -> list of enabled minigame keys. Keys must match exact child node names (e.g. Coeur1, Coeur2).
 const PRESET_GAMES := {
-	#PatientPreset.COEUR_1: ["Coeur1"],
-	#PatientPreset.COEUR_2: ["Coeur2"],
-	#PatientPreset.COEUR_1_AND_2: ["Coeur1", "Coeur2"],
-	"PLAIE": ["Plaie"],
-	#PatientPreset.ALL: ["Coeur1", "Coeur2"],
+	PatientPreset.COEUR_1: ["Coeur1"],
+	# PatientPreset.COEUR_2: ["Coeur2"],
+	# PatientPreset.COEUR_1_AND_2: ["Coeur1", "Coeur2"],
+	PatientPreset.PLAIE: ["Plaie"],
+	# PatientPreset.ALL: ["Coeur1", "Coeur2"],
 }
 
 var _game_nodes: Dictionary = {} # populated in _ready
@@ -23,7 +31,7 @@ func _on_minigame_done(key: String) -> void:
 	if _enabled_keys.size() > 0 and _completed_keys.size() >= _enabled_keys.size():
 		patient_done.emit()
 
-func load_preset(preset: String) -> void:
+func load_preset(preset: PatientPreset) -> void:
 	# Ensure nodes are resolved (e.g. when PRESET changes in editor before _ready)
 	if _game_nodes.is_empty():
 		_game_nodes = _get_game_nodes()
@@ -61,8 +69,8 @@ func load_preset(preset: String) -> void:
 			if n is CanvasItem:
 				(n as CanvasItem).queue_redraw()
 
-var _preset: PatientPreset = PatientPreset.ALL
-@export var PRESET: PatientPreset = PatientPreset.ALL:
+var _preset: PatientPreset = PatientPreset.PLAIE
+@export var PRESET: PatientPreset = PatientPreset.PLAIE:
 	get:
 		return _preset
 	set(v):
