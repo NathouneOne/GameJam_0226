@@ -76,6 +76,13 @@ var _preset: PatientPreset = PatientPreset.ALL
 		_preset = v
 		load_preset(v)
 
+# Getter ensures the Callable is resolved when the button is used (avoids Nil at editor load).
+@export_tool_button("Emit patient_done", "Callable") var emit_patient_done_action: Callable:
+	get: return _editor_emit_patient_done
+
+func _editor_emit_patient_done() -> void:
+	print("[Patient] Patient done !")
+	patient_done.emit()
 
 func _get_game_nodes() -> Dictionary:
 	var out: Dictionary = {}
