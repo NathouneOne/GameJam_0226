@@ -18,6 +18,7 @@
 [ext_resource type="AudioStream" uid="uid://gi25uq4griix" path="res://Assets/Sounds/Tracks/v002/wetransfer_boucle-1-lead-no-drum-wav_2026-02-20_2156/boucle 1 (lead no drum) wrap.wav" id="16_2vowc"]
 [ext_resource type="AudioStream" uid="uid://d8kvu6btjvju" path="res://Assets/Sounds/SFX/eclectrocardiogramme 1 (lent).wav" id="17_2vowc"]
 [ext_resource type="AudioStream" uid="uid://c0kl752rewhpo" path="res://Assets/Sounds/SFX/dégat du man.wav" id="18_yox4t"]
+[ext_resource type="Script" uid="uid://cdjtiwpnt2t16" path="res://Scenes/Game/camera_2d.gd" id="19_lemb1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i1e5p"]
 size = Vector2(179, 491)
@@ -252,5 +253,14 @@ stream = ExtResource("18_yox4t")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1432686916]
 environment = SubResource("Environment_2vowc")
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=529783870]
+unique_name_in_owner = true
+offset = Vector2(960, 540)
+script = ExtResource("19_lemb1")
+
+[node name="Timer" type="Timer" parent="Camera2D" unique_id=1242202335]
+wait_time = 0.3
+
 [connection signal="finished" from="TracksPlayer" to="." method="_on_audio_stream_player_2d_finished"]
 [connection signal="finished" from="ElectrocardiogramPlayer" to="." method="_on_audio_stream_player_2d_2_finished"]
+[connection signal="timeout" from="Camera2D/Timer" to="Camera2D" method="_on_timer_timeout"]

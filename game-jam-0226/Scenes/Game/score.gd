@@ -30,6 +30,7 @@ func _animate_negative_points(_old_score: int) -> void:
 	# TODO better animation
 	$FlashFeedbackNotOk.flash()
 	%HurtingSound.play()
+	Global.camShake.emit()
 	update_label()
 
 
