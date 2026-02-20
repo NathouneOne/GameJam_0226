@@ -20,6 +20,11 @@ var handclic:bool =0
 var telephone_grabbed :bool =0
 var scalpel : Node2D
 var telephone := TELEPHONE.instantiate()
+var telephone_original_pos : Vector2
+var jitter:bool = 0
+var original_pos:=position
+var stop_jitter:bool=0
+
 
 @onready var interactive: Interactive = $Interactive
 
@@ -115,7 +120,18 @@ func _process(_delta: float) -> void:
 	
 	## pick telephone ##
 	
-
+	## Jitter
+	if telephone.get_child(1).is_grabbed :
+		stop_jitter=1
+	
+	if jitter and not telephone_grabbed:
+		position=original_pos+Vector2((randf()-0.5)*5, (randf()-0.5)*5)
+	elif not jitter and not telephone_grabbed :
+		position=original_pos
+	elif jitter and telephone_grabbed and not stop_jitter:
+		telephone.global_position=telephone_original_pos+Vector2((randf()-0.5)*5, (randf()-0.5)*5)
+	elif not jitter and telephone_grabbed and not stop_jitter:
+		telephone.global_position = telephone_original_pos
 
 func _draw():
 	if %ScalpelCurve.curve.point_count>2 :
@@ -146,6 +162,7 @@ func _on_outline_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 		queue_redraw()
 		get_parent().get_parent().add_child(telephone)
 		telephone.global_position = %PlaieOuvertePng2.global_position
+		telephone_original_pos=telephone.global_position
 		telephone.scale = %PlaieOuvertePng2.scale-Vector2(0.1,0.1)
 		handclic=0
 		telephone_grabbed =1
@@ -167,4 +184,14 @@ func reset_minigame():
 	already_won=0
 	handclic=0
 	telephone_grabbed =0
+	stop_jitter=0
 	
+
+
+func _on_timer_timeout() -> void:
+	%Timer2.start()
+	jitter=1
+
+
+func _on_timer_2_timeout() -> void:
+	jitter=0

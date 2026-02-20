@@ -82,6 +82,16 @@ position = Vector2(283.00003, 192.00002)
 [node name="CheckPoint6" parent="." unique_id=571173631 instance=ExtResource("2_ns5is")]
 position = Vector2(134.00003, 105.000015)
 
+[node name="Timer2" type="Timer" parent="." unique_id=350261886]
+unique_name_in_owner = true
+wait_time = 0.5
+one_shot = true
+
+[node name="Timer" type="Timer" parent="." unique_id=480017030]
+unique_name_in_owner = true
+wait_time = 2.0
+autostart = true
+
 [connection signal="area_shape_entered" from="Interactive" to="." method="_on_interactive_area_shape_entered"]
 [connection signal="area_shape_exited" from="Interactive" to="." method="_on_interactive_area_shape_exited"]
 [connection signal="mouse_exited" from="Interactive" to="." method="_on_target_mouse_exited"]
@@ -89,3 +99,5 @@ position = Vector2(134.00003, 105.000015)
 [connection signal="area_shape_exited" from="Outline" to="." method="_on_outline_area_shape_exited"]
 [connection signal="input_event" from="Outline" to="." method="_on_outline_input_event"]
 [connection signal="area_shape_entered" from="Inline" to="." method="_on_inline_area_shape_entered"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
