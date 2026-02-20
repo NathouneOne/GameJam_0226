@@ -28,4 +28,4 @@ metadata/_edit_lock_ = true
 
 [node name="LeftArm" parent="." unique_id=1314196640 instance=ExtResource("1_0r2x8")]
 unique_name_in_owner = true
-position = Vector2(353, 1457)
+position = Vector2(892, 1654)

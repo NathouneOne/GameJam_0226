@@ -29,8 +29,8 @@ joint_data/2/bone_index = 2
 joint_data/2/bone2d_node = NodePath("armBone0/armBone1/armHandBase")
 joint_data/2/rotate_from_joint = false
 joint_data/2/enable_constraint = true
-joint_data/2/constraint_angle_min = -60.0
-joint_data/2/constraint_angle_max = 60.0
+joint_data/2/constraint_angle_min = -45.0
+joint_data/2/constraint_angle_max = 45.0
 joint_data/2/constraint_angle_invert = true
 joint_data/2/constraint_in_localspace = true
 joint_data/2/editor_draw_gizmo = true
@@ -44,17 +44,18 @@ modifications/0 = SubResource("SkeletonModification2DCCDIK_r3o1h")
 script = ExtResource("1_4nkmu")
 
 [node name="target" type="Node2D" parent="." unique_id=2040772107]
-position = Vector2(814, -482)
+position = Vector2(-519, -1073)
 
 [node name="Sprite2D" type="Sprite2D" parent="target" unique_id=1555419652]
+visible = false
 scale = Vector2(0.54, 0.54)
 texture = ExtResource("2_wt4sn")
 
 [node name="arm0" type="Node2D" parent="." unique_id=1782109609]
 z_index = 3
 position = Vector2(-1, 0.9999995)
-rotation = -1.5952599
-scale = Vector2(0.9999925, 0.9999925)
+rotation = -2.803082
+scale = Vector2(0.99999213, 0.99999213)
 
 [node name="Sprite2D" type="Sprite2D" parent="arm0" unique_id=125526545]
 position = Vector2(-1.3007263, -1.0000037)
@@ -64,9 +65,9 @@ offset = Vector2(754.6502, 5.9028745)
 
 [node name="arm1" type="Node2D" parent="." unique_id=2020563101]
 z_index = 2
-position = Vector2(-18.79786, -761.7928)
-rotation = 0.17259489
-scale = Vector2(0.99999386, 0.99999386)
+position = Vector2(-720.41486, -253.1971)
+rotation = -1.4312179
+scale = Vector2(0.9999891, 0.9999891)
 
 [node name="Sprite2D" type="Sprite2D" parent="arm1" unique_id=103852025]
 position = Vector2(-1.3007263, -1.0000037)
@@ -76,12 +77,12 @@ offset = Vector2(754.6502, 5.9028745)
 
 [node name="hand" type="Node2D" parent="." unique_id=1306377304]
 z_index = 1
-position = Vector2(764.5547, -620.43884)
-rotation = 1.2197878
-scale = Vector2(0.99998343, 0.99998343)
+position = Vector2(-616.23236, -1000.97284)
+rotation = -0.6458342
+scale = Vector2(0.9999818, 0.9999818)
 
 [node name="open" type="Sprite2D" parent="hand" unique_id=187861792]
-position = Vector2(1.9849014, 1.0295122)
+position = Vector2(0.99988556, -5.1259995e-06)
 rotation = 0.5201081
 scale = Vector2(0.26785016, 0.26785016)
 texture = ExtResource("4_1de7k")
@@ -90,7 +91,7 @@ flip_h = true
 
 [node name="closed" type="Sprite2D" parent="hand" unique_id=484882861]
 visible = false
-position = Vector2(1.9850895, 1.0294476)
+position = Vector2(2.9851074, 1.029541)
 rotation = 0.4905132
 scale = Vector2(0.26923501, 0.26923501)
 texture = ExtResource("5_wm07o")
@@ -98,7 +99,7 @@ offset = Vector2(466.55835, -250.0874)
 flip_h = true
 
 [node name="Hand" parent="hand" unique_id=2078914881 instance=ExtResource("6_sbeto")]
-position = Vector2(146.73068, 1.6173859)
+position = Vector2(122.01364, 0.4128027)
 
 [node name="Skeleton2D" type="Skeleton2D" parent="." unique_id=513974380]
 position = Vector2(-1, 0)
@@ -122,14 +123,14 @@ metadata/_local_pose_override_enabled_ = true
 remote_path = NodePath("../../../../arm1")
 
 [node name="armHandBase" type="Bone2D" parent="Skeleton2D/armBone0/armBone1" unique_id=311617383]
-position = Vector2(795.99414, 4.7211)
+position = Vector2(755.0052, -0.8661499)
 scale = Vector2(0.99998736, 0.99998736)
-rest = Transform2D(0.99998736, 0, 0, 0.99998736, 795.99414, 4.7211)
+rest = Transform2D(0.99998736, 0, 0, 0.99998736, 755.0052, -0.8661499)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/armBone0/armBone1/armHandBase" unique_id=916949332]
 remote_path = NodePath("../../../../../hand")
 
 [node name="armHandTip" type="Bone2D" parent="Skeleton2D/armBone0/armBone1/armHandBase" unique_id=1662121726]
-position = Vector2(147.00166, 1.1710613)
-rest = Transform2D(1, 0, 0, 1, 147.00166, 1.1710613)
+position = Vector2(121.002365, 1.0000238)
+rest = Transform2D(1, 0, 0, 1, 121.002365, 1.0000238)
