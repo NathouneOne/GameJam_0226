@@ -11,25 +11,21 @@ signal minigame_done()
 @export var COEUR_1_ENABLED := true:
 	set(v):
 		COEUR_1_ENABLED = v
-		if COEUR_1_ENABLED:
-			coeur1.visible = true
-		else:
-			coeur2.visible = false
-
+		if coeur1:
+			coeur1.visible = v
 @export var COEUR_2_ENABLED := true:
 	set(v):
 		COEUR_2_ENABLED = v
-		if COEUR_2_ENABLED:
-			coeur1.visible = true
-		else:
-			coeur2.visible = false
+		if coeur2:
+			coeur2.visible = v
 
 # Add other minigames here
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	coeur1.visible = COEUR_1_ENABLED
+	coeur2.visible = COEUR_2_ENABLED
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

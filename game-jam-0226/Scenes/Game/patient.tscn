@@ -47,6 +47,5 @@ z_index = 2
 position = Vector2(193, -93.98999)
 
 [node name="Coeur2" parent="." unique_id=356672580 instance=ExtResource("2_6j6pa")]
-visible = false
 z_index = 2
 position = Vector2(-102, 95)
