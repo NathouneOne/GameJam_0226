@@ -186,7 +186,7 @@ color = Color(0.5686275, 0.62352943, 0.5372549, 1)
 polygon = PackedVector2Array(1520, 76, 1579, -48, 1745, 47, 1779, 214, 1755, 278, 1675, 237)
 
 [node name="Patient" parent="." unique_id=855156239 instance=ExtResource("8_ypmwd")]
-position = Vector2(893, 1770)
+position = Vector2(893, 610)
 PRESET = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=211062614]
