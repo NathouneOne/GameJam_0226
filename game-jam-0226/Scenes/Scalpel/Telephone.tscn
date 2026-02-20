@@ -1,9 +1,10 @@
-[gd_scene format=3 uid="uid://urhinpicu3w4"]
+[gd_scene format=3 uid="uid://dfmu46udmmysk"]
 
-[ext_resource type="Script" uid="uid://mxtxhqn6qjs3" path="res://Scenes/Scalpel/telephone.gd" id="1_5op4b"]
+[ext_resource type="Script" path="res://Scenes/Scalpel/telephone.gd" id="1_5op4b"]
 [ext_resource type="Texture2D" uid="uid://dhn82peqreic1" path="res://Assets/Graphismes/TEL_PNG.png" id="1_qv1yl"]
-[ext_resource type="PackedScene" uid="uid://3n3jakkd2wfr" path="res://Scenes/Components/grabbable/poubellable.tscn" id="2_4no1l"]
-[ext_resource type="Script" uid="uid://c8mlq2414nbxi" path="res://Scenes/Components/grabbable/poubellable.gd" id="3_5op4b"]
+[ext_resource type="PackedScene" path="res://Scenes/Components/grabbable/poubellable.tscn" id="2_4no1l"]
+[ext_resource type="Script" path="res://Scenes/Components/grabbable/poubellable.gd" id="3_5op4b"]
+[ext_resource type="PackedScene" uid="uid://didvm4abna5rp" path="res://Scenes/Components/resettable/resettable.tscn" id="5_4t6fn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4t6fn"]
 size = Vector2(493, 900)
@@ -23,3 +24,6 @@ script = ExtResource("3_5op4b")
 [node name="Grab" type="CollisionShape2D" parent="Poubellable" unique_id=1665815610]
 position = Vector2(-12.5, -62)
 shape = SubResource("RectangleShape2D_4t6fn")
+
+[node name="Resettable" parent="." unique_id=1177109156 instance=ExtResource("5_4t6fn")]
+override_position = Vector2(1800, 880)

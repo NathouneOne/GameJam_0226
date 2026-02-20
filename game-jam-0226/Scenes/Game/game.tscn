@@ -12,8 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://cub20lgna3oru" path="res://Scenes/Defibrilateur/defibrilateur.tscn" id="3_qikps"]
 [ext_resource type="PackedScene" uid="uid://cpk6nfbh5g21i" path="res://Scenes/Components/flash_feedback/FlashFeedback.tscn" id="3_xfil1"]
 [ext_resource type="Texture2D" uid="uid://cs744psx347nm" path="res://Assets/Graphismes/APERATION_DECOR.png" id="8_qtymf"]
-[ext_resource type="PackedScene" uid="uid://dvc2gkhwk0xpr" path="res://Scenes/Game/patient.tscn" id="8_ypmwd"]
-[ext_resource type="PackedScene" uid="uid://dbffdjahw2bes" path="res://Scenes/Scalpel/Scalpel.tscn" id="10_upfqs"]
+[ext_resource type="PackedScene" uid="uid://dilbhfaavqadx" path="res://Scenes/Game/patient.tscn" id="8_ypmwd"]
+[ext_resource type="PackedScene" uid="uid://e51vi8ldmkjl" path="res://Scenes/Scalpel/Scalpel.tscn" id="10_upfqs"]
 [ext_resource type="Texture2D" uid="uid://ba5u1nbm6beyx" path="res://Assets/Graphismes/poubelle0.png" id="14_8e3kh"]
 [ext_resource type="Texture2D" uid="uid://bh1qn3bcdqogj" path="res://Assets/Graphismes/poubelle1.png" id="15_56qi8"]
 [ext_resource type="AudioStream" uid="uid://gi25uq4griix" path="res://Assets/Sounds/Tracks/v002/wetransfer_boucle-1-lead-no-drum-wav_2026-02-20_2156/boucle 1 (lead no drum) wrap.wav" id="16_2vowc"]
@@ -150,7 +150,7 @@ position = Vector2(1636, 65)
 rotation = 0.7382743
 skew = -0.3333579
 script = ExtResource("1_ciybh")
-START_TIME_SECONDS = 10.0
+START_TIME_SECONDS = 60.0
 
 [node name="TimerLabel" type="Label" parent="GameTime" unique_id=34665249]
 modulate = Color(5.912981, 5.912981, 5.912981, 1)

@@ -1,6 +1,8 @@
 extends Node
 class_name Resettable
 
+@export var override_position: Vector2
+
 var _start_position: Vector2
 var _start_rotation: float
 
@@ -18,5 +20,9 @@ func _on_game_end() -> void:
 	if p is Node2D:
 		var tween := p.create_tween()
 		tween.set_parallel(true)
-		tween.tween_property(p, "position", _start_position, 0.4).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD).set_delay(0.8)
+		var target_pos := _start_position
+		if override_position != null and override_position != Vector2.ZERO:
+			target_pos = override_position
+
+		tween.tween_property(p, "position", target_pos, 0.4).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD).set_delay(0.8)
 		tween.tween_property(p, "rotation", _start_rotation, 0.4).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD).set_delay(0.8)
