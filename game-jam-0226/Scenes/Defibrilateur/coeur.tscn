@@ -313,6 +313,7 @@ texture = ExtResource("1_nqbo0")
 [node name="Interactive" parent="." unique_id=1960182460 instance=ExtResource("3_7f3hc")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactive" unique_id=1167014915]
+position = Vector2(75.38, -90.27)
 scale = Vector2(1.1726507, 1.2918111)
 shape = SubResource("CircleShape2D_kipf4")
 

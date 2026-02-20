@@ -22,7 +22,7 @@ func _ready() -> void:
 
 func qte_ok() -> bool:
 	#return qteCoeur.scale.x > ZONE_OK.x and qteCoeur.scale.x < ZONE_OK.y
-	if $AnimatedSprite2D.frame > 17 and $AnimatedSprite2D.frame < 21 :
+	if $AnimatedSprite2D.frame > 10 and $AnimatedSprite2D.frame < 16 :
 		return 1
 	else:
 		return 0
