@@ -12,6 +12,7 @@ var grab_offset: Vector2 = Vector2.ZERO # object position in hand's local space 
 
 func _ready() -> void:
 	arm.closed = false
+	Global.hand_force_release_object.connect(_force_release_object)
 
 
 func _process(_delta: float) -> void:
@@ -62,24 +63,24 @@ func _grab_poubelle_object(object: Node2D, component: Poubellable) -> void:
 	useable_component = _find_component_in_object(object, Useable) as Useable
 
 func _release_object() -> bool:
+	print("[Hand] _release_object")
 	if grabbable_component:
 		if grabbable_component.release():
-			_use(false)
-			grabbed_object = null
-			grabbable_component = null
-			useable_component = null
-			arm.closed = false;
+			_force_release_object()
 			return true
 			
 	if poubellable_component:
 		if poubellable_component.release():
-			_use(false)
-			grabbed_object = null
-			poubellable_component = null
-			useable_component = null
-			arm.closed = false;
+			_force_release_object()
 			return true
 	return false
+
+func _force_release_object() -> void:
+	_use(false)
+	grabbed_object = null
+	grabbable_component = null
+	useable_component = null
+	arm.closed = false;
 
 
 func _process_grabbed_object() -> void:
