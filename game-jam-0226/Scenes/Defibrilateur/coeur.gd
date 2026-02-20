@@ -9,6 +9,9 @@ class_name Heart
 
 @export var started: bool = true
 
+# TODO: call when minigame is complete
+signal minigame_done()
+
 func _ready() -> void:
 	interactive.interact_start.connect(_on_interact_start)
 	interactive.interact_stop.connect(_on_interact_stop)
@@ -52,18 +55,13 @@ func start(
 	qteCoeur.scale = Vector2.ONE * SCALE_START
 	heart_tween = get_tree().create_tween().set_loops()
 	heart_tween.tween_property(qteCoeur, "scale", Vector2.ONE * SCALE_END, SCALE_DURATION).set_trans(scale_trans).set_ease(scale_ease)
-	heart_tween.tween_property(qteCoeur, "scale", Vector2.ONE *  SCALE_START, SCALE_DURATION).set_trans(scale_trans).set_ease(scale_ease)
-
-func stop() -> void:
-	started = false
-	if heart_tween:
-		heart_tween.kill()
+	heart_tween.tween_property(qteCoeur, "scale", Vector2.ONE * SCALE_START, SCALE_DURATION).set_trans(scale_trans).set_ease(scale_ease)
 
 func _process(_delta: float) -> void:
 	# is in suceess zone 
 	if qte_ok():
 		qteCoeur.modulate = ZONE_OK_MODULATE
 		#print("ok")
-	else: 
+	else:
 		qteCoeur.modulate = ZONE_NOK_MODULATE
 		#print("not ok")
