@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://dilbhfaavqadx"]
+
+[ext_resource type="Script" uid="uid://cck23yc0x63gi" path="res://Scenes/Game/patient.gd" id="1_6j6pa"]
+[ext_resource type="Texture2D" uid="uid://xaph1cy1bppp" path="res://Assets/Graphismes/LIT_APERATION.png" id="1_ljr86"]
+[ext_resource type="PackedScene" uid="uid://fy15tufi5wwi" path="res://Scenes/Defibrilateur/coeur.tscn" id="2_6j6pa"]
+
+[node name="Patient" type="Node2D" unique_id=145693716]
+script = ExtResource("1_6j6pa")
+
+[node name="Lit" type="Node2D" parent="." unique_id=1588782232]
+
+[node name="Body" type="Node2D" parent="Lit" unique_id=1728275113]
+z_index = 1
+position = Vector2(61, 16.01001)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Lit/Body" unique_id=1891098143]
+z_index = 1
+position = Vector2(3, -655)
+scale = Vector2(0.50799423, 0.4536807)
+color = Color(0.8758502, 0.68026394, 0.69058543, 1)
+offset = Vector2(-81.37642, 56.4168)
+polygon = PackedVector2Array(-170.5949, 523.286, 445.5539, 534.307, 351.06464, 236.7409, -82.011154, 227.92413)
+
+[node name="Polygon2D" type="Polygon2D" parent="Lit/Body" unique_id=942631715]
+z_index = 1
+position = Vector2(-1, -3)
+scale = Vector2(0.71273714, 0.67355824)
+color = Color(0.8758502, 0.68026394, 0.69058543, 1)
+offset = Vector2(-81.37642, 56.4168)
+polygon = PackedVector2Array(-452, 495, 655, 483, 408.28516, -605.7382, -197.82886, -607.2229)
+
+[node name="Polygon2D4" type="Polygon2D" parent="Lit/Body" unique_id=334949882]
+color = Color(0.8745098, 0.6784314, 0.6901961, 1)
+polygon = PackedVector2Array(-369, 412, -17, 409, -81, 1261, -14, 1288, -27, 1356, -260, 1357, -259, 1300, -208, 1268)
+
+[node name="Polygon2D3" type="Polygon2D" parent="Lit/Body" unique_id=469055599]
+position = Vector2(411, 4)
+color = Color(0.8745098, 0.6784314, 0.6901961, 1)
+polygon = PackedVector2Array(-369, 412, -17, 409, -81, 1261, -14, 1288, -27, 1356, -260, 1357, -259, 1300, -208, 1268)
+
+[node name="SpriteLit" type="Sprite2D" parent="Lit" unique_id=1273125670]
+position = Vector2(23, 536.01)
+texture = ExtResource("1_ljr86")
+
+[node name="Coeur1" parent="." unique_id=1087108802 instance=ExtResource("2_6j6pa")]
+z_index = 2
+position = Vector2(193, -93.98999)
+
+[node name="Coeur2" parent="." unique_id=356672580 instance=ExtResource("2_6j6pa")]
+z_index = 2
+position = Vector2(-102, 95)
