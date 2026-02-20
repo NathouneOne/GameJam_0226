@@ -167,6 +167,7 @@ polygon = PackedVector2Array(935.2234, -83.223785, -7.600647, 42.652435, -9.0446
 [node name="HandleGrabbable" parent="Handle" unique_id=197402326 instance=ExtResource("7_wdtv5")]
 lock_rotation = true
 position_y_only = true
+disable_on_menu = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Handle/HandleGrabbable" unique_id=466337235]
 position = Vector2(43, 44)

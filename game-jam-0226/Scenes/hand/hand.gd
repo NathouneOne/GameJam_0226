@@ -43,9 +43,12 @@ func _try_grab_object() -> bool:
 	var areas: Array[Area2D] = area_2d.get_overlapping_areas()
 	for area: Area2D in areas:
 		if area is Grabbable:
+			var g: Grabbable = area as Grabbable
+			if g.disabled:
+				continue
 			var target: Node = area.get_parent()
 			if target is Node2D:
-				_grab_object(target as Node2D, area as Grabbable)
+				_grab_object(target as Node2D, g)
 				return true
 
 		if area is Poubellable:
