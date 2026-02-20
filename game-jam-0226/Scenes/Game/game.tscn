@@ -18,7 +18,7 @@ size = Vector2(179, 491)
 
 [sub_resource type="Animation" id="Animation_ypmwd"]
 resource_name = "patient_in"
-length = 0.5
+length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -46,7 +46,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_oejk7"]
 resource_name = "out"
-length = 0.5
+length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -184,7 +184,7 @@ color = Color(0.5686275, 0.62352943, 0.5372549, 1)
 polygon = PackedVector2Array(1520, 76, 1579, -48, 1745, 47, 1779, 214, 1755, 278, 1675, 237)
 
 [node name="Patient" parent="." unique_id=855156239 instance=ExtResource("8_ypmwd")]
-position = Vector2(893, 610)
+position = Vector2(893, 1770)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=211062614]
 libraries/ = SubResource("AnimationLibrary_upfqs")

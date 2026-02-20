@@ -10,7 +10,6 @@ class_name Game
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	patient.patient_done.connect(_on_patient_done)
-	pass # Replace with function body.
 
 func _on_patient_done() -> void:
 	print("[Game] Patient done !")
@@ -18,12 +17,18 @@ func _on_patient_done() -> void:
 	animation_player.animation_finished.connect(
 		func (animation_name: String) -> void:
 			if animation_name == "patient_out":
-				_on_patient_animation_out_done()
+				_enter_new_patient()
 	)
 	animation_player.play("patient_out")
 
-func _on_patient_animation_out_done() -> void:
+
+
+func _enter_new_patient() -> void:
+	# Swap patient, pick a random preset
+	# TODO: better progression logic
+	var preset: Patient.PatientPreset = Patient.PatientPreset.values().pick_random()
 	# Played backwards as I did not find how to invert 
+	patient.PRESET = preset
 	animation_player.play_backwards("patient_in")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
