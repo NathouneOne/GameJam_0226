@@ -17,12 +17,17 @@ signal smashed
 var _zone: FlyZone
 var _current_angle: float
 var _direction_timer: float
-var _interactive: Node
+var alive := true
 
+@onready var interactive: Interactive = $Interactive
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var flyingNoise: AudioStreamPlayer2D = $FlyingNoise
+@onready var smashNoise: AudioStreamPlayer2D = $SmashNoise
+
 
 func _ready() -> void:
 	sprite.play("fly")
+	flyingNoise.play()
 	if fly_zone_path.is_empty():
 		_zone = get_parent().get_node_or_null("FlyZone") as FlyZone
 	else:
@@ -33,9 +38,7 @@ func _ready() -> void:
 	else:
 		push_warning("Fly: No FlyZone found. Set fly_zone_path or ensure a sibling node named FlyZone exists.")
 		print("[Fly] _ready: NO FlyZone (parent=", get_parent().name, ", siblings=", get_parent().get_children().map(func(c): return c.name), ")")
-	_interactive = get_node_or_null("Interactive")
-	if _interactive and _interactive.has_signal("interact_start"):
-		_interactive.interact_start.connect(_on_interact_start)
+	interactive.interact_start.connect(_on_interact_start)
 
 
 func _process(delta: float) -> void:
@@ -61,12 +64,21 @@ func _pick_new_direction() -> void:
 	_current_angle = randf() * TAU
 
 
-func _on_interact_start(_target: Node2D, _source: Node2D, _hand: Node2D) -> void:
+func _on_interact_start(_target: Node2D, source: Node2D, _hand: Node2D) -> void:
+	if source != null:
+		# only smash via hand for now
+		return
+		
+	if not alive:
+		return
+
+	alive = false
 	smashed.emit()
 	sprite.play("smash")
+	# random rotation on smash
+	rotation = randi() % 180
 	if despawn_delay_seconds > 0:
 		get_tree().create_timer(despawn_delay_seconds).timeout.connect(queue_free)
 	
 	set_process(false)
-	if _interactive and _interactive.has_method("set"):
-		_interactive.set("enabled", false)
+	interactive.enabled = false

@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://dqfso4flyv85t" path="res://Assets/Graphismes/fly/animation/5.png" id="6_32nkl"]
 [ext_resource type="Texture2D" uid="uid://demamt0at4l4p" path="res://Assets/Graphismes/fly/animation/6.png" id="7_jxxjb"]
 [ext_resource type="Texture2D" uid="uid://ne78bm8okpt0" path="res://Assets/Graphismes/fly/smash/smash.png" id="8_v48hi"]
+[ext_resource type="AudioStream" uid="uid://cpib8nk3nrsc1" path="res://Assets/Sounds/SFX/electrocardiogramme 2 (moyen double bip).wav" id="10_fdqpv"]
+[ext_resource type="AudioStream" uid="uid://c0kl752rewhpo" path="res://Assets/Sounds/SFX/dégat du man.wav" id="11_54t5q"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_23oet"]
 animations = [{
@@ -53,6 +55,7 @@ move_speed = 400.0
 direction_change_interval = 0.7
 wobble_strength = 40.0
 speed_variation = 1.0
+despawn_delay_seconds = -1.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1063646624]
 position = Vector2(0, 1)
@@ -64,3 +67,10 @@ animation = &"fly"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactive" unique_id=1770886873]
 shape = SubResource("CircleShape2D_ekpsg")
+
+[node name="FlyingNoise" type="AudioStreamPlayer2D" parent="." unique_id=537996288]
+stream = ExtResource("10_fdqpv")
+volume_db = -3.07
+
+[node name="SmashNoise" type="AudioStreamPlayer2D" parent="." unique_id=683410241]
+stream = ExtResource("11_54t5q")

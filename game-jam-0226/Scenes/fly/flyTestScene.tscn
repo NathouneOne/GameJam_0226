@@ -1,48 +1,13 @@
 [gd_scene format=3 uid="uid://cixjgrw7g7eut"]
 
-[ext_resource type="PackedScene" uid="uid://bbxb8nvk3v1no" path="res://Scenes/fly/fly.tscn" id="1_ibj56"]
-[ext_resource type="Script" uid="uid://ddkowvcxrhrvg" path="res://Scenes/fly/fly_zone.gd" id="2_6vr42"]
-[ext_resource type="Script" uid="uid://btp3oy1brp8vx" path="res://Scenes/fly/fly_spawner.gd" id="2_fudfc"]
-[ext_resource type="Script" uid="uid://dxuafjhqs6yv0" path="res://Scenes/fly/spawn_zone.gd" id="2_nnkt7"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_nnkt7"]
-radius = 65.12296
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6vr42"]
-radius = 672.41846
-height = 1646.5779
+[ext_resource type="PackedScene" uid="uid://ctkr410m1w8jr" path="res://Scenes/fly/fly_spawner.tscn" id="1_ibj56"]
+[ext_resource type="PackedScene" uid="uid://1ohqnbol5i0g" path="res://Scenes/hand/arm.tscn" id="2_6vr42"]
 
 [node name="FlyTestScene" type="Node2D" unique_id=1846053974]
 position = Vector2(470, 198)
 
-[node name="FlySpawner" type="Node2D" parent="." unique_id=1969869830]
-script = ExtResource("2_fudfc")
-fly_scene = ExtResource("1_ibj56")
+[node name="FlySpawner" parent="." unique_id=986804126 instance=ExtResource("1_ibj56")]
+position = Vector2(53, -49)
 
-[node name="SpawnZone" type="Area2D" parent="FlySpawner" unique_id=776313770]
-position = Vector2(-15, -5)
-script = ExtResource("2_nnkt7")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="FlySpawner/SpawnZone" unique_id=888195895]
-position = Vector2(384, 708)
-shape = SubResource("CircleShape2D_nnkt7")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="FlySpawner/SpawnZone" unique_id=1431474081]
-position = Vector2(1173, 569)
-shape = SubResource("CircleShape2D_nnkt7")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="FlySpawner/SpawnZone" unique_id=1167644082]
-position = Vector2(-325, 677)
-shape = SubResource("CircleShape2D_nnkt7")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FlySpawner/SpawnZone" unique_id=1161966821]
-position = Vector2(318, -56)
-shape = SubResource("CircleShape2D_nnkt7")
-
-[node name="FlyZone" type="Area2D" parent="FlySpawner" unique_id=1439174680]
-script = ExtResource("2_6vr42")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FlySpawner/FlyZone" unique_id=1303861402]
-position = Vector2(404, 551.99994)
-rotation = -1.5405344
-shape = SubResource("CapsuleShape2D_6vr42")
+[node name="Arm" parent="." unique_id=1314196640 instance=ExtResource("2_6vr42")]
+position = Vector2(356, 1486)
