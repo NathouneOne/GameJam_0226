@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bbxb8nvk3v1no" path="res://Scenes/fly/fly.tscn" id="2_ea137"]
 [ext_resource type="Script" uid="uid://dxuafjhqs6yv0" path="res://Scenes/fly/spawn_zone.gd" id="3_4f47q"]
 [ext_resource type="Script" uid="uid://ddkowvcxrhrvg" path="res://Scenes/fly/fly_zone.gd" id="4_xp21a"]
+[ext_resource type="AudioStream" uid="uid://cpib8nk3nrsc1" path="res://Assets/Sounds/SFX/electrocardiogramme 2 (moyen double bip).wav" id="5_ea137"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nnkt7"]
 radius = 65.12296
@@ -15,6 +16,9 @@ height = 1646.5779
 [node name="FlySpawner" type="Node2D" unique_id=986804126]
 script = ExtResource("1_03fag")
 fly_scene = ExtResource("2_ea137")
+spawn_interval_seconds = null
+spawn_interval_random_delta = null
+max_alive_flies = null
 
 [node name="SpawnZone" type="Area2D" parent="." unique_id=978163814]
 position = Vector2(-15, -5)
@@ -43,3 +47,7 @@ script = ExtResource("4_xp21a")
 position = Vector2(404, 551.99994)
 rotation = -1.5405344
 shape = SubResource("CapsuleShape2D_6vr42")
+
+[node name="FlyingNoise" type="AudioStreamPlayer2D" parent="." unique_id=599183438]
+stream = ExtResource("5_ea137")
+volume_db = -3.07
