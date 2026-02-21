@@ -11,14 +11,18 @@ signal smashed
 ## Random speed variation (multiplier around 1.0). More = more darting.
 @export var speed_variation: float = 0.4
 @export var despawn_delay_seconds: float = 0.35
+## Max tilt in degrees (slight rotation when flying up/down).
+@export var max_tilt_degrees: float = 30.0
 
 var _zone: FlyZone
 var _current_angle: float
 var _direction_timer: float
 var _interactive: Node
 
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready() -> void:
+	sprite.play("fly")
 	if fly_zone_path.is_empty():
 		_zone = get_parent().get_node_or_null("FlyZone") as FlyZone
 	else:
@@ -45,6 +49,10 @@ func _process(delta: float) -> void:
 	_current_angle += randf_range(-wobble_strength * delta, wobble_strength * delta)
 	var speed_now := move_speed * (1.0 + randf_range(-speed_variation, speed_variation))
 	var velocity := Vector2.from_angle(_current_angle) * speed_now
+	# Mirror on X when flying left so the fly faces movement direction
+	scale.x = -1.0 if cos(_current_angle) >= 0.0 else 1.0
+	# Slight tilt (a few degrees) based on vertical movement
+	rotation = sin(_current_angle) * deg_to_rad(max_tilt_degrees)
 	global_position += velocity * delta
 	global_position = _zone.clamp_position(global_position)
 
@@ -55,10 +63,10 @@ func _pick_new_direction() -> void:
 
 func _on_interact_start(_target: Node2D, _source: Node2D, _hand: Node2D) -> void:
 	smashed.emit()
-	var sprite: AnimatedSprite2D = get_node_or_null("AnimatedSprite2D")
-	if sprite and sprite.sprite_frames and "smash" in sprite.sprite_frames.get_animation_names():
-		sprite.play("smash")
-	get_tree().create_timer(despawn_delay_seconds).timeout.connect(queue_free)
+	sprite.play("smash")
+	if despawn_delay_seconds > 0:
+		get_tree().create_timer(despawn_delay_seconds).timeout.connect(queue_free)
+	
 	set_process(false)
 	if _interactive and _interactive.has_method("set"):
 		_interactive.set("enabled", false)

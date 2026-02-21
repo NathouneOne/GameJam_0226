@@ -58,7 +58,7 @@ speed_variation = 1.0
 position = Vector2(0, 1)
 scale = Vector2(0.040277775, 0.040277775)
 sprite_frames = SubResource("SpriteFrames_23oet")
-animation = &"smash"
+animation = &"fly"
 
 [node name="Interactive" parent="." unique_id=974621134 instance=ExtResource("4_23oet")]
 
