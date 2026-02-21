@@ -18,7 +18,7 @@
 [ext_resource type="AudioStream" uid="uid://gi25uq4griix" path="res://Assets/Sounds/Tracks/v002/wetransfer_boucle-1-lead-no-drum-wav_2026-02-20_2156/boucle 1 (lead no drum) wrap.wav" id="16_2vowc"]
 [ext_resource type="AudioStream" uid="uid://d8kvu6btjvju" path="res://Assets/Sounds/SFX/eclectrocardiogramme 1 (lent).wav" id="17_2vowc"]
 [ext_resource type="AudioStream" uid="uid://c0kl752rewhpo" path="res://Assets/Sounds/SFX/dégat du man.wav" id="18_yox4t"]
-[ext_resource type="Script" path="res://Scenes/Game/camera_2d.gd" id="19_lemb1"]
+[ext_resource type="Script" uid="uid://cdjtiwpnt2t16" path="res://Scenes/Game/camera_2d.gd" id="19_lemb1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i1e5p"]
 size = Vector2(179, 491)
@@ -88,10 +88,6 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ypmwd"]
 size = Vector2(377, 436)
 
-[sub_resource type="Environment" id="Environment_2vowc"]
-background_mode = 3
-glow_hdr_threshold = 0.39
-
 [node name="Game" type="Node2D" unique_id=2073138695]
 script = ExtResource("1_ypmwd")
 
@@ -110,8 +106,6 @@ texture = ExtResource("3_lemb1")
 z_index = 8
 texture = ExtResource("4_lemb1")
 centered = false
-
-[node name="CanvasLayer" type="CanvasLayer" parent="Overlay" unique_id=1394904902]
 
 [node name="GameScore" type="Node2D" parent="." unique_id=2011718870]
 z_index = 6
@@ -259,9 +253,6 @@ panning_strength = 0.0
 [node name="HurtingSound" type="AudioStreamPlayer2D" parent="." unique_id=79642361]
 unique_name_in_owner = true
 stream = ExtResource("18_yox4t")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1432686916]
-environment = SubResource("Environment_2vowc")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=529783870]
 unique_name_in_owner = true

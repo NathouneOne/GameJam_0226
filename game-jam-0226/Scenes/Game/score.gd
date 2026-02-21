@@ -6,6 +6,10 @@ signal on_timer_end()
 @onready var label := $ScoreLabel as Label
 var score := 0
 
+const BANANASPAWNER = preload("res://Scenes/Components/BananaParticlesSpawner.tscn")
+var BananaSpawner :Node
+
+
 func init_() -> void:
 	score = 0
 
@@ -23,6 +27,11 @@ func add(points: int) -> void:
 func _animate_postive_points(_old_score: int) -> void:
 	# TODO better animation
 	$FlashFeedbackOk.flash()
+	
+	BananaSpawner = BANANASPAWNER.instantiate()
+	add_child(BananaSpawner)
+	BananaSpawner.play()
+	
 	update_label()
 
 
@@ -46,3 +55,7 @@ func _ready() -> void:
 	Global.on_start_game.connect(init_)
 	Global.on_add_score.connect(add)
 	update_label()
+
+
+func _on_banana_particles_finished() -> void:
+	%BananaParticles.emitting=false
