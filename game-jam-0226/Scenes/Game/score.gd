@@ -25,12 +25,13 @@ func add(points: int) -> void:
 
 func _animate_postive_points(_old_score: int) -> void:
 	# TODO better animation
-	$FlashFeedbackOk.flash()
+	#$FlashFeedbackOk.flash()
 	
 	BananaSpawner = BANANASPAWNER.instantiate()
 	add_child(BananaSpawner)
 	BananaSpawner.play()
-	
+	$JuicyParticlesSpawner.playBanana()
+	Global.camShake.emit()
 	%ScoringAudio.play()
 	
 	update_label()
@@ -38,7 +39,7 @@ func _animate_postive_points(_old_score: int) -> void:
 
 func _animate_negative_points(_old_score: int) -> void:
 	# TODO better animation
-	$FlashFeedbackNotOk.flash()
+	#$FlashFeedbackNotOk.flash()
 	Global.camShake.emit()
 	update_label()
 

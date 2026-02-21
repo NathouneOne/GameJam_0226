@@ -11,5 +11,9 @@ func _process(delta: float) -> void:
 	pass
 	
 
-func play() -> void :
+func playJuice() -> void :
 	%JuicyParticles.emitting=true
+	
+
+func playBanana() -> void :
+	%BananaTextParticles.emitting=true

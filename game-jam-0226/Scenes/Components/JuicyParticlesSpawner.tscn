@@ -1,26 +1,43 @@
 [gd_scene format=3 uid="uid://cnqqw487d75px"]
 
 [ext_resource type="Script" uid="uid://dsa21yd1npacy" path="res://Scenes/Components/banana_particles_spawner.gd" id="1_dd3li"]
-[ext_resource type="Texture2D" uid="uid://dqvwc7lk3rfgc" path="res://Assets/Graphismes/Juicy/JUICY_FRAME1.png" id="2_4ib20"]
-[ext_resource type="Texture2D" uid="uid://y50obxphdlco" path="res://Assets/Graphismes/Juicy/JUICY_FRAME2.png" id="3_iuoes"]
-[ext_resource type="Texture2D" uid="uid://ds5tmn7qk1sjp" path="res://Assets/Graphismes/Juicy/JUICY_FRAME3.png" id="4_w2m26"]
-[ext_resource type="Texture2D" uid="uid://cwjkkc0boev1t" path="res://Assets/Graphismes/Juicy/JUICY_FRAME4.png" id="5_dv564"]
-[ext_resource type="Texture2D" uid="uid://8v5c8nhbenix" path="res://Assets/Graphismes/Juicy/JUICY_FRAME5.png" id="6_tf02k"]
-[ext_resource type="Texture2D" uid="uid://ciriewmyyyxnv" path="res://Assets/Graphismes/Juicy/JUICY_FRAME6.png" id="7_6rt73"]
+[ext_resource type="Texture2D" uid="uid://dxqjjv58mql2s" path="res://Assets/Graphismes/BananaText/BANANAFRAME1.png" id="2_svxlp"]
+[ext_resource type="Texture2D" uid="uid://5mppd5iiv4th" path="res://Assets/Graphismes/BananaText/BANANAFRAME2.png" id="3_4ib20"]
+[ext_resource type="Texture2D" uid="uid://8bitqoei3og1" path="res://Assets/Graphismes/BananaText/BANANAFRAME3.png" id="4_iuoes"]
+[ext_resource type="Texture2D" uid="uid://m50vrsq5i5dw" path="res://Assets/Graphismes/BananaText/BANANAFRAME4.png" id="5_w2m26"]
+[ext_resource type="Texture2D" uid="uid://dnyc7ywukp242" path="res://Assets/Graphismes/BananaText/BANANAFRAME5.png" id="6_dv564"]
 
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_t5tb4"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_svxlp"]
+load_path = "res://.godot/imported/JUICY_FRAME1.png-2bee57dcb556b6650fffda81b7f03d03.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4ib20"]
+load_path = "res://.godot/imported/JUICY_FRAME2.png-a3682a03c76de554987465ede85e9821.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_iuoes"]
+load_path = "res://.godot/imported/JUICY_FRAME3.png-177b6f0e96684b2f283ad8e2a56abc62.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_w2m26"]
+load_path = "res://.godot/imported/JUICY_FRAME4.png-dc34fb7dad9b6019ef2ed0d20c7db48e.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dv564"]
+load_path = "res://.godot/imported/JUICY_FRAME5.png-3a799aaa78bf137affef8f51f0c242ed.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tf02k"]
+load_path = "res://.godot/imported/JUICY_FRAME6.png-2f07171e1141898b07aaf44512115848.ctex"
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_6rt73"]
 frames = 6
 speed_scale = 24.0
-frame_0/texture = ExtResource("2_4ib20")
-frame_1/texture = ExtResource("3_iuoes")
+frame_0/texture = SubResource("CompressedTexture2D_svxlp")
+frame_1/texture = SubResource("CompressedTexture2D_4ib20")
 frame_1/duration = 1.0
-frame_2/texture = ExtResource("4_w2m26")
+frame_2/texture = SubResource("CompressedTexture2D_iuoes")
 frame_2/duration = 1.0
-frame_3/texture = ExtResource("5_dv564")
+frame_3/texture = SubResource("CompressedTexture2D_w2m26")
 frame_3/duration = 1.0
-frame_4/texture = ExtResource("6_tf02k")
+frame_4/texture = SubResource("CompressedTexture2D_dv564")
 frame_4/duration = 1.0
-frame_5/texture = ExtResource("7_6rt73")
+frame_5/texture = SubResource("CompressedTexture2D_tf02k")
 frame_5/duration = 10.0
 
 [sub_resource type="Curve" id="Curve_7ujc1"]
@@ -35,29 +52,53 @@ curve = SubResource("Curve_7ujc1")
 particle_flag_rotate_y = true
 particle_flag_disable_z = true
 emission_shape_scale = Vector3(150, 50, 50)
-emission_shape = 2
-emission_sphere_radius = 4.2
+angle_min = -9.9999895
+angle_max = 10.0000105
 angle_curve = SubResource("CurveTexture_nxex1")
 velocity_pivot = Vector3(0.8, 0, 0)
-direction = Vector3(0, 0, 0)
-initial_velocity_max = 10.0
-gravity = Vector3(0, 300, 0)
-scale_min = 0.099999994
+initial_velocity_min = -50.0
+initial_velocity_max = -30.0
+gravity = Vector3(0, 100, 0)
+scale_min = 0.25
 scale_max = 0.29999998
 
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_t5tb4"]
+frames = 5
+speed_scale = 24.0
+frame_0/texture = ExtResource("2_svxlp")
+frame_1/texture = ExtResource("3_4ib20")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("4_iuoes")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("5_w2m26")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("6_dv564")
+frame_4/duration = 10.0
+
 [node name="JuicyParticlesSpawner" type="Node2D" unique_id=1096562638]
-position = Vector2(933, -147)
+position = Vector2(3, -6)
 script = ExtResource("1_dd3li")
 
-[node name="JuicyParticles" type="GPUParticles2D" parent="." unique_id=1211163831]
+[node name="JuicyParticles" type="GPUParticles2D" parent="." unique_id=369822813]
 unique_name_in_owner = true
 z_index = 7
-position = Vector2(-1.9999695, 3)
-scale = Vector2(2.107637, 0.83417)
+position = Vector2(-6, 6)
+scale = Vector2(4.4421334, 0.6958396)
 emitting = false
-amount = 30
+amount = 1
+texture = SubResource("AnimatedTexture_6rt73")
+one_shot = true
+speed_scale = 2.0
+explosiveness = 0.91
+process_material = SubResource("ParticleProcessMaterial_uddjm")
+
+[node name="BananaTextParticles" type="GPUParticles2D" parent="." unique_id=1498295272]
+unique_name_in_owner = true
+z_index = 7
+position = Vector2(-6.21521, 5.5025024)
+scale = Vector2(4.4421334, 0.6958396)
+amount = 1
 texture = SubResource("AnimatedTexture_t5tb4")
-lifetime = 4.0
 one_shot = true
 speed_scale = 2.0
 explosiveness = 0.91
