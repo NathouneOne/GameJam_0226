@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cixjgrw7g7eut"]
+
+[ext_resource type="PackedScene" uid="uid://ctkr410m1w8jr" path="res://Scenes/fly/fly_spawner.tscn" id="1_ibj56"]
+[ext_resource type="PackedScene" uid="uid://1ohqnbol5i0g" path="res://Scenes/hand/arm.tscn" id="2_6vr42"]
+
+[node name="FlyTestScene" type="Node2D" unique_id=1846053974]
+position = Vector2(470, 198)
+
+[node name="FlySpawner" parent="." unique_id=986804126 instance=ExtResource("1_ibj56")]
+position = Vector2(499, 317)
+
+[node name="Arm" parent="." unique_id=1314196640 instance=ExtResource("2_6vr42")]
+position = Vector2(356, 1486)

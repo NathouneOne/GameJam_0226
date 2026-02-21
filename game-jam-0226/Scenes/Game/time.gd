@@ -36,6 +36,7 @@ func _on_game_start() -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	remaining_time_seconds = START_TIME_SECONDS
 	update_label()
 	Global.on_start_game.connect(_on_game_start)
 
@@ -50,6 +51,7 @@ func _process(delta: float) -> void:
 	remaining_time_seconds -= delta
 
 	if remaining_time_seconds <= 0:
+		remaining_time_seconds = 0.0
 		on_done()
 
 	update_label()

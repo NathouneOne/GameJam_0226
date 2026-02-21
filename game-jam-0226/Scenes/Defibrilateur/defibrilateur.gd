@@ -15,6 +15,7 @@ func _on_use_start(_owner: Node2D, target: Node2D, _hand: Node2D) -> void:
 		#flash_feedback.flash()
 		$Iron_FX.show()
 		$Iron_FX.play("Lightning")
+		Global.camShake.emit()
 	else:
 	#	todo: feedback not ok
 		#flash_feedback.flash()
