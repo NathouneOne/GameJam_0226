@@ -10,8 +10,8 @@
 radius = 65.12296
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6vr42"]
-radius = 523.3969
-height = 1342.596
+radius = 419.95895
+height = 1218.4711
 
 [node name="FlySpawner" type="Node2D" unique_id=986804126]
 script = ExtResource("1_03fag")
@@ -21,8 +21,16 @@ fly_scene = ExtResource("2_ea137")
 position = Vector2(-2, -3)
 script = ExtResource("3_4f47q")
 
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="SpawnZone" unique_id=408985389]
+position = Vector2(310, -152)
+shape = SubResource("CircleShape2D_nnkt7")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="SpawnZone" unique_id=94028160]
+position = Vector2(17, 120)
+shape = SubResource("CircleShape2D_nnkt7")
+
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="SpawnZone" unique_id=2099289327]
-position = Vector2(-11, 459)
+position = Vector2(208, 277)
 shape = SubResource("CircleShape2D_nnkt7")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="SpawnZone" unique_id=2058771685]
@@ -30,15 +38,15 @@ position = Vector2(512, 126)
 shape = SubResource("CircleShape2D_nnkt7")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="SpawnZone" unique_id=84403757]
-position = Vector2(179, -419)
+position = Vector2(11, -280)
 shape = SubResource("CircleShape2D_nnkt7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnZone" unique_id=1592342502]
-position = Vector2(-389, -194)
+position = Vector2(-355, -84)
 shape = SubResource("CircleShape2D_nnkt7")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="SpawnZone" unique_id=1310788458]
-position = Vector2(-316, 367)
+position = Vector2(-272, 206)
 shape = SubResource("CircleShape2D_nnkt7")
 
 [node name="FlyZone" type="Area2D" parent="." unique_id=1297506839]
@@ -46,7 +54,7 @@ position = Vector2(-3, -1)
 script = ExtResource("4_xp21a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FlyZone" unique_id=59586545]
-position = Vector2(5.0000005, 7)
+position = Vector2(4.0000005, 6)
 rotation = -1.5405344
 shape = SubResource("CapsuleShape2D_6vr42")
 

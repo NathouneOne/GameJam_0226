@@ -274,9 +274,8 @@ wait_time = 0.3
 
 [node name="FlySpawner" parent="." unique_id=986804126 instance=ExtResource("20_a6ftd")]
 position = Vector2(1140, 549)
-spawn_interval_seconds = 10.0
+spawn_interval_seconds = 8.0
 spawn_interval_random_delta = 5.0
-max_alive_flies = 2
 
 [connection signal="finished" from="TracksPlayer" to="." method="_on_audio_stream_player_2d_finished"]
 [connection signal="finished" from="ElectrocardiogramPlayer" to="." method="_on_audio_stream_player_2d_2_finished"]

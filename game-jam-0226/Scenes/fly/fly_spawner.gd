@@ -46,6 +46,9 @@ func _reset_spawn_timer() -> void:
 
 func _on_fly_smashed() -> void:
 	_alive_fly_count = maxi(0, _alive_fly_count - 1)
+	if _alive_fly_count == 0:
+		flyingNoise.stop()
+		fly_sound_playing = false
 
 
 var fly_sound_playing := false
