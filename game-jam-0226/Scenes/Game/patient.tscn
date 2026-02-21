@@ -166,7 +166,6 @@ z_index = 2
 position = Vector2(294, 232)
 
 [node name="Plaie03" parent="." unique_id=307702165 instance=ExtResource("12_0uvj5")]
-visible = false
 z_index = 2
 position = Vector2(58, 174)
 

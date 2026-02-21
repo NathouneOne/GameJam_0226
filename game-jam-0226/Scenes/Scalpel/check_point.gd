@@ -16,3 +16,10 @@ func _on_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, 
 	if Input.is_action_pressed("left_clic") and area is Useable :
 		print("checkpoint_trigered")
 		is_triggered=1
+
+
+
+func _on_area_shape_exited(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
+	if Input.is_action_pressed("left_clic") and area is Useable :
+		print("checkpoint_trigered")
+		is_triggered=1
