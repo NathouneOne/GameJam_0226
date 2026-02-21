@@ -50,6 +50,7 @@ func _process(delta: float) -> void:
 	remaining_time_seconds -= delta
 
 	if remaining_time_seconds <= 0:
+		remaining_time_seconds = 0.0
 		on_done()
 
 	update_label()
