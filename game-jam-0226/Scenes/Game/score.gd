@@ -30,7 +30,7 @@ func _animate_postive_points(_old_score: int) -> void:
 	BananaSpawner = BANANASPAWNER.instantiate()
 	add_child(BananaSpawner)
 	BananaSpawner.play()
-	$JuicyParticlesSpawner.playBanana()
+	#$JuicyParticlesSpawner.playBanana()
 	Global.camShake.emit()
 	%ScoringAudio.play()
 	
