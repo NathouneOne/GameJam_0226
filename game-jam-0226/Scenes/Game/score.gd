@@ -51,10 +51,12 @@ func update_label() -> void:
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	score = 0
+	visible = true
 	Global.on_add_score.connect(add)
 	Global.on_end_game.connect(
 		func() -> void:
 			Global.end_game_score.emit(score)
+			visible = false
 	)
 	update_label()
 
