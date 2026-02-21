@@ -7,7 +7,7 @@
 position = Vector2(470, 198)
 
 [node name="FlySpawner" parent="." unique_id=986804126 instance=ExtResource("1_ibj56")]
-position = Vector2(53, -49)
+position = Vector2(499, 317)
 
 [node name="Arm" parent="." unique_id=1314196640 instance=ExtResource("2_6vr42")]
 position = Vector2(356, 1486)
