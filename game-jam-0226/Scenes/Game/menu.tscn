@@ -140,6 +140,19 @@ position = Vector2(26, -3)
 color = Color(0, 0, 0, 0.43529412)
 polygon = PackedVector2Array(450, 723, 347, 797, 381, 897, 510, 926, 605, 846, 553, 758)
 
+[node name="Label" type="Label" parent="rideauL/BananaZone" unique_id=874255680]
+offset_left = 256.0
+offset_top = 532.0
+offset_right = 703.0
+offset_bottom = 691.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 57
+text = "PULL TO START !
+⬇"
+horizontal_alignment = 1
+
 [node name="rideauR" type="Sprite2D" parent="." unique_id=620171453]
 material = SubResource("ShaderMaterial_qsmta")
 position = Vector2(960, 0)
