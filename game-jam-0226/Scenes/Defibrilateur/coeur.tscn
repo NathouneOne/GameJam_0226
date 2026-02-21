@@ -75,7 +75,7 @@
 [ext_resource type="AudioStream" uid="uid://clhjl1wsc4grb" path="res://Assets/Sounds/SFX/coeur.wav" id="73_avfgu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kipf4"]
-radius = 73.63978
+radius = 122.80115
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_csdde"]
 blend_mode = 1
@@ -313,7 +313,7 @@ texture = ExtResource("1_nqbo0")
 [node name="Interactive" parent="." unique_id=1960182460 instance=ExtResource("3_7f3hc")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactive" unique_id=1167014915]
-position = Vector2(75.38, -90.27)
+position = Vector2(118, -191)
 scale = Vector2(1.1726507, 1.2918111)
 shape = SubResource("CircleShape2D_kipf4")
 
@@ -346,6 +346,7 @@ texture = ExtResource("1_nqbo0")
 position = Vector2(-90, 144)
 sprite_frames = SubResource("SpriteFrames_uisi3")
 animation = &"HeartBeat1"
+frame_progress = 0.52208835
 
 [node name="HeartBeat" type="AudioStreamPlayer2D" parent="." unique_id=1524255534]
 stream = ExtResource("73_avfgu")
