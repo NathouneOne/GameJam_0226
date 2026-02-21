@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://c6dsoh34qfstl" path="res://Assets/Graphismes/PLAIE_OUVERTE2_PNG2.png" id="3_h0g77"]
 [ext_resource type="Script" uid="uid://bnjgt5rcfpj4i" path="res://Scenes/Components/interactive/interactive.gd" id="4_wjw8f"]
 [ext_resource type="PackedScene" uid="uid://oeb2gp4owcen" path="res://Scenes/Scalpel/CheckPoint.tscn" id="5_k6b7k"]
+[ext_resource type="AudioStream" uid="uid://cden7t5r48kkx" path="res://Assets/Sounds/SFX/telephone dans poubelle.wav" id="6_h0g77"]
+[ext_resource type="AudioStream" uid="uid://c5wkgfwwmigy5" path="res://Assets/Sounds/SFX/vibreur phone.wav" id="7_mxbyq"]
 
 [sub_resource type="Curve2D" id="Curve2D_lt5rr"]
 
@@ -91,6 +93,22 @@ one_shot = true
 unique_name_in_owner = true
 wait_time = 2.0
 autostart = true
+
+[node name="TelephonePoubelle" type="AudioStreamPlayer2D" parent="." unique_id=453558407]
+unique_name_in_owner = true
+stream = ExtResource("6_h0g77")
+panning_strength = 0.0
+
+[node name="TelephoneVibreur" type="AudioStreamPlayer2D" parent="." unique_id=1492243953]
+unique_name_in_owner = true
+stream = ExtResource("7_mxbyq")
+panning_strength = 0.0
+
+[node name="TelephoneVibreurEtouffe" type="AudioStreamPlayer2D" parent="." unique_id=317591201]
+unique_name_in_owner = true
+stream = ExtResource("7_mxbyq")
+panning_strength = 0.0
+bus = &"Etouffe"
 
 [connection signal="area_shape_entered" from="Interactive" to="." method="_on_interactive_area_shape_entered"]
 [connection signal="area_shape_exited" from="Interactive" to="." method="_on_interactive_area_shape_exited"]

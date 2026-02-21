@@ -2,13 +2,16 @@
 
 [ext_resource type="Texture2D" uid="uid://bagjli1c1jpeb" path="res://Assets/Graphismes/rideau_tmp_1.png" id="1_c6plx"]
 [ext_resource type="Script" uid="uid://dffuynjdfd87r" path="res://Scenes/Game/menu.gd" id="1_qsmta"]
-[ext_resource type="Shader" uid="uid://dbs8xbe55su3f" path="res://Scenes/Game/rideau.gdshader" id="1_v4p3b"]
+[ext_resource type="Shader" path="res://Scenes/Game/rideau.gdshader" id="1_v4p3b"]
 [ext_resource type="Texture2D" uid="uid://b74dqeh1jkhf5" path="res://Assets/Graphismes/rideau_tmp_2.png" id="2_xl27h"]
-[ext_resource type="Script" uid="uid://dfi142uxu5rxf" path="res://Scenes/Game/rideau.gd" id="3_1gnmn"]
+[ext_resource type="Script" path="res://Scenes/Game/rideau.gd" id="3_1gnmn"]
 [ext_resource type="Texture2D" uid="uid://dsn6qbvpav7fu" path="res://Assets/Graphismes/APERATION_bana_handle.png" id="6_3bvil"]
+[ext_resource type="AudioStream" uid="uid://e4vsxhsige5i" path="res://Assets/Sounds/SFX/clip fil banana.wav" id="6_dtdov"]
 [ext_resource type="Texture2D" uid="uid://b7e8oyoeebv2n" path="res://Assets/Graphismes/APERATION_string.png" id="7_dtdov"]
 [ext_resource type="PackedScene" uid="uid://bivkc0072g4c8" path="res://Scenes/Components/grabbable/Grabbable.tscn" id="7_wdtv5"]
 [ext_resource type="PackedScene" uid="uid://1ohqnbol5i0g" path="res://Scenes/hand/arm.tscn" id="8_jn33t"]
+[ext_resource type="AudioStream" uid="uid://pebd6g3rukbf" path="res://Assets/Sounds/SFX/tringle a rideaux.wav" id="11_eb3d4"]
+[ext_resource type="AudioStream" uid="uid://bxmy700acvija" path="res://Assets/Sounds/SFX/rideaux tissus.wav" id="12_1a5qy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1gnmn"]
 shader = ExtResource("1_v4p3b")
@@ -169,6 +172,11 @@ libraries/ = SubResource("AnimationLibrary_qsmta")
 [node name="Handle" type="Node2D" parent="." unique_id=1474364393]
 position = Vector2(420, 400)
 
+[node name="BananaHandleSound" type="AudioStreamPlayer2D" parent="Handle" unique_id=2143877484]
+unique_name_in_owner = true
+stream = ExtResource("6_dtdov")
+panning_strength = 0.0
+
 [node name="banana" type="Sprite2D" parent="Handle" unique_id=769171342]
 position = Vector2(342.99997, -256)
 scale = Vector2(0.95, 0.95)
@@ -191,3 +199,21 @@ shape = SubResource("CapsuleShape2D_jn33t")
 [node name="Arm" parent="." unique_id=1314196640 instance=ExtResource("8_jn33t")]
 visible = false
 position = Vector2(944, 1438)
+
+[node name="TringleSound" type="AudioStreamPlayer2D" parent="." unique_id=1177386569]
+unique_name_in_owner = true
+stream = ExtResource("11_eb3d4")
+panning_strength = 0.0
+
+[node name="Timer" type="Timer" parent="." unique_id=1372886798]
+unique_name_in_owner = true
+wait_time = 0.5
+one_shot = true
+
+[node name="TissusSound" type="AudioStreamPlayer2D" parent="." unique_id=326948198]
+unique_name_in_owner = true
+stream = ExtResource("12_1a5qy")
+volume_db = 3.0
+panning_strength = 0.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

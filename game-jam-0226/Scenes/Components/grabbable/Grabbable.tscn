@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://bivkc0072g4c8"]
+[gd_scene format=3 uid="uid://bivkc0072g4c8"]
 
 [ext_resource type="Script" uid="uid://byii4ngyrsi3e" path="res://Scenes/Components/grabbable/grabbable.gd" id="1_nko2v"]
+[ext_resource type="AudioStream" uid="uid://bomyces17pvgy" path="res://Assets/Sounds/SFX/bruit de grab un objet.wav" id="2_wgx3u"]
 
-[node name="Grabbable" type="Area2D"]
+[node name="Grabbable" type="Area2D" unique_id=1412347282]
 script = ExtResource("1_nko2v")
+
+[node name="GrabSound" type="AudioStreamPlayer2D" parent="." unique_id=1422320164]
+unique_name_in_owner = true
+stream = ExtResource("2_wgx3u")
+panning_strength = 0.0

@@ -34,6 +34,7 @@ func grab(hand: Node2D) -> bool:
 	is_grabbed = true
 	hand_grabbing = hand
 	grabbed.emit(hand)
+	%GrabSound.play()
 	return true
 
 # Returns true if released

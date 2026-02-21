@@ -23,6 +23,8 @@ func reset() -> void:
 
 func open() -> void:
 	animation_player.play("open")
+	%Timer.start()
+	%TringleSound.play()
 	_animate_banana_out()
 
 func _on_banana_zone_entered(area: Area2D) -> void:
@@ -33,6 +35,7 @@ func _on_banana_zone_entered(area: Area2D) -> void:
 	print("[Menu] %s entered banana zone" % area.name)
 	
 	if area.name == "HandleGrabbable":
+		%BananaHandleSound.play()
 		Global.hand_force_release_object.emit()
 		open()
 		get_tree().create_timer(transition_delay).timeout.connect(func(): Global.on_start_game.emit())
@@ -76,3 +79,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _on_timer_timeout() -> void:
+	%TissusSound.play()

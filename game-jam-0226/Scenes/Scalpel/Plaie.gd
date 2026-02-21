@@ -110,7 +110,7 @@ func _process(_delta: float) -> void:
 				if not start_checkpoint.is_start_checkpoint and not already_won:
 					Global.on_add_score.emit(SUCCESS_POINTS)
 					already_won = 1
-					print("You win")
+					#print("You win")
 					
 					## THIS PART WAS "_on_outline_input_event()"
 					%PlaiePng.hide()
@@ -139,15 +139,18 @@ func _process(_delta: float) -> void:
 	
 	if jitter and not telephone_grabbed:
 		position = original_pos + Vector2((randf() - 0.5) * 5, (randf() - 0.5) * 5)
+		%TelephoneVibreurEtouffe.play()
 	elif not jitter and not telephone_grabbed:
+		%TelephoneVibreurEtouffe.stop()
 		position = original_pos
 	elif jitter and telephone_grabbed and not stop_jitter:
+		%TelephoneVibreur.play()
 		telephone.global_position = telephone_original_pos + Vector2((randf() - 0.5) * 5, (randf() - 0.5) * 5)
 	elif not jitter and telephone_grabbed and not stop_jitter:
+		%TelephoneVibreur.stop()
 		telephone.global_position = telephone_original_pos
 
 func _draw():
-	
 	if %ScalpelCurve.curve.point_count > 2:
 		draw_polyline(%ScalpelCurve.curve.get_baked_points(), Color(124.999, 0.0, 0.0, 1.0), 4, true)
 
@@ -173,6 +176,8 @@ func _on_outline_area_shape_exited(area_rid: RID, area: Area2D, area_shape_index
 
 func tel_poubelle():
 		minigame_done.emit()
+		#Audio
+		%TelephonePoubelle.play()
 
 func reset_minigame():
 	%ScalpelCurve.curve.clear_points()
