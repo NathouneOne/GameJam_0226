@@ -5,6 +5,8 @@ class_name Heart
 
 @export var  max_qte = 2
 
+var beat:bool =1
+
 
 # TODO: call when minigame is complete
 signal minigame_done()
@@ -40,6 +42,8 @@ func _on_interact_start(_target: Node2D, source: Node2D, _hand: Node2D) -> void:
 		if qte_completed >= max_qte:
 			# disable the QTE:
 			# TODO: animate ?
+			$HeartBeat.stop()
+			beat=0
 			$AnimatedSprite2D.hide()
 			disable()
 			minigame_done.emit()
@@ -70,9 +74,17 @@ func reset(
 ) -> void:
 	$AnimatedSprite2D.show()
 	$AnimatedSprite2D.play("HeartBeat1")
+	$HeartBeat.show()
+	beat=1
 	
 	qte_completed = 0
 	disabled = false
 
 func _process(_delta: float) -> void:
-	pass
+	if $AnimatedSprite2D.frame == 8 and beat:
+		$Timer.start()
+		$HeartBeat.play()
+
+
+func _on_timer_timeout() -> void:
+	$HeartBeat.stop()

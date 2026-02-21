@@ -195,12 +195,11 @@ one_shot = true
 
 [node name="HurtPouletman" type="AudioStreamPlayer2D" parent="." unique_id=2027093756]
 stream = ExtResource("14_6dnm8")
-volume_db = -1.748
 panning_strength = 0.0
 
 [node name="HurtVV" type="AudioStreamPlayer2D" parent="." unique_id=1002254182]
 stream = ExtResource("15_480mj")
-volume_db = 8.0
+volume_db = 10.0
 panning_strength = 0.0
 
 [node name="HurtChewbacca" type="AudioStreamPlayer2D" parent="." unique_id=2096897830]
