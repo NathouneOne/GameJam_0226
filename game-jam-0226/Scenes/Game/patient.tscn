@@ -12,12 +12,22 @@
 [ext_resource type="PackedScene" uid="uid://cdj3e4ns44s4d" path="res://Scenes/Scalpel/Plaie.tscn" id="5_3xtxg"]
 [ext_resource type="Texture2D" uid="uid://dbyvtxwxjsmwa" path="res://Assets/Graphismes/PATIENTS/pouletmanframe1.png" id="5_6dnm8"]
 [ext_resource type="Texture2D" uid="uid://d1mnsgr3pvhxd" path="res://Assets/Graphismes/PATIENTS/pouletmanframe2.png" id="6_480mj"]
+[ext_resource type="Texture2D" uid="uid://cjqmu8boafbr7" path="res://Assets/Graphismes/PATIENTS/vv_base.png" id="7_u4dvi"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0uvj5"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_2pms3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_u4dvi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_u4dvi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_u4dvi")
 }, {
 "duration": 1.0,
 "texture": ExtResource("3_u4dvi")
@@ -35,20 +45,110 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("6_480mj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6dnm8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_480mj")
 }],
 "loop": true,
 "name": &"POULETMAN",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_u4dvi")
+}],
 "loop": true,
 "name": &"VV",
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_u4dvi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2pms3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_u4dvi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_u4dvi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_u4dvi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_u4dvi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_u4dvi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_u4dvi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_2pms3")
+}],
+"loop": false,
+"name": &"cri",
+"speed": 14.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0uwm7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_u4dvi")
+}],
+"loop": false,
+"name": &"cri",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6dnm8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_0uwm7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6dnm8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_480mj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6dnm8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_480mj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6dnm8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_480mj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6dnm8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_480mj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0uwm7")
+}],
+"loop": false,
+"name": &"cri",
+"speed": 14.0
+}]
+
 [node name="Patient" type="Node2D" unique_id=145693716]
 script = ExtResource("1_6j6pa")
-PRESET = 1
+PRESET = 0
 
 [node name="Lit" type="Node2D" parent="." unique_id=1588782232]
 
@@ -56,44 +156,71 @@ PRESET = 1
 z_index = 1
 position = Vector2(61, 16.01001)
 
-[node name="BodyScreamSprite" type="AnimatedSprite2D" parent="Lit/Body" unique_id=1802374560]
-unique_name_in_owner = true
+[node name="Anims_" type="AnimatedSprite2D" parent="Lit/Body" unique_id=2117759880]
 visible = false
+position = Vector2(112.000015, 261.99)
+scale = Vector2(1.5662035, 1.5662037)
 sprite_frames = SubResource("SpriteFrames_0uvj5")
 animation = &"POULETMAN"
 
-[node name="VV" type="Sprite2D" parent="Lit/Body" unique_id=1102802863]
+[node name="VV_" type="Sprite2D" parent="Lit/Body" unique_id=1102802863]
+visible = false
 position = Vector2(-50, 481.99002)
 scale = Vector2(0.98, 0.98)
 texture = ExtResource("2_lubxh")
 
-[node name="POULETMAN" type="Sprite2D" parent="Lit/Body" unique_id=208234038]
+[node name="POULETMAN_" type="Sprite2D" parent="Lit/Body" unique_id=208234038]
 visible = false
 position = Vector2(118.00003, 249.99002)
 scale = Vector2(1.54, 1.54)
 texture = ExtResource("3_dqmf6")
 
-[node name="CHEWBACCA" type="Sprite2D" parent="Lit/Body" unique_id=1364225522]
+[node name="CHEWBACCA_" type="Sprite2D" parent="Lit/Body" unique_id=1364225522]
 visible = false
 position = Vector2(111, 62.98999)
 scale = Vector2(0.465, 0.465)
 texture = ExtResource("4_gk1am")
 
+[node name="CHEWBACCA" type="AnimatedSprite2D" parent="Lit/Body" unique_id=141089304]
+position = Vector2(105.999954, 53.98996)
+scale = Vector2(0.4574074, 0.4574074)
+sprite_frames = SubResource("SpriteFrames_u4dvi")
+animation = &"cri"
+frame = 7
+frame_progress = 1.0
+
+[node name="VV" type="AnimatedSprite2D" parent="Lit/Body" unique_id=955991909]
+position = Vector2(-53, 508.99)
+sprite_frames = SubResource("SpriteFrames_0uwm7")
+animation = &"cri"
+frame_progress = 1.0
+
+[node name="POULETMAN" type="AnimatedSprite2D" parent="Lit/Body" unique_id=71755868]
+position = Vector2(119, 237.98999)
+scale = Vector2(1.5499977, 1.5499976)
+sprite_frames = SubResource("SpriteFrames_6dnm8")
+animation = &"cri"
+frame = 9
+frame_progress = 1.0
+
 [node name="SpriteLit" type="Sprite2D" parent="Lit" unique_id=1273125670]
 position = Vector2(23, 536.01)
 texture = ExtResource("1_ljr86")
+metadata/_edit_lock_ = true
 
 [node name="Coeur1" parent="." unique_id=1087108802 instance=ExtResource("2_6j6pa")]
-process_mode = 4
-visible = false
 z_index = 2
 position = Vector2(329, -50)
 rotation = 0.21991149
+metadata/_edit_lock_ = true
 
 [node name="Coeur2" parent="." unique_id=356672580 instance=ExtResource("2_6j6pa")]
+process_mode = 4
+visible = false
 z_index = 2
 position = Vector2(-182, -23.000015)
 scale = Vector2(-1, 1)
+metadata/_edit_lock_ = true
 
 [node name="Plaie1" parent="." unique_id=1972709014 instance=ExtResource("5_3xtxg")]
 process_mode = 4
@@ -101,3 +228,5 @@ z_index = 2
 position = Vector2(294, 232)
 
 [connection signal="animation_finished" from="Lit/Body/BodyScreamSprite" to="." method="_on_body_scream_sprite_animation_finished"]
+position = Vector2(69, -34)
+metadata/_edit_lock_ = true

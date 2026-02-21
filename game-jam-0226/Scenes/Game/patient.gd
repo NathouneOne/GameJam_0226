@@ -89,31 +89,37 @@ var _skin: PatientSkin = PatientSkin.VV
 		return _skin
 	set(v):
 		_skin = v
-		load_skin(_skin)
+		load_skin()
 
-func load_skin(skin: PatientSkin) -> void:
-	$Lit/Body/VV.visible = false
-	$Lit/Body/POULETMAN.visible = false
-	$Lit/Body/CHEWBACCA.visible = false
+var patient_animated_sprite: AnimatedSprite2D
 
-	if skin == PatientSkin.VV:
-		$Lit/Body/VV.visible = true
-	elif skin == PatientSkin.POULETMAN:
-		$Lit/Body/POULETMAN.visible = true
-	elif skin == PatientSkin.CHEWBACCA:
-		$Lit/Body/CHEWBACCA.visible = true
+@onready var vv: AnimatedSprite2D = $Lit/Body/VV
+@onready var pouletman: AnimatedSprite2D = $Lit/Body/POULETMAN
+@onready var chewbacca: AnimatedSprite2D = $Lit/Body/CHEWBACCA
+
+func load_skin() -> void:
+	if chewbacca:
+		chewbacca.visible = false
+	if pouletman:
+		pouletman.visible = false
+	if vv:
+		vv.visible = false
+
+	if SKIN == PatientSkin.VV:
+		patient_animated_sprite = vv
+	elif SKIN == PatientSkin.POULETMAN:
+		patient_animated_sprite = pouletman
+	elif SKIN == PatientSkin.CHEWBACCA:
+		patient_animated_sprite = chewbacca
 	
-func play_scream_animation(skin: PatientSkin) -> void:
+	if patient_animated_sprite:
+		patient_animated_sprite.visible = true
+
+func play_scream_animation() -> void:
 	## ADD Bruit Cri
 	
-	%BodyScreamSprite.show()
-	if skin == PatientSkin.VV:
-		%BodyScreamSprite.play("VV")
-	elif skin == PatientSkin.POULETMAN:
-		%BodyScreamSprite.play("POULETMAN")
-	elif skin == PatientSkin.CHEWBACCA:
-		%BodyScreamSprite.play("CHEWBACCA")
-	
+	patient_animated_sprite.play("cri")
+
 	
 # Getter ensures the Callable is resolved when the button is used (avoids Nil at editor load).
 @export_tool_button("Emit patient_done", "Callable") var emit_patient_done_action: Callable:
@@ -135,7 +141,14 @@ func _get_game_nodes() -> Dictionary:
 func _ready() -> void:
 	_game_nodes = _get_game_nodes()
 	load_preset(PRESET)
-	load_skin(SKIN)
+	load_skin()
+	
+	if not Engine.is_editor_hint():
+		Global.on_add_score.connect(
+			func(score: int) -> void: 
+				if score < 0:
+					play_scream_animation()
+		)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
