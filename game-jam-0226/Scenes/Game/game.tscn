@@ -271,6 +271,7 @@ script = ExtResource("19_lemb1")
 wait_time = 0.3
 
 [node name="FlySpawner" parent="." unique_id=986804126 instance=ExtResource("20_a6ftd")]
+position = Vector2(1140, 549)
 spawn_interval_seconds = 10.0
 spawn_interval_random_delta = 5.0
 max_alive_flies = 2
