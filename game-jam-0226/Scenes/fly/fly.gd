@@ -15,6 +15,8 @@ signal smashed
 ## Max tilt in degrees (slight rotation when flying up/down).
 @export var max_tilt_degrees: float = 30.0
 
+@export var fly_success_points: int = 3
+
 var _zone: FlyZone
 var _current_angle: float
 var _direction_timer: float
@@ -78,5 +80,7 @@ func _on_interact_start(_target: Node2D, source: Node2D, _hand: Node2D) -> void:
 	if despawn_delay_seconds > 0:
 		get_tree().create_timer(despawn_delay_seconds).timeout.connect(queue_free)
 	
+	Global.camShake.emit()
+	Global.on_add_score.emit(fly_success_points)
 	set_process(false)
 	interactive.enabled = false
