@@ -1,26 +1,43 @@
 [gd_scene format=3 uid="uid://bbxb8nvk3v1no"]
 
 [ext_resource type="Script" uid="uid://8gpvkg67pcup" path="res://Scenes/fly/fly.gd" id="1_vnhkb"]
-[ext_resource type="Texture2D" uid="uid://bec7kv75h8g20" path="res://Assets/Graphismes/coeur_tmp.png" id="1_vwyou"]
-[ext_resource type="Texture2D" uid="uid://b1qupa75pcmb0" path="res://Assets/Graphismes/BloodParticle.png" id="2_vnhkb"]
+[ext_resource type="Texture2D" uid="uid://dv8ne3kv2vm1o" path="res://Assets/Graphismes/fly/animation/1.png" id="2_kvaxd"]
+[ext_resource type="Texture2D" uid="uid://u1qcrl11atrv" path="res://Assets/Graphismes/fly/animation/2.png" id="3_fdqpv"]
 [ext_resource type="PackedScene" path="res://Scenes/Components/interactive/Interactive.tscn" id="4_23oet"]
+[ext_resource type="Texture2D" uid="uid://lcej24kvnrj1" path="res://Assets/Graphismes/fly/animation/3.png" id="4_54t5q"]
+[ext_resource type="Texture2D" uid="uid://n0mx34u73604" path="res://Assets/Graphismes/fly/animation/4.png" id="5_qathi"]
+[ext_resource type="Texture2D" uid="uid://dqfso4flyv85t" path="res://Assets/Graphismes/fly/animation/5.png" id="6_32nkl"]
+[ext_resource type="Texture2D" uid="uid://demamt0at4l4p" path="res://Assets/Graphismes/fly/animation/6.png" id="7_jxxjb"]
+[ext_resource type="Texture2D" uid="uid://ne78bm8okpt0" path="res://Assets/Graphismes/fly/smash/smash.png" id="8_v48hi"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_23oet"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_vwyou")
+"texture": ExtResource("2_kvaxd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fdqpv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_54t5q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_qathi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_32nkl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_jxxjb")
 }],
 "loop": true,
 "name": &"fly",
-"speed": 5.0
+"speed": 24.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_vwyou")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_vnhkb")
+"texture": ExtResource("8_v48hi")
 }],
 "loop": false,
 "name": &"smash",
@@ -28,6 +45,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ekpsg"]
+radius = 22.022715
 
 [node name="Fly" type="Node2D" unique_id=1211682102]
 script = ExtResource("1_vnhkb")
@@ -40,8 +58,7 @@ speed_variation = 1.0
 position = Vector2(0, 1)
 scale = Vector2(0.040277775, 0.040277775)
 sprite_frames = SubResource("SpriteFrames_23oet")
-animation = &"fly"
-frame_progress = 0.28815874
+animation = &"smash"
 
 [node name="Interactive" parent="." unique_id=974621134 instance=ExtResource("4_23oet")]
 
