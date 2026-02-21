@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://e51vi8ldmkjl"]
 
 [ext_resource type="Script" uid="uid://dv48x2gjkaa2f" path="res://Scenes/Scalpel/scalpel.gd" id="1_lt5rr"]
-[ext_resource type="Texture2D" uid="uid://d1gnnvf53fy00" path="res://Assets/Graphismes/banana_scalpel.png" id="2_ssm44"]
+[ext_resource type="Texture2D" uid="uid://b0m7ksqix08mq" path="res://Assets/Graphismes/scalpel.png" id="2_j7yw4"]
 [ext_resource type="PackedScene" uid="uid://bivkc0072g4c8" path="res://Scenes/Components/grabbable/Grabbable.tscn" id="3_48hnu"]
 [ext_resource type="PackedScene" uid="uid://dcfcxw6hka05n" path="res://Scenes/Components/usable/Usable.tscn" id="4_j7yw4"]
 [ext_resource type="Texture2D" uid="uid://b1qupa75pcmb0" path="res://Assets/Graphismes/BloodParticle.png" id="5_48hnu"]
@@ -12,8 +12,8 @@ radius = 3.8778992
 height = 7.7557983
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xgwnc"]
-radius = 145.4219
-height = 581.6876
+radius = 95.00897
+height = 430.44882
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j7yw4"]
 particle_flag_disable_z = true
@@ -30,12 +30,13 @@ scale_min = 0.39999998
 script = ExtResource("1_lt5rr")
 
 [node name="BananaScalpel" type="Sprite2D" parent="." unique_id=1577167110]
-position = Vector2(21, -7)
+position = Vector2(22, -62)
+rotation = 0.9555055
 scale = Vector2(0.51574075, 0.51574075)
-texture = ExtResource("2_ssm44")
+texture = ExtResource("2_j7yw4")
 
 [node name="Useable" parent="." unique_id=439381040 instance=ExtResource("4_j7yw4")]
-position = Vector2(19, -245.99998)
+position = Vector2(13, -230)
 scale = Vector2(0.51574075, 0.51574075)
 
 [node name="Use" type="CollisionShape2D" parent="Useable" unique_id=1562372318]
@@ -48,12 +49,12 @@ scale = Vector2(0.51574075, 0.51574075)
 lock_rotation = true
 
 [node name="Grab" type="CollisionShape2D" parent="Grabbable" unique_id=1385388304]
-position = Vector2(29.084381, 21.328545)
+position = Vector2(29.08438, -34.90126)
 shape = SubResource("CapsuleShape2D_xgwnc")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=80562523]
 unique_name_in_owner = true
-position = Vector2(19, -245)
+position = Vector2(13, -229)
 emitting = false
 amount = 17
 texture = ExtResource("5_48hnu")
