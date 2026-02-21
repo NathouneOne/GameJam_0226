@@ -10,6 +10,7 @@ var _fly_zone: FlyZone
 var _spawn_timer: float
 var _alive_fly_count: int = 0
 
+@onready var flyingNoise: AudioStreamPlayer2D = $FlyingNoise
 
 func _ready() -> void:
 	if fly_scene == null:
@@ -24,6 +25,9 @@ func _ready() -> void:
 		push_warning("FlySpawner: No FlyZone child found.")
 	_reset_spawn_timer()
 	print("[FlySpawner] first spawn in ", _spawn_timer, " s")
+	if not Engine.is_editor_hint():
+		Global.on_end_game.connect(_on_game_end)
+		Global.on_start_game.connect(_on_game_start)
 
 
 func _process(delta: float) -> void:
@@ -44,12 +48,31 @@ func _on_fly_smashed() -> void:
 	_alive_fly_count = maxi(0, _alive_fly_count - 1)
 
 
+var fly_sound_playing := false
+
+func _on_game_start() -> void:
+	fly_sound_playing = false
+	set_process(true)
+
+func _on_game_end() -> void:
+	flyingNoise.stop()
+	set_process(false)
+	for child in get_children():
+		if child is Fly:
+			child.queue_free()
+	_alive_fly_count = 0
+	fly_sound_playing = false
+
 func _spawn_fly() -> void:
 	if not _fly_zone or not _spawn_zone:
 		print("[FlySpawner] _spawn_fly skipped: FlyZone=", _fly_zone != null, ", SpawnZone=", _spawn_zone != null)
 		return
 	if _alive_fly_count >= max_alive_flies:
 		return
+
+	if not fly_sound_playing:
+		flyingNoise.play()
+
 	var fly: Node2D = fly_scene.instantiate() as Node2D
 	if fly.has_signal("smashed"):
 		fly.smashed.connect(_on_fly_smashed)
