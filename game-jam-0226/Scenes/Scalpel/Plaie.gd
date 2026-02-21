@@ -12,7 +12,7 @@ const TELEPHONE = preload("res://Scenes/Scalpel/Telephone.tscn")
 @export var started: bool = true
 
 
-var start_checkpoint := CHECK_POINT.instantiate()
+#var start_checkpoint := CHECK_POINT.instantiate()
 var win: bool = 0
 var is_scalpel_inzone: bool = 0
 var already_won: bool = 0
@@ -57,8 +57,8 @@ func _on_interact_start(_target: Node2D, source: Node2D, _hand: Node2D) -> void:
 
 func _on_interact_stop(_target: Node2D, _source: Node2D, _hand: Node2D) -> void:
 	
-	start_checkpoint.queue_free()
-	start_checkpoint = CHECK_POINT.instantiate()
+	#start_checkpoint.queue_free()
+	#start_checkpoint = CHECK_POINT.instantiate()
 	for i in get_children():
 		if i.is_in_group("checkpoint"):
 			i.is_triggered = 0
@@ -77,29 +77,31 @@ func stop() -> void:
 func _process(_delta: float) -> void:
 	## CUTTER ##
 	if cut_started:
+		#check if scalpel is cutting inzone (in outline, but outside inline)
 		for i in %Outline.get_overlapping_areas():
 			if i == scalpel:
 				is_scalpel_inzone = 1
+				for j in %Inline.get_overlapping_areas():
+					if j == scalpel:
+						is_scalpel_inzone = 0
+						break
 				break
 			else:
 				is_scalpel_inzone = 0
-				
-		for j in %Inline.get_overlapping_areas():
-			if j == scalpel:
-				is_scalpel_inzone = 0
-				break
-					
+		
+		#Reset curve, set 1st checkpoint, if not inzone defeat
 		if Input.is_action_just_pressed("left_clic"):
 			%ScalpelCurve.curve.clear_points()
-			add_child(start_checkpoint)
-			start_checkpoint.global_position = scalpel.global_position
-			start_checkpoint.is_start_checkpoint = 1
+			#add_child(start_checkpoint)
+			#start_checkpoint.global_position = scalpel.global_position
+			#start_checkpoint.is_start_checkpoint = 1
 			
 			if not is_scalpel_inzone:
 				Global.on_add_score.emit(DEFEAT_POINTS)
 			
 		if Input.is_action_pressed("left_clic"):
 			%ScalpelCurve.curve.add_point(scalpel.global_position - global_position, Vector2(0, 0), Vector2(0, 0))
+			#Victory condition
 			for i in get_children():
 				win = 1
 				if i.is_in_group("checkpoint"):
@@ -107,28 +109,30 @@ func _process(_delta: float) -> void:
 						win = 0
 						break
 			if win:
-				if not start_checkpoint.is_start_checkpoint and not already_won:
+				#if not start_checkpoint.is_start_checkpoint and not already_won:
 					Global.on_add_score.emit(SUCCESS_POINTS)
-					already_won = 1
-					#print("You win")
+					#already_won = 1
 					
 					## THIS PART WAS "_on_outline_input_event()"
 					%PlaiePng.hide()
 					%PlaieOuvertePng2.show()
 					%ScalpelCurve.curve.clear_points()
-					queue_redraw()
 					get_parent().get_parent().add_child(telephone)
 					telephone.global_position = %PlaieOuvertePng2.global_position
 					telephone_original_pos = telephone.global_position
 					telephone.scale = %PlaieOuvertePng2.scale - Vector2(0.1, 0.1)
 					handclic = 0
 					telephone_grabbed = 1
+					#reset checkpoints for no winspam
+					for i in get_children():
+						if i.is_in_group("checkpoint"):
+							i.is_triggered=0
 					
 					
 					
-				else:
-					start_checkpoint.is_start_checkpoint = 0
-					start_checkpoint.is_triggered = 0
+				#else:
+				#	start_checkpoint.is_start_checkpoint = 0
+				#	start_checkpoint.is_triggered = 0
 			
 	
 	queue_redraw()
@@ -189,10 +193,9 @@ func reset_minigame():
 	%ScalpelCurve.curve.clear_points()
 	%PlaiePng.show()
 	%PlaieOuvertePng2.hide()
-	#telephone.queue_free()
 	telephone = TELEPHONE.instantiate()
 	telephone.connect("telephone_poubelle", tel_poubelle)
-	start_checkpoint = CHECK_POINT.instantiate()
+	#start_checkpoint = CHECK_POINT.instantiate()
 	win = 0
 	is_scalpel_inzone = 0
 	already_won = 0

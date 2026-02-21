@@ -97,6 +97,7 @@ unique_name_in_owner = true
 z_index = 7
 position = Vector2(-6.21521, 5.5025024)
 scale = Vector2(4.4421334, 0.6958396)
+emitting = false
 amount = 1
 texture = SubResource("AnimatedTexture_t5tb4")
 one_shot = true
