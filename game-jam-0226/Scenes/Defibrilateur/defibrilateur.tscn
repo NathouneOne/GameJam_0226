@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://d0783pvavdonw" path="res://Assets/Graphismes/Smoke_iron/comped/Composition 1/smoke_iron_comped_00012.png" id="26_mxc63"]
 [ext_resource type="Texture2D" uid="uid://lug42domh6fj" path="res://Assets/Graphismes/Smoke_iron/comped/Composition 1/smoke_iron_comped_00013.png" id="27_5ly31"]
 [ext_resource type="AudioStream" uid="uid://1wyvoows4md7" path="res://Assets/Sounds/SFX/noise electrique (defib).wav" id="28_6pl1p"]
+[ext_resource type="AudioStream" uid="uid://dm3rdmiau4f36" path="res://Assets/Sounds/SFX/vapeur (fail defib).wav" id="30_f8wa1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4xhnb"]
 radius = 87.89865
@@ -154,9 +155,15 @@ text = "ZAP!"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=388219877]
 stream = ExtResource("28_6pl1p")
+panning_strength = 0.0
 
 [node name="Resettable" type="Node" parent="." unique_id=609452777]
 script = ExtResource("7_qqpl7")
 metadata/_custom_type_script = "uid://c46kw3psq4b7c"
+
+[node name="Vapeur" type="AudioStreamPlayer2D" parent="." unique_id=18170067]
+stream = ExtResource("30_f8wa1")
+volume_db = -6.0
+panning_strength = 0.0
 
 [connection signal="animation_finished" from="Iron_FX" to="." method="_on_iron_fx_animation_finished"]

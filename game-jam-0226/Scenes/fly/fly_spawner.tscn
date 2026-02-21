@@ -60,5 +60,5 @@ shape = SubResource("CapsuleShape2D_6vr42")
 
 [node name="FlyingNoise" type="AudioStreamPlayer2D" parent="." unique_id=599183438]
 stream = ExtResource("5_ea137")
-volume_db = 12.109
+volume_db = 19.0
 panning_strength = 0.0

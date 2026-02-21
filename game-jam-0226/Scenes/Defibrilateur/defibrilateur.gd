@@ -9,18 +9,20 @@ func _ready() -> void:
 	useable.use_stop.connect(_on_use_stop)
 
 func _on_use_start(_owner: Node2D, target: Node2D, _hand: Node2D) -> void:
-	$AudioStreamPlayer2D.play()
+	
 	if target is Heart:
 		# todo: animate shock
 		#flash_feedback.flash()
 		$Iron_FX.show()
 		$Iron_FX.play("Lightning")
+		$AudioStreamPlayer2D.play()
 		Global.camShake.emit()
 	else:
 	#	todo: feedback not ok
 		#flash_feedback.flash()
 		$Iron_FX.show()
 		$Iron_FX.play("Smoke")
+		$Vapeur.play()
 
 func _on_use_stop(_owner: Node2D, _target: Node2D, _hand: Node2D) -> void:
 	pass
