@@ -38,6 +38,9 @@ func _on_minigame_done(key: String) -> void:
 	_completed_keys[key] = true
 	if _enabled_keys.size() > 0 and _completed_keys.size() >= _enabled_keys.size():
 		patient_done.emit()
+		%Timer.start()
+		%RouletteSound.play()
+		%timerRoulette.start()
 
 func load_preset(preset: PatientPreset) -> void:
 	# Ensure nodes are resolved (e.g. when PRESET changes in editor before _ready)
@@ -159,3 +162,11 @@ func _process(delta: float) -> void:
 
 func _on_body_scream_sprite_animation_finished() -> void:
 	%BodyScreamSprite.hide()
+
+
+func _on_timer_timeout() -> void:
+	%SingePlayer1.play()
+
+
+func _on_timer_roulette_timeout() -> void:
+	%RouletteSound.stop()

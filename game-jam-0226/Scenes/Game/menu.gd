@@ -24,6 +24,7 @@ func reset() -> void:
 func open() -> void:
 	animation_player.play("open")
 	%Timer.start()
+	%Timer3.start()
 	%TringleSound.play()
 	_animate_banana_out()
 
@@ -83,3 +84,10 @@ func _process(delta: float) -> void:
 
 func _on_timer_timeout() -> void:
 	%TissusSound.play()
+
+func _on_timer_3_timeout() -> void:
+	%Timer2.start()
+	%RouletteSound.play()
+
+func _on_timer_2_timeout() -> void:
+	%RouletteSound.stop()

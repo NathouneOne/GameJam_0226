@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://1ohqnbol5i0g" path="res://Scenes/hand/arm.tscn" id="8_jn33t"]
 [ext_resource type="AudioStream" uid="uid://pebd6g3rukbf" path="res://Assets/Sounds/SFX/tringle a rideaux.wav" id="11_eb3d4"]
 [ext_resource type="AudioStream" uid="uid://bxmy700acvija" path="res://Assets/Sounds/SFX/rideaux tissus.wav" id="12_1a5qy"]
+[ext_resource type="AudioStream" uid="uid://c8m7ob8uaggrp" path="res://Assets/Sounds/SFX/roulettes.wav" id="13_1a5qy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1gnmn"]
 shader = ExtResource("1_v4p3b")
@@ -216,4 +217,20 @@ stream = ExtResource("12_1a5qy")
 volume_db = 3.0
 panning_strength = 0.0
 
+[node name="RouletteSound" type="AudioStreamPlayer2D" parent="." unique_id=1189527378]
+unique_name_in_owner = true
+stream = ExtResource("13_1a5qy")
+panning_strength = 0.0
+
+[node name="Timer3" type="Timer" parent="." unique_id=1322819539]
+unique_name_in_owner = true
+wait_time = 0.7
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="." unique_id=1662621468]
+unique_name_in_owner = true
+one_shot = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer3" to="." method="_on_timer_3_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

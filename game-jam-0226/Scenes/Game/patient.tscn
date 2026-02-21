@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://dbyvtxwxjsmwa" path="res://Assets/Graphismes/PATIENTS/pouletmanframe1.png" id="5_6dnm8"]
 [ext_resource type="Texture2D" uid="uid://d1mnsgr3pvhxd" path="res://Assets/Graphismes/PATIENTS/pouletmanframe2.png" id="6_480mj"]
 [ext_resource type="Texture2D" uid="uid://cjqmu8boafbr7" path="res://Assets/Graphismes/PATIENTS/vv_base.png" id="7_u4dvi"]
+[ext_resource type="AudioStream" uid="uid://nkua5lo8sow0" path="res://Assets/Sounds/SFX/cris de singe 1.wav" id="12_2pms3"]
+[ext_resource type="AudioStream" uid="uid://c8m7ob8uaggrp" path="res://Assets/Sounds/SFX/roulettes.wav" id="13_0uwm7"]
 [ext_resource type="PackedScene" uid="uid://b3ej7vpyyef3v" path="res://Scenes/Scalpel/Plaie02.tscn" id="13_u4dvi"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u4dvi"]
@@ -154,3 +156,26 @@ process_mode = 4
 visible = false
 z_index = 2
 position = Vector2(-58, 204)
+
+[node name="SingePlayer1" type="AudioStreamPlayer2D" parent="." unique_id=171385036]
+unique_name_in_owner = true
+stream = ExtResource("12_2pms3")
+
+[node name="Timer" type="Timer" parent="SingePlayer1" unique_id=1241913115]
+unique_name_in_owner = true
+wait_time = 0.3
+one_shot = true
+
+[node name="RouletteSound" type="AudioStreamPlayer2D" parent="." unique_id=650916971]
+unique_name_in_owner = true
+stream = ExtResource("13_0uwm7")
+volume_db = -1.0
+panning_strength = 0.0
+
+[node name="timerRoulette" type="Timer" parent="RouletteSound" unique_id=1834376583]
+unique_name_in_owner = true
+wait_time = 1.5
+one_shot = true
+
+[connection signal="timeout" from="SingePlayer1/Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="RouletteSound/timerRoulette" to="." method="_on_timer_roulette_timeout"]
