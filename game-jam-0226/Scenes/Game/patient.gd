@@ -15,6 +15,7 @@ enum PatientPreset {
 	COEUR_2,
 	PLAIE1,
 	PLAIE2,
+	PLAIE3,
 	#COEUR_1_PLAIE_2,
 	#COEUR_2_PLAIE_2,
 }
@@ -26,6 +27,7 @@ const PRESET_GAMES := {
 	# PatientPreset.COEUR_1_AND_2: ["Coeur1", "Coeur2"],
 	PatientPreset.PLAIE1: ["Plaie1"],
 	PatientPreset.PLAIE2: ["Plaie02"],
+	PatientPreset.PLAIE3: ["Plaie03"],
 	# PatientPreset.ALL: ["Coeur1", "Coeur2"],
 }
 

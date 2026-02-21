@@ -2,7 +2,7 @@ extends Node2D
 
 signal telephone_poubelle()
 
-const SUCCESS_POINTS:=5
+const SUCCESS_POINTS:=35
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 

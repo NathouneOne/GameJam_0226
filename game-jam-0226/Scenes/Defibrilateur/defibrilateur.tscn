@@ -138,6 +138,7 @@ rotation = 1.2980806
 shape = SubResource("CapsuleShape2D_4xhnb")
 
 [node name="Iron_FX" type="AnimatedSprite2D" parent="." unique_id=397568721]
+visible = false
 position = Vector2(77, 64.00001)
 rotation = 0.4456761
 scale = Vector2(0.49449036, 0.49449027)

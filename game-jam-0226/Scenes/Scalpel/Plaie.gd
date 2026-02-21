@@ -42,8 +42,8 @@ func _ready() -> void:
 	
 	reset_minigame()
 
-@export var SUCCESS_POINTS := 15
-@export var DEFEAT_POINTS := -5
+@export var SUCCESS_POINTS := 150
+@export var DEFEAT_POINTS := -50
 
 func _on_interact_start(_target: Node2D, source: Node2D, _hand: Node2D) -> void:
 	if source is Scalpel:

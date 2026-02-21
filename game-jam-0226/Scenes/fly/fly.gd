@@ -15,7 +15,7 @@ signal smashed
 ## Max tilt in degrees (slight rotation when flying up/down).
 @export var max_tilt_degrees: float = 30.0
 
-@export var fly_success_points: int = 3
+@export var fly_success_points: int = 33
 
 var _zone: FlyZone
 var _current_angle: float

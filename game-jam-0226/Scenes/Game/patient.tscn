@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dvelbnjyxhi44" path="res://Assets/Graphismes/PATIENTS/pouletman2.png" id="6_0uvj5"]
 [ext_resource type="Texture2D" uid="uid://cb0gxn65aglea" path="res://Assets/Graphismes/PATIENTS/pouletman3.png" id="7_q02b3"]
 [ext_resource type="Texture2D" uid="uid://cjqmu8boafbr7" path="res://Assets/Graphismes/PATIENTS/vv_base.png" id="7_u4dvi"]
+[ext_resource type="PackedScene" uid="uid://dsimdra7pcenb" path="res://Scenes/Scalpel/Plaie03.tscn" id="12_0uvj5"]
 [ext_resource type="AudioStream" uid="uid://nkua5lo8sow0" path="res://Assets/Sounds/SFX/cris de singe 1.wav" id="12_2pms3"]
 [ext_resource type="AudioStream" uid="uid://c8m7ob8uaggrp" path="res://Assets/Sounds/SFX/roulettes.wav" id="13_0uwm7"]
 [ext_resource type="PackedScene" uid="uid://b3ej7vpyyef3v" path="res://Scenes/Scalpel/Plaie02.tscn" id="13_u4dvi"]
@@ -126,7 +127,6 @@ animation = &"cri"
 frame_progress = 1.0
 
 [node name="POULETMAN" type="AnimatedSprite2D" parent="Lit/Body" unique_id=71755868]
-visible = false
 position = Vector2(307, 254.98997)
 scale = Vector2(1.5499977, 1.5499976)
 sprite_frames = SubResource("SpriteFrames_6dnm8")
@@ -164,6 +164,11 @@ process_mode = 4
 visible = false
 z_index = 2
 position = Vector2(294, 232)
+
+[node name="Plaie03" parent="." unique_id=307702165 instance=ExtResource("12_0uvj5")]
+visible = false
+z_index = 2
+position = Vector2(58, 174)
 
 [node name="SingePlayer1" type="AudioStreamPlayer2D" parent="." unique_id=171385036]
 unique_name_in_owner = true

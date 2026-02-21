@@ -6,6 +6,8 @@ class_name Heart
 @onready var flash_feedback_nok: FlashFeedback = $FlashFeedbackNok
 @onready var qteCoeur: Node2D = $QTECoeur
 
+@export var  max_qte = 2
+
 
 # TODO: call when minigame is complete
 signal minigame_done()
@@ -27,8 +29,8 @@ func qte_ok() -> bool:
 	else:
 		return 0
 
-@export var SUCCESS_POINTS := 5
-@export var DEFEAT_POINTS := -5
+@export var SUCCESS_POINTS := 50
+@export var DEFEAT_POINTS := -50
 
 func _on_interact_start(_target: Node2D, source: Node2D, _hand: Node2D) -> void:
 	if disabled:
@@ -36,9 +38,9 @@ func _on_interact_start(_target: Node2D, source: Node2D, _hand: Node2D) -> void:
 
 	if source is Defibrillator and qte_ok():
 		Global.on_add_score.emit(SUCCESS_POINTS)
-		flash_feedback_ok.flash()
 		qte_completed += 1
-		if qte_completed >= 3:
+		scale.x*=-1
+		if qte_completed >= max_qte:
 			# disable the QTE:
 			# TODO: animate ?
 			$AnimatedSprite2D.hide()
