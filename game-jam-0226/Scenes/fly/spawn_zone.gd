@@ -20,9 +20,7 @@ func _build_spawn_shapes() -> void:
 			_spawn_shapes.append({"global_position": global_center, "radius": radius})
 	if _spawn_shapes.is_empty():
 		_spawn_shapes.append({"global_position": global_position, "radius": 50.0})
-		print("[SpawnZone] no CircleShape2D children, using fallback at ", global_position)
-	else:
-		print("[SpawnZone] built ", _spawn_shapes.size(), " spawn shape(s)")
+		push_warning("SpawnZone: no CircleShape2D children, using fallback at %s" % global_position)
 
 
 ## Returns a random global position inside one of this zone's shapes (supports CircleShape2D).

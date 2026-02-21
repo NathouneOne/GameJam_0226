@@ -15,19 +15,17 @@ var _alive_fly_count: int = 0
 func _ready() -> void:
 	if fly_scene == null:
 		fly_scene = preload("res://Scenes/fly/fly.tscn") as PackedScene
-		print("[FlySpawner] fly_scene: ", "default" if fly_scene else "null")
 	_spawn_zone = get_node_or_null("SpawnZone") as SpawnZone
 	_fly_zone = get_node_or_null("FlyZone") as FlyZone
-	print("[FlySpawner] _ready: SpawnZone=", _spawn_zone != null, ", FlyZone=", _fly_zone != null, ", children=", get_children().size(), " ", get_children().map(func(c): return c.name))
 	if not _spawn_zone:
 		push_warning("FlySpawner: No SpawnZone child found.")
 	if not _fly_zone:
 		push_warning("FlySpawner: No FlyZone child found.")
 	_reset_spawn_timer()
-	print("[FlySpawner] first spawn in ", _spawn_timer, " s")
 	if not Engine.is_editor_hint():
 		Global.on_end_game.connect(_on_game_end)
 		Global.on_start_game.connect(_on_game_start)
+		set_process(false) # Only spawn when game has started
 
 
 func _process(delta: float) -> void:

@@ -87,6 +87,12 @@ func _on_interact_start(_target: Node2D, source: Node2D, _hand: Node2D) -> void:
 		get_tree().create_timer(despawn_delay_seconds).timeout.connect(queue_free)
 	
 	Global.camShake.emit()
-	Global.on_add_score.emit(fly_success_points)
+
+	# Delay points a bit not to clash with the audio
+	get_tree().create_timer(0.25).timeout.connect(
+		func() -> void:
+			Global.on_add_score.emit(fly_success_points)
+	)
+	
 	set_process(false)
 	interactive.enabled = false
