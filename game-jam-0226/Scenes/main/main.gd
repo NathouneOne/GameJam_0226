@@ -14,6 +14,7 @@ func _ready() -> void:
 	_cleanup_game()
 	menu.open_trigger.connect(_start_game)
 	Global.on_end_game.connect(_end_game)
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 
 	pass # Replace with function body.
 
