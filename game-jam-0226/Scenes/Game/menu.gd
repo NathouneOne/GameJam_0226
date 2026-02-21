@@ -14,6 +14,8 @@ signal open_trigger()
 
 const BANANA_START_POS = Vector2(420.0, 400.0)
 const BANANA_END_POS = Vector2(430.0, -200.0)
+const BPM := 135
+const BEATS_PER_BAR := 4
 
 
 var started := false
@@ -25,29 +27,21 @@ func reset() -> void:
 
 func open() -> void:
 	_animate_banana_out()
-	# Wait for the current loop to finish, then start game (chain sounds)
+	# Wait for next bar (4 beats), then start game
 	_wait_for_loop_then_start_game()
 
 func _wait_for_loop_then_start_game() -> void:
-	var stream := menu_track.stream
-	if not stream:
-		_trigger_start_game()
-		return
-	var stream_length := stream.get_length()
-	if stream_length <= 0.0:
-		_trigger_start_game()
-		return
+	# Wait until playback reaches the next bar boundary (4 beats at 135 BPM)
+	var seconds_per_beat := 60.0 / float(BPM)
+	var bar_duration := BEATS_PER_BAR * seconds_per_beat
 	var pos := menu_track.get_playback_position()
-	# Time until end of current loop (works whether position wraps or not)
-	var pos_in_loop := pos if pos <= stream_length else fmod(pos, stream_length)
-	var time_left := stream_length - pos_in_loop
-	if time_left <= 0.05:
-		# Already at or past loop end
-		_trigger_start_game()
-		return
-	get_tree().create_timer(time_left).timeout.connect(_on_menu_loop_end, CONNECT_ONE_SHOT)
+	var next_bar_time: float = (floor(pos / bar_duration) + 1.0) * bar_duration
+	var time_until_bar: float = next_bar_time - pos
+	if time_until_bar <= 0.0:
+		time_until_bar = bar_duration # already past, wait next bar
+	get_tree().create_timer(time_until_bar).timeout.connect(_on_bar_elapsed, CONNECT_ONE_SHOT)
 
-func _on_menu_loop_end() -> void:
+func _on_bar_elapsed() -> void:
 	menu_track.stop()
 	menu_track.seek(0.0)
 	_trigger_start_game()
