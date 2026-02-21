@@ -9,19 +9,19 @@
 [ext_resource type="AudioStream" uid="uid://bkh1ev75m4eer" path="res://Assets/Sounds/SFX/scoring.wav" id="8_a6ftd"]
 [ext_resource type="Texture2D" uid="uid://cs744psx347nm" path="res://Assets/Graphismes/APERATION_DECOR.png" id="8_qtymf"]
 [ext_resource type="PackedScene" uid="uid://dvc2gkhwk0xpr" path="res://Scenes/Game/patient.tscn" id="8_ypmwd"]
-[ext_resource type="PackedScene" uid="uid://cnqqw487d75px" path="res://Scenes/Components/JuicyParticlesSpawner.tscn" id="9_2lc0x"]
+[ext_resource type="PackedScene" uid="uid://dkfcv55un4rbd" path="res://Scenes/Components/JuicyParticlesSpawner.tscn" id="9_2lc0x"]
 [ext_resource type="Script" uid="uid://bx6h2jjcd24t6" path="res://Scenes/Components/Juicy_particles_spawner.gd" id="10_4ti5a"]
 [ext_resource type="PackedScene" uid="uid://e51vi8ldmkjl" path="res://Scenes/Scalpel/Scalpel.tscn" id="10_upfqs"]
 [ext_resource type="Texture2D" uid="uid://ba5u1nbm6beyx" path="res://Assets/Graphismes/poubelle0.png" id="14_8e3kh"]
 [ext_resource type="Texture2D" uid="uid://bh1qn3bcdqogj" path="res://Assets/Graphismes/poubelle1.png" id="15_56qi8"]
 [ext_resource type="AudioStream" uid="uid://bad13sb7e47so" path="res://Assets/Sounds/Tracks/boucle de 60 sec (environ).wav" id="17_2vowc"]
-[ext_resource type="Script" uid="uid://cdjtiwpnt2t16" path="res://Scenes/Game/camera_2d.gd" id="19_lemb1"]
+[ext_resource type="Script" path="res://Scenes/Game/camera_2d.gd" id="19_lemb1"]
 [ext_resource type="PackedScene" uid="uid://ctkr410m1w8jr" path="res://Scenes/fly/fly_spawner.tscn" id="20_a6ftd"]
 [ext_resource type="Texture2D" uid="uid://cpgjir7nrpqda" path="res://Assets/Graphismes/Vignette_rouge_00000.png" id="21_nxex1"]
 [ext_resource type="Script" uid="uid://dp1xjrsrq5t78" path="res://Scenes/Game/Vignette.gd" id="21_pa3qg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i1e5p"]
-size = Vector2(179, 491)
+size = Vector2(179, 392.5)
 
 [sub_resource type="Animation" id="Animation_ypmwd"]
 resource_name = "patient_in"
@@ -92,7 +92,8 @@ size = Vector2(377, 436)
 script = ExtResource("1_ypmwd")
 
 [node name="GameScore" type="Node2D" parent="." unique_id=2011718870]
-z_index = 6
+visibility_layer = 3
+z_index = 11
 position = Vector2(1470.0002, -6.999984)
 rotation = 0.24260077
 skew = -0.38048178
@@ -170,7 +171,7 @@ position = Vector2(241, 849)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ItemsZone" unique_id=1714896011]
 z_index = 1
-position = Vector2(-60, -111)
+position = Vector2(-60, -160.25)
 shape = SubResource("RectangleShape2D_i1e5p")
 
 [node name="Defibrilateur" parent="." unique_id=94439545 groups=["defibrillator_tools"] instance=ExtResource("3_qikps")]
