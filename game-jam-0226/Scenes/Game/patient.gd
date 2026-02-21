@@ -103,9 +103,17 @@ func load_skin(skin: PatientSkin) -> void:
 	elif skin == PatientSkin.CHEWBACCA:
 		$Lit/Body/CHEWBACCA.visible = true
 	
-func play_scream_animation() -> void:
-	# TODO: play the scream animation
-	pass
+func play_scream_animation(skin: PatientSkin) -> void:
+	## ADD Bruit Cri
+	
+	%BodyScreamSprite.show()
+	if skin == PatientSkin.VV:
+		%BodyScreamSprite.play("VV")
+	elif skin == PatientSkin.POULETMAN:
+		%BodyScreamSprite.play("POULETMAN")
+	elif skin == PatientSkin.CHEWBACCA:
+		%BodyScreamSprite.play("CHEWBACCA")
+	
 	
 # Getter ensures the Callable is resolved when the button is used (avoids Nil at editor load).
 @export_tool_button("Emit patient_done", "Callable") var emit_patient_done_action: Callable:
@@ -129,7 +137,10 @@ func _ready() -> void:
 	load_preset(PRESET)
 	load_skin(SKIN)
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _on_body_scream_sprite_animation_finished() -> void:
+	%BodyScreamSprite.hide()

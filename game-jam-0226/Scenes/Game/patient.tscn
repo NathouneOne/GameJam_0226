@@ -2,11 +2,49 @@
 
 [ext_resource type="Script" uid="uid://cck23yc0x63gi" path="res://Scenes/Game/patient.gd" id="1_6j6pa"]
 [ext_resource type="Texture2D" uid="uid://xaph1cy1bppp" path="res://Assets/Graphismes/LIT_APERATION.png" id="1_ljr86"]
+[ext_resource type="Texture2D" uid="uid://cad8mtlvw0c4b" path="res://Assets/Graphismes/PATIENTS/CHEWBACCA_neutral.png" id="2_2pms3"]
 [ext_resource type="PackedScene" uid="uid://fy15tufi5wwi" path="res://Scenes/Defibrilateur/coeur.tscn" id="2_6j6pa"]
 [ext_resource type="Texture2D" uid="uid://dtk6nxfncqu8f" path="res://Assets/Graphismes/vv_base.png" id="2_lubxh"]
 [ext_resource type="Texture2D" uid="uid://gmyovowj67l5" path="res://Assets/Graphismes/pouletman.png" id="3_dqmf6"]
+[ext_resource type="Texture2D" uid="uid://h10kombgp61h" path="res://Assets/Graphismes/PATIENTS/CHEWBACCA_scream_1.png" id="3_u4dvi"]
+[ext_resource type="Texture2D" uid="uid://cbdrh0vdm34gp" path="res://Assets/Graphismes/PATIENTS/pouletman.png" id="4_0uwm7"]
 [ext_resource type="Texture2D" uid="uid://bhsoh5sv033gp" path="res://Assets/Graphismes/CHEWBACCA_neutral.png" id="4_gk1am"]
 [ext_resource type="PackedScene" uid="uid://cdj3e4ns44s4d" path="res://Scenes/Scalpel/Plaie.tscn" id="5_3xtxg"]
+[ext_resource type="Texture2D" uid="uid://dbyvtxwxjsmwa" path="res://Assets/Graphismes/PATIENTS/pouletmanframe1.png" id="5_6dnm8"]
+[ext_resource type="Texture2D" uid="uid://d1mnsgr3pvhxd" path="res://Assets/Graphismes/PATIENTS/pouletmanframe2.png" id="6_480mj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0uvj5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2pms3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_u4dvi")
+}],
+"loop": true,
+"name": &"CHEWBACCA",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_0uwm7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6dnm8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_480mj")
+}],
+"loop": true,
+"name": &"POULETMAN",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"VV",
+"speed": 5.0
+}]
 
 [node name="Patient" type="Node2D" unique_id=145693716]
 script = ExtResource("1_6j6pa")
@@ -17,6 +55,12 @@ PRESET = 1
 [node name="Body" type="Node2D" parent="Lit" unique_id=1728275113]
 z_index = 1
 position = Vector2(61, 16.01001)
+
+[node name="BodyScreamSprite" type="AnimatedSprite2D" parent="Lit/Body" unique_id=1802374560]
+unique_name_in_owner = true
+visible = false
+sprite_frames = SubResource("SpriteFrames_0uvj5")
+animation = &"POULETMAN"
 
 [node name="VV" type="Sprite2D" parent="Lit/Body" unique_id=1102802863]
 position = Vector2(-50, 481.99002)
@@ -53,5 +97,8 @@ scale = Vector2(-1, 1)
 
 [node name="Plaie1" parent="." unique_id=1972709014 instance=ExtResource("5_3xtxg")]
 process_mode = 4
+visible = false
 z_index = 2
 position = Vector2(69, -34)
+
+[connection signal="animation_finished" from="Lit/Body/BodyScreamSprite" to="." method="_on_body_scream_sprite_animation_finished"]
