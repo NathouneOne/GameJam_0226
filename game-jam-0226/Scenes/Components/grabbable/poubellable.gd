@@ -4,6 +4,8 @@ class_name Poubellable
 signal grabbed(hand: Node2D)
 signal released()
 
+@export var disable_on_menu: bool = true
+
 ## When true, grabbing is refused (e.g. once in poubelle or game ended).
 var disabled: bool = false
 
@@ -12,6 +14,9 @@ var hand_grabbing: Node2D = null
 
 func _ready() -> void:
 	add_to_group(&"grabbables")
+	if disable_on_menu:
+		disabled = true
+		Global.on_start_game.connect(func() -> void: disabled = false)
 	Global.on_end_game.connect(_on_end_game)
 
 func _on_end_game() -> void:

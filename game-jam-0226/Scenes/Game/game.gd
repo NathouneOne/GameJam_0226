@@ -52,6 +52,8 @@ func _on_timer_end() -> void:
 	#Global.on_end_game.emit()
 
 func _enter_new_patient() -> void:
+	if game_state != GameStateEnum.IN_GAME:
+		return
 	# Swap patient, pick a random preset
 	# TODO: better progression logic
 	var preset: Patient.PatientPreset = Patient.PRESET_GAMES.keys().pick_random()

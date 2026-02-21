@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dfmu46udmmysk"]
 
-[ext_resource type="Script" path="res://Scenes/Scalpel/telephone.gd" id="1_5op4b"]
+[ext_resource type="Script" uid="uid://mxtxhqn6qjs3" path="res://Scenes/Scalpel/telephone.gd" id="1_5op4b"]
 [ext_resource type="Texture2D" uid="uid://dhn82peqreic1" path="res://Assets/Graphismes/TEL_PNG.png" id="1_qv1yl"]
 [ext_resource type="PackedScene" uid="uid://3n3jakkd2wfr" path="res://Scenes/Components/grabbable/poubellable.tscn" id="2_4no1l"]
 [ext_resource type="Script" uid="uid://c8mlq2414nbxi" path="res://Scenes/Components/grabbable/poubellable.gd" id="3_5op4b"]
