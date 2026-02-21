@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/Scalpel/telephone.gd" id="1_5op4b"]
 [ext_resource type="Texture2D" uid="uid://dhn82peqreic1" path="res://Assets/Graphismes/TEL_PNG.png" id="1_qv1yl"]
 [ext_resource type="PackedScene" path="res://Scenes/Components/grabbable/poubellable.tscn" id="2_4no1l"]
-[ext_resource type="Script" path="res://Scenes/Components/grabbable/poubellable.gd" id="3_5op4b"]
+[ext_resource type="Script" uid="uid://c8mlq2414nbxi" path="res://Scenes/Components/grabbable/poubellable.gd" id="3_5op4b"]
 [ext_resource type="PackedScene" uid="uid://didvm4abna5rp" path="res://Scenes/Components/resettable/resettable.tscn" id="5_4t6fn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4t6fn"]
