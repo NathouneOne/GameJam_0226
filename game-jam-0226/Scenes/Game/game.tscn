@@ -3,14 +3,13 @@
 [ext_resource type="Script" uid="uid://ds004rd487gdc" path="res://Scenes/Game/time.gd" id="1_ciybh"]
 [ext_resource type="Script" uid="uid://ds4pi4ocajr22" path="res://Scenes/Game/score.gd" id="1_flgk0"]
 [ext_resource type="PackedScene" uid="uid://dgn4ub5vss8hf" path="res://Scenes/hand/hands.tscn" id="1_mv0hc"]
-[ext_resource type="Texture2D" uid="uid://c3hilgl2uc34p" path="res://Assets/Graphismes/TELE_APERATION.png" id="1_qtymf"]
 [ext_resource type="Script" uid="uid://b4q2ax0maqjtw" path="res://Scenes/Game/game.gd" id="1_ypmwd"]
 [ext_resource type="Theme" uid="uid://b2tioy6g4l1nk" path="res://Resources/default_theme.tres" id="2_flgk0"]
-[ext_resource type="Texture2D" uid="uid://drywx78pas5gi" path="res://Assets/Graphismes/GAMEJAM_Dr_MABOUL_enviro_perso.png" id="2_i1e5p"]
 [ext_resource type="PackedScene" uid="uid://cliuyijkchunc" path="res://Scenes/Game/menu.tscn" id="2_oejk7"]
-[ext_resource type="Texture2D" uid="uid://dmvmfr47s6iux" path="res://Assets/Graphismes/LIANES.png" id="2_ypmwd"]
+[ext_resource type="Texture2D" uid="uid://3w7b8acik78d" path="res://Assets/Graphismes/TV.png" id="3_lemb1"]
 [ext_resource type="PackedScene" uid="uid://cub20lgna3oru" path="res://Scenes/Defibrilateur/defibrilateur.tscn" id="3_qikps"]
 [ext_resource type="PackedScene" uid="uid://cpk6nfbh5g21i" path="res://Scenes/Components/flash_feedback/FlashFeedback.tscn" id="3_xfil1"]
+[ext_resource type="Texture2D" uid="uid://b63f3u34yp36o" path="res://Assets/Graphismes/BANANALIANES.png" id="4_a6ftd"]
 [ext_resource type="Texture2D" uid="uid://cs744psx347nm" path="res://Assets/Graphismes/APERATION_DECOR.png" id="8_qtymf"]
 [ext_resource type="PackedScene" uid="uid://dvc2gkhwk0xpr" path="res://Scenes/Game/patient.tscn" id="8_ypmwd"]
 [ext_resource type="PackedScene" uid="uid://e51vi8ldmkjl" path="res://Scenes/Scalpel/Scalpel.tscn" id="10_upfqs"]
@@ -105,28 +104,55 @@ z_index = 6
 [node name="TV" type="Sprite2D" parent="Overlay" unique_id=1557836626]
 self_modulate = Color(0.9607843, 0.9607843, 0.9607843, 1)
 position = Vector2(958, 540)
-texture = ExtResource("1_qtymf")
+texture = ExtResource("3_lemb1")
 
 [node name="Lianes" type="Sprite2D" parent="Overlay" unique_id=522884303]
-position = Vector2(960, 539)
-texture = ExtResource("2_ypmwd")
+z_index = 8
+texture = ExtResource("4_a6ftd")
+centered = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Overlay" unique_id=1394904902]
 
 [node name="GameScore" type="Node2D" parent="." unique_id=2011718870]
-z_index = 1
-position = Vector2(118.000015, 85.00001)
-rotation = -0.036651913
-skew = 0.14660765
+z_index = 6
+position = Vector2(1470.0002, -6.999984)
+rotation = 0.24260077
+skew = -0.38048178
 script = ExtResource("1_flgk0")
+
+[node name="HighScore" type="Control" parent="GameScore" unique_id=991232370]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Title1" type="Label" parent="GameScore/HighScore" unique_id=2018704478]
+modulate = Color(3.4255767, 3.4255767, 3.4255767, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -4.764354
+anchor_top = 0.7264255
+anchor_right = -4.7643547
+anchor_bottom = 0.7264252
+offset_left = 216.10498
+offset_top = 88.929504
+offset_right = 595.105
+offset_bottom = 283.9295
+theme = ExtResource("2_flgk0")
+theme_override_font_sizes/font_size = 50
+text = "Max:"
+metadata/_edit_use_anchors_ = true
 
 [node name="ScoreLabel" type="Label" parent="GameScore" unique_id=1634141895]
 modulate = Color(3.4255767, 3.4255767, 3.4255767, 1)
-offset_right = 40.0
-offset_bottom = 96.0
+offset_left = 108.05249
+offset_top = 44.464752
+offset_right = 487.0525
+offset_bottom = 239.46475
 theme = ExtResource("2_flgk0")
 theme_override_font_sizes/font_size = 70
-text = "0"
+text = "100"
 metadata/_edit_use_anchors_ = true
 
 [node name="FlashFeedbackOk" parent="GameScore" unique_id=1018722879 node_paths=PackedStringArray("target_node") instance=ExtResource("3_xfil1")]
@@ -146,21 +172,21 @@ label_font_size = 70
 text = "OUCH!"
 
 [node name="GameTime" type="Node2D" parent="." unique_id=539290177]
-z_index = 7
-position = Vector2(1636, 65)
-rotation = 0.7382743
-skew = -0.3333579
+z_index = 1
+position = Vector2(103.99999, 152)
+rotation = -0.03921259
+skew = 0.15184365
 script = ExtResource("1_ciybh")
 START_TIME_SECONDS = 60.0
 
 [node name="TimerLabel" type="Label" parent="GameTime" unique_id=34665249]
 modulate = Color(5.912981, 5.912981, 5.912981, 1)
-offset_left = 7.9187546
-offset_top = -68.90108
-offset_right = 264.91876
-offset_bottom = 27.098923
+offset_left = 14.0
+offset_top = -59.0
+offset_right = 271.0
+offset_bottom = 37.0
 theme = ExtResource("2_flgk0")
-theme_override_font_sizes/font_size = 70
+theme_override_font_sizes/font_size = 55
 text = "60.00"
 metadata/_edit_use_anchors_ = true
 
@@ -195,29 +221,9 @@ position = Vector2(2, 0)
 texture = ExtResource("8_qtymf")
 centered = false
 
-[node name="Sprite2D_test" type="Sprite2D" parent="Background" unique_id=1145442250]
-visible = false
-z_index = -1
-texture = ExtResource("2_i1e5p")
-centered = false
-
-[node name="Polygon2D" type="Polygon2D" parent="Background" unique_id=1200949737]
-visible = false
-
-[node name="Polygon2D2" type="Polygon2D" parent="Background" unique_id=48236356]
-visible = false
-color = Color(0.8509804, 0.7294118, 0.34901962, 1)
-polygon = PackedVector2Array(117, 84, 97, 149, 94, 193, 272, 192, 266, 78)
-
-[node name="Polygon2D3" type="Polygon2D" parent="Background" unique_id=727949299]
-visible = false
-z_index = -1
-color = Color(0.5686275, 0.62352943, 0.5372549, 1)
-polygon = PackedVector2Array(1520, 76, 1579, -48, 1745, 47, 1779, 214, 1755, 278, 1675, 237)
-
 [node name="Patient" parent="." unique_id=855156239 instance=ExtResource("8_ypmwd")]
 position = Vector2(893, 610)
-PRESET = 0
+PRESET = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=211062614]
 libraries/ = SubResource("AnimationLibrary_upfqs")

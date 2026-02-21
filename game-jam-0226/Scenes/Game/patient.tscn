@@ -4,11 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://xaph1cy1bppp" path="res://Assets/Graphismes/LIT_APERATION.png" id="1_ljr86"]
 [ext_resource type="PackedScene" uid="uid://fy15tufi5wwi" path="res://Scenes/Defibrilateur/coeur.tscn" id="2_6j6pa"]
 [ext_resource type="Texture2D" uid="uid://dtk6nxfncqu8f" path="res://Assets/Graphismes/vv_base.png" id="2_lubxh"]
+[ext_resource type="Texture2D" uid="uid://gmyovowj67l5" path="res://Assets/Graphismes/pouletman.png" id="3_dqmf6"]
+[ext_resource type="Texture2D" uid="uid://bhsoh5sv033gp" path="res://Assets/Graphismes/CHEWBACCA_neutral.png" id="4_gk1am"]
 [ext_resource type="PackedScene" uid="uid://cdj3e4ns44s4d" path="res://Scenes/Scalpel/Plaie.tscn" id="5_3xtxg"]
 
 [node name="Patient" type="Node2D" unique_id=145693716]
 script = ExtResource("1_6j6pa")
-PRESET = "0"
+PRESET = 1
 
 [node name="Lit" type="Node2D" parent="." unique_id=1588782232]
 
@@ -17,8 +19,21 @@ z_index = 1
 position = Vector2(61, 16.01001)
 
 [node name="VV" type="Sprite2D" parent="Lit/Body" unique_id=1102802863]
-position = Vector2(-54, 488.99)
+position = Vector2(-50, 481.99002)
+scale = Vector2(0.98, 0.98)
 texture = ExtResource("2_lubxh")
+
+[node name="POULETMAN" type="Sprite2D" parent="Lit/Body" unique_id=208234038]
+visible = false
+position = Vector2(118.00003, 249.99002)
+scale = Vector2(1.54, 1.54)
+texture = ExtResource("3_dqmf6")
+
+[node name="CHEWBACCA" type="Sprite2D" parent="Lit/Body" unique_id=1364225522]
+visible = false
+position = Vector2(111, 62.98999)
+scale = Vector2(0.465, 0.465)
+texture = ExtResource("4_gk1am")
 
 [node name="SpriteLit" type="Sprite2D" parent="Lit" unique_id=1273125670]
 position = Vector2(23, 536.01)
@@ -32,14 +47,11 @@ position = Vector2(329, -50)
 rotation = 0.21991149
 
 [node name="Coeur2" parent="." unique_id=356672580 instance=ExtResource("2_6j6pa")]
-process_mode = 4
-visible = false
 z_index = 2
-position = Vector2(-64, 206)
-rotation = -0.24609143
+position = Vector2(-182, -23.000015)
+scale = Vector2(-1, 1)
 
-[node name="Plaie" parent="." unique_id=1972709014 instance=ExtResource("5_3xtxg")]
+[node name="Plaie1" parent="." unique_id=1972709014 instance=ExtResource("5_3xtxg")]
 process_mode = 4
-visible = false
 z_index = 2
-position = Vector2(-1, 2)
+position = Vector2(69, -34)

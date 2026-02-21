@@ -4,12 +4,18 @@ class_name Patient
 
 signal patient_done()
 
+enum PatientSkin {
+	VV,
+	POULETMAN,
+	CHEWBACCA,
+}
+
 enum PatientPreset {
 	COEUR_1,
 	COEUR_2,
-	COEUR_1_AND_2,
-	PLAIE,
-	ALL,
+	#COEUR_1_AND_2,
+	PLAIE1,
+	#ALL,
 }
 
 ## Preset -> list of enabled minigame keys. Keys must match exact child node names (e.g. Coeur1, Coeur2).
@@ -17,7 +23,7 @@ const PRESET_GAMES := {
 	PatientPreset.COEUR_1: ["Coeur1"],
 	 PatientPreset.COEUR_2: ["Coeur2"],
 	# PatientPreset.COEUR_1_AND_2: ["Coeur1", "Coeur2"],
-	PatientPreset.PLAIE: ["Plaie"],
+	PatientPreset.PLAIE1: ["Plaie1"],
 	# PatientPreset.ALL: ["Coeur1", "Coeur2"],
 }
 
@@ -69,14 +75,38 @@ func load_preset(preset: PatientPreset) -> void:
 			if n is CanvasItem:
 				(n as CanvasItem).queue_redraw()
 
-var _preset: PatientPreset = PatientPreset.PLAIE
-@export var PRESET: PatientPreset = PatientPreset.PLAIE:
+var _preset: PatientPreset = PatientPreset.PLAIE1
+@export var PRESET: PatientPreset = PatientPreset.PLAIE1:
 	get:
 		return _preset
 	set(v):
 		_preset = v
 		load_preset(v)
 
+var _skin: PatientSkin = PatientSkin.VV
+@export var SKIN: PatientSkin = PatientSkin.VV:
+	get:
+		return _skin
+	set(v):
+		_skin = v
+		load_skin(_skin)
+
+func load_skin(skin: PatientSkin) -> void:
+	$Lit/Body/VV.visible = false
+	$Lit/Body/POULETMAN.visible = false
+	$Lit/Body/CHEWBACCA.visible = false
+
+	if skin == PatientSkin.VV:
+		$Lit/Body/VV.visible = true
+	elif skin == PatientSkin.POULETMAN:
+		$Lit/Body/POULETMAN.visible = true
+	elif skin == PatientSkin.CHEWBACCA:
+		$Lit/Body/CHEWBACCA.visible = true
+	
+func play_scream_animation() -> void:
+	# TODO: play the scream animation
+	pass
+	
 # Getter ensures the Callable is resolved when the button is used (avoids Nil at editor load).
 @export_tool_button("Emit patient_done", "Callable") var emit_patient_done_action: Callable:
 	get: return _editor_emit_patient_done
@@ -97,6 +127,7 @@ func _get_game_nodes() -> Dictionary:
 func _ready() -> void:
 	_game_nodes = _get_game_nodes()
 	load_preset(PRESET)
+	load_skin(SKIN)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
