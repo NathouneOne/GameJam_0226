@@ -20,7 +20,7 @@ var hand_grabbing: Node2D = null
 func _ready() -> void:
 	add_to_group(&"grabbables")
 	if disable_on_menu:
-		disabled = true # start disabled while menu is shown
+		disabled = false
 		Global.on_start_game.connect(func() -> void: disabled = false)
 		Global.on_end_game.connect(func() -> void: disabled = true)
 	else:
