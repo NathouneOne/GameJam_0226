@@ -10,6 +10,13 @@ var remaining_time_seconds := START_TIME_SECONDS
 
 var started := false
 
+# BIP / screen shake window (remaining time in seconds)
+const BIP_START_TIME_SECONDS := 56.88
+const BIP_END_TIME_SECONDS := 49.78
+const BIP_INTERVAL_SECONDS := 0.22
+const SCREEN_SHAKE_DURATION_SECONDS := 0.3
+
+var last_bip_time := 0.0
 
 # do not update too frequently
 var last_timer_update_seconds := 1.0
@@ -19,6 +26,7 @@ func on_done() -> void:
 	on_timer_end.emit()
 	started = false
 	remaining_time_seconds = START_TIME_SECONDS
+	last_bip_time = 0.0
 
 func update_label() -> void:
 	if remaining_time_seconds <= 0.0:
@@ -37,6 +45,7 @@ func update_label() -> void:
 func _on_game_start() -> void:
 	started = true
 	remaining_time_seconds = START_TIME_SECONDS
+	last_bip_time = 0.0
 	update_label()
 
 # Called when the node enters the scene tree for the first time.
@@ -62,3 +71,10 @@ func _process(delta: float) -> void:
 		return
 
 	update_label()
+
+	var elapsed_time: float = START_TIME_SECONDS - remaining_time_seconds
+	# Screen shake (bip) in the final countdown window, every interval
+	if elapsed_time <= BIP_END_TIME_SECONDS and elapsed_time >= BIP_START_TIME_SECONDS:
+		if last_bip_time == 0.0 or elapsed_time - last_bip_time >= BIP_INTERVAL_SECONDS:
+			Global.camShake.emit()
+			last_bip_time = elapsed_time
