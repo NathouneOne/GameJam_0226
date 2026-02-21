@@ -92,7 +92,8 @@ size = Vector2(377, 436)
 script = ExtResource("1_ypmwd")
 
 [node name="GameScore" type="Node2D" parent="." unique_id=2011718870]
-z_index = 6
+visibility_layer = 3
+z_index = 11
 position = Vector2(1470.0002, -6.999984)
 rotation = 0.24260077
 skew = -0.38048178

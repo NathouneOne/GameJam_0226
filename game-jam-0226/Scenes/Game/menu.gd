@@ -20,6 +20,7 @@ var started := false
 
 func reset() -> void:
 	started = false
+	high_score.visible = true
 	pass
 
 func open() -> void:
@@ -56,6 +57,7 @@ func _trigger_start_game() -> void:
 	%Timer3.start()
 	%TringleSound.play()
 	menu_track.visible = false
+	high_score.visible = false
 	animation_player.play("open")
 	open_trigger.emit()
 	
