@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bbxb8nvk3v1no"]
+
+[ext_resource type="Texture2D" uid="uid://bec7kv75h8g20" path="res://Assets/Graphismes/coeur_tmp.png" id="1_vwyou"]
+[ext_resource type="Texture2D" uid="uid://b1qupa75pcmb0" path="res://Assets/Graphismes/BloodParticle.png" id="2_vnhkb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_23oet"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vwyou")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vwyou")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_vnhkb")
+}],
+"loop": false,
+"name": &"smash",
+"speed": 5.0
+}]
+
+[node name="Fly" type="Node2D" unique_id=1211682102]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1063646624]
+position = Vector2(0, 1)
+scale = Vector2(0.040277775, 0.040277775)
+sprite_frames = SubResource("SpriteFrames_23oet")
+animation = &"fly"
+frame_progress = 0.28815874
