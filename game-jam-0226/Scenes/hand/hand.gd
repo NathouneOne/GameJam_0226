@@ -52,9 +52,12 @@ func _try_grab_object() -> bool:
 				return true
 
 		if area is Poubellable:
+			var p: Poubellable = area as Poubellable
+			if p.disabled:
+				continue
 			var target: Node = area.get_parent()
 			if target is Node2D:
-				_grab_poubelle_object(target as Node2D, area as Poubellable)
+				_grab_poubelle_object(target as Node2D, p)
 				return true
 	return false
 
