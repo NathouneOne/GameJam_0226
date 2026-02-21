@@ -19,10 +19,10 @@
 [ext_resource type="AudioStream" uid="uid://d8kvu6btjvju" path="res://Assets/Sounds/SFX/eclectrocardiogramme 1 (lent).wav" id="17_2vowc"]
 [ext_resource type="AudioStream" uid="uid://c0kl752rewhpo" path="res://Assets/Sounds/SFX/dégat du man.wav" id="18_yox4t"]
 [ext_resource type="AudioStream" uid="uid://culbmksvioirx" path="res://Assets/Sounds/Tracks/v001/boucle 4 (core trakc avec lead).wav" id="19_2lc0x"]
-[ext_resource type="Script" path="res://Scenes/Game/camera_2d.gd" id="19_lemb1"]
+[ext_resource type="Script" uid="uid://cdjtiwpnt2t16" path="res://Scenes/Game/camera_2d.gd" id="19_lemb1"]
 [ext_resource type="PackedScene" uid="uid://ctkr410m1w8jr" path="res://Scenes/fly/fly_spawner.tscn" id="20_a6ftd"]
 [ext_resource type="Texture2D" uid="uid://cpgjir7nrpqda" path="res://Assets/Graphismes/Vignette_rouge_00000.png" id="21_nxex1"]
-[ext_resource type="Script" path="res://Scenes/Game/Vignette.gd" id="21_pa3qg"]
+[ext_resource type="Script" uid="uid://dp1xjrsrq5t78" path="res://Scenes/Game/Vignette.gd" id="21_pa3qg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i1e5p"]
 size = Vector2(179, 491)
@@ -185,7 +185,6 @@ texture = ExtResource("21_nxex1")
 
 [node name="GameTime" type="Node2D" parent="." unique_id=539290177]
 unique_name_in_owner = true
-visible = false
 z_index = 1
 position = Vector2(103.99999, 152)
 rotation = -0.03921259

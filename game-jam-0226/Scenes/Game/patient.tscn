@@ -136,7 +136,6 @@ texture = ExtResource("1_ljr86")
 metadata/_edit_lock_ = true
 
 [node name="Coeur1" parent="." unique_id=1087108802 instance=ExtResource("2_6j6pa")]
-visible = false
 z_index = 2
 position = Vector2(329, -50)
 rotation = 0.21991149
@@ -151,20 +150,14 @@ scale = Vector2(-1, 1)
 metadata/_edit_lock_ = true
 
 [node name="Plaie1" parent="." unique_id=1972709014 instance=ExtResource("5_3xtxg")]
+process_mode = 4
 z_index = 2
 position = Vector2(251, 146)
 
 [node name="Plaie02" parent="." unique_id=1769471978 instance=ExtResource("13_u4dvi")]
 process_mode = 4
-visible = false
 z_index = 2
 position = Vector2(294, 232)
-
-[node name="Plaie03" parent="." unique_id=360388861 instance=ExtResource("13_u4dvi")]
-process_mode = 4
-visible = false
-z_index = 2
-position = Vector2(-58, 204)
 
 [node name="SingePlayer1" type="AudioStreamPlayer2D" parent="." unique_id=171385036]
 unique_name_in_owner = true

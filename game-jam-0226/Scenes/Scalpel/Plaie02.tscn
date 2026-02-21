@@ -76,13 +76,13 @@ color = Color(1, 0.11372549, 0.22352941, 1)
 polygon = PackedVector2Array(1.5405273, -81.55066, -11.459473, -113.55066, -17.459473, -151.55066, -11.459473, -181.55066, 3.5405273, -199.55066, 40.540527, -201.55066, 69.54053, -196.55066, 87.54053, -185.55066, 107.54053, -159.55066, 125.54053, -131.55066, 132.54053, -118.55066, 139.54053, -96.55066, 141.54053, -78.55066, 138.54053, -65.55066, 124.54053, -38.55066, 125.54053, -18.55066, 128.54053, 2.4493408, 143.54053, 26.44934, 144.54053, 39.44934, 130.54053, 55.44934, 113.54053, 51.44934, 83.54053, 28.44934, 71.54053, 12.449341, 61.540527, -15.550659, 42.540527, -35.55066, 15.540527, -56.55066)
 
 [node name="CheckPoint2" parent="." unique_id=1388937644 instance=ExtResource("5_k6b7k")]
-position = Vector2(-3, 145)
+position = Vector2(-3, 148)
 
 [node name="CheckPoint5" parent="." unique_id=2019278051 instance=ExtResource("5_k6b7k")]
-position = Vector2(109, -69)
+position = Vector2(112, -58)
 
 [node name="CheckPoint6" parent="." unique_id=571173631 instance=ExtResource("5_k6b7k")]
-position = Vector2(-137, -49)
+position = Vector2(-132, -64)
 
 [node name="Timer2" type="Timer" parent="." unique_id=350261886]
 unique_name_in_owner = true
