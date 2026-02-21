@@ -31,8 +31,8 @@
 [ext_resource type="AudioStream" uid="uid://1wyvoows4md7" path="res://Assets/Sounds/SFX/noise electrique (defib).wav" id="28_6pl1p"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4xhnb"]
-radius = 71.26518
-height = 288.80115
+radius = 87.89865
+height = 375.86636
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ogkay"]
 animations = [{
@@ -133,7 +133,7 @@ shape = SubResource("CapsuleShape2D_4xhnb")
 [node name="Useable" parent="." unique_id=101575551 instance=ExtResource("3_87nux")]
 
 [node name="Use" type="CollisionShape2D" parent="Useable" unique_id=933575551]
-position = Vector2(11, 11)
+position = Vector2(28, 8)
 rotation = 1.2980806
 shape = SubResource("CapsuleShape2D_4xhnb")
 

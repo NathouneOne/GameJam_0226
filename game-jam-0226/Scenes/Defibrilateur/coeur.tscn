@@ -74,8 +74,9 @@
 [ext_resource type="Texture2D" uid="uid://b3o6rrlacrb3m" path="res://Assets/Graphismes/HeartBeat/frames2/HEARTBEAT0034.png" id="72_tenkv"]
 [ext_resource type="AudioStream" uid="uid://clhjl1wsc4grb" path="res://Assets/Sounds/SFX/coeur.wav" id="73_avfgu"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_kipf4"]
-radius = 122.80115
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_avfgu"]
+radius = 139.62045
+height = 355.365
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_csdde"]
 blend_mode = 1
@@ -313,9 +314,10 @@ texture = ExtResource("1_nqbo0")
 [node name="Interactive" parent="." unique_id=1960182460 instance=ExtResource("3_7f3hc")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactive" unique_id=1167014915]
-position = Vector2(118, -191)
+position = Vector2(102.000015, -199.00003)
+rotation = 0.5095084
 scale = Vector2(1.1726507, 1.2918111)
-shape = SubResource("CircleShape2D_kipf4")
+shape = SubResource("CapsuleShape2D_avfgu")
 
 [node name="FlashFeedbackOk" parent="." unique_id=822112174 node_paths=PackedStringArray("target_node") instance=ExtResource("4_u7e1w")]
 target_node = NodePath("../MainSprite")
@@ -346,7 +348,8 @@ texture = ExtResource("1_nqbo0")
 position = Vector2(-90, 144)
 sprite_frames = SubResource("SpriteFrames_uisi3")
 animation = &"HeartBeat1"
-frame_progress = 0.52208835
+frame = 12
+frame_progress = 0.07410237
 
 [node name="HeartBeat" type="AudioStreamPlayer2D" parent="." unique_id=1524255534]
 stream = ExtResource("73_avfgu")
