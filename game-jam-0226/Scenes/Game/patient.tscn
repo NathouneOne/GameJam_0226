@@ -200,13 +200,13 @@ panning_strength = 0.0
 
 [node name="HurtVV" type="AudioStreamPlayer2D" parent="." unique_id=1002254182]
 stream = ExtResource("15_480mj")
-volume_db = 2.185
+volume_db = 8.0
 panning_strength = 0.0
 
 [node name="HurtChewbacca" type="AudioStreamPlayer2D" parent="." unique_id=2096897830]
 unique_name_in_owner = true
 stream = ExtResource("16_480mj")
-volume_db = -7.429
+volume_db = -9.0
 panning_strength = 0.0
 
 [connection signal="timeout" from="SingePlayer1/Timer" to="." method="_on_timer_timeout"]

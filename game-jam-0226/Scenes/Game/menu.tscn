@@ -305,7 +305,7 @@ one_shot = true
 [node name="TissusSound" type="AudioStreamPlayer2D" parent="." unique_id=326948198]
 unique_name_in_owner = true
 stream = ExtResource("12_1a5qy")
-volume_db = 9.0
+volume_db = 10.0
 panning_strength = 0.0
 
 [node name="RouletteSound" type="AudioStreamPlayer2D" parent="." unique_id=1189527378]
