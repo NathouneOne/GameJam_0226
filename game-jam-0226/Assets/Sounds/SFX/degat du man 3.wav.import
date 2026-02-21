@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://beqplryqdl72o"
+path="res://.godot/imported/degat du man 3.wav-0af3d15ac9428f21e51262dd23eecf5b.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/SFX/degat du man 3.wav"
+dest_files=["res://.godot/imported/degat du man 3.wav-0af3d15ac9428f21e51262dd23eecf5b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

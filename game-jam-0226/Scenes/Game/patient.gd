@@ -13,10 +13,8 @@ enum PatientSkin {
 enum PatientPreset {
 	COEUR_1,
 	COEUR_2,
-	#COEUR_1_AND_2,
 	PLAIE1,
 	PLAIE2,
-	#ALL,
 }
 
 ## Preset -> list of enabled minigame keys. Keys must match exact child node names (e.g. Coeur1, Coeur2).
@@ -121,9 +119,17 @@ func load_skin() -> void:
 		patient_animated_sprite.visible = true
 
 func play_scream_animation() -> void:
-	## ADD Bruit Cri
-	
 	patient_animated_sprite.play("cri")
+	
+	# play sound
+	if SKIN == PatientSkin.CHEWBACCA:
+		$HurtChewbacca.play()
+	
+	if SKIN == PatientSkin.VV:
+		$HurtVV.play()
+		
+	if SKIN == PatientSkin.POULETMAN:
+		$HurtPouletman.play()
 
 	
 # Getter ensures the Callable is resolved when the button is used (avoids Nil at editor load).
@@ -150,7 +156,7 @@ func _ready() -> void:
 	
 	if not Engine.is_editor_hint():
 		Global.on_add_score.connect(
-			func(score: int) -> void: 
+			func(score: int) -> void:
 				if score < 0:
 					play_scream_animation()
 		)
