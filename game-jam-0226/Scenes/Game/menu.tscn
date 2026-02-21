@@ -1,31 +1,33 @@
 [gd_scene format=3 uid="uid://cliuyijkchunc"]
 
-[ext_resource type="Texture2D" uid="uid://bagjli1c1jpeb" path="res://Assets/Graphismes/rideau_tmp_1.png" id="1_c6plx"]
 [ext_resource type="Script" uid="uid://dffuynjdfd87r" path="res://Scenes/Game/menu.gd" id="1_qsmta"]
-[ext_resource type="Shader" path="res://Scenes/Game/rideau.gdshader" id="1_v4p3b"]
-[ext_resource type="Texture2D" uid="uid://b74dqeh1jkhf5" path="res://Assets/Graphismes/rideau_tmp_2.png" id="2_xl27h"]
-[ext_resource type="Script" path="res://Scenes/Game/rideau.gd" id="3_1gnmn"]
+[ext_resource type="Shader" uid="uid://dbs8xbe55su3f" path="res://Scenes/Game/rideau.gdshader" id="1_v4p3b"]
+[ext_resource type="Texture2D" uid="uid://3e1p4swsrc47" path="res://Assets/Graphismes/rideau_gauche.png" id="3_1a5qy"]
+[ext_resource type="Script" uid="uid://dfi142uxu5rxf" path="res://Scenes/Game/rideau.gd" id="3_1gnmn"]
+[ext_resource type="Texture2D" uid="uid://b6vxkm8osxfky" path="res://Assets/Graphismes/rideau_droite.png" id="5_1a5qy"]
 [ext_resource type="Texture2D" uid="uid://dsn6qbvpav7fu" path="res://Assets/Graphismes/APERATION_bana_handle.png" id="6_3bvil"]
 [ext_resource type="AudioStream" uid="uid://e4vsxhsige5i" path="res://Assets/Sounds/SFX/clip fil banana.wav" id="6_dtdov"]
+[ext_resource type="Texture2D" uid="uid://bahr6ipjs3u7n" path="res://Assets/Graphismes/pullme.png" id="6_flsy2"]
 [ext_resource type="Texture2D" uid="uid://b7e8oyoeebv2n" path="res://Assets/Graphismes/APERATION_string.png" id="7_dtdov"]
+[ext_resource type="Texture2D" uid="uid://vjxl4qn6brqe" path="res://Assets/Graphismes/tableau.png" id="7_vi5g3"]
 [ext_resource type="PackedScene" uid="uid://bivkc0072g4c8" path="res://Scenes/Components/grabbable/Grabbable.tscn" id="7_wdtv5"]
 [ext_resource type="PackedScene" uid="uid://1ohqnbol5i0g" path="res://Scenes/hand/arm.tscn" id="8_jn33t"]
 [ext_resource type="AudioStream" uid="uid://pebd6g3rukbf" path="res://Assets/Sounds/SFX/tringle a rideaux.wav" id="11_eb3d4"]
 [ext_resource type="AudioStream" uid="uid://bxmy700acvija" path="res://Assets/Sounds/SFX/rideaux tissus.wav" id="12_1a5qy"]
 [ext_resource type="AudioStream" uid="uid://c8m7ob8uaggrp" path="res://Assets/Sounds/SFX/roulettes.wav" id="13_1a5qy"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qsmta"]
+shader = ExtResource("1_v4p3b")
+shader_parameter/velocity = 1.8935574421213823e-105
+shader_parameter/lag_strength = 0.005
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1gnmn"]
 shader = ExtResource("1_v4p3b")
-shader_parameter/velocity = 0.0
+shader_parameter/velocity = -0.046717746766433414
 shader_parameter/lag_strength = 0.0050000002375
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wdtv5"]
-radius = 52.35456
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qsmta"]
-shader = ExtResource("1_v4p3b")
-shader_parameter/velocity = 0.0
-shader_parameter/lag_strength = 0.005
+radius = 145.70941
 
 [sub_resource type="Animation" id="Animation_qsmta"]
 length = 0.001
@@ -51,11 +53,24 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(960, 0)]
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("tableau:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_otekx"]
 resource_name = "right"
+length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -66,7 +81,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0.1, 1),
 "transitions": PackedFloat32Array(6, 6),
 "update": 0,
-"values": [Vector2(1920, 0), Vector2(960, 0)]
+"values": [Vector2(960, 0), Vector2(0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -78,7 +93,19 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.9),
 "transitions": PackedFloat32Array(6, 6),
 "update": 0,
-"values": [Vector2(-960, 0), Vector2(0, 0)]
+"values": [Vector2(-1000, 0), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("tableau:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.6666667, 1.5),
+"transitions": PackedFloat32Array(-2, 0.5),
+"update": 0,
+"values": [Vector2(1000, 0), Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_jn33t"]
@@ -86,6 +113,7 @@ resource_name = "handle_up"
 
 [sub_resource type="Animation" id="Animation_1gnmn"]
 resource_name = "left"
+length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -96,7 +124,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0.13233334, 0.13333334, 0.93333334),
 "transitions": PackedFloat32Array(6, 6, 6),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0), Vector2(-960, 0)]
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(-1000, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -108,7 +136,19 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.8666667),
 "transitions": PackedFloat32Array(6, 6),
 "update": 0,
-"values": [Vector2(960, 0), Vector2(1920, 0)]
+"values": [Vector2(0, 0), Vector2(960, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("tableau:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.76666665, 1.5),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1000, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qsmta"]
@@ -126,10 +166,16 @@ height = 189.15869
 [node name="Menu" type="Node2D" unique_id=942918676]
 script = ExtResource("1_qsmta")
 
+[node name="rideauR" type="Sprite2D" parent="." unique_id=620171453]
+material = SubResource("ShaderMaterial_qsmta")
+texture = ExtResource("5_1a5qy")
+centered = false
+script = ExtResource("3_1gnmn")
+
 [node name="rideauL" type="Sprite2D" parent="." unique_id=1174741945]
 material = SubResource("ShaderMaterial_1gnmn")
-scale = Vector2(1.58, 1.58)
-texture = ExtResource("1_c6plx")
+scale = Vector2(0.99907434, 0.9990742)
+texture = ExtResource("3_1a5qy")
 centered = false
 script = ExtResource("3_1gnmn")
 
@@ -137,35 +183,17 @@ script = ExtResource("3_1gnmn")
 scale = Vector2(0.6329114, 0.6329114)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="rideauL/BananaZone" unique_id=1867978996]
-position = Vector2(501, 830)
+position = Vector2(774.9173, 1262.0083)
 shape = SubResource("CircleShape2D_wdtv5")
 
-[node name="Polygon2D" type="Polygon2D" parent="rideauL/BananaZone" unique_id=313787167]
-position = Vector2(26, -3)
-color = Color(0, 0, 0, 0.43529412)
-polygon = PackedVector2Array(450, 723, 347, 797, 381, 897, 510, 926, 605, 846, 553, 758)
+[node name="Sprite2D" type="Sprite2D" parent="rideauL/BananaZone" unique_id=1172655864]
+position = Vector2(1431.2249, 884.0383)
+scale = Vector2(1.1932203, 1.1932203)
+texture = ExtResource("6_flsy2")
 
-[node name="Label" type="Label" parent="rideauL/BananaZone" unique_id=874255680]
-offset_left = 256.0
-offset_top = 532.0
-offset_right = 703.0
-offset_bottom = 691.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 12
-theme_override_font_sizes/font_size = 57
-text = "PULL TO START !
-⬇"
-horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="rideauR" type="Sprite2D" parent="." unique_id=620171453]
-material = SubResource("ShaderMaterial_qsmta")
-position = Vector2(960, 0)
-scale = Vector2(1.58, 1.58)
-texture = ExtResource("2_xl27h")
+[node name="tableau" type="Sprite2D" parent="." unique_id=810930346]
+texture = ExtResource("7_vi5g3")
 centered = false
-script = ExtResource("3_1gnmn")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=122561066]
 libraries/ = SubResource("AnimationLibrary_qsmta")
