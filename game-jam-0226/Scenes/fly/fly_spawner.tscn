@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bbxb8nvk3v1no" path="res://Scenes/fly/fly.tscn" id="2_ea137"]
 [ext_resource type="Script" uid="uid://dxuafjhqs6yv0" path="res://Scenes/fly/spawn_zone.gd" id="3_4f47q"]
 [ext_resource type="Script" uid="uid://ddkowvcxrhrvg" path="res://Scenes/fly/fly_zone.gd" id="4_xp21a"]
-[ext_resource type="AudioStream" uid="uid://cpib8nk3nrsc1" path="res://Assets/Sounds/SFX/electrocardiogramme 2 (moyen double bip).wav" id="5_ea137"]
+[ext_resource type="AudioStream" uid="uid://dkv5on6717uxv" path="res://Assets/Sounds/SFX/mouche fly.wav" id="5_ea137"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nnkt7"]
 radius = 65.12296
@@ -59,6 +59,6 @@ rotation = -1.5405344
 shape = SubResource("CapsuleShape2D_6vr42")
 
 [node name="FlyingNoise" type="AudioStreamPlayer2D" parent="." unique_id=599183438]
-visible = false
 stream = ExtResource("5_ea137")
-volume_db = -3.07
+volume_db = 12.109
+panning_strength = 0.0

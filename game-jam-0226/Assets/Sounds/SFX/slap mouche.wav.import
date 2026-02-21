@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bp64vdjanall8"
+path="res://.godot/imported/slap mouche.wav-9081b926fe1411f12e33f8573504a4b4.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/SFX/slap mouche.wav"
+dest_files=["res://.godot/imported/slap mouche.wav-9081b926fe1411f12e33f8573504a4b4.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
