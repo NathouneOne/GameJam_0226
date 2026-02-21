@@ -14,4 +14,4 @@ func _process(delta: float) -> void:
 	ellapsedtime = 60-%GameTime.remaining_time_seconds
 	opacityValue = ellapsedtime/60
 	%VignetteRouge.modulate.a=opacityValue
-	
+	visible = true

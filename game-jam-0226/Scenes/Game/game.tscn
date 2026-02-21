@@ -9,7 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://bkh1ev75m4eer" path="res://Assets/Sounds/SFX/scoring.wav" id="8_a6ftd"]
 [ext_resource type="Texture2D" uid="uid://cs744psx347nm" path="res://Assets/Graphismes/APERATION_DECOR.png" id="8_qtymf"]
 [ext_resource type="PackedScene" uid="uid://dvc2gkhwk0xpr" path="res://Scenes/Game/patient.tscn" id="8_ypmwd"]
-[ext_resource type="PackedScene" uid="uid://cnqqw487d75px" path="res://Scenes/Components/JuicyParticlesSpawner.tscn" id="9_2lc0x"]
+[ext_resource type="PackedScene" path="res://Scenes/Components/JuicyParticlesSpawner.tscn" id="9_2lc0x"]
 [ext_resource type="Script" uid="uid://bx6h2jjcd24t6" path="res://Scenes/Components/Juicy_particles_spawner.gd" id="10_4ti5a"]
 [ext_resource type="PackedScene" uid="uid://e51vi8ldmkjl" path="res://Scenes/Scalpel/Scalpel.tscn" id="10_upfqs"]
 [ext_resource type="Texture2D" uid="uid://ba5u1nbm6beyx" path="res://Assets/Graphismes/poubelle0.png" id="14_8e3kh"]
@@ -137,6 +137,7 @@ position = Vector2(122.11902, 192.49042)
 script = ExtResource("10_4ti5a")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1082063397]
+visible = false
 script = ExtResource("21_pa3qg")
 
 [node name="VignetteRouge" type="Sprite2D" parent="CanvasLayer" unique_id=1032729378]

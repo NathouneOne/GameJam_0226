@@ -265,6 +265,7 @@ unique_name_in_owner = true
 one_shot = true
 
 [node name="HighScore" type="Node2D" parent="." unique_id=173014719]
+visible = false
 z_index = 6
 position = Vector2(1470.0002, -6.999984)
 rotation = 0.24260077
