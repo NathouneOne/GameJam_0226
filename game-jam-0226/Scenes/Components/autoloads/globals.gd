@@ -9,7 +9,6 @@ signal camShake()
 
 signal hand_force_release_object()
 
-var high_score := 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -98,30 +98,6 @@ rotation = 0.24260077
 skew = -0.38048178
 script = ExtResource("1_flgk0")
 
-[node name="HighScore" type="Control" parent="GameScore" unique_id=991232370]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Title1" type="Label" parent="GameScore/HighScore" unique_id=2018704478]
-modulate = Color(3.4255767, 3.4255767, 3.4255767, 1)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -4.7643547
-anchor_top = 0.7264252
-anchor_right = -4.7643547
-anchor_bottom = 0.7264252
-offset_left = 216.10498
-offset_top = 88.929504
-offset_right = 595.105
-offset_bottom = 283.9295
-theme = ExtResource("2_flgk0")
-theme_override_font_sizes/font_size = 50
-text = "Max:"
-metadata/_edit_use_anchors_ = true
-
 [node name="ScoreLabel" type="Label" parent="GameScore" unique_id=1634141895]
 modulate = Color(3.4255767, 3.4255767, 3.4255767, 1)
 offset_left = 108.05249
@@ -130,7 +106,7 @@ offset_right = 487.0525
 offset_bottom = 239.46475
 theme = ExtResource("2_flgk0")
 theme_override_font_sizes/font_size = 70
-text = "100"
+text = "0"
 metadata/_edit_use_anchors_ = true
 
 [node name="FlashFeedbackOk" parent="GameScore" unique_id=1018722879 node_paths=PackedStringArray("target_node") instance=ExtResource("3_xfil1")]
@@ -202,8 +178,8 @@ position = Vector2(172, 519)
 [node name="Scalpel" parent="." unique_id=592803465 instance=ExtResource("10_upfqs")]
 unique_name_in_owner = true
 z_index = 5
-position = Vector2(188.815, 696.255)
-rotation = 1.097812
+position = Vector2(180.99997, 747)
+rotation = 2.1540499
 
 [node name="Patient" parent="." unique_id=855156239 instance=ExtResource("8_ypmwd")]
 position = Vector2(893, 610)
