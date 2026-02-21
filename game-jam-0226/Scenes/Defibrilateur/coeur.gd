@@ -22,7 +22,7 @@ func _ready() -> void:
 
 func qte_ok() -> bool:
 	#return qteCoeur.scale.x > ZONE_OK.x and qteCoeur.scale.x < ZONE_OK.y
-	if $AnimatedSprite2D.frame > 10 and $AnimatedSprite2D.frame < 16 :
+	if $AnimatedSprite2D.frame > 10 and $AnimatedSprite2D.frame < 16:
 		return 1
 	else:
 		return 0
@@ -71,7 +71,6 @@ func reset(
 	scale_trans: Tween.TransitionType = Tween.TRANS_SINE,
 	scale_ease: Tween.EaseType = Tween.EASE_IN_OUT
 ) -> void:
-	
 	$AnimatedSprite2D.show()
 	$AnimatedSprite2D.play("HeartBeat1")
 	
@@ -84,7 +83,8 @@ func reset(
 	if heart_tween:
 		heart_tween.kill()
 
-	heart_tween = get_tree().create_tween().set_loops()
+	# Use a large finite loop count to avoid engine "Infinite loop detected" in Tween.step()
+	heart_tween = get_tree().create_tween().set_loops(99999)
 	heart_tween.tween_property(qteCoeur, "scale", Vector2.ONE * SCALE_END, SCALE_DURATION).set_trans(scale_trans).set_ease(scale_ease)
 	heart_tween.tween_property(qteCoeur, "scale", Vector2.ONE * SCALE_START, SCALE_DURATION).set_trans(scale_trans).set_ease(scale_ease)
 
