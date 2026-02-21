@@ -13,6 +13,9 @@
 [ext_resource type="AudioStream" uid="uid://nkua5lo8sow0" path="res://Assets/Sounds/SFX/cris de singe 1.wav" id="12_2pms3"]
 [ext_resource type="AudioStream" uid="uid://c8m7ob8uaggrp" path="res://Assets/Sounds/SFX/roulettes.wav" id="13_0uwm7"]
 [ext_resource type="PackedScene" uid="uid://b3ej7vpyyef3v" path="res://Scenes/Scalpel/Plaie02.tscn" id="13_u4dvi"]
+[ext_resource type="AudioStream" uid="uid://b4p0gqc12m8hm" path="res://Assets/Sounds/SFX/cocotte 1.wav" id="14_6dnm8"]
+[ext_resource type="AudioStream" uid="uid://beqplryqdl72o" path="res://Assets/Sounds/SFX/degat du man 3.wav" id="15_480mj"]
+[ext_resource type="AudioStream" uid="uid://djr063is1yc0b" path="res://Assets/Sounds/SFX/chewbee.wav" id="16_480mj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u4dvi"]
 animations = [{
@@ -178,6 +181,19 @@ panning_strength = 0.0
 unique_name_in_owner = true
 wait_time = 1.5
 one_shot = true
+
+[node name="HurtPouletman" type="AudioStreamPlayer2D" parent="." unique_id=2027093756]
+stream = ExtResource("14_6dnm8")
+volume_db = -1.748
+
+[node name="HurtVV" type="AudioStreamPlayer2D" parent="." unique_id=1002254182]
+stream = ExtResource("15_480mj")
+volume_db = 2.185
+
+[node name="HurtChewbacca" type="AudioStreamPlayer2D" parent="." unique_id=2096897830]
+unique_name_in_owner = true
+stream = ExtResource("16_480mj")
+volume_db = -7.429
 
 [connection signal="timeout" from="SingePlayer1/Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="RouletteSound/timerRoulette" to="." method="_on_timer_roulette_timeout"]

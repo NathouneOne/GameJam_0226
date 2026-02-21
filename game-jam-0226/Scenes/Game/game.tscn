@@ -17,7 +17,6 @@
 [ext_resource type="Texture2D" uid="uid://ba5u1nbm6beyx" path="res://Assets/Graphismes/poubelle0.png" id="14_8e3kh"]
 [ext_resource type="Texture2D" uid="uid://bh1qn3bcdqogj" path="res://Assets/Graphismes/poubelle1.png" id="15_56qi8"]
 [ext_resource type="AudioStream" uid="uid://d8kvu6btjvju" path="res://Assets/Sounds/SFX/eclectrocardiogramme 1 (lent).wav" id="17_2vowc"]
-[ext_resource type="AudioStream" uid="uid://c0kl752rewhpo" path="res://Assets/Sounds/SFX/dégat du man.wav" id="18_yox4t"]
 [ext_resource type="AudioStream" uid="uid://culbmksvioirx" path="res://Assets/Sounds/Tracks/v001/boucle 4 (core trakc avec lead).wav" id="19_2lc0x"]
 [ext_resource type="Script" uid="uid://cdjtiwpnt2t16" path="res://Scenes/Game/camera_2d.gd" id="19_lemb1"]
 [ext_resource type="PackedScene" uid="uid://ctkr410m1w8jr" path="res://Scenes/fly/fly_spawner.tscn" id="20_a6ftd"]
@@ -268,10 +267,6 @@ panning_strength = 0.0
 stream = ExtResource("17_2vowc")
 volume_db = 2.862
 panning_strength = 0.0
-
-[node name="HurtingSound" type="AudioStreamPlayer2D" parent="." unique_id=79642361]
-unique_name_in_owner = true
-stream = ExtResource("18_yox4t")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=529783870]
 unique_name_in_owner = true

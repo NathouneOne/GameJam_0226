@@ -7,7 +7,7 @@ signal on_timer_end()
 var score := 0
 
 const BANANASPAWNER = preload("res://Scenes/Components/BananaParticlesSpawner.tscn")
-var BananaSpawner :Node
+var BananaSpawner: Node
 
 
 func init_() -> void:
@@ -23,7 +23,6 @@ func add(points: int) -> void:
 		_animate_postive_points(old_score)
 	
 
-	
 func _animate_postive_points(_old_score: int) -> void:
 	# TODO better animation
 	$FlashFeedbackOk.flash()
@@ -40,7 +39,6 @@ func _animate_postive_points(_old_score: int) -> void:
 func _animate_negative_points(_old_score: int) -> void:
 	# TODO better animation
 	$FlashFeedbackNotOk.flash()
-	%HurtingSound.play()
 	Global.camShake.emit()
 	update_label()
 
@@ -60,4 +58,4 @@ func _ready() -> void:
 
 
 func _on_banana_particles_finished() -> void:
-	%BananaParticles.emitting=false
+	%BananaParticles.emitting = false
