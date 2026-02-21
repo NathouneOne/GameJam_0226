@@ -97,8 +97,7 @@ scale = Vector2(-1, 1)
 
 [node name="Plaie1" parent="." unique_id=1972709014 instance=ExtResource("5_3xtxg")]
 process_mode = 4
-visible = false
 z_index = 2
-position = Vector2(69, -34)
+position = Vector2(294, 232)
 
 [connection signal="animation_finished" from="Lit/Body/BodyScreamSprite" to="." method="_on_body_scream_sprite_animation_finished"]

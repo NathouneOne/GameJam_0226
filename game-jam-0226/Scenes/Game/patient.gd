@@ -11,8 +11,8 @@ enum PatientSkin {
 }
 
 enum PatientPreset {
-	COEUR_1,
-	COEUR_2,
+	#COEUR_1,
+	#COEUR_2,
 	#COEUR_1_AND_2,
 	PLAIE1,
 	#ALL,
@@ -20,8 +20,8 @@ enum PatientPreset {
 
 ## Preset -> list of enabled minigame keys. Keys must match exact child node names (e.g. Coeur1, Coeur2).
 const PRESET_GAMES := {
-	PatientPreset.COEUR_1: ["Coeur1"],
-	 PatientPreset.COEUR_2: ["Coeur2"],
+	#PatientPreset.COEUR_1: ["Coeur1"],
+	# PatientPreset.COEUR_2: ["Coeur2"],
 	# PatientPreset.COEUR_1_AND_2: ["Coeur1", "Coeur2"],
 	PatientPreset.PLAIE1: ["Plaie1"],
 	# PatientPreset.ALL: ["Coeur1", "Coeur2"],

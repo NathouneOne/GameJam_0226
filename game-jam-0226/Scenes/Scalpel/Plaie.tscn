@@ -17,34 +17,34 @@ script = ExtResource("1_6ll18")
 [node name="PlaiePng" type="Sprite2D" parent="." unique_id=608044803]
 unique_name_in_owner = true
 z_index = -1
-position = Vector2(188.77774, 246.62502)
+position = Vector2(0.7777405, 11.625015)
 scale = Vector2(0.34560183, 0.3456019)
 texture = ExtResource("2_e8b2i")
 
 [node name="PlaieOuvertePng2" type="Sprite2D" parent="." unique_id=1843334385]
 unique_name_in_owner = true
 visible = false
-position = Vector2(190, 245)
+position = Vector2(2, 13.999985)
 scale = Vector2(0.34560183, 0.3456019)
 texture = ExtResource("3_e8b2i")
 
 [node name="ScalpelCurve" type="Path2D" parent="." unique_id=1227076167]
 unique_name_in_owner = true
-position = Vector2(111.00003, 256.0254)
+position = Vector2(-76.99997, 21.02539)
 curve = SubResource("Curve2D_lt5rr")
 
 [node name="Interactive" type="Area2D" parent="." unique_id=782905280]
 z_index = -1
-position = Vector2(111.00003, 256.0254)
+position = Vector2(-76.99997, 21.02539)
 script = ExtResource("2_uc6dd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactive" unique_id=1915851259]
-position = Vector2(-88.22229, -11.400391)
+position = Vector2(76.99997, -20.02539)
 shape = SubResource("CircleShape2D_ns5is")
 
 [node name="Outline" type="Area2D" parent="." unique_id=1789308546]
 unique_name_in_owner = true
-position = Vector2(111.00003, 256.0254)
+position = Vector2(-76.99997, 21.02539)
 
 [node name="TargetOutline" type="CollisionPolygon2D" parent="Outline" unique_id=856054589]
 unique_name_in_owner = true
@@ -59,7 +59,7 @@ polygon = PackedVector2Array(1160, 375, 1312, 302, 1413, 447, 1287, 519, 1262, 4
 
 [node name="Inline" type="Area2D" parent="." unique_id=166216650]
 unique_name_in_owner = true
-position = Vector2(111.00003, 256.0254)
+position = Vector2(-76.99997, 21.02539)
 
 [node name="TargetInline" type="CollisionPolygon2D" parent="Inline" unique_id=1269730771]
 unique_name_in_owner = true
@@ -74,13 +74,13 @@ color = Color(1, 0.11372549, 0.22352941, 1)
 polygon = PackedVector2Array(1.5405273, -81.55066, -11.459473, -113.55066, -17.459473, -151.55066, -11.459473, -181.55066, 3.5405273, -199.55066, 40.540527, -201.55066, 69.54053, -196.55066, 87.54053, -185.55066, 107.54053, -159.55066, 125.54053, -131.55066, 132.54053, -118.55066, 139.54053, -96.55066, 141.54053, -78.55066, 138.54053, -65.55066, 124.54053, -38.55066, 125.54053, -18.55066, 128.54053, 2.4493408, 143.54053, 26.44934, 144.54053, 39.44934, 130.54053, 55.44934, 113.54053, 51.44934, 83.54053, 28.44934, 71.54053, 12.449341, 61.540527, -15.550659, 42.540527, -35.55066, 15.540527, -56.55066)
 
 [node name="CheckPoint2" parent="." unique_id=1388937644 instance=ExtResource("2_ns5is")]
-position = Vector2(198, 346)
+position = Vector2(10, 111)
 
 [node name="CheckPoint5" parent="." unique_id=2019278051 instance=ExtResource("2_ns5is")]
-position = Vector2(295, 231)
+position = Vector2(107, -4)
 
 [node name="CheckPoint6" parent="." unique_id=571173631 instance=ExtResource("2_ns5is")]
-position = Vector2(135, 107)
+position = Vector2(-53, -128)
 
 [node name="Timer2" type="Timer" parent="." unique_id=350261886]
 unique_name_in_owner = true

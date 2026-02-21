@@ -22,7 +22,7 @@ var scalpel: Node2D
 var telephone := TELEPHONE.instantiate()
 var telephone_original_pos: Vector2
 var jitter: bool = 0
-var original_pos := position
+var original_pos :Vector2 
 var stop_jitter: bool = 0
 
 
@@ -35,6 +35,7 @@ func _ready() -> void:
 	interactive.interact_start.connect(_on_interact_start)
 	interactive.interact_stop.connect(_on_interact_stop)
 	
+	original_pos= position
 	
 	if started:
 		start()
@@ -146,6 +147,7 @@ func _process(_delta: float) -> void:
 		telephone.global_position = telephone_original_pos
 
 func _draw():
+	
 	if %ScalpelCurve.curve.point_count > 2:
 		draw_polyline(%ScalpelCurve.curve.get_baked_points(), Color(124.999, 0.0, 0.0, 1.0), 4, true)
 
