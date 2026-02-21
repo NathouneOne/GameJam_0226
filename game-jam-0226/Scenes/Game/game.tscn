@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://ba5u1nbm6beyx" path="res://Assets/Graphismes/poubelle0.png" id="14_8e3kh"]
 [ext_resource type="Texture2D" uid="uid://bh1qn3bcdqogj" path="res://Assets/Graphismes/poubelle1.png" id="15_56qi8"]
 [ext_resource type="AudioStream" uid="uid://bad13sb7e47so" path="res://Assets/Sounds/Tracks/boucle de 60 sec (environ).wav" id="17_2vowc"]
-[ext_resource type="Script" path="res://Scenes/Game/camera_2d.gd" id="19_lemb1"]
+[ext_resource type="Script" uid="uid://cdjtiwpnt2t16" path="res://Scenes/Game/camera_2d.gd" id="19_lemb1"]
 [ext_resource type="PackedScene" uid="uid://ctkr410m1w8jr" path="res://Scenes/fly/fly_spawner.tscn" id="20_a6ftd"]
 [ext_resource type="Texture2D" uid="uid://cpgjir7nrpqda" path="res://Assets/Graphismes/Vignette_rouge_00000.png" id="21_nxex1"]
 [ext_resource type="Script" uid="uid://dp1xjrsrq5t78" path="res://Scenes/Game/Vignette.gd" id="21_pa3qg"]

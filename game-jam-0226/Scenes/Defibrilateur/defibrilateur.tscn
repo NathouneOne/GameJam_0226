@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dql7mxxj7vuv0" path="res://Scenes/Defibrilateur/defibrilateur.gd" id="4_6s5y0"]
 [ext_resource type="PackedScene" uid="uid://cpk6nfbh5g21i" path="res://Scenes/Components/flash_feedback/FlashFeedback.tscn" id="5_fkq31"]
 [ext_resource type="Texture2D" uid="uid://d05biy8apmffo" path="res://Assets/Graphismes/Lightnings_iron/comped/Composition 1/Lightning_iron_comped_00000.png" id="6_twpnf"]
+[ext_resource type="Script" uid="uid://c46kw3psq4b7c" path="res://Scenes/Components/resettable/resettable.gd" id="7_qqpl7"]
 [ext_resource type="Texture2D" uid="uid://bqvelsvp0blqv" path="res://Assets/Graphismes/Lightnings_iron/comped/Composition 1/Lightning_iron_comped_00001.png" id="7_ti7td"]
 [ext_resource type="Texture2D" uid="uid://do7vbl0peowko" path="res://Assets/Graphismes/Lightnings_iron/comped/Composition 1/Lightning_iron_comped_00002.png" id="8_5giaq"]
 [ext_resource type="Texture2D" uid="uid://co3qxbf3rvywt" path="res://Assets/Graphismes/Lightnings_iron/comped/Composition 1/Lightning_iron_comped_00003.png" id="9_sj8s1"]
@@ -28,7 +29,6 @@
 [ext_resource type="Texture2D" uid="uid://d0783pvavdonw" path="res://Assets/Graphismes/Smoke_iron/comped/Composition 1/smoke_iron_comped_00012.png" id="26_mxc63"]
 [ext_resource type="Texture2D" uid="uid://lug42domh6fj" path="res://Assets/Graphismes/Smoke_iron/comped/Composition 1/smoke_iron_comped_00013.png" id="27_5ly31"]
 [ext_resource type="AudioStream" uid="uid://1wyvoows4md7" path="res://Assets/Sounds/SFX/noise electrique (defib).wav" id="28_6pl1p"]
-[ext_resource type="Script" uid="uid://c46kw3psq4b7c" path="res://Scenes/Components/resettable/resettable.gd" id="7_qqpl7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4xhnb"]
 radius = 71.26518
@@ -138,12 +138,13 @@ rotation = 1.2980806
 shape = SubResource("CapsuleShape2D_4xhnb")
 
 [node name="Iron_FX" type="AnimatedSprite2D" parent="." unique_id=397568721]
-visible = false
-position = Vector2(65, 59)
+position = Vector2(77, 64.00001)
 rotation = 0.4456761
-scale = Vector2(0.36073998, 0.36073995)
+scale = Vector2(0.49449036, 0.49449027)
 sprite_frames = SubResource("SpriteFrames_ogkay")
 animation = &"Lightning"
+frame = 7
+frame_progress = 1.0
 
 [node name="FlashFeedback" parent="." unique_id=2095426776 node_paths=PackedStringArray("target_node") instance=ExtResource("5_fkq31")]
 target_node = NodePath("../Sprite2D")
@@ -153,7 +154,8 @@ text = "ZAP!"
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=388219877]
 stream = ExtResource("28_6pl1p")
 
-[connection signal="animation_finished" from="Iron_FX" to="." method="_on_iron_fx_animation_finished"]
 [node name="Resettable" type="Node" parent="." unique_id=609452777]
 script = ExtResource("7_qqpl7")
 metadata/_custom_type_script = "uid://c46kw3psq4b7c"
+
+[connection signal="animation_finished" from="Iron_FX" to="." method="_on_iron_fx_animation_finished"]
