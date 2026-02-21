@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b63f3u34yp36o"
-path="res://.godot/imported/BANANALIANES.png-bceb71a11e0ecacee0c68d8b2007e849.ctex"
+uid="uid://dha76ye0hvmkf"
+path="res://.godot/imported/BANALIANES.png-ea7db4ae36dda6deb23f2671597e4c22.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Graphismes/BANANALIANES.png"
-dest_files=["res://.godot/imported/BANANALIANES.png-bceb71a11e0ecacee0c68d8b2007e849.ctex"]
+source_file="res://Assets/Graphismes/BANALIANES.png"
+dest_files=["res://.godot/imported/BANALIANES.png-ea7db4ae36dda6deb23f2671597e4c22.ctex"]
 
 [params]
 
