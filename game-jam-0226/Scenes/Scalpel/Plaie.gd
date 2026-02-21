@@ -132,11 +132,6 @@ func _process(_delta: float) -> void:
 	
 	queue_redraw()
 	
-	## RETIRER SKIN ##
-	# en signal
-	
-	## pick telephone ##
-	
 	## Jitter
 	if telephone.get_child(1).is_grabbed:
 		stop_jitter = 1
