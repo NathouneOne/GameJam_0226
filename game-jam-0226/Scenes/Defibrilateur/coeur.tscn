@@ -1,9 +1,7 @@
 [gd_scene format=3 uid="uid://fy15tufi5wwi"]
 
-[ext_resource type="Texture2D" uid="uid://bec7kv75h8g20" path="res://Assets/Graphismes/coeur_tmp.png" id="1_nqbo0"]
 [ext_resource type="Script" uid="uid://gpfmpwjrehv" path="res://Scenes/Defibrilateur/coeur.gd" id="2_tk7i2"]
 [ext_resource type="PackedScene" path="res://Scenes/Components/interactive/Interactive.tscn" id="3_7f3hc"]
-[ext_resource type="PackedScene" uid="uid://cpk6nfbh5g21i" path="res://Scenes/Components/flash_feedback/FlashFeedback.tscn" id="4_u7e1w"]
 [ext_resource type="Texture2D" uid="uid://d3rv0mxin7rk6" path="res://Assets/Graphismes/HeartBeat/frames/HEARTBEAT0001.png" id="5_5d3ri"]
 [ext_resource type="Texture2D" uid="uid://cj7qbpex1e3ka" path="res://Assets/Graphismes/HeartBeat/frames/HEARTBEAT0002.png" id="6_avfgu"]
 [ext_resource type="Texture2D" uid="uid://yow7tw2p8rii" path="res://Assets/Graphismes/HeartBeat/frames/HEARTBEAT0003.png" id="7_0pepo"]
@@ -77,9 +75,6 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_avfgu"]
 radius = 139.62045
 height = 355.365
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_csdde"]
-blend_mode = 1
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_uisi3"]
 animations = [{
@@ -306,11 +301,6 @@ SCALE_END = 0.5
 ZONE_OK_MODULATE = Color(1, 1, 1, 1)
 ZONE_NOK_MODULATE = Color(0.16026929, 0.16026929, 0.16026929, 1)
 
-[node name="MainSprite" type="Sprite2D" parent="." unique_id=1135916521]
-visible = false
-scale = Vector2(0.56, 0.56)
-texture = ExtResource("1_nqbo0")
-
 [node name="Interactive" parent="." unique_id=1960182460 instance=ExtResource("3_7f3hc")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactive" unique_id=1167014915]
@@ -319,37 +309,11 @@ rotation = 0.5095084
 scale = Vector2(1.1726507, 1.2918111)
 shape = SubResource("CapsuleShape2D_avfgu")
 
-[node name="FlashFeedbackOk" parent="." unique_id=822112174 node_paths=PackedStringArray("target_node") instance=ExtResource("4_u7e1w")]
-target_node = NodePath("../MainSprite")
-label_offset = Vector2(-70, -120)
-label_font_size = 40
-
-[node name="FlashFeedbackNok" parent="." unique_id=801542681 node_paths=PackedStringArray("target_node") instance=ExtResource("4_u7e1w")]
-target_node = NodePath("../MainSprite")
-flash_color = Color(0, 0, 0, 1)
-pulse_scale = 0.9
-label_offset = Vector2(-70, -120)
-label_font_size = 40
-text = "Not ok"
-
-[node name="QTECoeur" type="Node2D" parent="." unique_id=1561748122]
-visible = false
-modulate = Color(0.16026929, 0.16026929, 0.16026929, 1)
-z_index = 3
-scale = Vector2(1.62, 1.62)
-
-[node name="QTESprite" type="Sprite2D" parent="QTECoeur" unique_id=900806293]
-visible = false
-material = SubResource("CanvasItemMaterial_csdde")
-scale = Vector2(0.56, 0.56)
-texture = ExtResource("1_nqbo0")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=171619879]
 position = Vector2(-90, 144)
 sprite_frames = SubResource("SpriteFrames_uisi3")
 animation = &"HeartBeat1"
-frame = 12
-frame_progress = 0.07410237
+frame = 10
 
 [node name="HeartBeat" type="AudioStreamPlayer2D" parent="." unique_id=1524255534]
 stream = ExtResource("73_avfgu")

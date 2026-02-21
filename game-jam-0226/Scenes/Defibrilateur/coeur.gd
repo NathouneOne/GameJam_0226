@@ -2,9 +2,6 @@ extends Node2D
 class_name Heart
 
 @onready var interactive: Interactive = $Interactive
-@onready var flash_feedback_ok: FlashFeedback = $FlashFeedbackOk
-@onready var flash_feedback_nok: FlashFeedback = $FlashFeedbackNok
-@onready var qteCoeur: Node2D = $QTECoeur
 
 @export var  max_qte = 2
 
@@ -24,7 +21,7 @@ func _ready() -> void:
 
 func qte_ok() -> bool:
 	#return qteCoeur.scale.x > ZONE_OK.x and qteCoeur.scale.x < ZONE_OK.y
-	if $AnimatedSprite2D.frame > 10 and $AnimatedSprite2D.frame < 16:
+	if $AnimatedSprite2D.frame >= 10 and $AnimatedSprite2D.frame <= 16:
 		return 1
 	else:
 		return 0
@@ -48,7 +45,6 @@ func _on_interact_start(_target: Node2D, source: Node2D, _hand: Node2D) -> void:
 			minigame_done.emit()
 	else:
 		Global.on_add_score.emit(DEFEAT_POINTS)
-		flash_feedback_nok.flash()
 
 func _on_interact_stop(_target: Node2D, _source: Node2D, _hand: Node2D) -> void:
 	pass
@@ -66,7 +62,6 @@ var heart_tween: Tween
 var disabled := false
 func disable() -> void:
 	disabled = true
-	qteCoeur.visible = false
 
 
 func reset(
@@ -78,23 +73,6 @@ func reset(
 	
 	qte_completed = 0
 	disabled = false
-	qteCoeur.visible = true
-	qteCoeur.scale = Vector2.ONE * SCALE_START
-	
-	# kill existing animation if any
-	if heart_tween:
-		heart_tween.kill()
-
-	# Use a large finite loop count to avoid engine "Infinite loop detected" in Tween.step()
-	heart_tween = get_tree().create_tween().set_loops(99999)
-	heart_tween.tween_property(qteCoeur, "scale", Vector2.ONE * SCALE_END, SCALE_DURATION).set_trans(scale_trans).set_ease(scale_ease)
-	heart_tween.tween_property(qteCoeur, "scale", Vector2.ONE * SCALE_START, SCALE_DURATION).set_trans(scale_trans).set_ease(scale_ease)
 
 func _process(_delta: float) -> void:
-	# is in suceess zone 
-	if qte_ok():
-		qteCoeur.modulate = ZONE_OK_MODULATE
-		#print("ok")
-	else:
-		qteCoeur.modulate = ZONE_NOK_MODULATE
-		#print("not ok")
+	pass
