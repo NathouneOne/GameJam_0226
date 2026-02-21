@@ -70,7 +70,7 @@ func _do_close() -> void:
 func _ready() -> void:
 	handle.position = BANANA_END_POS
 	rideauL.position = Vector2(0.0, 0.0)
-	rideauR.position = Vector2(960.0, 0.0)
+	rideauR.position = Vector2(0.0, 0.0)
 	banana_zone.area_entered.connect(_on_banana_zone_entered)
 	_animate_banana_in()
 
