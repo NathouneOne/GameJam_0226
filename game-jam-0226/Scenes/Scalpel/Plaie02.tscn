@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://b3ej7vpyyef3v"]
+
+[ext_resource type="Script" uid="uid://c8hetvkv8vivo" path="res://Scenes/Scalpel/Plaie.gd" id="1_exty3"]
+[ext_resource type="Texture2D" uid="uid://bihmpufxd7pvy" path="res://Assets/Graphismes/PLAIE_PNG02.png" id="2_exty3"]
+[ext_resource type="Texture2D" uid="uid://c6dsoh34qfstl" path="res://Assets/Graphismes/PLAIE_OUVERTE2_PNG2.png" id="3_h0g77"]
+[ext_resource type="Script" uid="uid://bnjgt5rcfpj4i" path="res://Scenes/Components/interactive/interactive.gd" id="4_wjw8f"]
+[ext_resource type="PackedScene" uid="uid://oeb2gp4owcen" path="res://Scenes/Scalpel/CheckPoint.tscn" id="5_k6b7k"]
+
+[sub_resource type="Curve2D" id="Curve2D_lt5rr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ns5is"]
+radius = 348.47238
+
+[node name="Plaie02" type="Node2D" unique_id=1972709014]
+script = ExtResource("1_exty3")
+
+[node name="PlaiePng" type="Sprite2D" parent="." unique_id=608044803]
+unique_name_in_owner = true
+z_index = -1
+position = Vector2(0.7777405, 11.625015)
+scale = Vector2(0.34560183, 0.3456019)
+texture = ExtResource("2_exty3")
+
+[node name="PlaieOuvertePng2" type="Sprite2D" parent="." unique_id=1843334385]
+unique_name_in_owner = true
+visible = false
+position = Vector2(2, 13.999985)
+scale = Vector2(0.34560183, 0.3456019)
+texture = ExtResource("3_h0g77")
+
+[node name="ScalpelCurve" type="Path2D" parent="." unique_id=1227076167]
+unique_name_in_owner = true
+position = Vector2(-76.99997, 21.02539)
+curve = SubResource("Curve2D_lt5rr")
+
+[node name="Interactive" type="Area2D" parent="." unique_id=782905280]
+z_index = -1
+position = Vector2(-76.99997, 21.02539)
+script = ExtResource("4_wjw8f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactive" unique_id=1915851259]
+position = Vector2(76.99997, -20.02539)
+shape = SubResource("CircleShape2D_ns5is")
+
+[node name="Outline" type="Area2D" parent="." unique_id=1789308546]
+unique_name_in_owner = true
+position = Vector2(-76.99997, 21.02539)
+
+[node name="TargetOutline" type="CollisionPolygon2D" parent="Outline" unique_id=856054589]
+unique_name_in_owner = true
+position = Vector2(-8041.7627, -2405.8752)
+scale = Vector2(25.5355, 18.35112)
+polygon = PackedVector2Array(311.087, 126.36014, 311.9094, 124.01696, 313.12338, 122.32769, 315.08145, 120.96537, 317.11783, 120.58392, 318.8801, 120.747406, 320.56403, 121.34682, 322.13046, 122.545654, 323.4228, 124.07145, 324.08853, 125.70623, 324.79343, 128.04941, 324.98923, 130.93752, 324.67593, 133.2807, 324.08853, 135.73286, 322.992, 137.6401, 321.22977, 139.54735, 318.9584, 140.47372, 316.56958, 140.25575, 314.37656, 139.1114, 312.45764, 137.04068, 311.47864, 134.80649, 310.85205, 132.19084, 310.6954, 129.41173)
+
+[node name="Polygon2D" type="Polygon2D" parent="Outline" unique_id=778444287]
+visible = false
+position = Vector2(26.459473, 61.52527)
+polygon = PackedVector2Array(1160, 375, 1312, 302, 1413, 447, 1287, 519, 1262, 446, 1160, 446)
+
+[node name="Inline" type="Area2D" parent="." unique_id=166216650]
+unique_name_in_owner = true
+position = Vector2(-76.99997, 21.02539)
+
+[node name="TargetInline" type="CollisionPolygon2D" parent="Inline" unique_id=1269730771]
+unique_name_in_owner = true
+position = Vector2(-5310.6484, -1603.8752)
+scale = Vector2(16.977123, 12.126085)
+polygon = PackedVector2Array(311.22165, 133.50143, 310.69153, 131.27483, 310.86823, 129.04822, 311.39835, 126.90408, 312.1641, 125.17228, 313.28323, 124.017746, 314.7558, 123.02814, 316.11057, 122.61581, 317.40643, 122.69827, 318.879, 123.19308, 320.05707, 123.93527, 320.9406, 124.92488, 321.76526, 125.99695, 322.41318, 127.646286, 322.7666, 129.37808, 322.8844, 131.19235, 322.7077, 133.3365, 322.17755, 135.39816, 321.58853, 136.88257, 320.4105, 138.5319, 319.17352, 139.19164, 317.46533, 139.52151, 315.46265, 139.43904, 313.99008, 138.36697, 312.812, 137.21243, 311.81067, 135.8105)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Inline" unique_id=905704037]
+visible = false
+position = Vector2(26.459473, 61.52527)
+color = Color(1, 0.11372549, 0.22352941, 1)
+polygon = PackedVector2Array(1.5405273, -81.55066, -11.459473, -113.55066, -17.459473, -151.55066, -11.459473, -181.55066, 3.5405273, -199.55066, 40.540527, -201.55066, 69.54053, -196.55066, 87.54053, -185.55066, 107.54053, -159.55066, 125.54053, -131.55066, 132.54053, -118.55066, 139.54053, -96.55066, 141.54053, -78.55066, 138.54053, -65.55066, 124.54053, -38.55066, 125.54053, -18.55066, 128.54053, 2.4493408, 143.54053, 26.44934, 144.54053, 39.44934, 130.54053, 55.44934, 113.54053, 51.44934, 83.54053, 28.44934, 71.54053, 12.449341, 61.540527, -15.550659, 42.540527, -35.55066, 15.540527, -56.55066)
+
+[node name="CheckPoint2" parent="." unique_id=1388937644 instance=ExtResource("5_k6b7k")]
+position = Vector2(-3, 145)
+
+[node name="CheckPoint5" parent="." unique_id=2019278051 instance=ExtResource("5_k6b7k")]
+position = Vector2(109, -69)
+
+[node name="CheckPoint6" parent="." unique_id=571173631 instance=ExtResource("5_k6b7k")]
+position = Vector2(-137, -49)
+
+[node name="Timer2" type="Timer" parent="." unique_id=350261886]
+unique_name_in_owner = true
+wait_time = 0.5
+one_shot = true
+
+[node name="Timer" type="Timer" parent="." unique_id=480017030]
+unique_name_in_owner = true
+wait_time = 2.0
+autostart = true
+
+[connection signal="area_shape_entered" from="Interactive" to="." method="_on_interactive_area_shape_entered"]
+[connection signal="area_shape_exited" from="Interactive" to="." method="_on_interactive_area_shape_exited"]
+[connection signal="mouse_exited" from="Interactive" to="." method="_on_target_mouse_exited"]
+[connection signal="mouse_shape_entered" from="Interactive" to="." method="_on_target_mouse_shape_entered"]
+[connection signal="area_shape_exited" from="Outline" to="." method="_on_outline_area_shape_exited"]
+[connection signal="input_event" from="Outline" to="." method="_on_outline_input_event"]
+[connection signal="area_shape_entered" from="Inline" to="." method="_on_inline_area_shape_entered"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cdj3e4ns44s4d" path="res://Scenes/Scalpel/Plaie.tscn" id="5_3xtxg"]
 [ext_resource type="Texture2D" uid="uid://dbyvtxwxjsmwa" path="res://Assets/Graphismes/PATIENTS/pouletmanframe1.png" id="5_6dnm8"]
 [ext_resource type="Texture2D" uid="uid://d1mnsgr3pvhxd" path="res://Assets/Graphismes/PATIENTS/pouletmanframe2.png" id="6_480mj"]
+[ext_resource type="PackedScene" uid="uid://b3ej7vpyyef3v" path="res://Scenes/Scalpel/Plaie02.tscn" id="13_u4dvi"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0uvj5"]
 animations = [{
@@ -91,13 +92,20 @@ position = Vector2(329, -50)
 rotation = 0.21991149
 
 [node name="Coeur2" parent="." unique_id=356672580 instance=ExtResource("2_6j6pa")]
+visible = false
 z_index = 2
 position = Vector2(-182, -23.000015)
 scale = Vector2(-1, 1)
 
 [node name="Plaie1" parent="." unique_id=1972709014 instance=ExtResource("5_3xtxg")]
 process_mode = 4
+visible = false
 z_index = 2
 position = Vector2(294, 232)
+
+[node name="Plaie02" parent="." unique_id=1769471978 instance=ExtResource("13_u4dvi")]
+visible = false
+z_index = 2
+position = Vector2(-58, 204)
 
 [connection signal="animation_finished" from="Lit/Body/BodyScreamSprite" to="." method="_on_body_scream_sprite_animation_finished"]
