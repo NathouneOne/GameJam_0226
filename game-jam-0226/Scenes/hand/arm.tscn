@@ -107,6 +107,7 @@ modification_stack = SubResource("SkeletonModificationStack2D_r3o1h")
 
 [node name="armBone0" type="Bone2D" parent="Skeleton2D" unique_id=701676173]
 position = Vector2(0, 0.9999995)
+rotation = -2.0739603
 scale = Vector2(0.9999928, 0.9999928)
 rest = Transform2D(0.9999928, 0, 0, 0.9999928, 0, 0.9999995)
 metadata/_local_pose_override_enabled_ = true
@@ -115,7 +116,8 @@ metadata/_local_pose_override_enabled_ = true
 remote_path = NodePath("../../../arm0")
 
 [node name="armBone1" type="Bone2D" parent="Skeleton2D/armBone0" unique_id=1740137966]
-position = Vector2(763.0058, 0.8661465)
+position = Vector2(763.0058, 0.8661442)
+rotation = 0.04541683
 rest = Transform2D(1, 0, 0, 1, 763.0058, 0.8661465)
 metadata/_local_pose_override_enabled_ = true
 
@@ -123,8 +125,9 @@ metadata/_local_pose_override_enabled_ = true
 remote_path = NodePath("../../../../arm1")
 
 [node name="armHandBase" type="Bone2D" parent="Skeleton2D/armBone0/armBone1" unique_id=311617383]
-position = Vector2(755.0052, -0.8661499)
-scale = Vector2(0.99998736, 0.99998736)
+position = Vector2(755.0051, -0.8661804)
+rotation = 0.7853982
+scale = Vector2(0.9999875, 0.9999875)
 rest = Transform2D(0.99998736, 0, 0, 0.99998736, 755.0052, -0.8661499)
 metadata/_local_pose_override_enabled_ = true
 

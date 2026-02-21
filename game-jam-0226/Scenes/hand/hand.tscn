@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://bn1bexi0xnteq" path="res://icon.svg" id="2_pvkcw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mbr53"]
-radius = 51.0
-height = 110.0
+radius = 66.0
+height = 146.01736
 
 [node name="Hand" type="Node2D" unique_id=2078914881]
 script = ExtResource("1_d4mnk")
@@ -19,4 +19,5 @@ texture = ExtResource("2_pvkcw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1956643616]
 position = Vector2(7, -3)
+rotation = 1.573011
 shape = SubResource("CapsuleShape2D_mbr53")

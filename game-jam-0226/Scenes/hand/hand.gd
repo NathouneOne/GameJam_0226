@@ -39,6 +39,14 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_released("left_clic"):
 		_use(false)
 
+func _is_on_screen(node: Node2D) -> bool:
+	var vp := get_viewport()
+	var screen_pos: Vector2 = vp.get_canvas_transform() * node.global_position
+	return vp.get_visible_rect().has_point(screen_pos)
+
+func _can_grab_target(target: Node2D) -> bool:
+	return target.is_visible_in_tree() and _is_on_screen(target)
+
 func _try_grab_object() -> bool:
 	var areas: Array[Area2D] = area_2d.get_overlapping_areas()
 	for area: Area2D in areas:
@@ -48,6 +56,8 @@ func _try_grab_object() -> bool:
 				continue
 			var target: Node = area.get_parent()
 			if target is Node2D:
+				if not _can_grab_target(target as Node2D):
+					continue
 				_grab_object(target as Node2D, g)
 				return true
 
@@ -57,11 +67,14 @@ func _try_grab_object() -> bool:
 				continue
 			var target: Node = area.get_parent()
 			if target is Node2D:
+				if not _can_grab_target(target as Node2D):
+					continue
 				_grab_poubelle_object(target as Node2D, p)
 				return true
 	return false
 
 func _grab_object(object: Node2D, component: Grabbable) -> void:
+	print("[Hand] Grabbed Grabbable: ", object.name, " (", object.get_path(), ")")
 	grabbed_object = object
 	grabbable_component = component
 	# Store where the object was relative to the hand so it doesn't snap to hand center
@@ -78,6 +91,7 @@ func _grab_object(object: Node2D, component: Grabbable) -> void:
 	useable_component = _find_component_in_object(object, Useable) as Useable
 	
 func _grab_poubelle_object(object: Node2D, component: Poubellable) -> void:
+	print("[Hand] Grabbed Poubellable: ", object.name, " (", object.get_path(), ")")
 	grabbed_object = object
 	poubellable_component = component
 	# Store where the object was relative to the hand so it doesn't snap to hand center

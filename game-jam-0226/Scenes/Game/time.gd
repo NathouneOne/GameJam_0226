@@ -11,8 +11,8 @@ var remaining_time_seconds := START_TIME_SECONDS
 var started := false
 
 # BIP / screen shake window (remaining time in seconds)
-const BIP_START_TIME_SECONDS := 56.88
-const BIP_END_TIME_SECONDS := 49.78
+const BIP_START_TIME_SECONDS := 10.5
+const BIP_END_TIME_SECONDS := 4.2
 const BIP_INTERVAL_SECONDS := 0.22
 const SCREEN_SHAKE_DURATION_SECONDS := 0.3
 
@@ -74,7 +74,7 @@ func _process(delta: float) -> void:
 
 	var elapsed_time: float = START_TIME_SECONDS - remaining_time_seconds
 	# Screen shake (bip) in the final countdown window, every interval
-	if elapsed_time <= BIP_END_TIME_SECONDS and elapsed_time >= BIP_START_TIME_SECONDS:
+	if remaining_time_seconds >= BIP_END_TIME_SECONDS and remaining_time_seconds <= BIP_START_TIME_SECONDS:
 		if last_bip_time == 0.0 or elapsed_time - last_bip_time >= BIP_INTERVAL_SECONDS:
 			Global.camShake.emit()
 			last_bip_time = elapsed_time
