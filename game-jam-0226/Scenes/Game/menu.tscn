@@ -15,15 +15,18 @@
 [ext_resource type="AudioStream" uid="uid://pebd6g3rukbf" path="res://Assets/Sounds/SFX/tringle a rideaux.wav" id="11_eb3d4"]
 [ext_resource type="AudioStream" uid="uid://bxmy700acvija" path="res://Assets/Sounds/SFX/rideaux tissus.wav" id="12_1a5qy"]
 [ext_resource type="AudioStream" uid="uid://c8m7ob8uaggrp" path="res://Assets/Sounds/SFX/roulettes.wav" id="13_1a5qy"]
+[ext_resource type="Theme" uid="uid://b2tioy6g4l1nk" path="res://Resources/default_theme.tres" id="19_nfkvt"]
+[ext_resource type="PackedScene" uid="uid://cpk6nfbh5g21i" path="res://Scenes/Components/flash_feedback/FlashFeedback.tscn" id="20_oxooa"]
+[ext_resource type="AudioStream" uid="uid://bkh1ev75m4eer" path="res://Assets/Sounds/SFX/scoring.wav" id="21_ybhnb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qsmta"]
 shader = ExtResource("1_v4p3b")
-shader_parameter/velocity = 1.8935574421213823e-105
+shader_parameter/velocity = 0.0
 shader_parameter/lag_strength = 0.005
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1gnmn"]
 shader = ExtResource("1_v4p3b")
-shader_parameter/velocity = -0.046717746766433414
+shader_parameter/velocity = 0.0
 shader_parameter/lag_strength = 0.0050000002375
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wdtv5"]
@@ -258,6 +261,46 @@ one_shot = true
 [node name="Timer2" type="Timer" parent="." unique_id=1662621468]
 unique_name_in_owner = true
 one_shot = true
+
+[node name="HighScore" type="Node2D" parent="." unique_id=173014719]
+visible = false
+z_index = 6
+position = Vector2(1470.0002, -6.999984)
+rotation = 0.24260077
+skew = -0.38048178
+
+[node name="ScoreLabel" type="Label" parent="HighScore" unique_id=1798753712]
+modulate = Color(3.4255767, 3.4255767, 3.4255767, 1)
+offset_left = 108.05249
+offset_top = 44.464752
+offset_right = 487.0525
+offset_bottom = 239.46475
+theme = ExtResource("19_nfkvt")
+theme_override_font_sizes/font_size = 70
+text = "100"
+metadata/_edit_use_anchors_ = true
+
+[node name="FlashFeedbackOk" parent="HighScore" unique_id=1018722879 node_paths=PackedStringArray("target_node") instance=ExtResource("20_oxooa")]
+target_node = NodePath("..")
+flash_duration = 0.55
+pulse_scale = 1.2
+label_offset = Vector2(0, 150)
+label_font_size = 70
+text = "BANANAAA!"
+
+[node name="FlashFeedbackNotOk" parent="HighScore" unique_id=1285294014 node_paths=PackedStringArray("target_node") instance=ExtResource("20_oxooa")]
+target_node = NodePath("..")
+flash_color = Color(1, 0.282788, 0.26279956, 1)
+flash_duration = 0.55
+label_offset = Vector2(0, 150)
+label_font_size = 70
+text = "OUCH!"
+
+[node name="JuicyAudio" type="AudioStreamPlayer2D" parent="HighScore" unique_id=1386681588]
+unique_name_in_owner = true
+stream = ExtResource("21_ybhnb")
+volume_db = -10.0
+panning_strength = 0.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer3" to="." method="_on_timer_3_timeout"]

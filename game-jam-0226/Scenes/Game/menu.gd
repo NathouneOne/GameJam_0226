@@ -2,6 +2,7 @@
 extends Node2D
 class_name Menu
 
+signal open_trigger()
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var rideauL: Sprite2D = $rideauL
@@ -11,8 +12,6 @@ class_name Menu
 
 const BANANA_START_POS = Vector2(420.0, 400.0)
 const BANANA_END_POS = Vector2(430.0, -200.0)
-
-@export var transition_delay: float = 1.0
 
 
 var started := false
@@ -38,8 +37,9 @@ func _on_banana_zone_entered(area: Area2D) -> void:
 	if area.name == "HandleGrabbable":
 		%BananaHandleSound.play()
 		Global.hand_force_release_object.emit()
+		open_trigger.emit()
 		open()
-		get_tree().create_timer(transition_delay).timeout.connect(func(): Global.on_start_game.emit())
+		
 
 @export_tool_button("open", "Callable") var open_action: Callable:
 	get: return open
@@ -56,7 +56,8 @@ func _animate_banana_out() -> void:
 	t.tween_property(handle, "position", BANANA_END_POS, 0.5).set_ease(Tween.EASE_IN)
 
 func close() -> void:
-	get_tree().create_timer(transition_delay).timeout.connect(_do_close)
+	#get_tree().create_timer(transition_delay).timeout.connect(_do_close)
+	_do_close()
 
 func _do_close() -> void:
 	reset()

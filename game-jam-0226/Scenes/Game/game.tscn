@@ -2,14 +2,10 @@
 
 [ext_resource type="Script" uid="uid://ds004rd487gdc" path="res://Scenes/Game/time.gd" id="1_ciybh"]
 [ext_resource type="Script" uid="uid://ds4pi4ocajr22" path="res://Scenes/Game/score.gd" id="1_flgk0"]
-[ext_resource type="PackedScene" uid="uid://dgn4ub5vss8hf" path="res://Scenes/hand/hands.tscn" id="1_mv0hc"]
 [ext_resource type="Script" uid="uid://b4q2ax0maqjtw" path="res://Scenes/Game/game.gd" id="1_ypmwd"]
 [ext_resource type="Theme" uid="uid://b2tioy6g4l1nk" path="res://Resources/default_theme.tres" id="2_flgk0"]
-[ext_resource type="PackedScene" uid="uid://cliuyijkchunc" path="res://Scenes/Game/menu.tscn" id="2_oejk7"]
-[ext_resource type="Texture2D" uid="uid://3w7b8acik78d" path="res://Assets/Graphismes/TV.png" id="3_lemb1"]
 [ext_resource type="PackedScene" uid="uid://cub20lgna3oru" path="res://Scenes/Defibrilateur/defibrilateur.tscn" id="3_qikps"]
 [ext_resource type="PackedScene" uid="uid://cpk6nfbh5g21i" path="res://Scenes/Components/flash_feedback/FlashFeedback.tscn" id="3_xfil1"]
-[ext_resource type="Texture2D" uid="uid://dha76ye0hvmkf" path="res://Assets/Graphismes/BANALIANES.png" id="4_lemb1"]
 [ext_resource type="AudioStream" uid="uid://bkh1ev75m4eer" path="res://Assets/Sounds/SFX/scoring.wav" id="8_a6ftd"]
 [ext_resource type="Texture2D" uid="uid://cs744psx347nm" path="res://Assets/Graphismes/APERATION_DECOR.png" id="8_qtymf"]
 [ext_resource type="PackedScene" uid="uid://dvc2gkhwk0xpr" path="res://Scenes/Game/patient.tscn" id="8_ypmwd"]
@@ -18,9 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://e51vi8ldmkjl" path="res://Scenes/Scalpel/Scalpel.tscn" id="10_upfqs"]
 [ext_resource type="Texture2D" uid="uid://ba5u1nbm6beyx" path="res://Assets/Graphismes/poubelle0.png" id="14_8e3kh"]
 [ext_resource type="Texture2D" uid="uid://bh1qn3bcdqogj" path="res://Assets/Graphismes/poubelle1.png" id="15_56qi8"]
-[ext_resource type="AudioStream" uid="uid://d8kvu6btjvju" path="res://Assets/Sounds/SFX/eclectrocardiogramme 1 (lent).wav" id="17_2vowc"]
 [ext_resource type="AudioStream" uid="uid://culbmksvioirx" path="res://Assets/Sounds/Tracks/v001/boucle 4 (core trakc avec lead).wav" id="19_2lc0x"]
-[ext_resource type="Script" uid="uid://cdjtiwpnt2t16" path="res://Scenes/Game/camera_2d.gd" id="19_lemb1"]
+[ext_resource type="Script" path="res://Scenes/Game/camera_2d.gd" id="19_lemb1"]
 [ext_resource type="PackedScene" uid="uid://ctkr410m1w8jr" path="res://Scenes/fly/fly_spawner.tscn" id="20_a6ftd"]
 [ext_resource type="Texture2D" uid="uid://cpgjir7nrpqda" path="res://Assets/Graphismes/Vignette_rouge_00000.png" id="21_nxex1"]
 [ext_resource type="Script" uid="uid://dp1xjrsrq5t78" path="res://Scenes/Game/Vignette.gd" id="21_pa3qg"]
@@ -96,22 +91,6 @@ size = Vector2(377, 436)
 [node name="Game" type="Node2D" unique_id=2073138695]
 script = ExtResource("1_ypmwd")
 
-[node name="Menu" parent="." unique_id=942918676 instance=ExtResource("2_oejk7")]
-z_index = 6
-
-[node name="Overlay" type="Node2D" parent="." unique_id=1159351321]
-z_index = 6
-
-[node name="TV" type="Sprite2D" parent="Overlay" unique_id=1557836626]
-self_modulate = Color(0.9607843, 0.9607843, 0.9607843, 1)
-position = Vector2(958, 540)
-texture = ExtResource("3_lemb1")
-
-[node name="Lianes" type="Sprite2D" parent="Overlay" unique_id=522884303]
-z_index = 8
-texture = ExtResource("4_lemb1")
-centered = false
-
 [node name="GameScore" type="Node2D" parent="." unique_id=2011718870]
 z_index = 6
 position = Vector2(1470.0002, -6.999984)
@@ -181,6 +160,7 @@ position = Vector2(122.11902, 192.49042)
 script = ExtResource("10_4ti5a")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1082063397]
+visible = false
 script = ExtResource("21_pa3qg")
 
 [node name="VignetteRouge" type="Sprite2D" parent="CanvasLayer" unique_id=1032729378]
@@ -208,10 +188,6 @@ theme_override_font_sizes/font_size = 55
 text = "60.00"
 metadata/_edit_use_anchors_ = true
 
-[node name="Hands" parent="." unique_id=1149362447 instance=ExtResource("1_mv0hc")]
-position = Vector2(-1, 0)
-scale = Vector2(0.84, 0.84)
-
 [node name="ItemsZone" type="Area2D" parent="." unique_id=493780884 groups=["item_zone"]]
 position = Vector2(241, 849)
 
@@ -229,15 +205,6 @@ unique_name_in_owner = true
 z_index = 5
 position = Vector2(188.815, 696.255)
 rotation = 1.097812
-
-[node name="Background" type="Node2D" parent="." unique_id=1704887786]
-metadata/_edit_lock_ = true
-
-[node name="Sprite" type="Sprite2D" parent="Background" unique_id=1439676373]
-z_index = -1
-position = Vector2(2, 0)
-texture = ExtResource("8_qtymf")
-centered = false
 
 [node name="Patient" parent="." unique_id=855156239 instance=ExtResource("8_ypmwd")]
 position = Vector2(893, 610)
@@ -269,11 +236,6 @@ volume_db = -6.876
 autoplay = true
 panning_strength = 0.0
 
-[node name="ElectrocardiogramPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1165694456]
-stream = ExtResource("17_2vowc")
-volume_db = 2.862
-panning_strength = 0.0
-
 [node name="Camera2D" type="Camera2D" parent="." unique_id=529783870]
 unique_name_in_owner = true
 offset = Vector2(960, 540)
@@ -287,6 +249,14 @@ position = Vector2(1140, 549)
 spawn_interval_seconds = 8.0
 spawn_interval_random_delta = 5.0
 
+[node name="Background" type="Node2D" parent="." unique_id=1704887786]
+metadata/_edit_lock_ = true
+
+[node name="Sprite" type="Sprite2D" parent="Background" unique_id=1439676373]
+z_index = -1
+position = Vector2(2, 0)
+texture = ExtResource("8_qtymf")
+centered = false
+
 [connection signal="finished" from="TracksPlayer" to="." method="_on_audio_stream_player_2d_finished"]
-[connection signal="finished" from="ElectrocardiogramPlayer" to="." method="_on_audio_stream_player_2d_2_finished"]
 [connection signal="timeout" from="Camera2D/Timer" to="Camera2D" method="_on_timer_timeout"]
