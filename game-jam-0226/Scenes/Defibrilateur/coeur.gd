@@ -3,7 +3,7 @@ class_name Heart
 
 @onready var interactive: Interactive = $Interactive
 
-@export var  max_qte = 2
+@export var max_qte := 2
 
 var beat:bool =1
 
@@ -35,20 +35,21 @@ func _on_interact_start(_target: Node2D, source: Node2D, _hand: Node2D) -> void:
 	if disabled:
 		return
 
-	if source is Defibrillator and qte_ok():
-		Global.on_add_score.emit(SUCCESS_POINTS)
-		qte_completed += 1
-		scale.x*=-1
-		if qte_completed >= max_qte:
-			# disable the QTE:
-			# TODO: animate ?
-			$HeartBeat.stop()
-			beat=0
-			$AnimatedSprite2D.hide()
-			disable()
-			minigame_done.emit()
-	else:
-		Global.on_add_score.emit(DEFEAT_POINTS)
+	if source is Defibrillator:
+		if qte_ok():
+			Global.on_add_score.emit(SUCCESS_POINTS)
+			qte_completed += 1
+			scale.x*=-1
+			if qte_completed >= max_qte:
+				# disable the QTE:
+				# TODO: animate ?
+				$HeartBeat.stop()
+				beat=0
+				$AnimatedSprite2D.hide()
+				disable()
+				minigame_done.emit()
+		else:
+			Global.on_add_score.emit(DEFEAT_POINTS)
 
 func _on_interact_stop(_target: Node2D, _source: Node2D, _hand: Node2D) -> void:
 	pass
