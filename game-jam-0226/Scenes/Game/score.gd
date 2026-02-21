@@ -10,9 +10,6 @@ const BANANASPAWNER = preload("res://Scenes/Components/BananaParticlesSpawner.ts
 var BananaSpawner: Node
 
 
-func init_() -> void:
-	score = 0
-
 func add(points: int) -> void:
 	var old_score := score
 	score += points
@@ -53,8 +50,12 @@ func update_label() -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Global.on_start_game.connect(init_)
+	score = 0
 	Global.on_add_score.connect(add)
+	Global.on_end_game.connect(
+		func() -> void:
+			Global.end_game_score.emit(score)
+	)
 	update_label()
 
 

@@ -4,6 +4,7 @@ class_name Menu
 
 signal open_trigger()
 
+@onready var high_score: HighScore = $HighScore
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var rideauL: Sprite2D = $rideauL
 @onready var rideauR: Sprite2D = $rideauR
