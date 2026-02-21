@@ -54,8 +54,8 @@ data = PackedByteArray("SUQzAwAAAAAAHlRZRVIAAAAFAAAAMjAyNlREUkMAAAAFAAAAMjAyNv/7
 z_index = 3
 script = ExtResource("1_vnhkb")
 move_speed = 450.0
-direction_change_interval = 3.0
-wobble_strength = 40.0
+direction_change_interval = 5.0
+wobble_strength = 10.0
 speed_variation = 3.0
 despawn_delay_seconds = -1.0
 

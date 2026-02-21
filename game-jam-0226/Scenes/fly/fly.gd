@@ -6,11 +6,11 @@ signal smashed
 
 @export var fly_zone_path: NodePath
 @export var move_speed: float = 165.0
-@export var direction_change_interval: float = 0.4
+@export var direction_change_interval: float = 1.8
 ## How much the fly's heading wobbles per second (radians). Higher = more bzzzz.
-@export var wobble_strength: float = 12.0
+@export var wobble_strength: float = 3.0
 ## Random speed variation (multiplier around 1.0). More = more darting.
-@export var speed_variation: float = 0.4
+@export var speed_variation: float = 0.15
 @export var despawn_delay_seconds: float = 0.35
 ## Max tilt in degrees (slight rotation when flying up/down).
 @export var max_tilt_degrees: float = 30.0
@@ -53,12 +53,18 @@ func _process(delta: float) -> void:
 	_current_angle += randf_range(-wobble_strength * delta, wobble_strength * delta)
 	var speed_now := move_speed * (1.0 + randf_range(-speed_variation, speed_variation))
 	var velocity := Vector2.from_angle(_current_angle) * speed_now
+	var new_pos := global_position + velocity * delta
+	var clamped_pos := _zone.clamp_position(new_pos)
+	# If we hit the boundary, bounce off (reflect direction) instead of sticking
+	if new_pos.distance_to(clamped_pos) > 0.5:
+		var outward_normal := (new_pos - clamped_pos).normalized()
+		var bounced := velocity.bounce(outward_normal)
+		_current_angle = bounced.angle()
+	global_position = clamped_pos
 	# Mirror on X when flying left so the fly faces movement direction
 	scale.x = -1.0 if cos(_current_angle) >= 0.0 else 1.0
 	# Slight tilt (a few degrees) based on vertical movement
 	rotation = sin(_current_angle) * deg_to_rad(max_tilt_degrees)
-	global_position += velocity * delta
-	global_position = _zone.clamp_position(global_position)
 
 
 func _pick_new_direction() -> void:
