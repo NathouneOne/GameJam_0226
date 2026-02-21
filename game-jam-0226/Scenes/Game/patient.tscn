@@ -155,7 +155,3 @@ position = Vector2(294, 232)
 visible = false
 z_index = 2
 position = Vector2(-58, 204)
-
-[connection signal="animation_finished" from="Lit/Body/BodyScreamSprite" to="." method="_on_body_scream_sprite_animation_finished"]
-z_index = 2
-position = Vector2(294, 232)
