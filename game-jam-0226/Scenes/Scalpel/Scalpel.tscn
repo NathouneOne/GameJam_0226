@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dcfcxw6hka05n" path="res://Scenes/Components/usable/Usable.tscn" id="4_j7yw4"]
 [ext_resource type="Texture2D" uid="uid://b1qupa75pcmb0" path="res://Assets/Graphismes/BloodParticle.png" id="5_48hnu"]
 [ext_resource type="Script" uid="uid://c46kw3psq4b7c" path="res://Scenes/Components/resettable/resettable.gd" id="6_j7yw4"]
+[ext_resource type="AudioStream" uid="uid://cfrt2dxu3aj2a" path="res://Assets/Sounds/SFX/bruit de cut du scalpel.wav" id="7_xgwnc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8ihrl"]
 radius = 3.8778992
@@ -65,3 +66,7 @@ process_material = SubResource("ParticleProcessMaterial_j7yw4")
 [node name="Resettable" type="Node" parent="." unique_id=2121545379]
 script = ExtResource("6_j7yw4")
 metadata/_custom_type_script = "uid://c46kw3psq4b7c"
+
+[node name="ScalpelNoise" type="AudioStreamPlayer2D" parent="." unique_id=126086989]
+unique_name_in_owner = true
+stream = ExtResource("7_xgwnc")

@@ -104,7 +104,7 @@ unique_name_in_owner = true
 stream = ExtResource("7_vlsem")
 panning_strength = 0.0
 
-[node name="TelephoneVibreurEtouffe" type="AudioStreamPlayer2D" parent="." unique_id=2045821401]
+[node name="TelephoneVibreurEtouffe" type="AudioStreamPlayer2D" parent="." unique_id=566673445]
 unique_name_in_owner = true
 stream = ExtResource("7_vlsem")
 panning_strength = 0.0

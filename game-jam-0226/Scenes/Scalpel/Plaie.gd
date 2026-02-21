@@ -136,18 +136,22 @@ func _process(_delta: float) -> void:
 	## Jitter
 	if telephone.get_child(1).is_grabbed:
 		stop_jitter = 1
+		%TelephoneVibreur.stop()
+		%TelephoneVibreurEtouffe.stop()
 	
 	if jitter and not telephone_grabbed:
 		position = original_pos + Vector2((randf() - 0.5) * 5, (randf() - 0.5) * 5)
 		%TelephoneVibreurEtouffe.play()
 	elif not jitter and not telephone_grabbed:
 		%TelephoneVibreurEtouffe.stop()
+		%TelephoneVibreur.stop()
 		position = original_pos
 	elif jitter and telephone_grabbed and not stop_jitter:
 		%TelephoneVibreur.play()
 		telephone.global_position = telephone_original_pos + Vector2((randf() - 0.5) * 5, (randf() - 0.5) * 5)
 	elif not jitter and telephone_grabbed and not stop_jitter:
 		%TelephoneVibreur.stop()
+		%TelephoneVibreurEtouffe.stop()
 		telephone.global_position = telephone_original_pos
 
 func _draw():
@@ -180,6 +184,8 @@ func tel_poubelle():
 		%TelephonePoubelle.play()
 
 func reset_minigame():
+	%TelephoneVibreur.stop()
+	%TelephoneVibreurEtouffe.stop()
 	%ScalpelCurve.curve.clear_points()
 	%PlaiePng.show()
 	%PlaieOuvertePng2.hide()

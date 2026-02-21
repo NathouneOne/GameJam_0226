@@ -12,7 +12,9 @@ func _ready() -> void:
 
 func _on_use_start(_owner: Node2D, target: Node2D, _hand: Node2D) -> void:
 	%GPUParticles2D.emitting=1
-	
+	%ScalpelNoise.play()
+
 
 func _on_use_stop(_owner: Node2D, _target: Node2D, _hand: Node2D) -> void:
 	%GPUParticles2D.emitting=0
+	%ScalpelNoise.stop()
