@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bomyces17pvgy"
+path="res://.godot/imported/bruit de grab un objet.wav-6e92efe5194364257a97e3ec1c22f039.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/SFX/bruit de grab un objet.wav"
+dest_files=["res://.godot/imported/bruit de grab un objet.wav-6e92efe5194364257a97e3ec1c22f039.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cden7t5r48kkx"
+path="res://.godot/imported/telephone dans poubelle.wav-148e2b9d494a8fc3ff2da273d20d6640.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/SFX/telephone dans poubelle.wav"
+dest_files=["res://.godot/imported/telephone dans poubelle.wav-148e2b9d494a8fc3ff2da273d20d6640.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

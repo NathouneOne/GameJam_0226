@@ -32,6 +32,8 @@ func _animate_postive_points(_old_score: int) -> void:
 	add_child(BananaSpawner)
 	BananaSpawner.play()
 	
+	%ScoringAudio.play()
+	
 	update_label()
 
 

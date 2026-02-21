@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cub20lgna3oru" path="res://Scenes/Defibrilateur/defibrilateur.tscn" id="3_qikps"]
 [ext_resource type="PackedScene" uid="uid://cpk6nfbh5g21i" path="res://Scenes/Components/flash_feedback/FlashFeedback.tscn" id="3_xfil1"]
 [ext_resource type="Texture2D" uid="uid://dha76ye0hvmkf" path="res://Assets/Graphismes/BANALIANES.png" id="4_lemb1"]
+[ext_resource type="AudioStream" uid="uid://bkh1ev75m4eer" path="res://Assets/Sounds/SFX/scoring.wav" id="8_a6ftd"]
 [ext_resource type="Texture2D" uid="uid://cs744psx347nm" path="res://Assets/Graphismes/APERATION_DECOR.png" id="8_qtymf"]
 [ext_resource type="PackedScene" uid="uid://dvc2gkhwk0xpr" path="res://Scenes/Game/patient.tscn" id="8_ypmwd"]
 [ext_resource type="PackedScene" uid="uid://e51vi8ldmkjl" path="res://Scenes/Scalpel/Scalpel.tscn" id="10_upfqs"]
@@ -164,6 +165,12 @@ flash_duration = 0.55
 label_offset = Vector2(0, 150)
 label_font_size = 70
 text = "OUCH!"
+
+[node name="ScoringAudio" type="AudioStreamPlayer2D" parent="GameScore" unique_id=1686852982]
+unique_name_in_owner = true
+stream = ExtResource("8_a6ftd")
+volume_db = -10.0
+panning_strength = 0.0
 
 [node name="GameTime" type="Node2D" parent="." unique_id=539290177]
 z_index = 1
