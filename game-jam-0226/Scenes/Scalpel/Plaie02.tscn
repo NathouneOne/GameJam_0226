@@ -84,6 +84,24 @@ position = Vector2(112, -58)
 [node name="CheckPoint6" parent="." unique_id=571173631 instance=ExtResource("5_k6b7k")]
 position = Vector2(-132, -64)
 
+[node name="CheckPoint7" parent="." unique_id=2023742527 instance=ExtResource("5_k6b7k")]
+position = Vector2(-87, 120)
+
+[node name="CheckPoint8" parent="." unique_id=320420728 instance=ExtResource("5_k6b7k")]
+position = Vector2(-140, 36)
+
+[node name="CheckPoint10" parent="." unique_id=2025709706 instance=ExtResource("5_k6b7k")]
+position = Vector2(129, 34)
+
+[node name="CheckPoint11" parent="." unique_id=215690830 instance=ExtResource("5_k6b7k")]
+position = Vector2(63, -114)
+
+[node name="CheckPoint12" parent="." unique_id=1850043808 instance=ExtResource("5_k6b7k")]
+position = Vector2(-47, -129)
+
+[node name="CheckPoint9" parent="." unique_id=403239852 instance=ExtResource("5_k6b7k")]
+position = Vector2(77, 123)
+
 [node name="Timer2" type="Timer" parent="." unique_id=350261886]
 unique_name_in_owner = true
 wait_time = 0.5

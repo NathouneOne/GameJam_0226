@@ -76,13 +76,43 @@ color = Color(1, 0.11372549, 0.22352941, 1)
 polygon = PackedVector2Array(1.5405273, -81.55066, -11.459473, -113.55066, -17.459473, -151.55066, -11.459473, -181.55066, 3.5405273, -199.55066, 40.540527, -201.55066, 69.54053, -196.55066, 87.54053, -185.55066, 107.54053, -159.55066, 125.54053, -131.55066, 132.54053, -118.55066, 139.54053, -96.55066, 141.54053, -78.55066, 138.54053, -65.55066, 124.54053, -38.55066, 125.54053, -18.55066, 128.54053, 2.4493408, 143.54053, 26.44934, 144.54053, 39.44934, 130.54053, 55.44934, 113.54053, 51.44934, 83.54053, 28.44934, 71.54053, 12.449341, 61.540527, -15.550659, 42.540527, -35.55066, 15.540527, -56.55066)
 
 [node name="CheckPoint2" parent="." unique_id=1388937644 instance=ExtResource("2_ns5is")]
-position = Vector2(10, 111)
+position = Vector2(-13, 68)
+
+[node name="CheckPoint3" parent="." unique_id=492660424 instance=ExtResource("2_ns5is")]
+position = Vector2(16, 112)
+
+[node name="CheckPoint4" parent="." unique_id=1435564702 instance=ExtResource("2_ns5is")]
+position = Vector2(63, 152)
+
+[node name="CheckPoint7" parent="." unique_id=11869825 instance=ExtResource("2_ns5is")]
+position = Vector2(104, 140)
+
+[node name="CheckPoint8" parent="." unique_id=1373838364 instance=ExtResource("2_ns5is")]
+position = Vector2(97, 90)
+
+[node name="CheckPoint9" parent="." unique_id=1990668303 instance=ExtResource("2_ns5is")]
+position = Vector2(74, -81)
+
+[node name="CheckPoint14" parent="." unique_id=1744330196 instance=ExtResource("2_ns5is")]
+position = Vector2(100, -26)
+
+[node name="CheckPoint10" parent="." unique_id=1054094221 instance=ExtResource("2_ns5is")]
+position = Vector2(39, -123)
+
+[node name="CheckPoint11" parent="." unique_id=542802608 instance=ExtResource("2_ns5is")]
+position = Vector2(-78, -86)
+
+[node name="CheckPoint12" parent="." unique_id=2004344850 instance=ExtResource("2_ns5is")]
+position = Vector2(-77, -15)
+
+[node name="CheckPoint13" parent="." unique_id=339267200 instance=ExtResource("2_ns5is")]
+position = Vector2(-50, 34)
 
 [node name="CheckPoint5" parent="." unique_id=2019278051 instance=ExtResource("2_ns5is")]
-position = Vector2(107, -4)
+position = Vector2(100, 24)
 
 [node name="CheckPoint6" parent="." unique_id=571173631 instance=ExtResource("2_ns5is")]
-position = Vector2(-53, -128)
+position = Vector2(-29, -135)
 
 [node name="Timer2" type="Timer" parent="." unique_id=350261886]
 unique_name_in_owner = true
