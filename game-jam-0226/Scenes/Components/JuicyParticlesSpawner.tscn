@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://cnqqw487d75px"]
+[gd_scene format=3 uid="uid://dkfcv55un4rbd"]
 
-[ext_resource type="Script" uid="uid://dsa21yd1npacy" path="res://Scenes/Components/banana_particles_spawner.gd" id="1_dd3li"]
+[ext_resource type="Script" path="res://Scenes/Components/banana_particles_spawner.gd" id="1_dd3li"]
 [ext_resource type="Texture2D" uid="uid://dxqjjv58mql2s" path="res://Assets/Graphismes/BananaText/BANANAFRAME1.png" id="2_svxlp"]
 [ext_resource type="Texture2D" uid="uid://5mppd5iiv4th" path="res://Assets/Graphismes/BananaText/BANANAFRAME2.png" id="3_4ib20"]
 [ext_resource type="Texture2D" uid="uid://8bitqoei3og1" path="res://Assets/Graphismes/BananaText/BANANAFRAME3.png" id="4_iuoes"]
@@ -94,6 +94,7 @@ process_material = SubResource("ParticleProcessMaterial_uddjm")
 
 [node name="BananaTextParticles" type="GPUParticles2D" parent="." unique_id=1498295272]
 unique_name_in_owner = true
+visible = false
 z_index = 7
 position = Vector2(-6.21521, 5.5025024)
 scale = Vector2(4.4421334, 0.6958396)

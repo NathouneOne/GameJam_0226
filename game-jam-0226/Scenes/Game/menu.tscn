@@ -18,8 +18,10 @@
 [ext_resource type="Script" uid="uid://ds6kdbwky7mwq" path="res://Scenes/Game/high_score.gd" id="16_hbui3"]
 [ext_resource type="AudioStream" uid="uid://bhp64su7v7ve6" path="res://Assets/Sounds/Tracks/v002/wetransfer_boucle-1-lead-no-drum-wav_2026-02-20_2156/boucle 1 (lead no drum).wav" id="19_hbui3"]
 [ext_resource type="Theme" uid="uid://b2tioy6g4l1nk" path="res://Resources/default_theme.tres" id="19_nfkvt"]
+[ext_resource type="AudioStream" uid="uid://bp33e4kb8c81" path="res://Assets/Sounds/SFX/juicy.wav" id="20_hbui3"]
 [ext_resource type="PackedScene" uid="uid://cpk6nfbh5g21i" path="res://Scenes/Components/flash_feedback/FlashFeedback.tscn" id="20_oxooa"]
-[ext_resource type="AudioStream" uid="uid://bkh1ev75m4eer" path="res://Assets/Sounds/SFX/scoring.wav" id="21_ybhnb"]
+[ext_resource type="Texture2D" uid="uid://3w7b8acik78d" path="res://Assets/Graphismes/TV.png" id="21_fny7q"]
+[ext_resource type="Texture2D" uid="uid://dha76ye0hvmkf" path="res://Assets/Graphismes/BANALIANES.png" id="22_im8jj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qsmta"]
 shader = ExtResource("1_v4p3b")
@@ -168,6 +170,61 @@ _data = {
 radius = 30.79068
 height = 189.15869
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_svxlp"]
+load_path = "res://.godot/imported/JUICY_FRAME1.png-2bee57dcb556b6650fffda81b7f03d03.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4ib20"]
+load_path = "res://.godot/imported/JUICY_FRAME2.png-a3682a03c76de554987465ede85e9821.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_iuoes"]
+load_path = "res://.godot/imported/JUICY_FRAME3.png-177b6f0e96684b2f283ad8e2a56abc62.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_w2m26"]
+load_path = "res://.godot/imported/JUICY_FRAME4.png-dc34fb7dad9b6019ef2ed0d20c7db48e.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dv564"]
+load_path = "res://.godot/imported/JUICY_FRAME5.png-3a799aaa78bf137affef8f51f0c242ed.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tf02k"]
+load_path = "res://.godot/imported/JUICY_FRAME6.png-2f07171e1141898b07aaf44512115848.ctex"
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_fny7q"]
+frames = 6
+speed_scale = 24.0
+frame_0/texture = SubResource("CompressedTexture2D_svxlp")
+frame_1/texture = SubResource("CompressedTexture2D_4ib20")
+frame_1/duration = 1.0
+frame_2/texture = SubResource("CompressedTexture2D_iuoes")
+frame_2/duration = 1.0
+frame_3/texture = SubResource("CompressedTexture2D_w2m26")
+frame_3/duration = 1.0
+frame_4/texture = SubResource("CompressedTexture2D_dv564")
+frame_4/duration = 1.0
+frame_5/texture = SubResource("CompressedTexture2D_tf02k")
+frame_5/duration = 10.0
+
+[sub_resource type="Curve" id="Curve_im8jj"]
+_limits = [0.0, 5.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 4.9781194, 0, 0, Vector2(0.9855072, 2.808989), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_nxex1"]
+curve = SubResource("Curve_im8jj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nfkvt"]
+particle_flag_rotate_y = true
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(150, 50, 50)
+angle_min = -9.9999895
+angle_max = 10.0000105
+angle_curve = SubResource("CurveTexture_nxex1")
+velocity_pivot = Vector3(0.8, 0, 0)
+initial_velocity_min = -50.0
+initial_velocity_max = -30.0
+gravity = Vector3(0, 100, 0)
+scale_min = 0.25
+scale_max = 0.29999998
+
 [node name="Menu" type="Node2D" unique_id=942918676]
 script = ExtResource("1_qsmta")
 
@@ -264,52 +321,126 @@ one_shot = true
 unique_name_in_owner = true
 one_shot = true
 
-[node name="HighScore" type="Node2D" parent="." unique_id=173014719]
-visible = false
-z_index = 6
-position = Vector2(1470.0002, -6.999984)
-rotation = 0.24260077
-skew = -0.38048178
-script = ExtResource("16_hbui3")
-
-[node name="ScoreLabel" type="Label" parent="HighScore" unique_id=1798753712]
-modulate = Color(3.4255767, 3.4255767, 3.4255767, 1)
-offset_left = 108.05249
-offset_top = 44.464752
-offset_right = 487.0525
-offset_bottom = 239.46475
-theme = ExtResource("19_nfkvt")
-theme_override_font_sizes/font_size = 70
-text = "100"
-metadata/_edit_use_anchors_ = true
-
-[node name="FlashFeedbackOk" parent="HighScore" unique_id=1018722879 node_paths=PackedStringArray("target_node") instance=ExtResource("20_oxooa")]
-target_node = NodePath("..")
-flash_duration = 0.55
-pulse_scale = 1.2
-label_offset = Vector2(0, 150)
-label_font_size = 70
-text = "BANANAAA!"
-
-[node name="FlashFeedbackNotOk" parent="HighScore" unique_id=1285294014 node_paths=PackedStringArray("target_node") instance=ExtResource("20_oxooa")]
-target_node = NodePath("..")
-flash_color = Color(1, 0.282788, 0.26279956, 1)
-flash_duration = 0.55
-label_offset = Vector2(0, 150)
-label_font_size = 70
-text = "OUCH!"
-
-[node name="JuicyAudio" type="AudioStreamPlayer2D" parent="HighScore" unique_id=1386681588]
-unique_name_in_owner = true
-stream = ExtResource("21_ybhnb")
-volume_db = -10.0
-panning_strength = 0.0
-
 [node name="MenuTrackPlayer" type="AudioStreamPlayer2D" parent="." unique_id=123512542]
 stream = ExtResource("19_hbui3")
 volume_db = -5.565
 autoplay = true
 panning_strength = 0.0
+
+[node name="GetReady" type="Node2D" parent="." unique_id=976525086]
+visible = false
+z_index = 6
+position = Vector2(1465.9999, -14.9999895)
+rotation = 0.17453292
+skew = -0.38048178
+script = ExtResource("16_hbui3")
+
+[node name="Title" type="Label" parent="GetReady" unique_id=280861886]
+modulate = Color(3.4255767, 3.4255767, 3.4255767, 1)
+offset_left = 50.627113
+offset_top = 31.241562
+offset_right = 429.6271
+offset_bottom = 226.24156
+theme = ExtResource("19_nfkvt")
+theme_override_font_sizes/font_size = 50
+text = "Get ready !"
+metadata/_edit_use_anchors_ = true
+
+[node name="Time" type="Node2D" parent="GetReady" unique_id=689269307]
+position = Vector2(177.2811, 134.04826)
+
+[node name="Time" type="Label" parent="GetReady/Time" unique_id=350827462]
+modulate = Color(3.4255767, 3.4255767, 3.4255767, 1)
+offset_left = -197.66986
+offset_top = -45.639465
+offset_right = 181.33014
+offset_bottom = 149.36052
+theme = ExtResource("19_nfkvt")
+theme_override_font_sizes/font_size = 70
+text = "0"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Feedback" parent="GetReady" unique_id=1018722879 node_paths=PackedStringArray("target_node") instance=ExtResource("20_oxooa")]
+target_node = NodePath("../../HighScore/text")
+flash_color = Color(0.69884235, 0.11922812, 0.7451043, 1)
+flash_duration = 1.0
+pulse_scale = 1.2
+label_offset = Vector2(0, 150)
+label_font_size = 70
+
+[node name="HighScore" type="Node2D" parent="." unique_id=173014719]
+z_index = 6
+position = Vector2(1669.9999, 123.99997)
+rotation = 0.19024089
+skew = -0.38048178
+script = ExtResource("16_hbui3")
+
+[node name="text" type="Node2D" parent="HighScore" unique_id=1744067519]
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="Title" type="Label" parent="HighScore/text" unique_id=1798753712]
+modulate = Color(3.4255767, 3.4255767, 3.4255767, 1)
+offset_left = -135.95386
+offset_top = -76.675064
+offset_right = 243.04614
+offset_bottom = 118.324936
+theme = ExtResource("19_nfkvt")
+theme_override_font_sizes/font_size = 50
+text = "High Score"
+metadata/_edit_use_anchors_ = true
+
+[node name="Score" type="Label" parent="HighScore/text" unique_id=448015514]
+modulate = Color(3.4255767, 3.4255767, 3.4255767, 1)
+offset_left = -204.9939
+offset_top = -19.590042
+offset_right = 174.0061
+offset_bottom = 175.40993
+theme = ExtResource("19_nfkvt")
+theme_override_font_sizes/font_size = 70
+text = "0"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Feedback" parent="HighScore" unique_id=2028548525 node_paths=PackedStringArray("target_node") instance=ExtResource("20_oxooa")]
+target_node = NodePath("../text")
+flash_color = Color(0.69884235, 0.11922812, 0.7451043, 1)
+flash_duration = 1.0
+pulse_scale = 1.2
+label_offset = Vector2(0, 150)
+label_font_size = 70
+
+[node name="JuicyAudio" type="AudioStreamPlayer2D" parent="HighScore" unique_id=1386681588]
+unique_name_in_owner = true
+stream = ExtResource("20_hbui3")
+volume_db = -0.386
+panning_strength = 0.0
+
+[node name="JuicyParticles" type="GPUParticles2D" parent="HighScore" unique_id=1679921812]
+unique_name_in_owner = true
+z_index = 7
+position = Vector2(-19.24736, 31.202545)
+scale = Vector2(4.4421334, 0.6958396)
+emitting = false
+amount = 1
+texture = SubResource("AnimatedTexture_fny7q")
+one_shot = true
+speed_scale = 2.0
+explosiveness = 0.91
+process_material = SubResource("ParticleProcessMaterial_nfkvt")
+
+[node name="Overlay" type="Node2D" parent="." unique_id=647161659]
+z_index = 5
+
+[node name="TV" type="Sprite2D" parent="Overlay" unique_id=1839031913]
+self_modulate = Color(0.9607843, 0.9607843, 0.9607843, 1)
+position = Vector2(958, 540)
+texture = ExtResource("21_fny7q")
+
+[node name="Lianes" type="Sprite2D" parent="Overlay" unique_id=2094913830]
+z_index = 8
+texture = ExtResource("22_im8jj")
+centered = false
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer3" to="." method="_on_timer_3_timeout"]
