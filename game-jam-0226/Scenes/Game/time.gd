@@ -21,12 +21,16 @@ func on_done() -> void:
 	remaining_time_seconds = START_TIME_SECONDS
 
 func update_label() -> void:
+	if remaining_time_seconds <= 0.0:
+		label.text = "00.00"
+		return
 	if last_timer_update_seconds < TIMER_UPDATE_DEBOUNCE_SECONDS:
 		return
 
 	var total := remaining_time_seconds
 	var seconds: int = int(total) % 60
 	var hundredths: int = int((total - seconds) * 100.0)
+	hundredths = clampi(hundredths, 0, 99)
 
 	label.text = "%02d.%02d" % [seconds, hundredths]
 
@@ -53,6 +57,8 @@ func _process(delta: float) -> void:
 
 	if remaining_time_seconds <= 0:
 		remaining_time_seconds = 0.0
+		update_label()
 		on_done()
+		return
 
 	update_label()

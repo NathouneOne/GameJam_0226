@@ -13,6 +13,7 @@ var is_grabbed: bool = false
 var hand_grabbing: Node2D = null
 
 func _ready() -> void:
+	disabled = false
 	add_to_group(&"grabbables")
 	if disable_on_menu:
 		disabled = true

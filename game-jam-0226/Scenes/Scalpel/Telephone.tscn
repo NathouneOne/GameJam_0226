@@ -20,6 +20,7 @@ texture = ExtResource("1_qv1yl")
 
 [node name="Poubellable" parent="." unique_id=94613873 instance=ExtResource("2_4no1l")]
 script = ExtResource("3_5op4b")
+disable_on_menu = false
 
 [node name="Grab" type="CollisionShape2D" parent="Poubellable" unique_id=1665815610]
 position = Vector2(-12.5, -62)
