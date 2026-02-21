@@ -97,6 +97,7 @@ animations = [{
 
 [node name="Patient" type="Node2D" unique_id=145693716]
 script = ExtResource("1_6j6pa")
+SKIN = 1
 
 [node name="Lit" type="Node2D" parent="." unique_id=1588782232]
 
@@ -114,13 +115,13 @@ frame = 7
 frame_progress = 1.0
 
 [node name="VV" type="AnimatedSprite2D" parent="Lit/Body" unique_id=955991909]
+visible = false
 position = Vector2(-53, 508.99)
 sprite_frames = SubResource("SpriteFrames_0uwm7")
 animation = &"cri"
 frame_progress = 1.0
 
 [node name="POULETMAN" type="AnimatedSprite2D" parent="Lit/Body" unique_id=71755868]
-visible = false
 position = Vector2(119, 237.98999)
 scale = Vector2(1.5499977, 1.5499976)
 sprite_frames = SubResource("SpriteFrames_6dnm8")
@@ -150,6 +151,13 @@ metadata/_edit_lock_ = true
 [node name="Plaie1" parent="." unique_id=1972709014 instance=ExtResource("5_3xtxg")]
 z_index = 2
 position = Vector2(251, 146)
+
+[node name="Plaie02" parent="." unique_id=1769471978 instance=ExtResource("13_u4dvi")]
+process_mode = 4
+visible = false
+z_index = 2
+z_index = 2
+position = Vector2(294, 232)
 
 [node name="Plaie02" parent="." unique_id=1769471978 instance=ExtResource("13_u4dvi")]
 process_mode = 4
