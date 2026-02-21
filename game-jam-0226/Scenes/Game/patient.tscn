@@ -151,11 +151,13 @@ metadata/_edit_lock_ = true
 
 [node name="Plaie1" parent="." unique_id=1972709014 instance=ExtResource("5_3xtxg")]
 process_mode = 4
+visible = false
 z_index = 2
 position = Vector2(251, 146)
 
 [node name="Plaie02" parent="." unique_id=1769471978 instance=ExtResource("13_u4dvi")]
 process_mode = 4
+visible = false
 z_index = 2
 position = Vector2(294, 232)
 

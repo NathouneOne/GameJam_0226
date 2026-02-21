@@ -11,7 +11,7 @@
 [sub_resource type="Curve2D" id="Curve2D_lt5rr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ns5is"]
-radius = 348.47238
+radius = 470.00958
 
 [node name="Plaie02" type="Node2D" unique_id=1972709014]
 script = ExtResource("1_exty3")
