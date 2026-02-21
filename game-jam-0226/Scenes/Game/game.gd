@@ -5,6 +5,7 @@ class_name Game
 @onready var patient: Patient = $Patient
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var game_time: GameTime = $GameTime
+@onready var game_track_player: AudioStreamPlayer2D = $GameTrackPlayer
 
 enum GameStateEnum {
 	MENU,
@@ -46,7 +47,9 @@ func _on_patient_out_finished(animation_name: String) -> void:
 func _on_timer_end() -> void:
 	animation_player.play("patient_out")
 	game_state = GameStateEnum.MENU
-	Global.on_end_game.emit()
+	# Wait for music to finish
+	game_track_player.finished.connect(func() -> void: Global.on_end_game.emit())
+	#Global.on_end_game.emit()
 
 func _enter_new_patient() -> void:
 	# Swap patient, pick a random preset

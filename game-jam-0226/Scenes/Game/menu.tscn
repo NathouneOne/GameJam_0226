@@ -15,7 +15,9 @@
 [ext_resource type="AudioStream" uid="uid://pebd6g3rukbf" path="res://Assets/Sounds/SFX/tringle a rideaux.wav" id="11_eb3d4"]
 [ext_resource type="AudioStream" uid="uid://bxmy700acvija" path="res://Assets/Sounds/SFX/rideaux tissus.wav" id="12_1a5qy"]
 [ext_resource type="AudioStream" uid="uid://c8m7ob8uaggrp" path="res://Assets/Sounds/SFX/roulettes.wav" id="13_1a5qy"]
+[ext_resource type="AudioStream" uid="uid://bhp64su7v7ve6" path="res://Assets/Sounds/Tracks/v002/wetransfer_boucle-1-lead-no-drum-wav_2026-02-20_2156/boucle 1 (lead no drum).wav" id="19_hbui3"]
 [ext_resource type="Theme" uid="uid://b2tioy6g4l1nk" path="res://Resources/default_theme.tres" id="19_nfkvt"]
+[ext_resource type="AudioStream" uid="uid://bad13sb7e47so" path="res://Assets/Sounds/Tracks/boucle de 60 sec (environ).wav" id="20_hbui3"]
 [ext_resource type="PackedScene" uid="uid://cpk6nfbh5g21i" path="res://Scenes/Components/flash_feedback/FlashFeedback.tscn" id="20_oxooa"]
 [ext_resource type="AudioStream" uid="uid://bkh1ev75m4eer" path="res://Assets/Sounds/SFX/scoring.wav" id="21_ybhnb"]
 
@@ -300,6 +302,18 @@ text = "OUCH!"
 unique_name_in_owner = true
 stream = ExtResource("21_ybhnb")
 volume_db = -10.0
+panning_strength = 0.0
+
+[node name="MenuTrackPlayer" type="AudioStreamPlayer2D" parent="." unique_id=123512542]
+stream = ExtResource("19_hbui3")
+volume_db = -5.565
+autoplay = true
+panning_strength = 0.0
+
+[node name="GameTrackPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1157925941]
+stream = ExtResource("20_hbui3")
+volume_db = -3.38
+autoplay = true
 panning_strength = 0.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

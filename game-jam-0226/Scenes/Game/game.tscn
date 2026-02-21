@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://e51vi8ldmkjl" path="res://Scenes/Scalpel/Scalpel.tscn" id="10_upfqs"]
 [ext_resource type="Texture2D" uid="uid://ba5u1nbm6beyx" path="res://Assets/Graphismes/poubelle0.png" id="14_8e3kh"]
 [ext_resource type="Texture2D" uid="uid://bh1qn3bcdqogj" path="res://Assets/Graphismes/poubelle1.png" id="15_56qi8"]
-[ext_resource type="AudioStream" uid="uid://culbmksvioirx" path="res://Assets/Sounds/Tracks/v001/boucle 4 (core trakc avec lead).wav" id="19_2lc0x"]
+[ext_resource type="AudioStream" uid="uid://bad13sb7e47so" path="res://Assets/Sounds/Tracks/boucle de 60 sec (environ).wav" id="17_2vowc"]
 [ext_resource type="Script" path="res://Scenes/Game/camera_2d.gd" id="19_lemb1"]
 [ext_resource type="PackedScene" uid="uid://ctkr410m1w8jr" path="res://Scenes/fly/fly_spawner.tscn" id="20_a6ftd"]
 [ext_resource type="Texture2D" uid="uid://cpgjir7nrpqda" path="res://Assets/Graphismes/Vignette_rouge_00000.png" id="21_nxex1"]
@@ -160,7 +160,6 @@ position = Vector2(122.11902, 192.49042)
 script = ExtResource("10_4ti5a")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1082063397]
-visible = false
 script = ExtResource("21_pa3qg")
 
 [node name="VignetteRouge" type="Sprite2D" parent="CanvasLayer" unique_id=1032729378]
@@ -230,12 +229,6 @@ position = Vector2(1814.9596, 876.85223)
 scale = Vector2(0.78120786, 0.78120786)
 texture = ExtResource("15_56qi8")
 
-[node name="TracksPlayer" type="AudioStreamPlayer2D" parent="." unique_id=2075413394]
-stream = ExtResource("19_2lc0x")
-volume_db = -6.876
-autoplay = true
-panning_strength = 0.0
-
 [node name="Camera2D" type="Camera2D" parent="." unique_id=529783870]
 unique_name_in_owner = true
 offset = Vector2(960, 540)
@@ -258,5 +251,10 @@ position = Vector2(2, 0)
 texture = ExtResource("8_qtymf")
 centered = false
 
-[connection signal="finished" from="TracksPlayer" to="." method="_on_audio_stream_player_2d_finished"]
+[node name="GameTrackPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1848365310]
+stream = ExtResource("17_2vowc")
+volume_db = -3.38
+autoplay = true
+panning_strength = 0.0
+
 [connection signal="timeout" from="Camera2D/Timer" to="Camera2D" method="_on_timer_timeout"]

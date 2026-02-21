@@ -15,6 +15,8 @@ enum PatientPreset {
 	COEUR_2,
 	PLAIE1,
 	PLAIE2,
+	#COEUR_1_PLAIE_2,
+	#COEUR_2_PLAIE_2,
 }
 
 ## Preset -> list of enabled minigame keys. Keys must match exact child node names (e.g. Coeur1, Coeur2).
