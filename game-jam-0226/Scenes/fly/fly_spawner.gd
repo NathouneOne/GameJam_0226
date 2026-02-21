@@ -72,6 +72,7 @@ func _spawn_fly() -> void:
 
 	if not fly_sound_playing:
 		flyingNoise.play()
+		fly_sound_playing = true
 
 	var fly: Node2D = fly_scene.instantiate() as Node2D
 	if fly.has_signal("smashed"):

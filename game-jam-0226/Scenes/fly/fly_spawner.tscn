@@ -10,41 +10,43 @@
 radius = 65.12296
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6vr42"]
-radius = 672.41846
-height = 1646.5779
+radius = 523.3969
+height = 1342.596
 
 [node name="FlySpawner" type="Node2D" unique_id=986804126]
 script = ExtResource("1_03fag")
 fly_scene = ExtResource("2_ea137")
-spawn_interval_seconds = null
-spawn_interval_random_delta = null
-max_alive_flies = null
 
 [node name="SpawnZone" type="Area2D" parent="." unique_id=978163814]
-position = Vector2(-15, -5)
+position = Vector2(-148, -32)
 script = ExtResource("3_4f47q")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="SpawnZone" unique_id=2099289327]
-position = Vector2(384, 708)
+position = Vector2(1307, 1017)
 shape = SubResource("CircleShape2D_nnkt7")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="SpawnZone" unique_id=2058771685]
-position = Vector2(1173, 569)
+position = Vector2(1830, 684)
 shape = SubResource("CircleShape2D_nnkt7")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="SpawnZone" unique_id=84403757]
-position = Vector2(-325, 677)
+position = Vector2(1497, 139)
 shape = SubResource("CircleShape2D_nnkt7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnZone" unique_id=1592342502]
-position = Vector2(318, -56)
+position = Vector2(929, 364)
+shape = SubResource("CircleShape2D_nnkt7")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="SpawnZone" unique_id=1310788458]
+position = Vector2(1002, 925)
 shape = SubResource("CircleShape2D_nnkt7")
 
 [node name="FlyZone" type="Area2D" parent="." unique_id=1297506839]
+position = Vector2(-78, -1)
 script = ExtResource("4_xp21a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FlyZone" unique_id=59586545]
-position = Vector2(404, 551.99994)
+position = Vector2(1273, 552)
 rotation = -1.5405344
 shape = SubResource("CapsuleShape2D_6vr42")
 
