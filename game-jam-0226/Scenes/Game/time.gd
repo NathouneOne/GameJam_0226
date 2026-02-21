@@ -18,6 +18,7 @@ const TIMER_UPDATE_DEBOUNCE_SECONDS := 0.1
 func on_done() -> void:
 	on_timer_end.emit()
 	started = false
+	remaining_time_seconds = START_TIME_SECONDS
 
 func update_label() -> void:
 	if last_timer_update_seconds < TIMER_UPDATE_DEBOUNCE_SECONDS:
