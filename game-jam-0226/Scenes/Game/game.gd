@@ -53,6 +53,8 @@ func _enter_new_patient() -> void:
 	# TODO: better progression logic
 	var preset: Patient.PatientPreset = Patient.PRESET_GAMES.keys().pick_random()
 	patient.PRESET = preset
+	var skin: Patient.PatientSkin = Patient.PatientSkin.values().pick_random()
+	patient.SKIN = skin
 	# Played backwards as I did not find how to invert
 	animation_player.play_backwards("patient_in")
 	

@@ -217,7 +217,7 @@ polygon = PackedVector2Array(1520, 76, 1579, -48, 1745, 47, 1779, 214, 1755, 278
 
 [node name="Patient" parent="." unique_id=855156239 instance=ExtResource("8_ypmwd")]
 position = Vector2(893, 610)
-PRESET = 0
+PRESET = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=211062614]
 libraries/ = SubResource("AnimationLibrary_upfqs")
