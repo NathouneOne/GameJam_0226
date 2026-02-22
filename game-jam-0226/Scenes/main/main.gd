@@ -19,19 +19,30 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _start_game() -> void:
+	# Prevent double instances: cleanup any existing game first
+	if is_instance_valid(game):
+		_cleanup_game()
+		# Defer adding so the old game is freed before we add the new one
+		call_deferred("_add_game")
+		return
+	_add_game()
+
+func _add_game() -> void:
 	game = GAME.instantiate()
 	add_child(game)
 	# Wait 1 sec and emit the signal
 	get_tree().create_timer(transition_delay_in).timeout.connect(func(): Global.on_start_game.emit())
 
-func _end_game() -> void: 
+func _end_game() -> void:
 	menu.close()
-	get_tree().create_timer(transition_delay_out).timeout.connect(_cleanup_game)
+	# Despawn game after the menu closing animation (transition_delay_out)
+	get_tree().create_timer(transition_delay_out).timeout.connect(_cleanup_game, CONNECT_ONE_SHOT)
 	
 
 func _cleanup_game() -> void:
-	game.queue_free()
-	game = null
+	if is_instance_valid(game):
+		game.queue_free()
+		game = null
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
