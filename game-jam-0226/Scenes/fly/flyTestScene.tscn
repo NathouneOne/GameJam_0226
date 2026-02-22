@@ -5,27 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://bbxb8nvk3v1no" path="res://Scenes/fly/fly.tscn" id="3_nnkt7"]
 [ext_resource type="PackedScene" uid="uid://cub20lgna3oru" path="res://Scenes/Defibrilateur/defibrilateur.tscn" id="4_fudfc"]
 [ext_resource type="PackedScene" path="res://Scenes/Components/interactive/Interactive.tscn" id="5_6h3jx"]
+[ext_resource type="PackedScene" uid="uid://fy15tufi5wwi" path="res://Scenes/Defibrilateur/coeur.tscn" id="6_1y8lv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1y8lv"]
 size = Vector2(842, 185)
 
 [node name="FlyTestScene" type="Node2D" unique_id=1846053974]
 position = Vector2(470, 198)
-
-[node name="Fly2" parent="." unique_id=1211682102 instance=ExtResource("3_nnkt7")]
-position = Vector2(472, 498)
-
-[node name="Fly3" parent="." unique_id=463975023 instance=ExtResource("3_nnkt7")]
-position = Vector2(411, -41)
-
-[node name="Fly4" parent="." unique_id=1036393098 instance=ExtResource("3_nnkt7")]
-position = Vector2(472, 498)
-
-[node name="Fly5" parent="." unique_id=26500702 instance=ExtResource("3_nnkt7")]
-position = Vector2(634, 162)
-
-[node name="Fly6" parent="." unique_id=2075040047 instance=ExtResource("3_nnkt7")]
-position = Vector2(890, 569)
 
 [node name="Fly7" parent="." unique_id=1828811200 instance=ExtResource("3_nnkt7")]
 position = Vector2(-149, 62)
@@ -51,3 +37,6 @@ position = Vector2(375, 757)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ItemZone" unique_id=377891869]
 position = Vector2(611, 770)
 shape = SubResource("RectangleShape2D_1y8lv")
+
+[node name="Coeur" parent="." unique_id=1087108802 instance=ExtResource("6_1y8lv")]
+position = Vector2(506, 462)

@@ -5,7 +5,7 @@ class_name Heart
 
 @export var max_qte := 2
 
-var beat:bool =1
+var beat: bool = 1
 
 
 # TODO: call when minigame is complete
@@ -23,33 +23,44 @@ func _ready() -> void:
 
 func qte_ok() -> bool:
 	#return qteCoeur.scale.x > ZONE_OK.x and qteCoeur.scale.x < ZONE_OK.y
-	if $AnimatedSprite2D.frame >= 10 and $AnimatedSprite2D.frame <= 16:
-		return 1
+	var frame: int = $AnimatedSprite2D.frame
+	var in_zone: bool = frame >= 10 and frame <= 16
+	push_warning("[Coeur] qte_ok() frame=%d (zone 10-16) => %s" % [frame, in_zone])
+	if in_zone:
+		return true
 	else:
-		return 0
+		return false
 
 @export var SUCCESS_POINTS := 50
 @export var DEFEAT_POINTS := -50
 
 func _on_interact_start(_target: Node2D, source: Node2D, _hand: Node2D) -> void:
+	print("[Coeur] _on_interact_start target=%s source=%s disabled=%s" % [_target.name if _target else "null", source.name if source else "null", disabled])
 	if disabled:
+		print("[Coeur] ignored (disabled)")
 		return
 
 	if source is Defibrillator:
-		if qte_ok():
+		var ok: bool = qte_ok()
+		print("[Coeur] Defibrillator hit: qte_ok=%s (frame=%d), qte_completed=%d/%d" % [ok, $AnimatedSprite2D.frame, qte_completed, max_qte])
+		if ok:
+			print("[Coeur] SUCCESS -> +%d pts" % SUCCESS_POINTS)
 			Global.on_add_score.emit(SUCCESS_POINTS)
 			qte_completed += 1
-			scale.x*=-1
+			scale.x *= -1
 			if qte_completed >= max_qte:
 				# disable the QTE:
 				# TODO: animate ?
 				$HeartBeat.stop()
-				beat=0
+				beat = 0
 				$AnimatedSprite2D.hide()
 				disable()
 				minigame_done.emit()
 		else:
+			print("[Coeur] MISS (hit patient) -> %d pts" % DEFEAT_POINTS)
 			Global.on_add_score.emit(DEFEAT_POINTS)
+	else:
+		print("[Coeur] ignored (source is not Defibrillator)")
 
 func _on_interact_stop(_target: Node2D, _source: Node2D, _hand: Node2D) -> void:
 	pass
@@ -76,7 +87,7 @@ func reset(
 	$AnimatedSprite2D.show()
 	$AnimatedSprite2D.play("HeartBeat1")
 	$HeartBeat.show()
-	beat=1
+	beat = 1
 	
 	qte_completed = 0
 	disabled = false

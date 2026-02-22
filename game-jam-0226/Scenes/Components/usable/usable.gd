@@ -22,6 +22,7 @@ func use(hand: Node2D) -> bool:
 	var owner_node: Node2D = get_parent() as Node2D
 	_use_targets.clear()
 	var areas: Array[Area2D] = get_overlapping_areas()
+	var interactive_count: int = 0
 	for area: Area2D in areas:
 		if area is Interactive:
 			var interactive: Interactive = area as Interactive
@@ -29,6 +30,9 @@ func use(hand: Node2D) -> bool:
 				var target_node: Node2D = interactive.get_parent() as Node2D
 				_use_targets.append(target_node)
 				use_start.emit(owner_node, target_node, hand)
+				interactive_count += 1
+	if interactive_count > 1 and owner_node.get_class() == "Defibrillator":
+		print("[Useable] Defibrillator: multiple interactives hit in one use (%d): %s" % [interactive_count, _use_targets])
 	_use_hand = hand
 	return _use_targets.size() > 0
 
