@@ -12,10 +12,8 @@ const TELEPHONE = preload("res://Scenes/Scalpel/Telephone.tscn")
 @export var started: bool = true
 
 
-#var start_checkpoint := CHECK_POINT.instantiate()
 var win: bool = 0
 var is_scalpel_inzone: bool = 0
-var already_won: bool = 0
 var handclic: bool = 0
 var telephone_grabbed: bool = 0
 var scalpel: Node2D
@@ -57,8 +55,6 @@ func _on_interact_start(_target: Node2D, source: Node2D, _hand: Node2D) -> void:
 
 func _on_interact_stop(_target: Node2D, _source: Node2D, _hand: Node2D) -> void:
 	
-	#start_checkpoint.queue_free()
-	#start_checkpoint = CHECK_POINT.instantiate()
 	for i in get_children():
 		if i.is_in_group("checkpoint"):
 			i.is_triggered = 0
@@ -89,12 +85,9 @@ func _process(_delta: float) -> void:
 			else:
 				is_scalpel_inzone = 0
 		
-		#Reset curve, set 1st checkpoint, if not inzone defeat
+		#Reset curve, if not inzone defeat
 		if Input.is_action_just_pressed("left_clic"):
 			%ScalpelCurve.curve.clear_points()
-			#add_child(start_checkpoint)
-			#start_checkpoint.global_position = scalpel.global_position
-			#start_checkpoint.is_start_checkpoint = 1
 			
 			if not is_scalpel_inzone:
 				Global.on_add_score.emit(DEFEAT_POINTS)
@@ -109,10 +102,7 @@ func _process(_delta: float) -> void:
 						win = 0
 						break
 			if win:
-				#if not start_checkpoint.is_start_checkpoint and not already_won:
 					Global.on_add_score.emit(SUCCESS_POINTS)
-					#already_won = 1
-					
 					## THIS PART WAS "_on_outline_input_event()"
 					%PlaiePng.hide()
 					%PlaieOuvertePng2.show()
@@ -127,13 +117,6 @@ func _process(_delta: float) -> void:
 					for i in get_children():
 						if i.is_in_group("checkpoint"):
 							i.is_triggered=0
-					
-					
-					
-				#else:
-				#	start_checkpoint.is_start_checkpoint = 0
-				#	start_checkpoint.is_triggered = 0
-			
 	
 	queue_redraw()
 	
@@ -180,8 +163,6 @@ func _on_outline_area_shape_exited(area_rid: RID, area: Area2D, area_shape_index
 
 
 
-
-
 func tel_poubelle():
 		minigame_done.emit()
 		#Audio
@@ -195,10 +176,8 @@ func reset_minigame():
 	%PlaieOuvertePng2.hide()
 	telephone = TELEPHONE.instantiate()
 	telephone.connect("telephone_poubelle", tel_poubelle)
-	#start_checkpoint = CHECK_POINT.instantiate()
 	win = 0
 	is_scalpel_inzone = 0
-	already_won = 0
 	handclic = 0
 	telephone_grabbed = 0
 	stop_jitter = 0
