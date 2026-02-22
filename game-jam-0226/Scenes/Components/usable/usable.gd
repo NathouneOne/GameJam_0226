@@ -1,8 +1,10 @@
 extends Area2D
 class_name Useable
 
-## Emitted when use starts (button pressed). [param target] is the interactive's parent, or null if none.
+## Emitted once per target when use starts (button pressed). [param target] is that interactive's parent. Kept for backwards compatibility; listeners like Scalpel receive one call per hit target.
 signal use_start(owner: Node2D, target: Node2D, hand: Node2D)
+## Emitted once per use with all targets hit this use. Use this when logic depends on the full set (e.g. zap if any heart). Does not replace use_start.
+signal use_started(owner: Node2D, targets: Array[Node2D], hand: Node2D)
 ## Emitted when use stops (button released or object dropped). [param target] is the same as when use_start was called.
 signal use_stop(owner: Node2D, target: Node2D, hand: Node2D)
 
@@ -22,17 +24,28 @@ func use(hand: Node2D) -> bool:
 	var owner_node: Node2D = get_parent() as Node2D
 	_use_targets.clear()
 	var areas: Array[Area2D] = get_overlapping_areas()
-	var interactive_count: int = 0
-	for area: Area2D in areas:
+	print("[Useable] use() owner=%s overlapping_areas=%d" % [owner_node.name, areas.size()])
+	for i: int in range(areas.size()):
+		var area: Area2D = areas[i]
+		var parent_name: String = String(area.get_parent().name) if area.get_parent() else "?"
+		var is_interactive: bool = area is Interactive
+		print("[Useable]   [%d] area=%s parent=%s is_interactive=%s" % [i, area.name, parent_name, is_interactive])
 		if area is Interactive:
 			var interactive: Interactive = area as Interactive
-			if interactive.interact(self, hand):
-				var target_node: Node2D = interactive.get_parent() as Node2D
+			var ok: bool = interactive.interact(self, hand)
+			var target_node: Node2D = interactive.get_parent() as Node2D
+			var target_class: String = target_node.get_class() if target_node else "?"
+			var tn_name: String = String(target_node.name) if target_node else "null"
+			print("[Useable]   -> interact()=%s target=%s (class=%s)" % [ok, tn_name, target_class])
+			if ok:
 				_use_targets.append(target_node)
 				use_start.emit(owner_node, target_node, hand)
-				interactive_count += 1
-	if interactive_count > 1 and owner_node.get_class() == "Defibrillator":
-		print("[Useable] Defibrillator: multiple interactives hit in one use (%d): %s" % [interactive_count, _use_targets])
+	var target_names: Array[String] = []
+	for t: Node2D in _use_targets:
+		target_names.append("%s(%s)" % [t.name, t.get_class()])
+	print("[Useable] _use_targets=%s -> emitting use_started" % [str(target_names)])
+	if _use_targets.size() > 0:
+		use_started.emit(owner_node, _use_targets, hand)
 	_use_hand = hand
 	return _use_targets.size() > 0
 

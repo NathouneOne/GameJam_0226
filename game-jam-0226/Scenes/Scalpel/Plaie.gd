@@ -20,7 +20,7 @@ var scalpel: Node2D
 var telephone := TELEPHONE.instantiate()
 var telephone_original_pos: Vector2
 var jitter: bool = 0
-var original_pos :Vector2 
+var original_pos: Vector2
 var stop_jitter: bool = 0
 
 
@@ -33,7 +33,7 @@ func _ready() -> void:
 	interactive.interact_start.connect(_on_interact_start)
 	interactive.interact_stop.connect(_on_interact_stop)
 	
-	original_pos= position
+	original_pos = position
 	
 	if started:
 		start()
@@ -48,13 +48,24 @@ func _on_interact_start(_target: Node2D, source: Node2D, _hand: Node2D) -> void:
 		scalpel = source.get_child(1)
 		cut_started = 1
 	elif source != null:
-		Global.on_add_score.emit(DEFEAT_POINTS)
+		if source is Defibrillator:
+			# Defer so Defibrillator has run use_started and set last_use_hit_heart
+			call_deferred("_apply_defibrillator_hit", source)
+		else:
+			Global.on_add_score.emit(DEFEAT_POINTS)
 	
 	if source == null:
 		handclic = 1
 
+func _apply_defibrillator_hit(defib: Node2D) -> void:
+	if not defib is Defibrillator:
+		return
+	if not (defib as Defibrillator).last_use_hit_heart:
+		Global.on_add_score.emit(DEFEAT_POINTS)
+
 func _on_interact_stop(_target: Node2D, _source: Node2D, _hand: Node2D) -> void:
-	
+	#start_checkpoint.queue_free()
+	#start_checkpoint = CHECK_POINT.instantiate()
 	for i in get_children():
 		if i.is_in_group("checkpoint"):
 			i.is_triggered = 0
@@ -116,7 +127,13 @@ func _process(_delta: float) -> void:
 					#reset checkpoints for no winspam
 					for i in get_children():
 						if i.is_in_group("checkpoint"):
-							i.is_triggered=0
+							i.is_triggered = 0
+					
+					
+				#else:
+				#	start_checkpoint.is_start_checkpoint = 0
+				#	start_checkpoint.is_triggered = 0
+			
 	
 	queue_redraw()
 	
@@ -160,7 +177,6 @@ func _on_outline_area_shape_exited(area_rid: RID, area: Area2D, area_shape_index
 					break
 			if Input.is_action_pressed("left_clic") and cut_started and not local_inzone:
 				Global.on_add_score.emit(DEFEAT_POINTS)
-
 
 
 func tel_poubelle():

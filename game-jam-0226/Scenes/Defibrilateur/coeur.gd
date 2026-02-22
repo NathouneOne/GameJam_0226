@@ -35,14 +35,16 @@ func qte_ok() -> bool:
 @export var DEFEAT_POINTS := -50
 
 func _on_interact_start(_target: Node2D, source: Node2D, _hand: Node2D) -> void:
-	print("[Coeur] _on_interact_start target=%s source=%s disabled=%s" % [_target.name if _target else "null", source.name if source else "null", disabled])
+	var source_name: String = source.name if source else "null"
+	var source_class: String = source.get_class() if source else "?"
+	print("[Coeur] _on_interact_start target=%s source=%s (class=%s) disabled=%s" % [_target.name if _target else "null", source_name, source_class, disabled])
 	if disabled:
 		print("[Coeur] ignored (disabled)")
 		return
 
 	if source is Defibrillator:
 		var ok: bool = qte_ok()
-		print("[Coeur] Defibrillator hit: qte_ok=%s (frame=%d), qte_completed=%d/%d" % [ok, $AnimatedSprite2D.frame, qte_completed, max_qte])
+		print("[Coeur] Defibrillator hit: qte_ok=%s (frame=%d), qte_completed=%d/%d -> %s" % [ok, $AnimatedSprite2D.frame, qte_completed, max_qte, "SUCCESS +pts" if ok else "MISS -pts"])
 		if ok:
 			print("[Coeur] SUCCESS -> +%d pts" % SUCCESS_POINTS)
 			Global.on_add_score.emit(SUCCESS_POINTS)
