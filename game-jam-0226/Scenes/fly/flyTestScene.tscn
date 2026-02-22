@@ -2,12 +2,52 @@
 
 [ext_resource type="PackedScene" uid="uid://ctkr410m1w8jr" path="res://Scenes/fly/fly_spawner.tscn" id="1_ibj56"]
 [ext_resource type="PackedScene" uid="uid://1ohqnbol5i0g" path="res://Scenes/hand/arm.tscn" id="2_6vr42"]
+[ext_resource type="PackedScene" uid="uid://bbxb8nvk3v1no" path="res://Scenes/fly/fly.tscn" id="3_nnkt7"]
+[ext_resource type="PackedScene" uid="uid://cub20lgna3oru" path="res://Scenes/Defibrilateur/defibrilateur.tscn" id="4_fudfc"]
+[ext_resource type="PackedScene" path="res://Scenes/Components/interactive/Interactive.tscn" id="5_6h3jx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1y8lv"]
+size = Vector2(842, 185)
 
 [node name="FlyTestScene" type="Node2D" unique_id=1846053974]
 position = Vector2(470, 198)
 
+[node name="Fly2" parent="." unique_id=1211682102 instance=ExtResource("3_nnkt7")]
+position = Vector2(472, 498)
+
+[node name="Fly3" parent="." unique_id=463975023 instance=ExtResource("3_nnkt7")]
+position = Vector2(411, -41)
+
+[node name="Fly4" parent="." unique_id=1036393098 instance=ExtResource("3_nnkt7")]
+position = Vector2(472, 498)
+
+[node name="Fly5" parent="." unique_id=26500702 instance=ExtResource("3_nnkt7")]
+position = Vector2(634, 162)
+
+[node name="Fly6" parent="." unique_id=2075040047 instance=ExtResource("3_nnkt7")]
+position = Vector2(890, 569)
+
+[node name="Fly7" parent="." unique_id=1828811200 instance=ExtResource("3_nnkt7")]
+position = Vector2(-149, 62)
+
+[node name="Fly8" parent="." unique_id=758180098 instance=ExtResource("3_nnkt7")]
+position = Vector2(23, 678)
+
 [node name="FlySpawner" parent="." unique_id=986804126 instance=ExtResource("1_ibj56")]
 position = Vector2(499, 317)
+max_alive_flies = 5
 
 [node name="Arm" parent="." unique_id=1314196640 instance=ExtResource("2_6vr42")]
 position = Vector2(356, 1486)
+
+[node name="Fly" parent="." unique_id=917642270 instance=ExtResource("3_nnkt7")]
+position = Vector2(236, 249)
+
+[node name="Defibrilateur" parent="." unique_id=94439545 instance=ExtResource("4_fudfc")]
+position = Vector2(375, 757)
+
+[node name="ItemZone" parent="." unique_id=2069329896 instance=ExtResource("5_6h3jx")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemZone" unique_id=377891869]
+position = Vector2(611, 770)
+shape = SubResource("RectangleShape2D_1y8lv")

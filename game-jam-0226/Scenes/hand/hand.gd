@@ -11,6 +11,7 @@ var use_fixed_x: bool = false
 var grab_fixed_x: float = 0.0 # used when use_fixed_x
 var use_fixed_rotation: bool = false
 var grab_fixed_rotation: float = 0.0 # used when use_fixed_rotation
+var smooth_grab_tween: Tween = null # smooth move to hand center on grab
 
 @onready var area_2d: Area2D = $Area2D
 @onready var arm: Arm = $"../.."
@@ -49,35 +50,49 @@ func _can_grab_target(target: Node2D) -> bool:
 
 func _try_grab_object() -> bool:
 	var areas: Array[Area2D] = area_2d.get_overlapping_areas()
+	var hand_center: Vector2 = global_position
+	var best: Dictionary = {} # { target: Node2D, component: Grabbable|Poubellable }
+	var best_dist_sq: float = INF
+
 	for area: Area2D in areas:
+		var component: Variant = null
 		if area is Grabbable:
 			var g: Grabbable = area as Grabbable
 			if g.disabled:
 				continue
-			var target: Node = area.get_parent()
-			if target is Node2D:
-				if not _can_grab_target(target as Node2D):
-					continue
-				_grab_object(target as Node2D, g)
-				return true
-
-		if area is Poubellable:
+			component = g
+		elif area is Poubellable:
 			var p: Poubellable = area as Poubellable
 			if p.disabled:
 				continue
-			var target: Node = area.get_parent()
-			if target is Node2D:
-				if not _can_grab_target(target as Node2D):
-					continue
-				_grab_poubelle_object(target as Node2D, p)
-				return true
-	return false
+			component = p
+		else:
+			continue
+
+		var target: Node = area.get_parent()
+		if not target is Node2D:
+			continue
+		var node_2d: Node2D = target as Node2D
+		if not _can_grab_target(node_2d):
+			continue
+		var d_sq: float = hand_center.distance_squared_to(node_2d.global_position)
+		if d_sq < best_dist_sq:
+			best_dist_sq = d_sq
+			best = {target = node_2d, component = component}
+
+	if best.size() == 0:
+		return false
+	if best.component is Grabbable:
+		_grab_object(best.target, best.component)
+	else:
+		_grab_poubelle_object(best.target, best.component)
+	return true
 
 func _grab_object(object: Node2D, component: Grabbable) -> void:
 	print("[Hand] Grabbed Grabbable: ", object.name, " (", object.get_path(), ")")
 	grabbed_object = object
 	grabbable_component = component
-	# Store where the object was relative to the hand so it doesn't snap to hand center
+	# Store where the object was relative to the hand (used after smooth grab finishes)
 	grab_offset = global_transform.affine_inverse() * object.global_position
 	grab_rotation_offset = wrapf(object.global_rotation - global_rotation, -PI, PI)
 	use_fixed_x = component.position_y_only
@@ -86,10 +101,28 @@ func _grab_object(object: Node2D, component: Grabbable) -> void:
 	use_fixed_rotation = component.lock_rotation
 	if use_fixed_rotation:
 		grab_fixed_rotation = object.global_rotation
-	arm.closed = true;
+	arm.closed = true
 	grabbable_component.grab(self)
 	useable_component = _find_component_in_object(object, Useable) as Useable
-	
+	# Smoothly move object to hand center (translate only, no rotation)
+	_start_smooth_grab_to_center()
+
+func _start_smooth_grab_to_center() -> void:
+	if smooth_grab_tween and smooth_grab_tween.is_valid():
+		smooth_grab_tween.kill()
+	var target_pos: Vector2 = global_position
+	if use_fixed_x:
+		target_pos = Vector2(grab_fixed_x, global_position.y)
+	smooth_grab_tween = create_tween()
+	smooth_grab_tween.set_trans(Tween.TRANS_QUAD)
+	smooth_grab_tween.set_ease(Tween.EASE_OUT)
+	smooth_grab_tween.tween_property(grabbed_object, "global_position", target_pos, 0.12)
+	smooth_grab_tween.finished.connect(_on_smooth_grab_finished)
+
+func _on_smooth_grab_finished() -> void:
+	grab_offset = Vector2.ZERO
+	smooth_grab_tween = null
+
 func _grab_poubelle_object(object: Node2D, component: Poubellable) -> void:
 	print("[Hand] Grabbed Poubellable: ", object.name, " (", object.get_path(), ")")
 	grabbed_object = object
@@ -116,6 +149,9 @@ func _release_object() -> bool:
 
 func _force_release_object() -> void:
 	_use(false)
+	if smooth_grab_tween and smooth_grab_tween.is_valid():
+		smooth_grab_tween.kill()
+	smooth_grab_tween = null
 	grabbed_object = null
 	grabbable_component = null
 	poubellable_component = null
@@ -127,11 +163,13 @@ func _force_release_object() -> void:
 
 func _process_grabbed_object() -> void:
 	if grabbed_object:
-		var target_global := global_transform * grab_offset
-		if use_fixed_x:
-			grabbed_object.global_position = Vector2(grab_fixed_x, target_global.y)
-		else:
-			grabbed_object.global_position = target_global
+		var tween_active := smooth_grab_tween != null and smooth_grab_tween.is_valid()
+		if not tween_active:
+			var target_global := global_transform * grab_offset
+			if use_fixed_x:
+				grabbed_object.global_position = Vector2(grab_fixed_x, target_global.y)
+			else:
+				grabbed_object.global_position = target_global
 		if use_fixed_rotation:
 			grabbed_object.global_rotation = grab_fixed_rotation # keep initial object rotation
 		else:
@@ -147,10 +185,12 @@ func _use(is_start: bool) -> void:
 
 func _try_interact_empty_hand() -> bool:
 	var areas: Array[Area2D] = area_2d.get_overlapping_areas()
+	var any := false
 	for area: Area2D in areas:
 		if area is Interactive:
-			return (area as Interactive).interact(null, self)
-	return false
+			if (area as Interactive).interact(null, self):
+				any = true
+	return any
 
 func _find_component_in_object(object: Node, component_type: Variant) -> Node:
 	for child: Node in object.get_children():

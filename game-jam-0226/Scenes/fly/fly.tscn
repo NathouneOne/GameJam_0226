@@ -46,7 +46,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ekpsg"]
-radius = 71.87511
+radius = 59.376766
 
 [node name="Fly" type="Node2D" unique_id=1211682102]
 z_index = 3

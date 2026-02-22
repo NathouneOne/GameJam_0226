@@ -101,7 +101,7 @@ animations = [{
 
 [node name="Patient" type="Node2D" unique_id=145693716]
 script = ExtResource("1_6j6pa")
-PRESET = 0
+PRESET = 4
 SKIN = 1
 
 [node name="Lit" type="Node2D" parent="." unique_id=1588782232]
@@ -140,6 +140,8 @@ texture = ExtResource("1_ljr86")
 metadata/_edit_lock_ = true
 
 [node name="Coeur1" parent="." unique_id=1087108802 instance=ExtResource("2_6j6pa")]
+process_mode = 4
+visible = false
 z_index = 2
 position = Vector2(329, -50)
 rotation = 0.21991149
@@ -166,8 +168,6 @@ z_index = 2
 position = Vector2(294, 232)
 
 [node name="Plaie03" parent="." unique_id=307702165 instance=ExtResource("12_0uvj5")]
-process_mode = 4
-visible = false
 z_index = 2
 position = Vector2(58, 174)
 
