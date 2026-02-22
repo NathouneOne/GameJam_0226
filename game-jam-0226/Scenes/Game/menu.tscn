@@ -21,6 +21,7 @@
 [ext_resource type="Theme" uid="uid://b2tioy6g4l1nk" path="res://Resources/default_theme.tres" id="19_nfkvt"]
 [ext_resource type="PackedScene" uid="uid://cpk6nfbh5g21i" path="res://Scenes/Components/flash_feedback/FlashFeedback.tscn" id="20_oxooa"]
 [ext_resource type="Texture2D" uid="uid://3w7b8acik78d" path="res://Assets/Graphismes/TV.png" id="21_fny7q"]
+[ext_resource type="Material" uid="uid://ckxjlwwaf220d" path="res://juicy_particle_process_material.tres" id="21_im8jj"]
 [ext_resource type="Texture2D" uid="uid://dha76ye0hvmkf" path="res://Assets/Graphismes/BANALIANES.png" id="22_im8jj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qsmta"]
@@ -210,28 +211,6 @@ frame_4/texture = SubResource("CompressedTexture2D_dv564")
 frame_4/duration = 1.0
 frame_5/texture = SubResource("CompressedTexture2D_tf02k")
 frame_5/duration = 10.0
-
-[sub_resource type="Curve" id="Curve_im8jj"]
-_limits = [0.0, 5.0, 0.0, 1.0]
-_data = [Vector2(0, 1), 0.0, 4.9781194, 0, 0, Vector2(0.9855072, 2.808989), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_nxex1"]
-curve = SubResource("Curve_im8jj")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nfkvt"]
-particle_flag_rotate_y = true
-particle_flag_disable_z = true
-emission_shape_scale = Vector3(150, 50, 50)
-angle_min = -9.9999895
-angle_max = 10.0000105
-angle_curve = SubResource("CurveTexture_nxex1")
-velocity_pivot = Vector3(0.8, 0, 0)
-initial_velocity_min = -50.0
-initial_velocity_max = -30.0
-gravity = Vector3(0, 100, 0)
-scale_min = 0.25
-scale_max = 0.29999998
 
 [node name="Menu" type="Node2D" unique_id=942918676]
 script = ExtResource("1_qsmta")
@@ -436,7 +415,7 @@ lifetime = 2.0
 one_shot = true
 speed_scale = 2.0
 explosiveness = 0.91
-process_material = SubResource("ParticleProcessMaterial_nfkvt")
+process_material = ExtResource("21_im8jj")
 
 [node name="Overlay" type="Node2D" parent="." unique_id=647161659]
 z_index = 5

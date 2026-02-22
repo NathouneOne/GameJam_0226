@@ -1,0 +1,23 @@
+[gd_resource type="ParticleProcessMaterial" format=3 uid="uid://dtelvoyyhnius"]
+
+[sub_resource type="Curve" id="Curve_7ujc1"]
+_limits = [0.0, 5.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 4.9781194, 0, 0, Vector2(0.9855072, 2.808989), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_nxex1"]
+curve = SubResource("Curve_7ujc1")
+
+[resource]
+particle_flag_rotate_y = true
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(150, 50, 50)
+angle_min = -9.9999895
+angle_max = 10.0000105
+angle_curve = SubResource("CurveTexture_nxex1")
+velocity_pivot = Vector3(0.8, 0, 0)
+initial_velocity_min = -50.0
+initial_velocity_max = -30.0
+gravity = Vector3(0, 100, 0)
+scale_min = 0.25
+scale_max = 0.29999998

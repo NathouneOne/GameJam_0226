@@ -1,31 +1,8 @@
 [gd_scene format=3 uid="uid://bv0kjcvx6ket2"]
 
-[ext_resource type="Script" uid="uid://dsa21yd1npacy" path="res://Scenes/Components/banana_particles_spawner.gd" id="1_7ujc1"]
+[ext_resource type="Script" path="res://Scenes/Components/banana_particles_spawner.gd" id="1_7ujc1"]
 [ext_resource type="Texture2D" uid="uid://wdjfkppp6phr" path="res://Assets/Graphismes/PARTICLE_BANANA.png" id="1_q8bip"]
-
-[sub_resource type="Curve" id="Curve_7ujc1"]
-_limits = [0.0, 5.0, 0.0, 1.0]
-_data = [Vector2(0, 1), 0.0, 4.9781194, 0, 0, Vector2(0.9855072, 2.808989), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_nxex1"]
-curve = SubResource("Curve_7ujc1")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uddjm"]
-particle_flag_rotate_y = true
-particle_flag_disable_z = true
-emission_shape_scale = Vector3(43.21, 25.785, 50)
-emission_shape = 2
-emission_sphere_radius = 4.2
-angle_min = -288.0
-angle_max = 336.00003
-angle_curve = SubResource("CurveTexture_nxex1")
-velocity_pivot = Vector3(0.8, 0, 0)
-direction = Vector3(0, 0, 0)
-initial_velocity_max = 10.0
-gravity = Vector3(0, 300, 0)
-scale_min = 0.099999994
-scale_max = 0.29999998
+[ext_resource type="Material" uid="uid://fvv2piigfmjx" path="res://banana_particle_process_material.tres" id="3_uddjm"]
 
 [node name="BananaParticlesSpawner" type="Node2D" unique_id=1096562638]
 script = ExtResource("1_7ujc1")
@@ -42,4 +19,4 @@ lifetime = 4.46
 one_shot = true
 speed_scale = 2.0
 explosiveness = 0.91
-process_material = SubResource("ParticleProcessMaterial_uddjm")
+process_material = ExtResource("3_uddjm")

@@ -8,10 +8,18 @@ const GAME = preload("res://Scenes/Game/game.tscn")
 @onready var game: Game = $Game
 @onready var menu: Menu = $Menu
 
+# https://www.reddit.com/r/godot/comments/1mtsxul/efficiently_using_gpuparticles2d_in_web_export/
+var particle_materials = [
+  preload("res://blood.tres"),
+  preload("res://banana_particle_process_material.tres"),
+  preload("res://juicy_particle_process_material.tres"),
+]
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# delete the editor game, it will be re instantiated
 	_cleanup_game()
+	preload_particles()
 	menu.open_trigger.connect(_start_game)
 	Global.on_end_game.connect(_end_game)
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
@@ -47,3 +55,20 @@ func _cleanup_game() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+	
+func preload_particles() -> void:
+	for material in self.particle_materials:
+		var particle = GPUParticles2D.new()
+		particle.process_material = material
+
+		particle.one_shot = true
+		particle.lifetime = 0.25
+		particle.amount = 1
+
+		self.add_child(particle)
+		await get_tree().process_frame
+		particle.emitting = true
+
+		await particle.finished
+
+		particle.queue_free()

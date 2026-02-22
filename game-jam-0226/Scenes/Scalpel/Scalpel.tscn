@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bivkc0072g4c8" path="res://Scenes/Components/grabbable/Grabbable.tscn" id="3_48hnu"]
 [ext_resource type="PackedScene" uid="uid://dcfcxw6hka05n" path="res://Scenes/Components/usable/Usable.tscn" id="4_j7yw4"]
 [ext_resource type="Texture2D" uid="uid://b1qupa75pcmb0" path="res://Assets/Graphismes/BloodParticle.png" id="5_48hnu"]
+[ext_resource type="Material" uid="uid://ctgyai0u1td0f" path="res://blood.tres" id="6_8ihrl"]
 [ext_resource type="Script" uid="uid://c46kw3psq4b7c" path="res://Scenes/Components/resettable/resettable.gd" id="6_j7yw4"]
 [ext_resource type="AudioStream" uid="uid://cfrt2dxu3aj2a" path="res://Assets/Sounds/SFX/bruit de cut du scalpel.wav" id="7_xgwnc"]
 
@@ -15,17 +16,6 @@ height = 7.7557983
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xgwnc"]
 radius = 95.00897
 height = 430.44882
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j7yw4"]
-particle_flag_disable_z = true
-angle_min = 1.0728835e-05
-angle_max = 1.0728835e-05
-direction = Vector3(0, -0.5, 0)
-spread = 10.0
-initial_velocity_min = 50.0
-initial_velocity_max = 75.0
-gravity = Vector3(0, 98, 0)
-scale_min = 0.39999998
 
 [node name="Scalpel" type="Node2D" unique_id=592803465]
 script = ExtResource("1_lt5rr")
@@ -61,7 +51,7 @@ amount = 17
 texture = ExtResource("5_48hnu")
 lifetime = 1.5
 speed_scale = 2.0
-process_material = SubResource("ParticleProcessMaterial_j7yw4")
+process_material = ExtResource("6_8ihrl")
 
 [node name="Resettable" type="Node" parent="." unique_id=2121545379]
 script = ExtResource("6_j7yw4")
