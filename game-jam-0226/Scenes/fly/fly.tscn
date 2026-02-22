@@ -54,8 +54,8 @@ script = ExtResource("1_vnhkb")
 move_speed = 450.0
 direction_change_interval = 5.0
 wobble_strength = 10.0
-speed_variation = 3.0
-despawn_delay_seconds = -1.0
+speed_variation = 1.5
+despawn_delay_seconds = 3.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1063646624]
 position = Vector2(0, 1)

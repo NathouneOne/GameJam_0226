@@ -84,7 +84,11 @@ func _on_interact_start(_target: Node2D, source: Node2D, _hand: Node2D, _targets
 	sprite.play("smash")
 	smashNoise.play()
 	if despawn_delay_seconds > 0:
-		get_tree().create_timer(despawn_delay_seconds).timeout.connect(queue_free)
+		var tween := create_tween()
+		tween.tween_property(self, "modulate", Color(1, 1, 1, 0), despawn_delay_seconds)
+		tween.finished.connect(queue_free)
+	else:
+		queue_free()
 	
 	Global.camShake.emit()
 
