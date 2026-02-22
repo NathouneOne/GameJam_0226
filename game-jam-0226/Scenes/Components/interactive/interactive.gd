@@ -2,7 +2,8 @@ extends Area2D
 class_name Interactive
 
 ## Emitted when interaction starts (use started on this interactive).
-signal interact_start(target: Node2D, source: Node2D, hand: Node2D)
+## [param targets_for_use] is the full list of targets hit this use (same for all interactives in this use); use it to decide from context (e.g. Plaie: no damage if Heart is in the list).
+signal interact_start(target: Node2D, source: Node2D, hand: Node2D, targets_for_use: Array[Node2D])
 ## Emitted when interaction stops (use stopped that had started on this interactive).
 signal interact_stop(target: Node2D, source: Node2D, hand: Node2D)
 
@@ -14,19 +15,16 @@ var _interact_hand: Node2D = null
 func _ready() -> void:
 	add_to_group(&"interactives")
 
-func interact(useable: Useable, hand: Node2D) -> bool:
+func interact(useable: Useable, hand: Node2D, targets_for_use: Array[Node2D] = []) -> bool:
 	var target_node: Node2D = get_parent() as Node2D
-	var target_name: String = target_node.name if target_node else "?"
 	if not enabled:
-		print("[Interactive] interact() target=%s (class=%s) -> false (disabled)" % [target_name, target_node.get_class() if target_node else "?"])
 		return false
 	var source_node: Node2D = null
 	if useable != null and useable.get_parent() is Node2D:
 		source_node = useable.get_parent() as Node2D
 	_interact_source = source_node
 	_interact_hand = hand
-	print("[Interactive] interact() target=%s (class=%s) source=%s -> emitting interact_start" % [target_name, target_node.get_class() if target_node else "?", source_node.name if source_node else "null"])
-	interact_start.emit(target_node, source_node, hand)
+	interact_start.emit(target_node, source_node, hand, targets_for_use)
 	return true
 
 func stop_interact(hand: Node2D) -> void:

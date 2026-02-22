@@ -71,7 +71,7 @@ func _pick_new_direction() -> void:
 	_current_angle = randf() * TAU
 
 
-func _on_interact_start(_target: Node2D, source: Node2D, _hand: Node2D) -> void:
+func _on_interact_start(_target: Node2D, source: Node2D, _hand: Node2D, _targets_for_use: Array[Node2D] = []) -> void:
 	if source != null:
 		# only smash via hand for now
 		return

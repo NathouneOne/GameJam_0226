@@ -43,25 +43,25 @@ func _ready() -> void:
 @export var SUCCESS_POINTS := 150
 @export var DEFEAT_POINTS := -50
 
-func _on_interact_start(_target: Node2D, source: Node2D, _hand: Node2D) -> void:
+func _on_interact_start(_target: Node2D, source: Node2D, _hand: Node2D, targets_for_use: Array[Node2D] = []) -> void:
 	if source is Scalpel:
 		scalpel = source.get_child(1)
 		cut_started = 1
 	elif source != null:
-		if source is Defibrillator:
-			# Defer so Defibrillator has run use_started and set last_use_hit_heart
-			call_deferred("_apply_defibrillator_hit", source)
+		if source is Defibrillator and _targets_include_heart(targets_for_use):
+			# Defibrillator hit heart in this use too → no damage
+			pass
 		else:
 			Global.on_add_score.emit(DEFEAT_POINTS)
 	
 	if source == null:
 		handclic = 1
 
-func _apply_defibrillator_hit(defib: Node2D) -> void:
-	if not defib is Defibrillator:
-		return
-	if not (defib as Defibrillator).last_use_hit_heart:
-		Global.on_add_score.emit(DEFEAT_POINTS)
+func _targets_include_heart(targets: Array[Node2D]) -> bool:
+	for t: Node2D in targets:
+		if t is Heart:
+			return true
+	return false
 
 func _on_interact_stop(_target: Node2D, _source: Node2D, _hand: Node2D) -> void:
 	#start_checkpoint.queue_free()

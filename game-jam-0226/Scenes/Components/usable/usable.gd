@@ -24,28 +24,23 @@ func use(hand: Node2D) -> bool:
 	var owner_node: Node2D = get_parent() as Node2D
 	_use_targets.clear()
 	var areas: Array[Area2D] = get_overlapping_areas()
-	print("[Useable] use() owner=%s overlapping_areas=%d" % [owner_node.name, areas.size()])
-	for i: int in range(areas.size()):
-		var area: Area2D = areas[i]
-		var parent_name: String = String(area.get_parent().name) if area.get_parent() else "?"
-		var is_interactive: bool = area is Interactive
-		print("[Useable]   [%d] area=%s parent=%s is_interactive=%s" % [i, area.name, parent_name, is_interactive])
+	# Build full context for this use (all overlapping interactives' parents) so listeners can decide from context (e.g. Plaie: no damage if Heart was also hit).
+	var all_targets_this_use: Array[Node2D] = []
+	for area: Area2D in areas:
+		if area is Interactive:
+			var target_node: Node2D = (area as Interactive).get_parent() as Node2D
+			if target_node != null and all_targets_this_use.find(target_node) < 0:
+				all_targets_this_use.append(target_node)
+	if all_targets_this_use.size() > 0:
+		use_started.emit(owner_node, all_targets_this_use, hand)
+	for area: Area2D in areas:
 		if area is Interactive:
 			var interactive: Interactive = area as Interactive
-			var ok: bool = interactive.interact(self, hand)
+			var ok: bool = interactive.interact(self, hand, all_targets_this_use)
 			var target_node: Node2D = interactive.get_parent() as Node2D
-			var target_class: String = target_node.get_class() if target_node else "?"
-			var tn_name: String = String(target_node.name) if target_node else "null"
-			print("[Useable]   -> interact()=%s target=%s (class=%s)" % [ok, tn_name, target_class])
 			if ok:
 				_use_targets.append(target_node)
 				use_start.emit(owner_node, target_node, hand)
-	var target_names: Array[String] = []
-	for t: Node2D in _use_targets:
-		target_names.append("%s(%s)" % [t.name, t.get_class()])
-	print("[Useable] _use_targets=%s -> emitting use_started" % [str(target_names)])
-	if _use_targets.size() > 0:
-		use_started.emit(owner_node, _use_targets, hand)
 	_use_hand = hand
 	return _use_targets.size() > 0
 
