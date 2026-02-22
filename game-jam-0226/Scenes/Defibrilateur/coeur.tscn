@@ -316,7 +316,7 @@ animation = &"HeartBeat1"
 
 [node name="HeartBeat" type="AudioStreamPlayer2D" parent="." unique_id=1524255534]
 stream = ExtResource("73_avfgu")
-volume_db = -4.0
+volume_db = -6.0
 panning_strength = 0.0
 
 [node name="Timer2" type="Timer" parent="." unique_id=688875203]
