@@ -31,8 +31,8 @@ func use(hand: Node2D) -> bool:
 			var target_node: Node2D = (area as Interactive).get_parent() as Node2D
 			if target_node != null and all_targets_this_use.find(target_node) < 0:
 				all_targets_this_use.append(target_node)
-	if all_targets_this_use.size() > 0:
-		use_started.emit(owner_node, all_targets_this_use, hand)
+	# Always emit so listeners can react to "use with no valid target" (e.g. defibrillator smoke when not on heart).
+	use_started.emit(owner_node, all_targets_this_use, hand)
 	for area: Area2D in areas:
 		if area is Interactive:
 			var interactive: Interactive = area as Interactive
