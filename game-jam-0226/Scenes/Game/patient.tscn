@@ -5,11 +5,12 @@
 [ext_resource type="Texture2D" uid="uid://cad8mtlvw0c4b" path="res://Assets/Graphismes/PATIENTS/CHEWBACCA_neutral.png" id="2_2pms3"]
 [ext_resource type="PackedScene" uid="uid://fy15tufi5wwi" path="res://Scenes/Defibrilateur/coeur.tscn" id="2_6j6pa"]
 [ext_resource type="Texture2D" uid="uid://h10kombgp61h" path="res://Assets/Graphismes/PATIENTS/CHEWBACCA_scream_1.png" id="3_u4dvi"]
+[ext_resource type="Texture2D" uid="uid://byhk4kjgn4vmu" path="res://Assets/Graphismes/VV01.png" id="4_q02b3"]
 [ext_resource type="PackedScene" uid="uid://cdj3e4ns44s4d" path="res://Scenes/Scalpel/Plaie.tscn" id="5_3xtxg"]
 [ext_resource type="Texture2D" uid="uid://b84ofheofq5pq" path="res://Assets/Graphismes/PATIENTS/pouletman1.png" id="5_480mj"]
+[ext_resource type="Texture2D" uid="uid://cxdhmemsoovvv" path="res://Assets/Graphismes/VV02.png" id="5_u8xcl"]
 [ext_resource type="Texture2D" uid="uid://dvelbnjyxhi44" path="res://Assets/Graphismes/PATIENTS/pouletman2.png" id="6_0uvj5"]
 [ext_resource type="Texture2D" uid="uid://cb0gxn65aglea" path="res://Assets/Graphismes/PATIENTS/pouletman3.png" id="7_q02b3"]
-[ext_resource type="Texture2D" uid="uid://cjqmu8boafbr7" path="res://Assets/Graphismes/PATIENTS/vv_base.png" id="7_u4dvi"]
 [ext_resource type="PackedScene" uid="uid://dsimdra7pcenb" path="res://Scenes/Scalpel/Plaie03.tscn" id="12_0uvj5"]
 [ext_resource type="AudioStream" uid="uid://nkua5lo8sow0" path="res://Assets/Sounds/SFX/cris de singe 1.wav" id="12_2pms3"]
 [ext_resource type="AudioStream" uid="uid://c8m7ob8uaggrp" path="res://Assets/Sounds/SFX/roulettes.wav" id="13_0uwm7"]
@@ -54,11 +55,32 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("7_u4dvi")
+"texture": ExtResource("4_q02b3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_u8xcl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_u8xcl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_u8xcl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_u8xcl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_u8xcl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_u8xcl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_q02b3")
 }],
 "loop": false,
 "name": &"cri",
-"speed": 5.0
+"speed": 14.0
 }]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6dnm8"]
@@ -120,13 +142,16 @@ frame = 7
 frame_progress = 1.0
 
 [node name="VV" type="AnimatedSprite2D" parent="Lit/Body" unique_id=955991909]
-visible = false
-position = Vector2(-53, 508.99)
+position = Vector2(-71.00001, 443.99)
+rotation = 0.13900308
+scale = Vector2(1.0454605, 1.0454605)
 sprite_frames = SubResource("SpriteFrames_0uwm7")
 animation = &"cri"
+frame = 7
 frame_progress = 1.0
 
 [node name="POULETMAN" type="AnimatedSprite2D" parent="Lit/Body" unique_id=71755868]
+visible = false
 position = Vector2(307, 254.98997)
 scale = Vector2(1.5499977, 1.5499976)
 sprite_frames = SubResource("SpriteFrames_6dnm8")
