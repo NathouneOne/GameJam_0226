@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bxonaam6i8hnq"]
+
+[ext_resource type="Shader" uid="uid://csejdpxtiew17" path="res://Resources/Shaders/Blur.gdshader" id="1_n3u2x"]
+[ext_resource type="Texture2D" uid="uid://c3hilgl2uc34p" path="res://Assets/Graphismes/TELE_APERATION.png" id="2_daf8b"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_daf8b"]
+shader = ExtResource("1_n3u2x")
+shader_parameter/offset = 0.0170000008075
+shader_parameter/intensity = 0.3810000180975
+
+[node name="Node2D" type="Node2D" unique_id=1354692755]
+
+[node name="TeleAperation" type="Sprite2D" parent="." unique_id=1331182603]
+material = SubResource("ShaderMaterial_daf8b")
+position = Vector2(959, 540)
+texture = ExtResource("2_daf8b")
+
+[node name="TeleAperation2" type="Sprite2D" parent="." unique_id=1707947381]
+position = Vector2(960, 543)
+texture = ExtResource("2_daf8b")
